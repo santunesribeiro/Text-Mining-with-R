@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Yihui Xie" />
+
+<meta name="date" content="2015-11-07" />
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<title>Authoring A Book with R Markdown and bookdown</title>
+
+<script src="libs/jquery-1.11.0/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.1/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.1/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.1/shim/respond.min.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-4 well">
+<div id="TOC">
+<ul>
+<li><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="01-components.html#components"><span class="toc-section-number">2</span> Components</a><ul>
+<li><a href="01-components.html#markdown-syntax"><span class="toc-section-number">2.1</span> Markdown syntax</a></li>
+<li><a href="01-components.html#r-code"><span class="toc-section-number">2.2</span> R code</a></li>
+<li><a href="01-components.html#figures"><span class="toc-section-number">2.3</span> Figures</a></li>
+<li><a href="01-components.html#tables"><span class="toc-section-number">2.4</span> Tables</a></li>
+<li><a href="01-components.html#cross-references"><span class="toc-section-number">2.5</span> Cross-references</a></li>
+<li><a href="01-components.html#custom-blocks"><span class="toc-section-number">2.6</span> Custom blocks</a></li>
+<li><a href="01-components.html#citations"><span class="toc-section-number">2.7</span> Citations</a></li>
+<li><a href="01-components.html#interactive-shiny-apps"><span class="toc-section-number">2.8</span> Interactive Shiny apps</a></li>
+</ul></li>
+<li><a href="02-formats.html#output-formats"><span class="toc-section-number">3</span> Output Formats</a><ul>
+<li><a href="02-formats.html#html"><span class="toc-section-number">3.1</span> HTML</a></li>
+<li><a href="02-formats.html#latex"><span class="toc-section-number">3.2</span> LaTeX</a></li>
+<li><a href="02-formats.html#e-books"><span class="toc-section-number">3.3</span> E-Books</a></li>
+</ul></li>
+<li><a href="03-customization.html#customization"><span class="toc-section-number">4</span> Customization</a><ul>
+<li><a href="03-customization.html#theming"><span class="toc-section-number">4.1</span> Theming</a></li>
+<li><a href="03-customization.html#templates"><span class="toc-section-number">4.2</span> Templates</a></li>
+<li><a href="03-customization.html#cjk-languages"><span class="toc-section-number">4.3</span> CJK languages</a></li>
+</ul></li>
+<li><a href="04-editors.html#editors"><span class="toc-section-number">5</span> Editors</a><ul>
+<li><a href="04-editors.html#rstudio"><span class="toc-section-number">5.1</span> RStudio</a></li>
+</ul></li>
+<li><a href="05-publishing.html#publishing"><span class="toc-section-number">6</span> Publishing</a><ul>
+<li><a href="05-publishing.html#github"><span class="toc-section-number">6.1</span> GitHub</a></li>
+<li><a href="05-publishing.html#publishers"><span class="toc-section-number">6.2</span> Publishers</a></li>
+<li><a href="05-publishing.html#licensing"><span class="toc-section-number">6.3</span> Licensing</a></li>
+<li><a href="05-publishing.html#self-publishing"><span class="toc-section-number">6.4</span> Self-publishing</a></li>
+</ul></li>
+<li><a href="06-references.html#references"><span class="toc-section-number">7</span> References</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-8">
+<div id="header">
+<h1 class="title">Authoring A Book with R Markdown and bookdown</h1>
+<h4 class="author"><em>Yihui Xie</em></h4>
+<h4 class="date"><em>2015-11-07</em></h4>
+</div>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>This book is a guide to authoring books with R Markdown <span class="citation">(Allaire et al. <a href="06-references.html#ref-R-rmarkdown">2015</a>)</span> and the R package <strong>bookdown</strong> <span class="citation">(Xie <a href="06-references.html#ref-R-bookdown">2015</a><a href="06-references.html#ref-R-bookdown">a</a>)</span>. It focuses on the features specific to writing books, long-form articles, or reports, such as</p>
+<ul>
+<li>How to typeset figures and tables, and cross-reference them;</li>
+<li>How to generate multiple output formats such as HTML, PDF, and E-Books for a single book;</li>
+<li>How to customize the book templates and style different elements in a book;</li>
+<li>The editor support (in particular, the RStudio IDE);</li>
+<li>How to publish a book;</li>
+</ul>
+<p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a><a href="06-references.html#ref-xie2015">b</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="06-references.html#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheetsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p>
+
+</div>
+<div style="text-align: center;">
+<a href="#" class="btn btn-default" disabled>Previous</a>
+<a href="01-components.html" class="btn btn-default">Next</a>
+</div>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>
