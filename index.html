@@ -10,7 +10,7 @@
 
 <meta name="author" content="Yihui Xie" />
 
-<meta name="date" content="2015-11-07" />
+<meta name="date" content="2015-11-08" />
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <title>Authoring A Book with R Markdown and bookdown</title>
@@ -96,7 +96,10 @@ img {
 <div class="col-sm-4 well">
 <div id="TOC">
 <ul>
-<li><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="index.html#motivation"><span class="toc-section-number">1.1</span> Motivation</a></li>
+<li><a href="index.html#usage"><span class="toc-section-number">1.2</span> Usage</a></li>
+</ul></li>
 <li><a href="01-components.html#components"><span class="toc-section-number">2</span> Components</a><ul>
 <li><a href="01-components.html#markdown-syntax"><span class="toc-section-number">2.1</span> Markdown syntax</a></li>
 <li><a href="01-components.html#r-code"><span class="toc-section-number">2.2</span> R code</a></li>
@@ -134,7 +137,7 @@ img {
 <div id="header">
 <h1 class="title">Authoring A Book with R Markdown and bookdown</h1>
 <h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2015-11-07</em></h4>
+<h4 class="date"><em>2015-11-08</em></h4>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
@@ -147,7 +150,49 @@ img {
 <li>How to publish a book;</li>
 </ul>
 <p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a><a href="06-references.html#ref-xie2015">b</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="06-references.html#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheetsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p>
+<div id="motivation" class="section level2">
+<h2><span class="header-section-number">1.1</span> Motivation</h2>
+</div>
+<div id="usage" class="section level2">
+<h2><span class="header-section-number">1.2</span> Usage</h2>
+<p>A book normally contains multiple chapters. We assume that one chapter lives in one R Markdown file (with the filename extension <code>.Rmd</code>). You should not have multiple chapters in one R Markdown file, or one chapter split into multiple R Markdown files. Each R Markdown file must start immediately with the chapter title. Here is an example (the bullets are the filenames, followed by the file content):</p>
+<ul>
+<li><p>01-intro.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Introduction</span>
 
+This chapter is an overview of the methods that
+we propose to solve an **important problem**.</code></pre></div></li>
+<li><p>02-literature.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Literature</span>
+
+Here is a review of existing methods.</code></pre></div></li>
+<li><p>03-method.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Methods</span>
+
+We describe our methods in this chapter.</code></pre></div></li>
+<li><p>04-application.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Applications</span>
+
+Some _significant_ applications are demonstrated
+in this chapter.
+
+<span class="fu">## Example one</span>
+
+<span class="fu">## Example two</span></code></pre></div></li>
+<li><p>05-summary.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Final Words</span>
+
+We have finished a nice book.</code></pre></div></li>
+</ul>
+<p>By default, <strong>bookdown</strong> merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. If there exists an Rmd file named <code>index.Rmd</code>, it will always be treated as the first file when merging all Rmd files. The reason for this special treatment is that the HTML file <code>index.html</code> to be generated from <code>index.Rmd</code> is usually the default index file when you view a website, e.g., you are actually browsing <a href="http://yihui.name/index.html" class="uri">http://yihui.name/index.html</a> when you open <a href="http://yihui.name/" class="uri">http://yihui.name/</a>.</p>
+<p>You can override the above behavior by including a configuration file named <code>_config.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents. You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span> <span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
+<p>In this case, <strong>bookdown</strong> will just use whatever you defined in this YAML field without any special treatments of <code>index.Rmd</code> or underscores.</p>
+<div class="rmdimportant">
+<p>Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.</p>
+</div>
+
+</div>
 </div>
 <div style="text-align: center;">
 <a href="#" class="btn btn-default" disabled>Previous</a>
