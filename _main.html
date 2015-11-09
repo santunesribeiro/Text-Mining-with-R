@@ -92,54 +92,142 @@ img {
 <div class="container-fluid main-container">
 
 
-<div class="row">
-<div class="col-sm-4 well">
+<!--token:title:start-->
+<div id="header">
+<h1 class="title">Authoring A Book with R Markdown and bookdown</h1>
+<h4 class="author"><em>Yihui Xie</em></h4>
+<h4 class="date"><em>2015-11-09</em></h4>
+</div>
+<!--token:title:end-->
+
+<!--token:toc:start-->
 <div id="TOC">
 <ul>
-<li><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
-<li><a href="index.html#motivation"><span class="toc-section-number">1.1</span> Motivation</a></li>
-<li><a href="index.html#usage"><span class="toc-section-number">1.2</span> Usage</a></li>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="#motivation"><span class="toc-section-number">1.1</span> Motivation</a></li>
+<li><a href="#usage"><span class="toc-section-number">1.2</span> Usage</a></li>
 </ul></li>
-<li><a href="01-components.html#components"><span class="toc-section-number">2</span> Components</a><ul>
-<li><a href="01-components.html#markdown-syntax"><span class="toc-section-number">2.1</span> Markdown syntax</a></li>
-<li><a href="01-components.html#r-code"><span class="toc-section-number">2.2</span> R code</a></li>
-<li><a href="01-components.html#figures"><span class="toc-section-number">2.3</span> Figures</a></li>
-<li><a href="01-components.html#tables"><span class="toc-section-number">2.4</span> Tables</a></li>
-<li><a href="01-components.html#cross-references"><span class="toc-section-number">2.5</span> Cross-references</a></li>
-<li><a href="01-components.html#custom-blocks"><span class="toc-section-number">2.6</span> Custom blocks</a></li>
-<li><a href="01-components.html#citations"><span class="toc-section-number">2.7</span> Citations</a></li>
-<li><a href="01-components.html#interactive-shiny-apps"><span class="toc-section-number">2.8</span> Interactive Shiny apps</a></li>
+<li><a href="#components"><span class="toc-section-number">2</span> Components</a><ul>
+<li><a href="#markdown-syntax"><span class="toc-section-number">2.1</span> Markdown syntax</a></li>
+<li><a href="#r-code"><span class="toc-section-number">2.2</span> R code</a></li>
+<li><a href="#figures"><span class="toc-section-number">2.3</span> Figures</a></li>
+<li><a href="#tables"><span class="toc-section-number">2.4</span> Tables</a></li>
+<li><a href="#cross-references"><span class="toc-section-number">2.5</span> Cross-references</a></li>
+<li><a href="#custom-blocks"><span class="toc-section-number">2.6</span> Custom blocks</a></li>
+<li><a href="#citations"><span class="toc-section-number">2.7</span> Citations</a></li>
+<li><a href="#interactive-shiny-apps"><span class="toc-section-number">2.8</span> Interactive Shiny apps</a></li>
 </ul></li>
-<li><a href="02-formats.html#output-formats"><span class="toc-section-number">3</span> Output Formats</a><ul>
-<li><a href="02-formats.html#html"><span class="toc-section-number">3.1</span> HTML</a></li>
-<li><a href="02-formats.html#latex"><span class="toc-section-number">3.2</span> LaTeX</a></li>
-<li><a href="02-formats.html#e-books"><span class="toc-section-number">3.3</span> E-Books</a></li>
+<li><a href="#output-formats"><span class="toc-section-number">3</span> Output Formats</a><ul>
+<li><a href="#html"><span class="toc-section-number">3.1</span> HTML</a></li>
+<li><a href="#latex"><span class="toc-section-number">3.2</span> LaTeX</a></li>
+<li><a href="#e-books"><span class="toc-section-number">3.3</span> E-Books</a></li>
 </ul></li>
-<li><a href="03-customization.html#customization"><span class="toc-section-number">4</span> Customization</a><ul>
-<li><a href="03-customization.html#theming"><span class="toc-section-number">4.1</span> Theming</a></li>
-<li><a href="03-customization.html#templates"><span class="toc-section-number">4.2</span> Templates</a></li>
-<li><a href="03-customization.html#cjk-languages"><span class="toc-section-number">4.3</span> CJK languages</a></li>
+<li><a href="#customization"><span class="toc-section-number">4</span> Customization</a><ul>
+<li><a href="#theming"><span class="toc-section-number">4.1</span> Theming</a></li>
+<li><a href="#templates"><span class="toc-section-number">4.2</span> Templates</a></li>
+<li><a href="#cjk-languages"><span class="toc-section-number">4.3</span> CJK languages</a></li>
 </ul></li>
-<li><a href="04-editors.html#editors"><span class="toc-section-number">5</span> Editors</a><ul>
-<li><a href="04-editors.html#rstudio"><span class="toc-section-number">5.1</span> RStudio</a></li>
+<li><a href="#editors"><span class="toc-section-number">5</span> Editors</a><ul>
+<li><a href="#rstudio"><span class="toc-section-number">5.1</span> RStudio</a></li>
 </ul></li>
-<li><a href="05-publishing.html#publishing"><span class="toc-section-number">6</span> Publishing</a><ul>
-<li><a href="05-publishing.html#github"><span class="toc-section-number">6.1</span> GitHub</a></li>
-<li><a href="05-publishing.html#publishers"><span class="toc-section-number">6.2</span> Publishers</a></li>
-<li><a href="05-publishing.html#licensing"><span class="toc-section-number">6.3</span> Licensing</a></li>
-<li><a href="05-publishing.html#self-publishing"><span class="toc-section-number">6.4</span> Self-publishing</a></li>
+<li><a href="#publishing"><span class="toc-section-number">6</span> Publishing</a><ul>
+<li><a href="#github"><span class="toc-section-number">6.1</span> GitHub</a></li>
+<li><a href="#publishers"><span class="toc-section-number">6.2</span> Publishers</a></li>
+<li><a href="#licensing"><span class="toc-section-number">6.3</span> Licensing</a></li>
+<li><a href="#self-publishing"><span class="toc-section-number">6.4</span> Self-publishing</a></li>
 </ul></li>
-<li><a href="06-references.html#references"><span class="toc-section-number">7</span> References</a></li>
+<li><a href="#references"><span class="toc-section-number">7</span> References</a></li>
 </ul>
 </div>
+<!--token:toc:end-->
+
+<!--token:body:start-->
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<div class="rmdwarning">
+<p>This book and the package <strong>bookdown</strong> are still under active development, and should not be considered stable at the moment. You are welcome to experiment with this package, and feedback may be sent to <a href="mailto:yihui@rstudio.com">yihui@rstudio.com</a>.</p>
 </div>
-<div class="col-sm-8">
+<p>This book is a guide to authoring books with R Markdown <span class="citation">(Allaire et al. <a href="#ref-R-rmarkdown">2015</a>)</span> and the R package <strong>bookdown</strong> <span class="citation">(Xie <a href="#ref-R-bookdown">2015</a><a href="#ref-R-bookdown">a</a>)</span>. It focuses on the features specific to writing books, long-form articles, or reports, such as</p>
+<ul>
+<li>How to typeset figures and tables, and cross-reference them;</li>
+<li>How to generate multiple output formats such as HTML, PDF, and E-Books for a single book;</li>
+<li>How to customize the book templates and style different elements in a book;</li>
+<li>The editor support (in particular, the RStudio IDE);</li>
+<li>How to publish a book;</li>
+</ul>
+<p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="#ref-xie2015">2015</a><a href="#ref-xie2015">b</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheetsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p>
+<div id="motivation" class="section level2">
+<h2><span class="header-section-number">1.1</span> Motivation</h2>
+</div>
+<div id="usage" class="section level2">
+<h2><span class="header-section-number">1.2</span> Usage</h2>
+<p>A book normally contains multiple chapters. We assume that one chapter lives in one R Markdown file (with the filename extension <code>.Rmd</code>). You should not have multiple chapters in one R Markdown file, or one chapter split into multiple R Markdown files. Each R Markdown file must start immediately with the chapter title. Here is an example (the bullets are the filenames, followed by the file content):</p>
+<ul>
+<li><p>01-intro.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Introduction</span>
+
+This chapter is an overview of the methods that
+we propose to solve an **important problem**.</code></pre></div></li>
+<li><p>02-literature.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Literature</span>
+
+Here is a review of existing methods.</code></pre></div></li>
+<li><p>03-method.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Methods</span>
+
+We describe our methods in this chapter.</code></pre></div></li>
+<li><p>04-application.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Applications</span>
+
+Some _significant_ applications are demonstrated
+in this chapter.
+
+<span class="fu">## Example one</span>
+
+<span class="fu">## Example two</span></code></pre></div></li>
+<li><p>05-summary.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Final Words</span>
+
+We have finished a nice book.</code></pre></div></li>
+</ul>
+<p>By default, <strong>bookdown</strong> merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. If there exists an Rmd file named <code>index.Rmd</code>, it will always be treated as the first file when merging all Rmd files. The reason for this special treatment is that the HTML file <code>index.html</code> to be generated from <code>index.Rmd</code> is usually the default index file when you view a website, e.g., you are actually browsing <a href="http://yihui.name/index.html" class="uri">http://yihui.name/index.html</a> when you open <a href="http://yihui.name/" class="uri">http://yihui.name/</a>.</p>
+<p>You can override the above behavior by including a configuration file named <code>_config.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents. You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span> <span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
+<p>In this case, <strong>bookdown</strong> will just use whatever you defined in this YAML field without any special treatments of <code>index.Rmd</code> or underscores.</p>
+<div class="rmdimportant">
+<p>Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.</p>
+</div>
+<p>At the moment, there are two output formats that you may use: <code>bookdown::pdf_book</code> and <code>bookdown::html_chapters</code>. There is a <code>bookdown::render_book()</code> function similar to <code>rmarkdown::render()</code> that renders multiple Rmd documents into a book using the output format functions. You may either call this function from command line, or use it in the RStudio IDE. Here are some command line examples:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::html_chapters&quot;</span>)
+bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)
+bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">html_chapters</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;book_assets&quot;</span>))
+bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">pdf_book</span>(<span class="dt">keep_tex =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>To use <code>render_book</code> and the output format functions in the RStudio IDE, you can define a YAML field named <code>knit</code> that takes the value <code>bookdown::render_book</code>, and the output format functions can be used in the <code>output</code> field, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">knit:</span> <span class="st">&quot;bookdown::render_book&quot;</span>
+<span class="fu">output:</span>
+  <span class="fu">bookdown:</span>:html_chapters:
+    <span class="fu">lib_dir:</span> <span class="st">&quot;book_assets&quot;</span>
+  <span class="fu">bookdown:</span>:pdf_book:
+    <span class="fu">keep_tex:</span> yes
+<span class="ot">---</span></code></pre></div>
+<p>Then you can click the <code>Knit</code> button in RStudio to compile the Rmd files into a book.</p>
+<p>There are more things you can configure for a book in <code>_config.yml</code>:</p>
+<ul>
+<li><code>main_rmd</code>: the filename of the main Rmd file, i.e., the Rmd file that is merged from all chapters; by default, it is named <code>_main.Rmd</code></li>
+<li><code>chapter_name</code>: (for HTML output only) either a character string to be prepended to the chapter number in the chapter title (by default it is <code>&quot;Chapter &quot;</code>), or an R function that takes the chapter number as the input and returns a string as the new chapter number (e.g., <code>!expr function(i) paste('Chapter', i)</code>)</li>
+<li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script</li>
+<li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter</li>
+</ul>
+<!--chapter:end:index-->
+</div>
+</div>
 <div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
+<h1><span class="header-section-number">2</span> Components</h1>
 <div id="markdown-syntax" class="section level2">
 <h2><span class="header-section-number">2.1</span> Markdown syntax</h2>
 <p>We give a very brief introduction to Pandoc’s Markdown in this section. Readers who are familiar with Markdown can skip this section. The comphrehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
-<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="06-references.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="01-components.html#citations">2.7</a>. Section headers can be written after a number of pound signs, e.g.,</p>
+<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section @ref(citations). Section headers can be written after a number of pound signs, e.g.,</p>
 <pre><code># First-level header
 
 ## Second-level header
@@ -198,7 +286,7 @@ Or indent by four spaces:
 rnorm(10)  # 10 random numbers
 plot(dist ~ speed, cars)  # a scatterplot
 ```</code></pre>
-<p>To learn more about <strong>knitr</strong> chunk options, see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a><a href="06-references.html#ref-xie2015">b</a>)</span> or <a href="http://yihui.name/knitr/options" class="uri">http://yihui.name/knitr/options</a>.</p>
+<p>To learn more about <strong>knitr</strong> chunk options, see <span class="citation">Xie (<a href="#ref-xie2015">2015</a><a href="#ref-xie2015">b</a>)</span> or <a href="http://yihui.name/knitr/options" class="uri">http://yihui.name/knitr/options</a>.</p>
 </div>
 <div id="figures" class="section level2">
 <h2><span class="header-section-number">2.3</span> Figures</h2>
@@ -207,49 +295,49 @@ plot(dist ~ speed, cars)  # a scatterplot
 <span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/no-caption-1.png" title="" alt="" width="70%" /></p>
 <p>The disadvantage of typesetting figures in this way is that when there is not enough space on the current page to place a figure, it may either reach the bottom of the page (hence exceeds the page margin), or be pushed to the next page, leaving a large white margin at the bottom of the current page. That is basically why there are “floating environments” in LaTeX: elements that cannot be split over multiple pages (like figures) are put in floating environments, so they can float to a page that has enough space to hold them. There is also a disadvantage of floating things forward or backward, though. That is, readers may have to jump to a different page to find the figure mentioned on the current page. This is simply a natural consequence of having to typeset things on multiple pages of fixed sizes. This issue does not exist in HTML, however, since everything can be placed continuously on one single page (presumably with infinite height), and there is no need to split anything across multiple pages of the same page size.</p>
-<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code><a href="06-references.html#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
+<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
 <div class="rmdimportant">
 <p>If you want to cross-reference figures or tables generated from a code chunk, please make sure the chunk label only contains alphanumeric characters (a-z, A-Z, 0-9) and dashes (-). Other characters do not qualify.</p>
 </div>
-<p>The chunk option <code>fig.asp</code> can be used to set the aspect ratio of plots, i.e., the ratio of figure height/width. If the figure width is 6 inches (<code>fig.width = 6</code>) and <code>fig.asp = 0.7</code>, the figure height will be automatically calculated from <code>fig.width * fig.asp = 6 * 0.7 = 4.2</code>. Figure <a href="01-components.html#fig:pressure-plot">2.1</a> is an example using the chunk options <code>fig.asp = 0.7</code>, <code>fig.width = 6</code>, and <code>fig.align = 'center'</code>, generated from the code below:</p>
+<p>The chunk option <code>fig.asp</code> can be used to set the aspect ratio of plots, i.e., the ratio of figure height/width. If the figure width is 6 inches (<code>fig.width = 6</code>) and <code>fig.asp = 0.7</code>, the figure height will be automatically calculated from <code>fig.width * fig.asp = 6 * 0.7 = 4.2</code>. Figure @ref(fig:pressure-plot) is an example using the chunk options <code>fig.asp = 0.7</code>, <code>fig.width = 6</code>, and <code>fig.align = 'center'</code>, generated from the code below:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
 <span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:pressure-plot"></span>
+<div class="figure" style="text-align: center">
 <img src="_main_files/figure-html/pressure-plot-1.png" alt="(\#fig:pressure-plot)A figure example with the specified aspect ratio, width, and alignment." width="80%" />
 <p class="caption">
-Figure 2.1: A figure example with the specified aspect ratio, width, and alignment.
+(#fig:pressure-plot)A figure example with the specified aspect ratio, width, and alignment.
 </p>
 </div>
-<p>The actual size of a plot is determined by the chunk options <code>fig.width</code> and <code>fig.height</code> (the size of the plot generated from a graphical device), and we can specify the output size of plots via the chunk options <code>out.width</code> and <code>out.height</code>. The possible value of these two options depends on the output format of the document. For example, <code>out.width = '30%'</code> is a valid value for HTML output, but not for LaTeX/PDF output. However, <strong>knitr</strong> will automatically convert a percentage value for <code>out.width</code> of the form <code>x%</code> to <code>(x / 100) \linewidth</code>, e.g., <code>out.width = '70%'</code> will be treated as <code>.7\linewidth</code> when the output format is LaTeX. This makes it possible to specify a relative width of a plot in a consistent manner. Figure <a href="01-components.html#fig:cars-plot">2.2</a> is an example of <code>out.width = 70%</code>.</p>
+<p>The actual size of a plot is determined by the chunk options <code>fig.width</code> and <code>fig.height</code> (the size of the plot generated from a graphical device), and we can specify the output size of plots via the chunk options <code>out.width</code> and <code>out.height</code>. The possible value of these two options depends on the output format of the document. For example, <code>out.width = '30%'</code> is a valid value for HTML output, but not for LaTeX/PDF output. However, <strong>knitr</strong> will automatically convert a percentage value for <code>out.width</code> of the form <code>x%</code> to <code>(x / 100) \linewidth</code>, e.g., <code>out.width = '70%'</code> will be treated as <code>.7\linewidth</code> when the output format is LaTeX. This makes it possible to specify a relative width of a plot in a consistent manner. Figure @ref(fig:cars-plot) is an example of <code>out.width = 70%</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
 <span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
-<div class="figure"><span id="fig:cars-plot"></span>
+<div class="figure">
 <img src="_main_files/figure-html/cars-plot-1.png" alt="(\#fig:cars-plot)A figure example with a relative width 70\%." width="70%" />
 <p class="caption">
-Figure 2.2: A figure example with a relative width 70%.
+(#fig:cars-plot)A figure example with a relative width 70%.
 </p>
 </div>
-<p>Sometimes you may want to put multiple plots in one figure environment. In this case, you must use the chunk option <code>fig.show = 'hold'</code> to hold multiple plots from a code chunk and include them in one environment. You can also place plots side by side if the sum of the width of all plots is smaller than or equal to the current line width. For example, if two plots have the same width <code>50%</code>, they will be placed side by side. Similarly, you can specify <code>out.width = '33%'</code> to arrange three plots on one line. Figure <a href="01-components.html#fig:multi-plots">2.3</a> is an example of two plots, each with a width <code>50%</code>.</p>
+<p>Sometimes you may want to put multiple plots in one figure environment. In this case, you must use the chunk option <code>fig.show = 'hold'</code> to hold multiple plots from a code chunk and include them in one environment. You can also place plots side by side if the sum of the width of all plots is smaller than or equal to the current line width. For example, if two plots have the same width <code>50%</code>, they will be placed side by side. Similarly, you can specify <code>out.width = '33%'</code> to arrange three plots on one line. Figure @ref(fig:multi-plots) is an example of two plots, each with a width <code>50%</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
 <span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)
 <span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
-<div class="figure"><span id="fig:multi-plots"></span>
+<div class="figure">
 <img src="_main_files/figure-html/multi-plots-1.png" alt="(\#fig:multi-plots)Two plots placed side by side." width="50%" /><img src="_main_files/figure-html/multi-plots-2.png" alt="(\#fig:multi-plots)Two plots placed side by side." width="50%" />
 <p class="caption">
-Figure 2.3: Two plots placed side by side.
+(#fig:multi-plots)Two plots placed side by side.
 </p>
 </div>
 </div>
 <div id="tables" class="section level2">
 <h2><span class="header-section-number">2.4</span> Tables</h2>
 <p>For now, the most convenient way to generate a table is the function <code>knitr::kable()</code>, because there are some internal tricks in <strong>knitr</strong> to make it work with <strong>bookdown</strong> and users do not have to know anything about these implementation details. We will explain how to use other packages and functions later in this section.</p>
-<p>Like figures, tables with captions will also be numbered and can be referenced. The <code>kable()</code> function will automatically generate a label for a table environment, which is the prefix <code>tab:</code> plus the chunk label. For example, the table label for a code chunk with the label <code>foo</code> will be <code>tab:foo</code>, and we can still use the syntax <code>\@ref(label)</code> to reference the table. Table <a href="01-components.html#tab:table-single">2.1</a> is a simple example.</p>
+<p>Like figures, tables with captions will also be numbered and can be referenced. The <code>kable()</code> function will automatically generate a label for a table environment, which is the prefix <code>tab:</code> plus the chunk label. For example, the table label for a code chunk with the label <code>foo</code> will be <code>tab:foo</code>, and we can still use the syntax <code>\@ref(label)</code> to reference the table. Table @ref(tab:table-single) is a simple example.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
   <span class="kw">head</span>(mtcars, <span class="dv">10</span>), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,
   <span class="dt">caption =</span> <span class="st">&#39;A table of the first 10 rows of the mtcars data.&#39;</span>
 )</code></pre></div>
 <table>
-<caption><span id="tab:table-single">Table 2.1: </span>A table of the first 10 rows of the mtcars data.</caption>
+<caption>(#tab:table-single)A table of the first 10 rows of the mtcars data.</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -409,7 +497,7 @@ Figure 2.3: Two plots placed side by side.
 </tr>
 </tbody>
 </table>
-<p>If you want to put multiple tables in a single table environment, just wrap the data objects (usually data frames in R) into a list. See Table <a href="01-components.html#tab:table-multi">2.2</a> for an example.</p>
+<p>If you want to put multiple tables in a single table environment, just wrap the data objects (usually data frames in R) into a list. See Table @ref(tab:table-multi) for an example.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
   <span class="kw">list</span>(
     <span class="kw">head</span>(iris[,<span class="dv">1</span>:<span class="dv">2</span>],<span class="dv">3</span>),
@@ -419,7 +507,7 @@ Figure 2.3: Two plots placed side by side.
 )</code></pre></div>
 <table class="kable_wrapper">
 <caption>
-<span id="tab:table-multi">Table 2.2: </span>A Tale of Two Tables.
+(#tab:table-multi)A Tale of Two Tables.
 </caption>
 <tbody>
 <tr>
@@ -498,8 +586,8 @@ Figure 2.3: Two plots placed side by side.
 </div>
 <div id="cross-references" class="section level2">
 <h2><span class="header-section-number">2.5</span> Cross-references</h2>
-<p>We have explained how cross-references work for figures (Section <a href="01-components.html#figures">2.3</a>) and tables (Section <a href="01-components.html#tables">2.4</a>). In fact, you can also reference sections using the same syntax <code>\@ref(label)</code>, where <code>label</code> is the section ID. By default, Pandoc will generate an ID for all section headers, e.g., a section <code># Hello World</code> will have an ID <code>hello-world</code>. We recommend you to manually assign an ID to a section header to make sure you do not forget to update the reference label after you change the section header. To assign an ID to a section header, simply add <code>{#id}</code> to the end of the section header.</p>
-<p>When a referenced label cannot be found, you will see two question marks like <a href="#fig:does-not-exist"><strong>??</strong></a>, as well as a warning message in the R console when rendering the book.</p>
+<p>We have explained how cross-references work for figures (Section @ref(figures)) and tables (Section @ref(tables)). In fact, you can also reference sections using the same syntax <code>\@ref(label)</code>, where <code>label</code> is the section ID. By default, Pandoc will generate an ID for all section headers, e.g., a section <code># Hello World</code> will have an ID <code>hello-world</code>. We recommend you to manually assign an ID to a section header to make sure you do not forget to update the reference label after you change the section header. To assign an ID to a section header, simply add <code>{#id}</code> to the end of the section header.</p>
+<p>When a referenced label cannot be found, you will see two question marks like @ref(fig:does-not-exist), as well as a warning message in the R console when rendering the book.</p>
 </div>
 <div id="custom-blocks" class="section level2">
 <h2><span class="header-section-number">2.6</span> Custom blocks</h2>
@@ -556,7 +644,7 @@ Some text for this block.
   <span class="dt">year</span> = {2015},
   <span class="dt">url</span> = {https://www.R-project.org/},
 }</code></pre></div>
-<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on. Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered to <span class="citation">R Core Team (<a href="06-references.html#ref-R-base">2015</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="06-references.html#ref-R-base">2015</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
+<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on. Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered to <span class="citation">R Core Team (<a href="#ref-R-base">2015</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="#ref-R-base">2015</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
 <p>There are a number of fields in a bibliography entry, such as <code>title</code>, <code>author</code>, and <code>year</code>, etc. You may see <a href="https://en.wikipedia.org/wiki/BibTeX" class="uri">https://en.wikipedia.org/wiki/BibTeX</a> for possible types of entries and fields in BibTeX.</p>
 <p>There is a helper function <code>write_bib()</code> in <strong>knitr</strong> to generate BibTeX entries automatically for R packages. Note it only generates one BibTeX entry for the package itself at the moment, whereas a package may contain multiple entries in the <code>CITATION</code> file, and some entries are about the publications related to the package. These entries are ignored by <code>write_bib()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the second argument can be a .bib file</span>
@@ -585,15 +673,86 @@ knitr::<span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="
 </div>
 <div id="interactive-shiny-apps" class="section level2">
 <h2><span class="header-section-number">2.8</span> Interactive Shiny apps</h2>
-
+<!--chapter:end:01-components-->
 </div>
 </div>
-<div style="text-align: center;">
-<a href="index.html" class="btn btn-default">Previous</a>
-<a href="02-formats.html" class="btn btn-default">Next</a>
+<div id="output-formats" class="section level1">
+<h1><span class="header-section-number">3</span> Output Formats</h1>
+<div id="html" class="section level2">
+<h2><span class="header-section-number">3.1</span> HTML</h2>
+<p>multi-page HTML</p>
+</div>
+<div id="latex" class="section level2">
+<h2><span class="header-section-number">3.2</span> LaTeX</h2>
+</div>
+<div id="e-books" class="section level2">
+<h2><span class="header-section-number">3.3</span> E-Books</h2>
+<p>ePub, MOBI</p>
+<!--chapter:end:02-formats-->
+</div>
+</div>
+<div id="customization" class="section level1">
+<h1><span class="header-section-number">4</span> Customization</h1>
+<div id="theming" class="section level2">
+<h2><span class="header-section-number">4.1</span> Theming</h2>
+</div>
+<div id="templates" class="section level2">
+<h2><span class="header-section-number">4.2</span> Templates</h2>
+</div>
+<div id="cjk-languages" class="section level2">
+<h2><span class="header-section-number">4.3</span> CJK languages</h2>
+<!--chapter:end:03-customization-->
+</div>
+</div>
+<div id="editors" class="section level1">
+<h1><span class="header-section-number">5</span> Editors</h1>
+<div id="rstudio" class="section level2">
+<h2><span class="header-section-number">5.1</span> RStudio</h2>
+<!--chapter:end:04-editors-->
+</div>
+</div>
+<div id="publishing" class="section level1">
+<h1><span class="header-section-number">6</span> Publishing</h1>
+<div id="github" class="section level2">
+<h2><span class="header-section-number">6.1</span> GitHub</h2>
+</div>
+<div id="publishers" class="section level2">
+<h2><span class="header-section-number">6.2</span> Publishers</h2>
+</div>
+<div id="licensing" class="section level2">
+<h2><span class="header-section-number">6.3</span> Licensing</h2>
+</div>
+<div id="self-publishing" class="section level2">
+<h2><span class="header-section-number">6.4</span> Self-publishing</h2>
+<!--chapter:end:05-publishing-->
+</div>
+</div>
+<div id="references" class="section level1">
+<h1><span class="header-section-number">7</span> References</h1>
+<!--chapter:end:06-references-->
+<div class="references">
+<div id="ref-R-rmarkdown">
+<p>Allaire, JJ, Joe Cheng, Yihui Xie, Jonathan McPherson, Winston Chang, Jeff Allen, Hadley Wickham, Aron Atkins, and Rob Hyndman. 2015. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+</div>
+<div id="ref-R-base">
+<p>R Core Team. 2015. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-R-bookdown">
+<p>Xie, Yihui. 2015a. <em>Bookdown: Authoring Books with R Markdown</em>. <a href="https://github.com/rstudio/bookdown" class="uri">https://github.com/rstudio/bookdown</a>.</p>
+</div>
+<div id="ref-xie2015">
+<p>———. 2015b. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
 </div>
 </div>
 </div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>To include literal backticks, just use more backticks outside, e.g., you can use two backticks to preserve one backtick inside: <code>`` `code` ``</code>.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Do not forget the leading backslash!<a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+<!--token:body:end-->
 
 
 </div>

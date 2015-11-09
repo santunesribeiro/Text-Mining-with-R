@@ -10,7 +10,7 @@
 
 <meta name="author" content="Yihui Xie" />
 
-<meta name="date" content="2015-11-08" />
+<meta name="date" content="2015-11-09" />
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <title>Authoring A Book with R Markdown and bookdown</title>
@@ -137,10 +137,10 @@ img {
 <div id="header">
 <h1 class="title">Authoring A Book with R Markdown and bookdown</h1>
 <h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2015-11-08</em></h4>
+<h4 class="date"><em>2015-11-09</em></h4>
 </div>
 <div id="introduction" class="section level1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
 <div class="rmdwarning">
 <p>This book and the package <strong>bookdown</strong> are still under active development, and should not be considered stable at the moment. You are welcome to experiment with this package, and feedback may be sent to <a href="mailto:yihui@rstudio.com">yihui@rstudio.com</a>.</p>
 </div>
@@ -209,6 +209,13 @@ bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quo
     <span class="fu">keep_tex:</span> yes
 <span class="ot">---</span></code></pre></div>
 <p>Then you can click the <code>Knit</code> button in RStudio to compile the Rmd files into a book.</p>
+<p>There are more things you can configure for a book in <code>_config.yml</code>:</p>
+<ul>
+<li><code>main_rmd</code>: the filename of the main Rmd file, i.e., the Rmd file that is merged from all chapters; by default, it is named <code>_main.Rmd</code></li>
+<li><code>chapter_name</code>: (for HTML output only) either a character string to be prepended to the chapter number in the chapter title (by default it is <code>&quot;Chapter &quot;</code>), or an R function that takes the chapter number as the input and returns a string as the new chapter number (e.g., <code>!expr function(i) paste('Chapter', i)</code>)</li>
+<li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script</li>
+<li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter</li>
+</ul>
 
 </div>
 </div>
