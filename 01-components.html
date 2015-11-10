@@ -10,7 +10,7 @@
 
 <meta name="author" content="Yihui Xie" />
 
-<meta name="date" content="2015-11-09" />
+<meta name="date" content="2015-11-10" />
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <title>Authoring A Book with R Markdown and bookdown</title>
@@ -215,7 +215,7 @@ plot(dist ~ speed, cars)  # a scatterplot
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
 <span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:pressure-plot"></span>
-<img src="_main_files/figure-html/pressure-plot-1.png" alt="(\#fig:pressure-plot)A figure example with the specified aspect ratio, width, and alignment." width="80%" />
+<img src="_main_files/figure-html/pressure-plot-1.png" alt="A figure example with the specified aspect ratio, width, and alignment." width="80%" />
 <p class="caption">
 Figure 2.1: A figure example with the specified aspect ratio, width, and alignment.
 </p>
@@ -224,21 +224,35 @@ Figure 2.1: A figure example with the specified aspect ratio, width, and alignme
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
 <span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
 <div class="figure"><span id="fig:cars-plot"></span>
-<img src="_main_files/figure-html/cars-plot-1.png" alt="(\#fig:cars-plot)A figure example with a relative width 70\%." width="70%" />
+<img src="_main_files/figure-html/cars-plot-1.png" alt="A figure example with a relative width 70\%." width="70%" />
 <p class="caption">
 Figure 2.2: A figure example with a relative width 70%.
 </p>
 </div>
-<p>Sometimes you may want to put multiple plots in one figure environment. In this case, you must use the chunk option <code>fig.show = 'hold'</code> to hold multiple plots from a code chunk and include them in one environment. You can also place plots side by side if the sum of the width of all plots is smaller than or equal to the current line width. For example, if two plots have the same width <code>50%</code>, they will be placed side by side. Similarly, you can specify <code>out.width = '33%'</code> to arrange three plots on one line. Figure <a href="01-components.html#fig:multi-plots">2.3</a> is an example of two plots, each with a width <code>50%</code>.</p>
+<p>If you want to put multiple plots in one figure environment, you must use the chunk option <code>fig.show = 'hold'</code> to hold multiple plots from a code chunk and include them in one environment. You can also place plots side by side if the sum of the width of all plots is smaller than or equal to the current line width. For example, if two plots have the same width <code>50%</code>, they will be placed side by side. Similarly, you can specify <code>out.width = '33%'</code> to arrange three plots on one line. Figure <a href="01-components.html#fig:multi-plots">2.3</a> is an example of two plots, each with a width <code>50%</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
 <span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)
 <span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
 <div class="figure"><span id="fig:multi-plots"></span>
-<img src="_main_files/figure-html/multi-plots-1.png" alt="(\#fig:multi-plots)Two plots placed side by side." width="50%" /><img src="_main_files/figure-html/multi-plots-2.png" alt="(\#fig:multi-plots)Two plots placed side by side." width="50%" />
+<img src="_main_files/figure-html/multi-plots-1.png" alt="Two plots placed side by side." width="50%" /><img src="_main_files/figure-html/multi-plots-2.png" alt="Two plots placed side by side." width="50%" />
 <p class="caption">
 Figure 2.3: Two plots placed side by side.
 </p>
 </div>
+<p>Sometimes you may have certain images that are not generated from R code, and you can include them them in R Markdown via the function <code>knitr::include_graphics()</code>. Figure <a href="01-components.html#fig:knitr-logo">2.4</a> is an example of three <strong>knitr</strong> logos included in a figure environment. You may pass one or multiple image paths to the <code>include_graphics()</code> function, and all chunk options that apply to normal R plots also apply to these images, e.g., you can use <code>out.width = '33%'</code> to set the widths of these images in the output document.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_graphics</span>(<span class="kw">rep</span>(<span class="st">&quot;images/knit-logo.png&quot;</span>, <span class="dv">3</span>))</code></pre></div>
+<div class="figure"><span id="fig:knitr-logo"></span>
+<img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="33%" /><img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="33%" /><img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="33%" />
+<p class="caption">
+Figure 2.4: Three knitr logos included in the document from an external PNG image file.
+</p>
+</div>
+<p>There are a few advantages of using <code>include_graphics()</code>:</p>
+<ol style="list-style-type: decimal">
+<li>You do not need to worry about the document output format, e.g., when the output format is LaTeX, you may have to use the LaTeX command <code>\includegraphics{}</code> to include an image, and when the output format is Markdown, you have to use <code>![]()</code>. The function <code>include_graphics()</code> in <strong>knitr</strong> takes care of these details automatically.</li>
+<li>The syntax for controlling the image attributes is the same as when images are generated from R code, e.g., chunk options <code>fig.cap</code>, <code>out.width</code>, and <code>fig.show</code> still have the same meanings.</li>
+<li><code>include_graphics()</code> is smart enough to use PDF graphics automatically when the output format is LaTeX and the PDF graphics files exist, e.g., an image path <code>foo/bar.png</code> can be automatically replaced with <code>foo/bar.pdf</code> if the latter exists. PDF images often have better qualities than raster images in LaTeX/PDF output. Of course, you can disable this feature by <code>include_graphics(auto_pdf = FALSE)</code> if you do not like it.</li>
+</ol>
 </div>
 <div id="tables" class="section level2">
 <h2><span class="header-section-number">2.4</span> Tables</h2>
@@ -565,7 +579,7 @@ knitr::<span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="
   title = {knitr: A General-Purpose Package for Dynamic Report Generation in R},
   author = {Yihui Xie},
   year = {2015},
-  note = {R package version 1.11.14},
+  note = {R package version 1.11.15},
   url = {http://yihui.name/knitr/},
 }
 @Manual{R-stringr,
