@@ -98,7 +98,9 @@ img {
 <ul>
 <li><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
 <li><a href="index.html#motivation"><span class="toc-section-number">1.1</span> Motivation</a></li>
-<li><a href="index.html#usage"><span class="toc-section-number">1.2</span> Usage</a></li>
+<li><a href="index.html#get-started"><span class="toc-section-number">1.2</span> Get started</a></li>
+<li><a href="index.html#usage"><span class="toc-section-number">1.3</span> Usage</a></li>
+<li><a href="index.html#some-advice"><span class="toc-section-number">1.4</span> Some advice</a></li>
 </ul></li>
 <li><a href="01-components.html#components"><span class="toc-section-number">2</span> Components</a><ul>
 <li><a href="01-components.html#markdown-syntax"><span class="toc-section-number">2.1</span> Markdown syntax</a></li>
@@ -152,12 +154,30 @@ img {
 <li>The editor support (in particular, the RStudio IDE);</li>
 <li>How to publish a book;</li>
 </ul>
-<p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a><a href="06-references.html#ref-xie2015">b</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="06-references.html#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheetsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p>
+<p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package <span class="citation">(Xie <a href="06-references.html#ref-R-knitr">2015</a><a href="06-references.html#ref-R-knitr">c</a>)</span>, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a><a href="06-references.html#ref-xie2015">b</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="06-references.html#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheetsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p>
 <div id="motivation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Motivation</h2>
+<p>Markdown is a wonderful language to write relatively simple documents that contain elements like sections, paragraphs, lists, links, and images, etc. Pandoc (<a href="http://pandoc.org" class="uri">http://pandoc.org</a>) has greatly extended the original Markdown syntax, and added quite a few useful new features, such as footnotes, citations, and tables. More importantly, Pandoc makes it possible to generate output documents of a large variety of formats from Markdown, including HTML, LaTeX/PDF, Word, and slides.</p>
+<p>To write a relatively complicated document like a book, there are still a few useful features missing in Pandoc’s Markdown at the moment, such as automatic numbering of figures and tables in the HTML output, cross-references of figures and tables, and fine control of the appearance of figures (e.g., currently it is impossible to specify the width of images using the Markdown syntax). These are some of the problems that we have addressed in the <strong>bookdown</strong> package.</p>
+<p>Under the constraint that we want to produce the book in multiple output formats, it is nearly impossible to cover all possible features specific to these output formats. For example, it may be difficult to reinvent a certain complicated LaTeX environment in the HTML output using the (R) Markdown syntax. Our main goal is not to replace <em>everything</em> with Markdown, but to cover <em>most</em> common functionalities required to write a relatively complicated document, and make the syntax of such functionalities consistent across all output formats.</p>
+<p>Another goal of this project is to make it easy to produce books that look visually pleasant. Some nice existing examples include Gitbook (<a href="https://www.gitbook.com" class="uri">https://www.gitbook.com</a>), Tufte CSS (<a href="http://edwardtufte.github.io/tufte-css/" class="uri">http://edwardtufte.github.io/tufte-css/</a>), and Tufte-LaTeX (<a href="https://tufte-latex.github.io/tufte-latex/" class="uri">https://tufte-latex.github.io/tufte-latex/</a>). We hope to integrate these themes and styles into <strong>bookdown</strong>, so authors do not have to dive into the details of how to use a certain LaTeX class or how to configure CSS for HTML output.</p>
+</div>
+<div id="get-started" class="section level2">
+<h2><span class="header-section-number">1.2</span> Get started</h2>
+<p>The easiest way for beginners to get started with writing a book with R Markdown and <strong>bookdown</strong> is through the demo <code>bookdown-demo</code> on GitHub:</p>
+<ol style="list-style-type: decimal">
+<li>Fork or clone the GitHub repository <a href="https://github.com/rstudio/bookdown-demo" class="uri">https://github.com/rstudio/bookdown-demo</a> if you are familiar with GIT and GitHub, or just download it as a Zip file then unzip it locally;</li>
+<li>Install the RStudio IDE (<a href="http://www.rstudio.com" class="uri">http://www.rstudio.com</a>) if you have not done so;</li>
+<li>Open the <code>bookdown-demo</code> repository you cloned or downloaded in RStudio by clicking <code>bookdown-demo.Rproj</code>;</li>
+<li><p>Install the R package <strong>bookdown</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># TODO: remove yihui.name/xran here after bookdown is on CRAN</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>, <span class="dt">repos =</span> <span class="kw">c</span>(<span class="st">&quot;http://yihui.name/xran&quot;</span>, <span class="st">&quot;http://cran.rstudio.com&quot;</span>))</code></pre></div></li>
+<li><p>Open the R Markdown <code>index.Rmd</code> and click the button <code>Knit</code> on the toolbar of RStudio;</p></li>
+</ol>
+<p>Now you should see the index page of this book demo in the RStudio Viewer. You may add or change the R Markdown files, come back to <code>index.Rmd</code>, and hit the <code>Knit</code> button again to preview the book. If you prefer not to use RStudio, you may also compile the book through command line. See the next section for details.</p>
 </div>
 <div id="usage" class="section level2">
-<h2><span class="header-section-number">1.2</span> Usage</h2>
+<h2><span class="header-section-number">1.3</span> Usage</h2>
 <p>A book normally contains multiple chapters. We assume that one chapter lives in one R Markdown file (with the filename extension <code>.Rmd</code>). You should not have multiple chapters in one R Markdown file, or one chapter split into multiple R Markdown files. Each R Markdown file must start immediately with the chapter title. Here is an example (the bullets are the filenames, followed by the file content):</p>
 <ul>
 <li><p>01-intro.Rmd</p>
@@ -216,6 +236,16 @@ bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quo
 <li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script</li>
 <li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter</li>
 </ul>
+<p>Here is a sample <code>_config.yml</code>:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">main_rmd:</span> <span class="st">&quot;my-book.Rmd&quot;</span>
+<span class="fu">chapter_name:</span> <span class="st">&quot;CHAPTER &quot;</span>
+<span class="fu">before_chapter_script:</span> <span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span> <span class="st">&quot;script2.R&quot;</span><span class="kw">]</span>
+<span class="fu">after_chapter_script:</span> <span class="st">&quot;script3.R&quot;</span></code></pre></div>
+</div>
+<div id="some-advice" class="section level2">
+<h2><span class="header-section-number">1.4</span> Some advice</h2>
+<p>Typesetting under the paging constraint (e.g., for LaTeX/PDF output) can be an extremely tedious and time-consuming job. I’d recommend you not to look at your PDF output frequently, since most of the time you are very unlikely to be satisfied: text may overflow into the page margin, figures may float too far away, and so on. Do not try to make things look right <em>immediately</em>, because you may be disappointed over and over again as you keep on revising the book, and things may be messed up again even if you only did some minor changes (see <a href="http://bit.ly/tbrLtx" class="uri">http://bit.ly/tbrLtx</a> for a nice illustration).</p>
+<p>If you want to preview the book, preview the HTML output. Work on the PDF book after you have finished the content of the book, and are very sure no major revisions will be required.</p>
 
 </div>
 </div>

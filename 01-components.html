@@ -98,7 +98,9 @@ img {
 <ul>
 <li><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
 <li><a href="index.html#motivation"><span class="toc-section-number">1.1</span> Motivation</a></li>
-<li><a href="index.html#usage"><span class="toc-section-number">1.2</span> Usage</a></li>
+<li><a href="index.html#get-started"><span class="toc-section-number">1.2</span> Get started</a></li>
+<li><a href="index.html#usage"><span class="toc-section-number">1.3</span> Usage</a></li>
+<li><a href="index.html#some-advice"><span class="toc-section-number">1.4</span> Some advice</a></li>
 </ul></li>
 <li><a href="01-components.html#components"><span class="toc-section-number">2</span> Components</a><ul>
 <li><a href="01-components.html#markdown-syntax"><span class="toc-section-number">2.1</span> Markdown syntax</a></li>
@@ -139,7 +141,7 @@ img {
 <div id="markdown-syntax" class="section level2">
 <h2><span class="header-section-number">2.1</span> Markdown syntax</h2>
 <p>We give a very brief introduction to Pandoc’s Markdown in this section. Readers who are familiar with Markdown can skip this section. The comphrehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
-<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="06-references.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="01-components.html#citations">2.7</a>. Section headers can be written after a number of pound signs, e.g.,</p>
+<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets like <code>^</code> produces a superscript (e.g., <code>ClO^-^</code> renders ClO<sup>-</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="06-references.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small caps&lt;/span&gt;</code> renders <span style="font-variant: small-caps;">Small caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="01-components.html#citations">2.7</a>. Section headers can be written after a number of pound signs, e.g.,</p>
 <pre><code># First-level header
 
 ## Second-level header
