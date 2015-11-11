@@ -10,7 +10,7 @@
 
 <meta name="author" content="Yihui Xie" />
 
-<meta name="date" content="2015-11-10" />
+<meta name="date" content="2015-11-11" />
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <title>Authoring A Book with R Markdown and bookdown</title>
@@ -131,7 +131,7 @@ img {
 <li><a href="05-publishing.html#licensing"><span class="toc-section-number">6.3</span> Licensing</a></li>
 <li><a href="05-publishing.html#self-publishing"><span class="toc-section-number">6.4</span> Self-publishing</a></li>
 </ul></li>
-<li><a href="06-references.html#references"><span class="toc-section-number">7</span> References</a></li>
+<li><a href="06-references.html#references">References</a></li>
 </ul>
 </div>
 </div>
@@ -174,12 +174,15 @@ img {
 <li>the third item</li>
 </ol>
 <p>Blockquotes are written after <code>&gt;</code>, e.g.,</p>
-<pre><code>&gt; &quot;I was always taught to respect my elders and
-  I&#39;ve now reached the age when I don&#39;t have anybody
-  to respect&quot;, said George Burns.</code></pre>
+<pre><code>&gt; &quot;I thoroughly disapprove of duels. If a man should challenge me,
+  I would take him kindly and forgivingly by the hand and lead him
+  to a quiet place and kill him.&quot;
+&gt;
+&gt; --- Mark Twain</code></pre>
 <p>The actual output:</p>
 <blockquote>
-<p>“I was always taught to respect my elders and I’ve now reached the age when I don’t have anybody to respect”, said George Burns.</p>
+<p>“I thoroughly disapprove of duels. If a man should challenge me, I would take him kindly and forgivingly by the hand and lead him to a quiet place and kill him.”</p>
+<p>— Mark Twain</p>
 </blockquote>
 <p>Plain code blocks can be written after three or more backticks, and you can also indent the blocks by four spaces, e.g.,</p>
 <pre><code>```
