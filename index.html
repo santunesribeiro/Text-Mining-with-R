@@ -7,10 +7,11 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="Yihui Xie" />
 
-<meta name="date" content="2015-12-09" />
+<meta name="date" content="2016-01-11" />
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <title>Authoring A Book with R Markdown and bookdown</title>
@@ -66,7 +67,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     background-color: white;
   }
 </style>
-
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -140,7 +140,7 @@ img {
 <div id="header">
 <h1 class="title">Authoring A Book with R Markdown and bookdown</h1>
 <h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2015-12-09</em></h4>
+<h4 class="date"><em>2016-01-11</em></h4>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
@@ -159,7 +159,7 @@ yihui at rstudio dot com
 .
 </p>
 </div>
-<p>This book is a guide to authoring books with R Markdown <span class="citation">(Allaire et al. <a href="06-references.html#ref-R-rmarkdown">2015</a>)</span> and the R package <strong>bookdown</strong> <span class="citation">(Xie <a href="06-references.html#ref-R-bookdown">2015</a><a href="06-references.html#ref-R-bookdown">a</a>)</span>. It focuses on the features specific to writing books, long-form articles, or reports, such as</p>
+<p>This book is a guide to authoring books with R Markdown <span class="citation">(Allaire et al. <a href="06-references.html#ref-R-rmarkdown">2015</a>)</span> and the R package <strong>bookdown</strong> <span class="citation">(Xie <a href="06-references.html#ref-R-bookdown">2016</a><a href="06-references.html#ref-R-bookdown">a</a>)</span>. It focuses on the features specific to writing books, long-form articles, or reports, such as</p>
 <ul>
 <li>How to typeset figures and tables, and cross-reference them;</li>
 <li>How to generate multiple output formats such as HTML, PDF, and E-Books for a single book;</li>
@@ -167,7 +167,7 @@ yihui at rstudio dot com
 <li>The editor support (in particular, the RStudio IDE);</li>
 <li>How to publish a book;</li>
 </ul>
-<p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package <span class="citation">(Xie <a href="06-references.html#ref-R-knitr">2015</a><a href="06-references.html#ref-R-knitr">c</a>)</span>, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a><a href="06-references.html#ref-xie2015">b</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="06-references.html#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheetsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p>
+<p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package <span class="citation">(Xie <a href="06-references.html#ref-R-knitr">2016</a><a href="06-references.html#ref-R-knitr">b</a>)</span>, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="06-references.html#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheetsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p>
 <div id="motivation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Motivation</h2>
 <p>Markdown is a wonderful language to write relatively simple documents that contain elements like sections, paragraphs, lists, links, and images, etc. Pandoc (<a href="http://pandoc.org" class="uri">http://pandoc.org</a>) has greatly extended the original Markdown syntax, and added quite a few useful new features, such as footnotes, citations, and tables. More importantly, Pandoc makes it possible to generate output documents of a large variety of formats from Markdown, including HTML, LaTeX/PDF, Word, and slides.</p>
@@ -223,15 +223,18 @@ We have finished a nice book.</code></pre></div></li>
 <p>By default, <strong>bookdown</strong> merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. If there exists an Rmd file named <code>index.Rmd</code>, it will always be treated as the first file when merging all Rmd files. The reason for this special treatment is that the HTML file <code>index.html</code> to be generated from <code>index.Rmd</code> is usually the default index file when you view a website, e.g., you are actually browsing <a href="http://yihui.name/index.html" class="uri">http://yihui.name/index.html</a> when you open <a href="http://yihui.name/" class="uri">http://yihui.name/</a>.</p>
 <p>You can override the above behavior by including a configuration file named <code>_config.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents. You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span> <span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
-<p>In this case, <strong>bookdown</strong> will just use whatever you defined in this YAML field without any special treatments of <code>index.Rmd</code> or underscores.</p>
+<p>In this case, <strong>bookdown</strong> will just use whatever you defined in this YAML field without any special treatments of <code>index.Rmd</code> or underscores. If you want both HTML and LaTeX/PDF output from the book, and use different Rmd files for HTML and LaTeX output, you may specify these files for the two output formats separately, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>
+  <span class="fu">html:</span> <span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span>
+  <span class="fu">latex:</span> <span class="kw">[</span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
 <div class="rmdimportant">
 <p>
 Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.
 </p>
 </div>
 <p>At the moment, there are two output formats that you may use: <code>bookdown::pdf_book</code> and <code>bookdown::html_chapters</code>. There is a <code>bookdown::render_book()</code> function similar to <code>rmarkdown::render()</code> that renders multiple Rmd documents into a book using the output format functions. You may either call this function from command line, or use it in the RStudio IDE. Here are some command line examples:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::html_chapters&quot;</span>)
-bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">html_chapters</span>())
+bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">pdf_book</span>())
 bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">html_chapters</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;book_assets&quot;</span>))
 bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">pdf_book</span>(<span class="dt">keep_tex =</span> <span class="ot">TRUE</span>))</code></pre></div>
 <p>To use <code>render_book</code> and the output format functions in the RStudio IDE, you can define a YAML field named <code>knit</code> that takes the value <code>bookdown::render_book</code>, and the output format functions can be used in the <code>output</code> field, e.g.,</p>

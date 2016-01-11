@@ -7,10 +7,11 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="Yihui Xie" />
 
-<meta name="date" content="2015-12-09" />
+<meta name="date" content="2016-01-11" />
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <title>Authoring A Book with R Markdown and bookdown</title>
@@ -66,7 +67,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     background-color: white;
   }
 </style>
-
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -204,7 +204,7 @@ Or indent by four spaces:
 rnorm(10)  # 10 random numbers
 plot(dist ~ speed, cars)  # a scatterplot
 ```</code></pre>
-<p>To learn more about <strong>knitr</strong> chunk options, see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a><a href="06-references.html#ref-xie2015">b</a>)</span> or <a href="http://yihui.name/knitr/options" class="uri">http://yihui.name/knitr/options</a>.</p>
+<p>To learn more about <strong>knitr</strong> chunk options, see <span class="citation">Xie (<a href="06-references.html#ref-xie2015">2015</a>)</span> or <a href="http://yihui.name/knitr/options" class="uri">http://yihui.name/knitr/options</a>.</p>
 </div>
 <div id="figures" class="section level2">
 <h2><span class="header-section-number">2.3</span> Figures</h2>
@@ -1315,8 +1315,8 @@ knitr::<span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="
 <pre><code>@Manual{R-knitr,
   title = {knitr: A General-Purpose Package for Dynamic Report Generation in R},
   author = {Yihui Xie},
-  year = {2015},
-  note = {R package version 1.11.21},
+  year = {2016},
+  note = {R package version 1.12.1},
   url = {http://yihui.name/knitr/},
 }
 @Manual{R-stringr,
@@ -1324,7 +1324,7 @@ knitr::<span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="
   author = {Hadley Wickham},
   year = {2015},
   note = {R package version 1.0.0},
-  url = {http://CRAN.R-project.org/package=stringr},
+  url = {https://CRAN.R-project.org/package=stringr},
 }</code></pre>
 <p>Once you have got one or multiple <code>.bib</code> files, you may use the field <code>bibliography</code> in the YAML metadata of your R Markdown document, and you can also specify the bibliopgraphy style via <code>biblio-style</code> (this only applies to PDF output), e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
