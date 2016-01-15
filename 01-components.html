@@ -11,7 +11,7 @@
 
 <meta name="author" content="Yihui Xie" />
 
-<meta name="date" content="2016-01-14" />
+<meta name="date" content="2016-01-15" />
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <title>Authoring A Book with R Markdown and bookdown</title>
@@ -100,7 +100,8 @@ img {
 <li><a href="index.html#motivation"><span class="toc-section-number">1.1</span> Motivation</a></li>
 <li><a href="index.html#get-started"><span class="toc-section-number">1.2</span> Get started</a></li>
 <li><a href="index.html#usage"><span class="toc-section-number">1.3</span> Usage</a></li>
-<li><a href="index.html#some-tips"><span class="toc-section-number">1.4</span> Some tips</a></li>
+<li><a href="index.html#separate-r-sessions-for-individual-chapters"><span class="toc-section-number">1.4</span> Separate R sessions for individual chapters</a></li>
+<li><a href="index.html#some-tips"><span class="toc-section-number">1.5</span> Some tips</a></li>
 </ul></li>
 <li><a href="01-components.html#components"><span class="toc-section-number">2</span> Components</a><ul>
 <li><a href="01-components.html#markdown-syntax"><span class="toc-section-number">2.1</span> Markdown syntax</a></li>
@@ -142,7 +143,7 @@ img {
 <div id="markdown-syntax" class="section level2">
 <h2><span class="header-section-number">2.1</span> Markdown syntax</h2>
 <p>We give a very brief introduction to Pandoc’s Markdown in this section. Readers who are familiar with Markdown can skip this section. The comphrehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
-<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets like <code>^</code> produces a superscript (e.g., <code>ClO^-^</code> renders ClO<sup>-</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="06-references.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small caps&lt;/span&gt;</code> renders <span style="font-variant: small-caps;">Small caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="01-components.html#citations">2.7</a>. Section headers can be written after a number of pound signs, e.g.,</p>
+<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets like <code>^</code> produces a superscript (e.g., <code>ClO^-^</code> renders ClO<sup>-</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="06-references.html#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small caps&lt;/span&gt;</code> renders <span style="font-variant: small-caps;">Small caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="01-components.html#citations">2.7</a>. Section headers can be written after a number of pound signs, e.g.,</p>
 <pre><code># First-level header
 
 ## Second-level header
@@ -213,7 +214,7 @@ plot(dist ~ speed, cars)  # a scatterplot
 <span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/no-caption-1.png" title="" alt="" width="70%" /></p>
 <p>The disadvantage of typesetting figures in this way is that when there is not enough space on the current page to place a figure, it may either reach the bottom of the page (hence exceeds the page margin), or be pushed to the next page, leaving a large white margin at the bottom of the current page. That is basically why there are “floating environments” in LaTeX: elements that cannot be split over multiple pages (like figures) are put in floating environments, so they can float to a page that has enough space to hold them. There is also a disadvantage of floating things forward or backward, though. That is, readers may have to jump to a different page to find the figure mentioned on the current page. This is simply a natural consequence of having to typeset things on multiple pages of fixed sizes. This issue does not exist in HTML, however, since everything can be placed continuously on one single page (presumably with infinite height), and there is no need to split anything across multiple pages of the same page size.</p>
-<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code><a href="06-references.html#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
+<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code><a href="06-references.html#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>, where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
 <div class="rmdimportant">
 <p>
 If you want to cross-reference figures or tables generated from a code chunk, please make sure the chunk label only contains alphanumeric characters (a-z, A-Z, 0-9) and dashes (-). Other characters do not qualify.
@@ -1316,7 +1317,7 @@ knitr::<span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="
   title = {knitr: A General-Purpose Package for Dynamic Report Generation in R},
   author = {Yihui Xie},
   year = {2016},
-  note = {R package version 1.12.2},
+  note = {R package version 1.12.3},
   url = {http://yihui.name/knitr/},
 }
 @Manual{R-stringr,
