@@ -164,7 +164,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>The KM approach will generate more files under the directory of Rmd files: each Rmd file will generate a Markdown output file (<code>.md</code>), and possibly a figure directory and a cache directory. The MK approach only renders one Rmd file, so it only has one set of output files.</li>
 <li>For KM, whenever you change the output format (e.g., from HTML to PDF), you must recompile all chapters (<code>render_book(force_knit = TRUE)</code>), because the Markdown output files for one format may not work for another format. There is no such issue with the MK approach.</li>
 </ul>
-<p>The default approach in <strong>bookdown</strong> is MK. To switch to KM, you either use the argument <code>new_session = TRUE</code> when calling <code>render_book()</code>, or set <code>new_session: yes</code> in the configuration file <code>_config.yml</code>.</p>
+<p>The default approach in <strong>bookdown</strong> is MK. To switch to KM, you either use the argument <code>new_session = TRUE</code> when calling <code>render_book()</code>, or set <code>new_session: yes</code> in the configuration file <code>_bookdown.yml</code>.</p>
 <p>Note the configurations <code>before_chapter_script</code> and <code>after_chapter_script</code> are ignored by KM. You can still configure <code>book_filename</code>, but it should be a Markdown filename, e.g., <code>_main.md</code>. All other configurations work for both MK and KM.</p>
 </div>
             </section>

@@ -187,7 +187,7 @@ in this chapter.
 We have finished a nice book.</code></pre></div></li>
 </ul>
 <p>By default, <strong>bookdown</strong> merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. If there exists an Rmd file named <code>index.Rmd</code>, it will always be treated as the first file when merging all Rmd files. The reason for this special treatment is that the HTML file <code>index.html</code> to be generated from <code>index.Rmd</code> is usually the default index file when you view a website, e.g., you are actually browsing <a href="http://yihui.name/index.html" class="uri">http://yihui.name/index.html</a> when you open <a href="http://yihui.name/" class="uri">http://yihui.name/</a>.</p>
-<p>You can override the above behavior by including a configuration file named <code>_config.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents. You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
+<p>You can override the above behavior by including a configuration file named <code>_bookdown.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents. You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span> <span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
 <p>In this case, <strong>bookdown</strong> will just use whatever you defined in this YAML field without any special treatments of <code>index.Rmd</code> or underscores. If you want both HTML and LaTeX/PDF output from the book, and use different Rmd files for HTML and LaTeX output, you may specify these files for the two output formats separately, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>
@@ -213,14 +213,14 @@ bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quo
     <span class="fu">keep_tex:</span> yes
 <span class="ot">---</span></code></pre></div>
 <p>Then you can click the <code>Knit</code> button in RStudio to compile the Rmd files into a book.</p>
-<p>There are more things you can configure for a book in <code>_config.yml</code>:</p>
+<p>There are more things you can configure for a book in <code>_bookdown.yml</code>:</p>
 <ul>
 <li><code>book_filename</code>: the filename of the main Rmd file, i.e., the Rmd file that is merged from all chapters; by default, it is named <code>_main.Rmd</code></li>
 <li><code>chapter_name</code>: (for HTML output only) either a character string to be prepended to the chapter number in the chapter title (by default it is <code>&quot;Chapter &quot;</code>), or an R function that takes the chapter number as the input and returns a string as the new chapter number (e.g., <code>!expr function(i) paste('Chapter', i)</code>)</li>
 <li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script</li>
 <li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter</li>
 </ul>
-<p>Here is a sample <code>_config.yml</code>:</p>
+<p>Here is a sample <code>_bookdown.yml</code>:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">book_filename:</span> <span class="st">&quot;my-book.Rmd&quot;</span>
 <span class="fu">chapter_name:</span> <span class="st">&quot;CHAPTER &quot;</span>
 <span class="fu">before_chapter_script:</span> <span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span> <span class="st">&quot;script2.R&quot;</span><span class="kw">]</span>
