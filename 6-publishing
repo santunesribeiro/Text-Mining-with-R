@@ -12,7 +12,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-02-13">
+<meta name="date" content="2016-02-14">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -134,7 +134,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3" data-path="6-3-licensing"><a href="6-3-licensing#licensing"><i class="fa fa-check"></i><b>6.3</b> Licensing</a></li>
 <li class="chapter" data-level="6.4" data-path="6-4-self-publishing"><a href="6-4-self-publishing#self-publishing"><i class="fa fa-check"></i><b>6.4</b> Self-publishing</a></li>
 </ul></li>
-<li><a href="references#references">References</a></li>
+<li class="chapter" data-level="" data-path="references"><a href="references#references"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://www.rstudio.com" target="blank">Published with RStudio Press</a></li>
 
@@ -174,33 +174,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook/js/plugin-bookdown.js"></script>
 <script>
 require(["gitbook"], function(gitbook) {
-  var config = {
-    "autocover": {},
-    "highlight": {},
-    "search": {
-      "maxIndexSize": 1000000
-    },
-    "sharing": {
-      "facebook": true,
-      "twitter": true,
-      "google": false,
-      "weibo": false,
-      "instapaper": false,
-      "vk": false,
-      "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
-    },
-    "fontsettings": {
-      "theme": "white",
-      "family": "sans",
-      "size": 2
-    },
-    "edit": {
-      "link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/05-publishing.Rmd",
-      "text": "Edit"
-    },
-    "download": ["bookdown.pdf"]
-  };
-  gitbook.start(config);
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/05-publishing.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown.pdf"],
+"toc": {
+"collapse": false
+}
+});
 });
 </script>
 
