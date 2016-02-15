@@ -12,7 +12,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-02-12">
+<meta name="date" content="2016-02-15">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -40,6 +40,22 @@
 .book .book-header h1 {
   padding-left: 20px;
   padding-right: 20px;
+}
+.book .book-header.fixed {
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+}
+@media (max-width: 600px) {
+  .book.with-summary .book-header.fixed {
+    left: 60px;
+  }
+}
+@media (min-width: 600px) {
+  .book.with-summary .book-header.fixed {
+    left: 300px;
+  }
 }
 </style>
 
@@ -134,7 +150,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3" data-path="6-3-licensing.html"><a href="6-3-licensing.html#licensing"><i class="fa fa-check"></i><b>6.3</b> Licensing</a></li>
 <li class="chapter" data-level="6.4" data-path="6-4-self-publishing.html"><a href="6-4-self-publishing.html#self-publishing"><i class="fa fa-check"></i><b>6.4</b> Self-publishing</a></li>
 </ul></li>
-<li><a href="references.html#references">References</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html#references"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://www.rstudio.com" target="blank">Published with RStudio Press</a></li>
 
@@ -1146,33 +1162,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook/js/plugin-bookdown.js"></script>
 <script>
 require(["gitbook"], function(gitbook) {
-  var config = {
-    "autocover": {},
-    "highlight": {},
-    "search": {
-      "maxIndexSize": 1000000
-    },
-    "sharing": {
-      "facebook": true,
-      "twitter": true,
-      "google": false,
-      "weibo": false,
-      "instapaper": false,
-      "vk": false,
-      "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
-    },
-    "fontsettings": {
-      "theme": "white",
-      "family": "sans",
-      "size": 2
-    },
-    "edit": {
-      "link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-components.Rmd",
-      "text": "Edit"
-    },
-    "download": ["bookdown.pdf"]
-  };
-  gitbook.start(config);
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-components.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown.pdf"],
+"toolbar": {
+"position": "fixed"
+},
+"toc": {
+"collapse": false,
+"scroll_highlight": false
+}
+});
 });
 </script>
 

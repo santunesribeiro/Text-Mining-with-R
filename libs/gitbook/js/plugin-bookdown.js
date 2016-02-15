@@ -60,11 +60,16 @@ require(["gitbook", "lodash"], function(gitbook, _) {
 
     var toc = config.toc;
     // collapse TOC items that are not for the current chapter
-    if (toc && toc.collapse) {
-      $('ul.summary').children('li[data-level]').children('ul').hide()
-        .parent().has(li).children('ul').show();
+    if (toc && toc.collapse) (function() {
+      var toc_sub = summary.children('li[data-level]').children('ul');
+      toc_sub.hide().parent().has(li).children('ul').show();
       li.children('ul').show();
-    }
+      var toc_sub2 = toc_sub.children('li');
+      toc_sub2.children('ul').hide();
+      toc_sub2.on('click.bookdown', function(e) {
+        $(this).children('ul').toggle();
+      });
+    })();
 
     // add tooltips to the <a>'s that are truncated
     $('a').each(function(i, el) {
@@ -76,6 +81,52 @@ require(["gitbook", "lodash"], function(gitbook, _) {
     // restore TOC scroll position
     var pos = gs.get('tocScrollTop');
     if (typeof pos !== 'undefined') summary.scrollTop(pos);
+
+    // highlight the TOC item that has same text as the heading in view as scrolling
+    if (toc && toc.scroll_highlight !== false) (function() {
+       // current chapter TOC items
+      var items = $('a[href^="' + href + '"]').parent('li.chapter'),
+          m = items.length;
+      if (m === 0) return;
+      // all section titles on current page
+      var hs = bookInner.find('.page-inner').find('h1,h2,h3'), n = hs.length,
+          ts = hs.map(function(i, el) { return el.innerText; });
+      if (n === 0) return;
+      bookInner.on('scroll.bookdown', function(e) {
+        var ht = $(window).height();
+        clearTimeout($.data(this, 'scrollTimer'));
+        $.data(this, 'scrollTimer', setTimeout(function() {
+          // find the first visible title in the viewport
+          for (var i = 0; i < n; i++) {
+            var rect = hs[i].getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= ht) break;
+          }
+          if (i === n) return;
+          items.removeClass('active');
+          for (var j = 0; j < m; j++) {
+            if (items.eq(j).children('a').first().text() === ts[i]) break;
+          }
+          if (j === m) j = 0;  // highlight the chapter title
+          // search bottom-up for a visible TOC item to highlight; if an item is
+          // hidden, we check if its parent is visible, and so on
+          while (j > 0 && items.eq(j).is(':hidden')) j--;
+          items.eq(j).addClass('active');
+        }, 250));
+      });
+    })();
+
+    var toolbar = config.toolbar;
+    if (toolbar && toolbar.position === 'fixed') {
+      var bookHeader = $('.book-header');
+      bookHeader.addClass('fixed')
+      .css('background-color', bookBody.css('background-color'))
+      .on('click.bookdown', function(e) {
+        // the theme may have changed after user clicks the theme button
+        bookHeader.css('background-color', bookBody.css('background-color'));
+      });
+      bookBody.css('top', '50px');
+    }
+
   });
 
   gitbook.events.bind("page.change", function(e) {
@@ -100,4 +151,5 @@ require(["gitbook", "lodash"], function(gitbook, _) {
     gs.remove('bookBodyScrollTop');
     gs.remove('bookInnerScrollTop');
   });
+
 });
