@@ -180,8 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Install the RStudio IDE (<a href="http://www.rstudio.com" class="uri">http://www.rstudio.com</a>) if you have not done so;</li>
 <li>Open the <code>bookdown-demo</code> repository you cloned or downloaded in RStudio by clicking <code>bookdown-demo.Rproj</code>;</li>
 <li><p>Install the R package <strong>bookdown</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># TODO: remove yihui.name/xran here after bookdown is on CRAN</span>
-<span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>, <span class="dt">repos =</span> <span class="kw">c</span>(<span class="st">&quot;http://yihui.name/xran&quot;</span>, <span class="st">&quot;http://cran.rstudio.com&quot;</span>))</code></pre></div></li>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;rstudio/bookdown&quot;</span>)</code></pre></div></li>
 <li><p>Open the R Markdown <code>index.Rmd</code> and click the button <code>Knit</code> on the toolbar of RStudio;</p></li>
 </ol>
 <p>Now you should see the index page of this book demo in the RStudio Viewer. You may add or change the R Markdown files, come back to <code>index.Rmd</code>, and hit the <code>Knit</code> button again to preview the book. If you prefer not to use RStudio, you may also compile the book through command line. See the next section for details.</p>

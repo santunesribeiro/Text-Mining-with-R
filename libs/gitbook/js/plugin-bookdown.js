@@ -90,7 +90,7 @@ require(["gitbook", "lodash"], function(gitbook, _) {
       if (m === 0) return;
       // all section titles on current page
       var hs = bookInner.find('.page-inner').find('h1,h2,h3'), n = hs.length,
-          ts = hs.map(function(i, el) { return el.innerText; });
+          ts = hs.map(function(i, el) { return $(el).text(); });
       if (n === 0) return;
       bookInner.on('scroll.bookdown', function(e) {
         var ht = $(window).height();
@@ -124,7 +124,7 @@ require(["gitbook", "lodash"], function(gitbook, _) {
         // the theme may have changed after user clicks the theme button
         bookHeader.css('background-color', bookBody.css('background-color'));
       });
-      bookBody.css('top', '50px');
+      bookInner.children('page-wrapper').first().css('top', '50px');
     }
 
   });
