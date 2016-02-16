@@ -12,7 +12,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-02-14">
+<meta name="date" content="2016-02-16">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -36,10 +36,31 @@
 
 
 
+
 <style type="text/css">
 .book .book-header h1 {
   padding-left: 20px;
   padding-right: 20px;
+}
+.book .book-header.fixed {
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+}
+span.search-highlight {
+  background-color: #ffff88;
+}
+@media (max-width: 600px) {
+  .book.with-summary .book-header.fixed {
+    left: 60px;
+  }
+}
+@media (min-width: 600px) {
+  .book.with-summary .book-header.fixed {
+    left: 300px;
+  }
 }
 </style>
 
@@ -179,6 +200,7 @@ plot(dist ~ speed, cars)  # a scatterplot
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
 <script src="libs/gitbook/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
 <script>
 require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -201,6 +223,9 @@ gitbook.start({
 "text": "Edit"
 },
 "download": ["bookdown.pdf"],
+"toolbar": {
+"position": "fixed"
+},
 "toc": {
 "collapse": false
 }

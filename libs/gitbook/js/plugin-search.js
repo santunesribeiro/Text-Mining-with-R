@@ -1,7 +1,4 @@
-require([
-    "gitbook",
-    "lodash"
-], function(gitbook, _) {
+require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
     var index = null;
     var $searchInput, $searchForm;
     var $highlighted, hi = 0, hiOpts = { className: 'search-highlight' };
@@ -102,7 +99,7 @@ require([
         });
 
         $searchInput = $('<input>', {
-            'type': 'text',
+            'type': 'search',
             'class': 'form-control',
             'val': value,
             'placeholder': 'Type to search'
@@ -164,22 +161,21 @@ require([
         // Type in search bar
         $(document).on("keyup", ".book-search input", function(e) {
             var key = (e.keyCode ? e.keyCode : e.which);
-            var q = $(this).val();
-
             // [Yihui] Escape -> close search box; Up/Down: previous/next highlighted
             if (key == 27) {
                 e.preventDefault();
                 toggleSearch(false);
-                return;
             } else if (key == 38) {
               if (hi <= 0 && $highlighted) hi = $highlighted.length;
               hi--;
-              return scrollToHighlighted();
+              scrollToHighlighted();
             } else if (key == 40) {
               hi++;
               if ($highlighted && hi >= $highlighted.length) hi = 0;
-              return scrollToHighlighted();
+              scrollToHighlighted();
             }
+        }).on("input", ".book-search input", function(e) {
+            var q = $(this).val();
             if (q.length === 0) {
                 gitbook.sidebar.filter(null);
                 gitbook.storage.remove("keyword");
