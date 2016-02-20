@@ -214,16 +214,16 @@ We have finished a nice book.</code></pre></div></li>
 Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.
 </p>
 </div>
-<p>At the moment, there are two output formats that you may use: <code>bookdown::pdf_book</code> and <code>bookdown::html_chapters</code>. There is a <code>bookdown::render_book()</code> function similar to <code>rmarkdown::render()</code> that renders multiple Rmd documents into a book using the output format functions. You may either call this function from command line, or use it in the RStudio IDE. Here are some command line examples:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::html_chapters&quot;</span>)
+<p>At the moment, there are three output formats that you may use: <code>bookdown::pdf_book</code>, <code>bookdown::gitbook</code>, and <code>bookdown::html_chapters</code>. There is a <code>bookdown::render_book()</code> function similar to <code>rmarkdown::render()</code> that renders multiple Rmd documents into a book using the output format functions. You may either call this function from command line, or use it in the RStudio IDE. Here are some command line examples:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
 bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)
-bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">html_chapters</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;book_assets&quot;</span>))
+bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">gitbook</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;book_assets&quot;</span>))
 bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">pdf_book</span>(<span class="dt">keep_tex =</span> <span class="ot">TRUE</span>))</code></pre></div>
 <p>To use <code>render_book</code> and the output format functions in the RStudio IDE, you can define a YAML field named <code>knit</code> that takes the value <code>bookdown::render_book</code>, and the output format functions can be used in the <code>output</code> field, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">knit:</span> <span class="st">&quot;bookdown::render_book&quot;</span>
 <span class="fu">output:</span>
-  <span class="fu">bookdown:</span>:html_chapters:
+  <span class="fu">bookdown:</span>:gitbook:
     <span class="fu">lib_dir:</span> <span class="st">&quot;book_assets&quot;</span>
   <span class="fu">bookdown:</span>:pdf_book:
     <span class="fu">keep_tex:</span> yes
