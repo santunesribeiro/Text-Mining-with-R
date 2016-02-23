@@ -117,6 +117,7 @@ require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
     // Toggle the search
     function toggleSearch(_state) {
         if (isSearchOpen() === _state) return;
+        if (!$searchInput) return;
 
         gitbook.state.$book.toggleClass("with-search", _state);
 
@@ -150,7 +151,8 @@ require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
 
 
     gitbook.events.bind("start", function(e, config) {
-        collapse = config.toc && config.toc.collapse;
+        collapse = !config.toc || config.toc.collapse === 'section' ||
+          config.toc.collapse === 'subsection';
 
         // Pre-fetch search index and create the form
         fetchIndex()
