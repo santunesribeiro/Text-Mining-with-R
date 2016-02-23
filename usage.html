@@ -57,6 +57,17 @@ span.search-highlight {
     left: 300px;
   }
 }
+.book .book-body.fixed .body-inner {
+  top: 50px;
+}
+@media (max-width: 1240px) {
+  .book .book-body.fixed {
+    top: 50px;
+  }
+  .book .book-body.fixed .body-inner {
+    top: auto;
+  }
+}
 </style>
 
 
@@ -278,7 +289,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
 "toc": {
 "collapse": "subsection"
 }
