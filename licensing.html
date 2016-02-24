@@ -12,7 +12,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-02-23">
+<meta name="date" content="2016-02-24">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -57,6 +57,22 @@ span.search-highlight {
     left: 300px;
   }
 }
+@media (max-width: 600px) {
+  .book.with-summary .book-header.fixed {
+    left: calc(100% - 60px);
+    min-width: 300px;
+  }
+  .book.with-summary .book-body {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    left: calc(100% - 60px);
+    min-width: 300px;
+  }
+}
+
 .book .book-body.fixed .body-inner {
   top: 50px;
 }
