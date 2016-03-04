@@ -8,7 +8,7 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.41 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.42 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
@@ -167,7 +167,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>For KM, whenever you change the output format (e.g., from HTML to PDF), you must recompile all chapters (<code>render_book(force_knit = TRUE)</code>), because the Markdown output files for one format may not work for another format. There is no such issue with the MK approach.</li>
 </ul>
 <p>The default approach in <strong>bookdown</strong> is MK. To switch to KM, you either use the argument <code>new_session = TRUE</code> when calling <code>render_book()</code>, or set <code>new_session: yes</code> in the configuration file <code>_bookdown.yml</code>.</p>
-<p>Note the configurations <code>before_chapter_script</code> and <code>after_chapter_script</code> are ignored by KM. You can still configure <code>book_filename</code>, but it should be a Markdown filename, e.g., <code>_main.md</code>. All other configurations work for both MK and KM.</p>
+<p>You can still configure <code>book_filename</code>, but it should be a Markdown filename, e.g., <code>_main.md</code>, although the filename extension does not really matter, and you can even leave out the extension, e.g., just set <code>book_filename: _main</code>. All other configurations work for both MK and KM.</p>
 </div>
             </section>
 
