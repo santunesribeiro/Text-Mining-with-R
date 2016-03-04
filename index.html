@@ -8,11 +8,11 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.40 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.41 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-02-29">
+<meta name="date" content="2016-03-04">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -37,6 +37,12 @@
 
 
 
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/datatables-binding/datatables.js"></script>
+<script src="libs/datatables/jquery.dataTables.min.js"></script>
+<link href="libs/datatables-default/dataTables.extra.css" rel="stylesheet" />
+<link href="libs/datatables-default/jquery.dataTables.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -107,7 +113,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.5</b> Cross-references</a></li>
 <li class="chapter" data-level="2.6" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.6</b> Custom blocks</a></li>
 <li class="chapter" data-level="2.7" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.7</b> Citations</a></li>
-<li class="chapter" data-level="2.8" data-path="interactive-shiny-apps.html"><a href="interactive-shiny-apps.html"><i class="fa fa-check"></i><b>2.8</b> Interactive Shiny apps</a></li>
+<li class="chapter" data-level="2.8" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.8</b> HTML widgets</a></li>
+<li class="chapter" data-level="2.9" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.9</b> Web pages and Shiny apps</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
 <li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a></li>
@@ -153,7 +160,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Authoring A Book with R Markdown</h1>
 <h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2016-02-29</em></h4>
+<h4 class="date"><em>2016-03-04</em></h4>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
@@ -180,7 +187,7 @@ yihui at rstudio dot com
 <li>The editor support (in particular, the RStudio IDE);</li>
 <li>How to publish a book;</li>
 </ul>
-<p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package <span class="citation">(Xie <a href="references.html#ref-R-knitr">2016</a><a href="references.html#ref-R-knitr">b</a>)</span>, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="references.html#ref-xie2015">2015</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="references.html#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheatsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p> 
+<p>It is not a comprehensive introduction to R Markdown or the <strong>knitr</strong> package <span class="citation">(Xie <a href="references.html#ref-R-knitr">2016</a><a href="references.html#ref-R-knitr">b</a>)</span>, on top of which <strong>bookdown</strong> was built. To learn more about R Markdown, please check out the online documentation <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. For <strong>knitr</strong>, please see <span class="citation">Xie (<a href="references.html#ref-xie2015">2015</a><a href="references.html#ref-xie2015">b</a>)</span>. You do not have to be an expert of the R language <span class="citation">(R Core Team <a href="references.html#ref-R-base">2015</a>)</span> to read this book, but you are expected to have some basic knowledge about R Markdown and <strong>knitr</strong>. For beginners, you may get started with the cheatsheets at <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. To be able to customize the book templates and themes, you should be familiar with LaTeX, HTML and CSS.</p> 
 </div>
             </section>
 

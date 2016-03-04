@@ -8,11 +8,11 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.40 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.41 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-02-29">
+<meta name="date" content="2016-03-04">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -37,6 +37,12 @@
 
 
 
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/datatables-binding/datatables.js"></script>
+<script src="libs/datatables/jquery.dataTables.min.js"></script>
+<link href="libs/datatables-default/dataTables.extra.css" rel="stylesheet" />
+<link href="libs/datatables-default/jquery.dataTables.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -107,7 +113,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.5</b> Cross-references</a></li>
 <li class="chapter" data-level="2.6" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.6</b> Custom blocks</a></li>
 <li class="chapter" data-level="2.7" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.7</b> Citations</a></li>
-<li class="chapter" data-level="2.8" data-path="interactive-shiny-apps.html"><a href="interactive-shiny-apps.html"><i class="fa fa-check"></i><b>2.8</b> Interactive Shiny apps</a></li>
+<li class="chapter" data-level="2.8" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.8</b> HTML widgets</a></li>
+<li class="chapter" data-level="2.9" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.9</b> Web pages and Shiny apps</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
 <li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a></li>
@@ -157,11 +164,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="ref-R-rmarkdown">
 <p>Allaire, JJ, Joe Cheng, Yihui Xie, Jonathan McPherson, Winston Chang, Jeff Allen, Hadley Wickham, Aron Atkins, and Rob Hyndman. 2016. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 </div>
+<div id="ref-R-webshot">
+<p>Chang, Winston. 2016. <em>Webshot: Take Screenshots of Web Pages</em>. <a href="https://CRAN.R-project.org/package=webshot" class="uri">https://CRAN.R-project.org/package=webshot</a>.</p>
+</div>
+<div id="ref-R-miniUI">
+<p>Cheng, Joe. 2016. <em>MiniUI: Shiny UI Widgets for Small Screens</em>. <a href="https://CRAN.R-project.org/package=miniUI" class="uri">https://CRAN.R-project.org/package=miniUI</a>.</p>
+</div>
 <div id="ref-R-base">
 <p>R Core Team. 2015. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
+<div id="ref-R-htmlwidgets">
+<p>Vaidyanathan, Ramnath, Yihui Xie, JJ Allaire, Joe Cheng, and Kenton Russell. 2016. <em>Htmlwidgets: HTML Widgets for R</em>. <a href="https://github.com/ramnathv/htmlwidgets" class="uri">https://github.com/ramnathv/htmlwidgets</a>.</p>
+</div>
+<div id="ref-R-DT">
+<p>Xie, Yihui. 2015a. <em>DT: A Wrapper of the JavaScript Library ’DataTables’</em>. <a href="http://rstudio.github.io/DT" class="uri">http://rstudio.github.io/DT</a>.</p>
+</div>
 <div id="ref-xie2015">
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+<p>———. 2015b. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
 </div>
 <div id="ref-R-bookdown">
 <p>———. 2016a. <em>Bookdown: Authoring Books with R Markdown</em>. <a href="https://github.com/rstudio/bookdown" class="uri">https://github.com/rstudio/bookdown</a>.</p>
@@ -177,6 +196,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li id="fn1"><p>Of course, no one can stop you from writing out some files in one chapter, and reading them in another chapter.<a href="separate-r-sessions-for-individual-chapters.html#fnref1">↩</a></p></li>
 <li id="fn2"><p>To include literal backticks, just use more backticks outside, e.g., you can use two backticks to preserve one backtick inside: <code>`` `code` ``</code>.<a href="markdown-syntax.html#fnref2">↩</a></p></li>
 <li id="fn3"><p>Do not forget the leading backslash!<a href="figures.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>An <code>iframe</code> is basically a box on one web page to embed another web page.<a href="web-pages-and-shiny-apps.html#fnref4">↩</a></p></li>
 </ol>
 </div>
             </section>
