@@ -22,8 +22,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="get-started.html">
+<link rel="prev" href="configuration.html">
+<link rel="next" href="some-tips.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -159,20 +159,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="motivation" class="section level2">
-<h2><span class="header-section-number">1.1</span> Motivation</h2>
-<p>Markdown is a wonderful language to write relatively simple documents that contain elements like sections, paragraphs, lists, links, and images, etc. Pandoc (<a href="http://pandoc.org" class="uri">http://pandoc.org</a>) has greatly extended the original Markdown syntax, and added quite a few useful new features, such as footnotes, citations, and tables. More importantly, Pandoc makes it possible to generate output documents of a large variety of formats from Markdown, including HTML, LaTeX/PDF, Word, and slides.</p>
-<p>To write a relatively complicated document like a book, there are still a few useful features missing in Pandoc’s Markdown at the moment, such as automatic numbering of figures and tables in the HTML output, cross-references of figures and tables, and fine control of the appearance of figures (e.g., currently it is impossible to specify the alignment of images using the Markdown syntax). These are some of the problems that we have addressed in the <strong>bookdown</strong> package.</p>
-<p>Under the constraint that we want to produce the book in multiple output formats, it is nearly impossible to cover all possible features specific to these output formats. For example, it may be difficult to reinvent a certain complicated LaTeX environment in the HTML output using the (R) Markdown syntax. Our main goal is not to replace <em>everything</em> with Markdown, but to cover <em>most</em> common functionalities required to write a relatively complicated document, and make the syntax of such functionalities consistent across all output formats, so that you only need to learn one thing and it works for all output formats.</p>
-<p>Another goal of this project is to make it easy to produce books that look visually pleasant. Some nice existing examples include Gitbook (<a href="https://www.gitbook.com" class="uri">https://www.gitbook.com</a>), Tufte CSS (<a href="http://edwardtufte.github.io/tufte-css/" class="uri">http://edwardtufte.github.io/tufte-css/</a>), and Tufte-LaTeX (<a href="https://tufte-latex.github.io/tufte-latex/" class="uri">https://tufte-latex.github.io/tufte-latex/</a>). We hope to integrate these themes and styles into <strong>bookdown</strong>, so authors do not have to dive into the details of how to use a certain LaTeX class or how to configure CSS for HTML output.</p>
+<div id="new-session" class="section level2">
+<h2><span class="header-section-number">1.5</span> Two rendering approaches</h2>
+<p>Merging all chapters into one Rmd file and knitting it is one way to render the book in <strong>bookdown</strong>. There is actually another way: you may knit each chapter in a <em>separate</em> R session, and <strong>bookdown</strong> will merge the Markdown output of all chapters to render the book. We call these two approaches “Merge and Knit” (MK) and “Knit and Merge” (KM), respectively. The differences between them may seem subtle, but can be fairly important depending on your use cases.</p>
+<ul>
+<li>The most significant difference is that MK runs <em>all</em> code chunks in all chapters in the same R session, whereas KM uses separate R sessions for individual chapters. For MK, the state of the R session from previous chapters is carried over to later chapters (e.g., objects created in previous chapters are available to later chapters, unless you deliberately deleted them); for KM, all chapters are isolated from each other<a href="references.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. If you want each chapter to compile from a clean state, use the KM approach. It can be very tricky and difficult to restore a running R session to a completely clean state if you use the MK approach. For example, even you detach/unload packages loaded in a previous chapter, R will not clean up the S3 methods registered by these packages.</li>
+<li>One advantage of KM is that Rmd files that have not been updated since the last time the book was rendered will not be recompiled by default, unless you force all chapters to be recompiled via <code>render_book(force_knit = TRUE)</code>. This may save some time, but the speedup may not be very significant, since the major time is normally consumed by running code chunks. If time-consumed chunks are cached, the compilation time for MK and KM may be about the same.</li>
+<li>The KM approach will generate more files under the directory of Rmd files: each Rmd file will generate a Markdown output file (<code>.md</code>), and possibly a figure directory and a cache directory (e.g. <code>01-intro_files/</code> and <code>01-intro_cache/</code>). The MK approach only renders one Rmd file, so it only has one set of output files.</li>
+<li>For KM, whenever you change the output format (e.g., from HTML to PDF), you must recompile all chapters (<code>render_book(force_knit = TRUE)</code>), because the Markdown output files for one format may not work for another format. There is no such issue with the MK approach.</li>
+</ul>
+<p>The default approach in <strong>bookdown</strong> is MK. To switch to KM, you either use the argument <code>new_session = TRUE</code> when calling <code>render_book()</code>, or set <code>new_session: yes</code> in the configuration file <code>_bookdown.yml</code>.</p>
+<p>You can still configure <code>book_filename</code> in <code>_bookdown.yml</code> for the KM approach, but it should be a Markdown filename, e.g., <code>_main.md</code>, although the filename extension does not really matter, and you can even leave out the extension, e.g., just set <code>book_filename: _main</code>. All other configurations work for both MK and KM.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="get-started.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="configuration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="some-tips.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>

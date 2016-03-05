@@ -22,8 +22,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="configuration.html">
-<link rel="next" href="some-tips.html">
+<link rel="prev" href="publishing.html">
+<link rel="next" href="github.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -103,7 +103,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
 <li class="chapter" data-level="1.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>1.4</b> Configuration</a></li>
-<li class="chapter" data-level="1.5" data-path="two-rendering-approaches.html"><a href="two-rendering-approaches.html"><i class="fa fa-check"></i><b>1.5</b> Two rendering approaches</a></li>
+<li class="chapter" data-level="1.5" data-path="new-session.html"><a href="new-session.html"><i class="fa fa-check"></i><b>1.5</b> Two rendering approaches</a></li>
 <li class="chapter" data-level="1.6" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.6</b> Some tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
@@ -132,10 +132,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>5.1</b> RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.1</b> GitHub</a></li>
-<li class="chapter" data-level="6.2" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.2</b> Publishers</a></li>
-<li class="chapter" data-level="6.3" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.3</b> Licensing</a></li>
-<li class="chapter" data-level="6.4" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.4</b> Self-publishing</a></li>
+<li class="chapter" data-level="6.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>6.1</b> Build the book</a></li>
+<li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
+<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
+<li class="chapter" data-level="6.4" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.4</b> Licensing</a></li>
+<li class="chapter" data-level="6.5" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.5</b> Self-publishing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -158,25 +159,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="two-rendering-approaches" class="section level2">
-<h2><span class="header-section-number">1.5</span> Two rendering approaches</h2>
-<p>Merging all chapters into one Rmd file and knitting it is one way to render the book in <strong>bookdown</strong>. There is actually another way: you may knit each chapter in a <em>separate</em> R session, and <strong>bookdown</strong> will merge the Markdown output of all chapters to render the book. We call these two approaches “Merge and Knit” (MK) and “Knit and Merge” (KM), respectively. The differences between them may seem subtle, but can be fairly important depending on your use cases.</p>
-<ul>
-<li>The most significant difference is that MK runs <em>all</em> code chunks in all chapters in the same R session, whereas KM uses separate R sessions for individual chapters. For MK, the state of the R session from previous chapters is carried over to later chapters (e.g., objects created in previous chapters are available to later chapters, unless you deliberately deleted them); for KM, all chapters are isolated from each other<a href="references.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. If you want each chapter to compile from a clean state, use the KM approach. It can be very tricky and difficult to restore a running R session to a completely clean state if you use the MK approach. For example, even you detach/unload packages loaded in a previous chapter, R will not clean up the S3 methods registered by these packages.</li>
-<li>One advantage of KM is that Rmd files that have not been updated since the last time the book was rendered will not be recompiled by default, unless you force all chapters to be recompiled via <code>render_book(force_knit = TRUE)</code>. This may save some time, but the speedup may not be very significant, since the major time is normally consumed by running code chunks. If time-consumed chunks are cached, the compilation time for MK and KM may be about the same.</li>
-<li>The KM approach will generate more files under the directory of Rmd files: each Rmd file will generate a Markdown output file (<code>.md</code>), and possibly a figure directory and a cache directory (e.g. <code>01-intro_files/</code> and <code>01-intro_cache/</code>). The MK approach only renders one Rmd file, so it only has one set of output files.</li>
-<li>For KM, whenever you change the output format (e.g., from HTML to PDF), you must recompile all chapters (<code>render_book(force_knit = TRUE)</code>), because the Markdown output files for one format may not work for another format. There is no such issue with the MK approach.</li>
-</ul>
-<p>The default approach in <strong>bookdown</strong> is MK. To switch to KM, you either use the argument <code>new_session = TRUE</code> when calling <code>render_book()</code>, or set <code>new_session: yes</code> in the configuration file <code>_bookdown.yml</code>.</p>
-<p>You can still configure <code>book_filename</code> in <code>_bookdown.yml</code> for the KM approach, but it should be a Markdown filename, e.g., <code>_main.md</code>, although the filename extension does not really matter, and you can even leave out the extension, e.g., just set <code>book_filename: _main</code>. All other configurations work for both MK and KM.</p>
+<div id="build-the-book" class="section level2">
+<h2><span class="header-section-number">6.1</span> Build the book</h2>
+<p>To build all Rmd files into a book, you can call the <code>render_book()</code> function in <strong>bookdown</strong>. Below are the arguments of <code>render_book()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">render_book</span>(input, <span class="dt">output_format =</span> <span class="ot">NULL</span>, ..., <span class="dt">clean =</span> <span class="ot">TRUE</span>, <span class="dt">envir =</span> <span class="kw">parent.frame</span>(), 
+    <span class="dt">output_dir =</span> <span class="st">&quot;_book&quot;</span>, <span class="dt">new_session =</span> <span class="ot">FALSE</span>, <span class="dt">force_knit =</span> <span class="ot">FALSE</span>, <span class="dt">preview =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>The most important argument is <code>output_format</code>, which can take a character string (e.g., <code>'bookdown::gitbook'</code>), or an object returned by an output format function (e.g., <code>bookdown::gitbook(lib_dir = 'assets')</code>). You can leave this argument empty, and the default output format will be the first output format specified in the YAML metadata of the first Rmd file or a separate YAML file <code>_output.yml</code>, as mentioned in Section <a href="configuration.html#configuration">1.4</a>. If you plan to generate multiple output formats for a book, you are recommended to specify all formats in <code>_output.yml</code>.</p>
+<p>Once all formats are specified in <code>_output.yml</code>, it is easy to write an R or Shell script or Makefile to compile the book. Below is a simple example of using a Shell script to compile a book to HTML (with the GitBook style) and PDF:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/usr/bin/env Rscript</span>
+
+<span class="kw">bookdown</span>::render_book(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
+<span class="kw">bookdown</span>::render_book(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</code></pre></div>
+<p>The Shell script does not work on Windows (not strictly true, though), but hopefully you get the idea.</p>
+<p>The argument <code>...</code> is passed to the output format function. Arguments <code>clean</code> and <code>envir</code> are passed to <code>rmarkdown::render()</code>, to decide whether to clean up the intermediate files, and specify the environment to evaluate R code, respectively.</p>
+<p>The output directory of the book can be specified via the <code>output_dir</code> argument. By default, the book is generated to the <code>_book</code> directory. This can also be changed via the <code>output_dir</code> field in the configuration file <code>_bookdown.yml</code>, so that you do not have to specify it multiple times for rendering a book to multiple output formats. The <code>new_session</code> argument has been explained in Section <a href="new-session.html#new-session">1.5</a>; <code>force_knit</code> applies to <code>new_session = TRUE</code> only, and it determines whether to knit all Rmd files even if their output Markdown files are newer than the Rmd source files. When you set <code>preview = TRUE</code>, only the Rmd files specified in the <code>input</code> argument are rendered, which can be convenient when previewing a certain chapter, since you do not recompile the whole book, but when publishing a book, this argument should certainly be set to <code>FALSE</code>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="configuration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="some-tips.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="publishing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="github.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -203,7 +207,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/05-publishing.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
