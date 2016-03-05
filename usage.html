@@ -12,7 +12,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-03-04">
+<meta name="date" content="2016-03-05">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -23,7 +23,7 @@
   
   
 <link rel="prev" href="get-started.html">
-<link rel="next" href="separate-r-sessions-for-individual-chapters.html">
+<link rel="next" href="configuration.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -102,8 +102,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
-<li class="chapter" data-level="1.4" data-path="separate-r-sessions-for-individual-chapters.html"><a href="separate-r-sessions-for-individual-chapters.html"><i class="fa fa-check"></i><b>1.4</b> Separate R sessions for individual chapters</a></li>
-<li class="chapter" data-level="1.5" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.5</b> Some tips</a></li>
+<li class="chapter" data-level="1.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>1.4</b> Configuration</a></li>
+<li class="chapter" data-level="1.5" data-path="two-rendering-approaches.html"><a href="two-rendering-approaches.html"><i class="fa fa-check"></i><b>1.5</b> Two rendering approaches</a></li>
+<li class="chapter" data-level="1.6" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.6</b> Some tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
 <li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a></li>
@@ -159,7 +160,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="usage" class="section level2">
 <h2><span class="header-section-number">1.3</span> Usage</h2>
-<p>Normally, a book contains multiple chapters, and one chapter lives in one R Markdown file, with the filename extension <code>.Rmd</code>. Each R Markdown file must start immediately with the chapter title. Here is an example (the bullets are the filenames, followed by the file content):</p>
+<p>Normally, a book contains multiple chapters, and one chapter lives in one R Markdown file, with the filename extension <code>.Rmd</code>. Each R Markdown file must start immediately with the chapter title. All R Markdown files must be encoded in UTF-8. Here is an example (the bullets are the filenames, followed by the file content):</p>
 <ul>
 <li><p>01-intro.Rmd</p>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Introduction</span>
@@ -200,7 +201,8 @@ We have finished a nice book.</code></pre></div></li>
 Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.
 </p>
 </div>
-<p>At the moment, there are three output formats that you may use: <code>bookdown::pdf_book</code>, <code>bookdown::gitbook</code>, and <code>bookdown::html_chapters</code>. There is a <code>bookdown::render_book()</code> function similar to <code>rmarkdown::render()</code> that renders multiple Rmd documents into a book using the output format functions. You may either call this function from command line, or use it in the RStudio IDE. Here are some command line examples:</p>
+<p>Although we have been talking about R Markdown files, the chapter files do not actually have to be R Markdown. They can be plain Markdown files (<code>.md</code>), and do not have to contain R code chunks at all. You can certainly use <strong>bookdown</strong> to compose novels or poems!</p>
+<p>At the moment, there are three output formats that you may use: <code>bookdown::pdf_book</code>, <code>bookdown::gitbook</code>, and <code>bookdown::html_chapters</code>. There is a <code>bookdown::render_book()</code> function similar to <code>rmarkdown::render()</code>, but it was designed to render <em>multiple</em> Rmd documents into a book using the output format functions. You may either call this function from command line, or use it in the RStudio IDE. Here are some command line examples:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
 bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)
 bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">gitbook</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;book_assets&quot;</span>))
@@ -215,18 +217,6 @@ bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quo
     <span class="fu">keep_tex:</span> yes
 <span class="ot">---</span></code></pre></div>
 <p>Then you can click the <code>Knit</code> button in RStudio to compile the Rmd files into a book.</p>
-<p>There are more things you can configure for a book in <code>_bookdown.yml</code>:</p>
-<ul>
-<li><code>book_filename</code>: the filename of the main Rmd file, i.e., the Rmd file that is merged from all chapters; by default, it is named <code>_main.Rmd</code></li>
-<li><code>chapter_name</code>: (for HTML output only) either a character string to be prepended to the chapter number in the chapter title (by default it is <code>&quot;Chapter &quot;</code>), or an R function that takes the chapter number as the input and returns a string as the new chapter number (e.g., <code>!expr function(i) paste('Chapter', i)</code>)</li>
-<li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script</li>
-<li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter</li>
-</ul>
-<p>Here is a sample <code>_bookdown.yml</code>:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">book_filename:</span> <span class="st">&quot;my-book.Rmd&quot;</span>
-<span class="fu">chapter_name:</span> <span class="st">&quot;CHAPTER &quot;</span>
-<span class="fu">before_chapter_script:</span> <span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span> <span class="st">&quot;script2.R&quot;</span><span class="kw">]</span>
-<span class="fu">after_chapter_script:</span> <span class="st">&quot;script3.R&quot;</span></code></pre></div>
 </div>
             </section>
 
@@ -234,7 +224,7 @@ bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quo
         </div>
       </div>
 <a href="get-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="separate-r-sessions-for-individual-chapters.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="configuration.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>

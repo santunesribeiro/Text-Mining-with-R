@@ -12,7 +12,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-03-04">
+<meta name="date" content="2016-03-05">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -102,8 +102,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
-<li class="chapter" data-level="1.4" data-path="separate-r-sessions-for-individual-chapters.html"><a href="separate-r-sessions-for-individual-chapters.html"><i class="fa fa-check"></i><b>1.4</b> Separate R sessions for individual chapters</a></li>
-<li class="chapter" data-level="1.5" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.5</b> Some tips</a></li>
+<li class="chapter" data-level="1.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>1.4</b> Configuration</a></li>
+<li class="chapter" data-level="1.5" data-path="two-rendering-approaches.html"><a href="two-rendering-approaches.html"><i class="fa fa-check"></i><b>1.5</b> Two rendering approaches</a></li>
+<li class="chapter" data-level="1.6" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.6</b> Some tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
 <li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a></li>
@@ -160,13 +161,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Authoring A Book with R Markdown</h1>
 <h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2016-03-04</em></h4>
+<h4 class="date"><em>2016-03-05</em></h4>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
 <div class="rmdwarning">
 <p>
-This book and the package <strong>bookdown</strong> are still under active development, and should not be considered stable at the moment. You are welcome to experiment with this package, and feedback may be sent to
+This book and the package <strong>bookdown</strong> are still under active development, and should not be considered stable at the moment. You are welcome to experiment with this package, and feedback may be sent to <a href="https://github.com/rstudio/bookdown/issues" class="uri">https://github.com/rstudio/bookdown/issues</a> or
 <script type="text/javascript">
 <!--
 h='&#114;&#x73;&#116;&#x75;&#100;&#x69;&#x6f;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x79;&#x69;&#104;&#x75;&#x69;';e=n+a+h;
@@ -182,7 +183,7 @@ yihui at rstudio dot com
 <p>This book is a guide to authoring books with R Markdown <span class="citation">(Allaire et al. <a href="references.html#ref-R-rmarkdown">2016</a>)</span> and the R package <strong>bookdown</strong> <span class="citation">(Xie <a href="references.html#ref-R-bookdown">2016</a><a href="references.html#ref-R-bookdown">a</a>)</span>. It focuses on the features specific to writing books, long-form articles, or reports, such as</p>
 <ul>
 <li>How to typeset figures and tables, and cross-reference them;</li>
-<li>How to generate multiple output formats such as HTML, PDF, and E-Books for a single book;</li>
+<li>How to generate multiple output formats such as HTML, PDF, and e-books for a single book;</li>
 <li>How to customize the book templates and style different elements in a book;</li>
 <li>The editor support (in particular, the RStudio IDE);</li>
 <li>How to publish a book;</li>
