@@ -124,7 +124,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="latexpdf.html"><a href="latexpdf.html"><i class="fa fa-check"></i><b>3.2</b> LaTeX/PDF</a></li>
 <li class="chapter" data-level="3.3" data-path="e-books.html"><a href="e-books.html"><i class="fa fa-check"></i><b>3.3</b> E-Books</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="e-books.html"><a href="e-books.html#epub"><i class="fa fa-check"></i><b>3.3.1</b> EPub</a></li>
+<li class="chapter" data-level="3.3.1" data-path="e-books.html"><a href="e-books.html#epub"><i class="fa fa-check"></i><b>3.3.1</b> EPUB</a></li>
 <li class="chapter" data-level="3.3.2" data-path="e-books.html"><a href="e-books.html#mobi"><i class="fa fa-check"></i><b>3.3.2</b> MOBI</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="a-single-document.html"><a href="a-single-document.html"><i class="fa fa-check"></i><b>3.4</b> A single document</a></li>
@@ -168,7 +168,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="a-single-document" class="section level2">
 <h2><span class="header-section-number">3.4</span> A single document</h2>
-<p><code>html_document2()</code></p>
+<p>Sometimes you may not want to write a book, but just a single long-form article or report instead. Usually what you do is call <code>rmarkdown::render()</code> with a certain output format. The main features missing there are the automatic numbering of figure/table captions, and cross-referencing figures/tables/sections. We have factored out these features from <strong>bookdown</strong>, so that you can use them without having to prepare a book of multiple Rmd files.</p>
+<p>The functions <code>html_document2()</code>, <code>tufte_html2()</code>, <code>pdf_document2()</code>, <code>tufte_handout2()</code>, and <code>tufte_book2()</code> are designed for this purpose. If you render an R Markdown document with the output format, say, <code>bookdown::html_document2</code>, you will get figure/table numbers and be able to cross-reference them in the single HTML page using the syntax described in Chapter <a href="components.html#components">2</a>.</p>
 
 </div>
 <!-- </div> -->
