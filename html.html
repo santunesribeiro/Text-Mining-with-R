@@ -323,7 +323,7 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
     foot
   ), <span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)
 }</code></pre></div>
-<p>Basically, this function takes a number of compoents like the HTML head, the table of contents, the chapter body, and so on, and it is expected to return a character string which is the HTML source of a complete HTML page. You may manipulate all components in this function using text-processing functions like <code>gsub()</code> and <code>paste()</code>.</p>
+<p>Basically, this function takes a number of components like the HTML head, the table of contents, the chapter body, and so on, and it is expected to return a character string which is the HTML source of a complete HTML page. You may manipulate all components in this function using text-processing functions like <code>gsub()</code> and <code>paste()</code>.</p>
 <p>What the default page builder does is to put TOC in the first row, the body in the second row, navigation buttons at the bottom of the body, and concatenate them with the HTML head and foot. Here is a sketch of the HTML source code that may help you understand the output of <code>build_chapter()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
   <span class="kw">&lt;head&gt;</span>
