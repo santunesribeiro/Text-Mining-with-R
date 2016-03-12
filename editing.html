@@ -8,11 +8,11 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.46 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.47 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-03-11">
+<meta name="date" content="2016-03-12">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -21,8 +21,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="cjk-languages.html">
-<link rel="next" href="rstudio.html">
+<link rel="prev" href="internationalization.html">
+<link rel="next" href="build-the-book.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -133,17 +133,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="yaml-options.html"><a href="yaml-options.html"><i class="fa fa-check"></i><b>4.1</b> YAML options</a></li>
 <li class="chapter" data-level="4.2" data-path="theming.html"><a href="theming.html"><i class="fa fa-check"></i><b>4.2</b> Theming</a></li>
 <li class="chapter" data-level="4.3" data-path="templates.html"><a href="templates.html"><i class="fa fa-check"></i><b>4.3</b> Templates</a></li>
-<li class="chapter" data-level="4.4" data-path="cjk-languages.html"><a href="cjk-languages.html"><i class="fa fa-check"></i><b>4.4</b> CJK languages</a></li>
+<li class="chapter" data-level="4.4" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.4</b> Internationalization</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a><ul>
-<li class="chapter" data-level="5.1" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>5.1</b> RStudio</a></li>
+<li class="chapter" data-level="5.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>5.1</b> Build the book</a></li>
+<li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
+<li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
+<li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>6.1</b> Build the book</a></li>
-<li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
-<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
-<li class="chapter" data-level="6.4" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.4</b> Licensing</a></li>
-<li class="chapter" data-level="6.5" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.5</b> Self-publishing</a></li>
+<li class="chapter" data-level="6.1" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.1</b> GitHub</a></li>
+<li class="chapter" data-level="6.2" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.2</b> Publishers</a></li>
+<li class="chapter" data-level="6.3" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.3</b> Licensing</a></li>
+<li class="chapter" data-level="6.4" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.4</b> Self-publishing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -167,15 +169,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="editing" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Editing</h1> 
+<h1><span class="header-section-number">Chapter 5</span> Editing</h1>
+<p>In this chapter, we explain how to edit, build, preview, and serve the book locally. You can use any text editors to edit the book, and we will show some tips about the RStudio IDE. We will introduce the underlying R functions for building, previewing, and serving the book before we introduce the editor, so that you really understand what happens behind the scenes when you click a certain button in the RStudio IDE, and can also customize other editors calling these functions.</p> 
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="cjk-languages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rstudio.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="internationalization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="build-the-book.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>

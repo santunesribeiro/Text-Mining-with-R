@@ -8,11 +8,11 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.46 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.47 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-03-11">
+<meta name="date" content="2016-03-12">
 
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -133,17 +133,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="yaml-options.html"><a href="yaml-options.html"><i class="fa fa-check"></i><b>4.1</b> YAML options</a></li>
 <li class="chapter" data-level="4.2" data-path="theming.html"><a href="theming.html"><i class="fa fa-check"></i><b>4.2</b> Theming</a></li>
 <li class="chapter" data-level="4.3" data-path="templates.html"><a href="templates.html"><i class="fa fa-check"></i><b>4.3</b> Templates</a></li>
-<li class="chapter" data-level="4.4" data-path="cjk-languages.html"><a href="cjk-languages.html"><i class="fa fa-check"></i><b>4.4</b> CJK languages</a></li>
+<li class="chapter" data-level="4.4" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.4</b> Internationalization</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a><ul>
-<li class="chapter" data-level="5.1" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>5.1</b> RStudio</a></li>
+<li class="chapter" data-level="5.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>5.1</b> Build the book</a></li>
+<li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
+<li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
+<li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>6.1</b> Build the book</a></li>
-<li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
-<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
-<li class="chapter" data-level="6.4" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.4</b> Licensing</a></li>
-<li class="chapter" data-level="6.5" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.5</b> Self-publishing</a></li>
+<li class="chapter" data-level="6.1" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.1</b> GitHub</a></li>
+<li class="chapter" data-level="6.2" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.2</b> Publishers</a></li>
+<li class="chapter" data-level="6.3" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.3</b> Licensing</a></li>
+<li class="chapter" data-level="6.4" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.4</b> Self-publishing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -197,6 +199,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="ref-R-knitr">
 <p>———. 2016b. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
 </div>
+<div id="ref-R-servr">
+<p>———. 2016c. <em>Servr: A Simple HTTP Server to Serve Static Files or Dynamic Documents</em>. <a href="https://github.com/yihui/servr" class="uri">https://github.com/yihui/servr</a>.</p>
+</div>
 <div id="ref-R-tufte">
 <p>Xie, Yihui, and JJ Allaire. 2016. <em>Tufte: Tufte’s Styles for R Markdown Documents</em>. <a href="https://github.com/rstudio/tufte" class="uri">https://github.com/rstudio/tufte</a>.</p>
 </div>
@@ -209,9 +214,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li id="fn2"><p>To include literal backticks, just use more backticks outside, e.g., you can use two backticks to preserve one backtick inside: <code>`` `code` ``</code>.<a href="markdown-syntax.html#fnref2">↩</a></p></li>
 <li id="fn3"><p>Do not forget the leading backslash!<a href="figures.html#fnref3">↩</a></p></li>
 <li id="fn4"><p>An <code>iframe</code> is basically a box on one web page to embed another web page.<a href="web-pages-and-shiny-apps.html#fnref4">↩</a></p></li>
-<li id="fn5"><p>Allowing self-contained pages will significantly increase the total size of all HTML files since there are many JS and CSS files tha have to be embedded in every single HTML file.<a href="html.html#fnref5">↩</a></p></li>
-<li id="fn6"><p>To see more details on how an identifier is automatically generated, see the <code>auto_identifiers</code> extension in Pandoc’s documentation <a href="http://pandoc.org/README.html#header-identifiers" class="uri">http://pandoc.org/README.html#header-identifiers</a><a href="html.html#fnref6">↩</a></p></li>
-<li id="fn7"><p>You need to authorize the Travis CI service for your repository on GitHub first. See <a href="https://docs.travis-ci.com/user/getting-started/" class="uri">https://docs.travis-ci.com/user/getting-started/</a> for how to get started with Travis CI.<a href="github.html#fnref7">↩</a></p></li>
+<li id="fn5"><p>To see more details on how an identifier is automatically generated, see the <code>auto_identifiers</code> extension in Pandoc’s documentation <a href="http://pandoc.org/README.html#header-identifiers" class="uri">http://pandoc.org/README.html#header-identifiers</a><a href="html.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>You need to authorize the Travis CI service for your repository on GitHub first. See <a href="https://docs.travis-ci.com/user/getting-started/" class="uri">https://docs.travis-ci.com/user/getting-started/</a> for how to get started with Travis CI.<a href="github.html#fnref6">↩</a></p></li>
 </ol>
 </div>
             </section>
