@@ -8,7 +8,7 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.47 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.48 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
@@ -170,8 +170,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="rstudio-ide" class="section level2">
 <h2><span class="header-section-number">5.4</span> RStudio IDE</h2>
-<p>the <code>knit</code> field in YAML</p>
-<p>Math</p>
+<p>When you compile an R Markdown document in the RStudio IDE, the default function called by RStudio is <code>rmarkdown::render()</code>, which is not what we want for books. To call the function <code>bookdown::render_book()</code> instead, you can set the <code>knit</code> field to be <code>bookdown::render_book</code> in the YAML metadata of R Markdown documents, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">title:</span> <span class="st">&quot;A Nice Book&quot;</span>
+<span class="fu">knit:</span> bookdown::render_book
+<span class="fu">output:</span>
+  <span class="fu">bookdown:</span>:gitbook: default
+<span class="ot">---</span></code></pre></div>
+<p>Then when you hit the <code>Knit</code> button on the RStudio toolbar, RStudio will call <code>bookdown::render_book()</code> to render the Rmd files. If you only want to preview the current Rmd file, use <code>bookdown::preview_chapter</code> instead, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">title:</span> <span class="st">&quot;A Nice Book&quot;</span>
+<span class="fu">knit:</span> bookdown::preview_chapter
+<span class="fu">output:</span>
+  <span class="fu">bookdown:</span>:gitbook: default
+<span class="ot">---</span></code></pre></div>
+<p>If an Rmd file does not have YAML metadata in the beginning, <strong>bookdown</strong> will automatically add <code>knit: bookdown::preview_chapter</code> to it the first time you compile the whole book through <code>bookdown::render_book()</code>.</p>
+<p>The <strong>bookdown</strong> package comes with a few addins for RStudio. If you are not familiar with RStudio addins, you may check out the documentation at <a href="http://rstudio.github.io/rstudioaddins/" class="uri">http://rstudio.github.io/rstudioaddins/</a>. After you have installed the <strong>bookdown</strong> package and use RStudio v0.99.878 or later, you will see a dropdown menu on the toolbar named “Addins” and menu items like “Preview Book” and “Input LaTeX Math” after you open the menu.</p>
+<p>The addin “Preview Book” calls <code>bookdown::serve_book()</code> to compile and serve the book. It will block your current R session, i.e., when <code>serve_book()</code> is running, you will not be able to do anything in the R console any more. To avoid blocking the R session, you can daemonize the server using <code>bookdown::serve_book(daemon = TRUE)</code>. Note this addin must be used when the current document opened in RStudio is under the root directory of your book, otherwise <code>serve_book()</code> may not be able to find the book source.</p>
+<p>The addin “Input LaTeX Math” is essentially a small Shiny application that provides a text box to help you type LaTeX math expressions (Figure <a href="rstudio-ide.html#fig:mathquill">5.1</a>). As you type, you will see the preview of the math expression and its LaTeX source code. This will make it much less error-prone to type math expressions — when you type a long LaTeX math expression without preview, it is easy to make mistakes such as <code>X_ij</code> when you meant <code>X_{ij}</code>, or omitting a closing bracket. If you have selected a LaTeX math expression in the RStudio editor before clicking the addin, the expression will be automatically loaded and rendered in the text box. This addin was built on top of the MathQuill library (<a href="http://mathquill.com" class="uri">http://mathquill.com</a>). It is not meant to provide full support to all LaTeX commands for math expressions, but should help you type some common math expressions.</p>
+<div class="figure" style="text-align: center"><span id="fig:mathquill"></span>
+<img src="images/mathquill.png" alt="The RStudio addin to help input LaTeX math."  />
+<p class="caption">
+Figure 5.1: The RStudio addin to help input LaTeX math.
+</p>
+</div>
 
 </div>
 <!-- </div> -->

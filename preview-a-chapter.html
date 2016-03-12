@@ -8,7 +8,7 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.47 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.48 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
@@ -170,7 +170,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="preview-a-chapter" class="section level2">
 <h2><span class="header-section-number">5.2</span> Preview a chapter</h2>
-<p>Building the whole book can be slow when the size of the book is big. Two things can affect the speed of building a book: the computation in R code chunks, and the conversion from Markdown to other formats via Pandoc. The former can be improved by enabling caching in <strong>knitr</strong> using the chunk option <code>cache = TRUE</code>, and there is not much you can do to make the latter faster. However, you can choose to render only the current chapter using the function <code>preview_chapter()</code> in <strong>bookdown</strong>, and usually this will be much faster than rendering the whole book. Only the Rmd files passed to <code>preview_chapter()</code> will be rendered.</p>
+<p>Building the whole book can be slow when the size of the book is big. Two things can affect the speed of building a book: the computation in R code chunks, and the conversion from Markdown to other formats via Pandoc. The former can be improved by enabling caching in <strong>knitr</strong> using the chunk option <code>cache = TRUE</code>, and there is not much you can do to make the latter faster. However, you can choose to render only one chapter using the function <code>preview_chapter()</code> in <strong>bookdown</strong>, and usually this will be much faster than rendering the whole book. Only the Rmd files passed to <code>preview_chapter()</code> will be rendered.</p>
 <p>Previewing the current chapter is helpful when you are only focusing on this chapter, since you can quickly see the actual output as you add more content or revise the chapter. Although the preview works for all output formats, we recommend you to preview the HTML output.</p>
 <p>One downside of previewing a chapter is that the cross-references to other chapters will not work, since <strong>bookdown</strong> knows nothing about other chapters in this case. That is a reasonably small price to pay for the gain in speed.</p>
 </div>

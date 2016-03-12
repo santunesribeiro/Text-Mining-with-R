@@ -8,7 +8,7 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.47 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.48 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
@@ -170,9 +170,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="serve-the-book" class="section level2">
 <h2><span class="header-section-number">5.3</span> Serve the book</h2>
-<p>Instead of running <code>render_book()</code> or <code>preview_chapter()</code> over and over again, you can actually live preview the book in the web browser. The only thing you need to do is save the Rmd file. The function <code>serve_book()</code> in <strong>bookdown</strong> can start a local web server to serve the HTML output based on the <strong>servr</strong> package <span class="citation">(Xie <a href="references.html#ref-R-servr">2016</a><a href="references.html#ref-R-servr">c</a>)</span>.</p>
+<p>Instead of running <code>render_book()</code> or <code>preview_chapter()</code> over and over again, you can actually live preview the book in the web browser, and the only thing you need to do is save the Rmd file. The function <code>serve_book()</code> in <strong>bookdown</strong> can start a local web server to serve the HTML output based on the <strong>servr</strong> package <span class="citation">(Xie <a href="references.html#ref-R-servr">2016</a><a href="references.html#ref-R-servr">c</a>)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">serve_book</span>(<span class="dt">dir =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">output_dir =</span> <span class="st">&quot;_book&quot;</span>, <span class="dt">preview =</span> <span class="ot">TRUE</span>, <span class="dt">in_session =</span> <span class="ot">TRUE</span>, 
   ...)</code></pre></div>
+<p>You just pass the root directory of the book to the <code>dir</code> argument, and this function will start a local web server so you can view the book output using the server. The default URL to access the book output is <code>http://127.0.0.1:4321</code>. If you run this function in an interactive R session, this URL will be automatically opened in your web browser. If you are in the RStudio IDE, the RStudio Viewer will be used as the default web browser, so you will be able to write the Rmd source files and preview the output in the same environment (e.g, source on the left and output on the right).</p>
+<p>The server will listen to changes in the book root directory: whenever you modify any files in the book directory, <code>serve_book()</code> can detect the changes, recompile the Rmd files, and refresh the web browser automatically. If the modified files do not include Rmd files, it just refreshes the browser (e.g., if you only updated a certain CSS file). This means once the server is launched, all you have to do next is simply write the book and save the files. Compilation and preview will take place automatically as you save files.</p>
+<p>If it does not really take too much time to recompile the whole book, you may set the argument <code>preview = FALSE</code>, so that every time you update the book, the whole book is recompiled, otherwise only the modified chapters are recompiled via <code>preview_chapter()</code>.</p>
+<p>The <code>...</code> arguments are passed to <code>servr::httw()</code>, and please see its help page to know all possible options, such as <code>port</code> and <code>daemon</code>. There are pros and cons using <code>in_session = TRUE</code> or <code>FALSE</code>:</p>
+<ul>
+<li>For <code>in_session = TRUE</code>, you will have access to all objects created in the book in the current R session: if you use a daemonized server (via the argument <code>daemon = TRUE</code>), you can check the objects at any time when the current R session is not busy; otherwise you will have to stop the server before you can check the objects. This can be useful when you need to interactively explore the R objects in the book. The downside of <code>in_session = TRUE</code> is that the output may be different with the book compiled from a fresh R session, because the state of the current R session may not be clean.</li>
+<li>For <code>in_sesion = FALSE</code>, you do not have access to objects in the book from the current R session, but the output is more likely to be reproducible since everything is created from new R sessions. Since this function is only for previewing purposes, the cleanness of the R session may not be a big concern.</li>
+</ul>
+<p>You may choose <code>in_session = TRUE</code> or <code>FALSE</code> depending on your specific use cases. Eventually, you should run <code>render_book()</code> from a fresh R session to generate a reliable copy of the book output.</p>
 </div>
             </section>
 
