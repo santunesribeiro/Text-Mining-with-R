@@ -14,6 +14,11 @@
 
 <meta name="date" content="2016-03-12">
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -202,7 +207,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="co">% insert after_body here</span>
 \end{document}</code></pre></div>
-<p>The <code>includes</code> option is very useful and flexible. For HTML output, it means you can insert arbitrary HTML code to the output. For example, when you have LaTeX math expressions rendered via the MathJax library in the HTML output, and want to number the equations, you can create a text file that contains the following code:</p>
+<p>The <code>includes</code> option is very useful and flexible. For HTML output, it means you can insert arbitrary HTML code to the output. For example, when you have LaTeX math expressions rendered via the MathJax library in the HTML output, and want to number the equations in the <code>equation</code> environment, you can create a text file that contains the following code:</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/x-mathjax-config&quot;</span><span class="kw">&gt;</span>
 <span class="va">MathJax</span>.<span class="va">Hub</span>.<span class="at">Config</span>(<span class="op">{</span>
   <span class="dt">TeX</span><span class="op">:</span> <span class="op">{</span> <span class="dt">equationNumbers</span><span class="op">:</span> <span class="op">{</span> <span class="dt">autoNumber</span><span class="op">:</span> <span class="st">&quot;AMS&quot;</span> <span class="op">}</span> <span class="op">}</span>
@@ -215,6 +220,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">includes:</span>
       <span class="fu">in_header:</span> mathjax-number.html
 <span class="ot">---</span></code></pre></div>
+<p>If you use the HTML output format <code>html_book</code> or <code>gitbook</code> in <strong>bookdown</strong>, this has already been set up in the HTML templates, so you do not really need to insert such a file in the HTML head. You only need to do it for other HTML output formats.</p>
 <p>Similarly, if you are familiar with LaTeX, you can add arbitrary LaTeX code to the preamble. That means you can use any LaTeX packages and set up any package options for your book. For example, this book used the <code>in_header</code> option to use a few more LaTeX packages like <strong>booktabs</strong> (for better-looking tables) and <strong>longtable</strong> (for tables that span across multiple pages), and apply a fix to an XeLaTeX problem that links on graphics do not work:</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\usepackage{booktabs}
 \usepackage{longtable}
