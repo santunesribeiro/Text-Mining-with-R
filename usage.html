@@ -26,8 +26,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-tips.html">
-<link rel="next" href="markdown-syntax.html">
+<link rel="prev" href="get-started.html">
+<link rel="next" href="configuration.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,17 +173,73 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
-<p>In this chapter, we show the syntax of some basic components of a book, including R code, figures, tables, citations, and so on. First we start with the syntax of Pandoc’s Markdown.</p> 
+<div id="usage" class="section level2">
+<h2><span class="header-section-number">1.3</span> Usage</h2>
+<p>Normally, a book contains multiple chapters, and one chapter lives in one R Markdown file, with the filename extension <code>.Rmd</code>. Each R Markdown file must start immediately with the chapter title. All R Markdown files must be encoded in UTF-8. Here is an example (the bullets are the filenames, followed by the file content):</p>
+<ul>
+<li><p>01-intro.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Introduction</span>
+
+This chapter is an overview of the methods that
+we propose to solve an **important problem**.</code></pre></div></li>
+<li><p>02-literature.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Literature</span>
+
+Here is a review of existing methods.</code></pre></div></li>
+<li><p>03-method.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Methods</span>
+
+We describe our methods in this chapter.</code></pre></div></li>
+<li><p>04-application.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Applications</span>
+
+Some _significant_ applications are demonstrated
+in this chapter.
+
+<span class="fu">## Example one</span>
+
+<span class="fu">## Example two</span></code></pre></div></li>
+<li><p>05-summary.Rmd</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Final Words</span>
+
+We have finished a nice book.</code></pre></div></li>
+</ul>
+<p>By default, <strong>bookdown</strong> merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. If there exists an Rmd file named <code>index.Rmd</code>, it will always be treated as the first file when merging all Rmd files. The reason for this special treatment is that the HTML file <code>index.html</code> to be generated from <code>index.Rmd</code> is usually the default index file when you view a website, e.g., you are actually browsing <a href="http://yihui.name/index.html" class="uri">http://yihui.name/index.html</a> when you open <a href="http://yihui.name/" class="uri">http://yihui.name/</a>.</p>
+<p>You can override the above behavior by including a configuration file named <code>_bookdown.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents. You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span> <span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
+<p>In this case, <strong>bookdown</strong> will just use whatever you defined in this YAML field without any special treatments of <code>index.Rmd</code> or underscores. If you want both HTML and LaTeX/PDF output from the book, and use different Rmd files for HTML and LaTeX output, you may specify these files for the two output formats separately, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>
+  <span class="fu">html:</span> <span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span>
+  <span class="fu">latex:</span> <span class="kw">[</span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
+<div class="rmdimportant">
+<p>
+Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.
+</p>
+</div>
+<p>Although we have been talking about R Markdown files, the chapter files do not actually have to be R Markdown. They can be plain Markdown files (<code>.md</code>), and do not have to contain R code chunks at all. You can certainly use <strong>bookdown</strong> to compose novels or poems!</p>
+<p>At the moment, there are three output formats that you may use: <code>bookdown::pdf_book</code>, <code>bookdown::gitbook</code>, and <code>bookdown::html_chapters</code>. There is a <code>bookdown::render_book()</code> function similar to <code>rmarkdown::render()</code>, but it was designed to render <em>multiple</em> Rmd documents into a book using the output format functions. You may either call this function from command line, or use it in the RStudio IDE. Here are some command line examples:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
+bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)
+bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">gitbook</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;book_assets&quot;</span>))
+bookdown::<span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown::<span class="kw">pdf_book</span>(<span class="dt">keep_tex =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>To use <code>render_book</code> and the output format functions in the RStudio IDE, you can define a YAML field named <code>knit</code> that takes the value <code>bookdown::render_book</code>, and the output format functions can be used in the <code>output</code> field, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">knit:</span> <span class="st">&quot;bookdown::render_book&quot;</span>
+<span class="fu">output:</span>
+  <span class="fu">bookdown:</span>:gitbook:
+    <span class="fu">lib_dir:</span> <span class="st">&quot;book_assets&quot;</span>
+  <span class="fu">bookdown:</span>:pdf_book:
+    <span class="fu">keep_tex:</span> yes
+<span class="ot">---</span></code></pre></div>
+<p>Then you can click the <code>Knit</code> button in RStudio to compile the Rmd files into a book.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="some-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="markdown-syntax.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="get-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="configuration.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -210,7 +266,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],

@@ -26,8 +26,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-tips.html">
-<link rel="next" href="markdown-syntax.html">
+<link rel="prev" href="e-books.html">
+<link rel="next" href="customization.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,17 +173,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
-<p>In this chapter, we show the syntax of some basic components of a book, including R code, figures, tables, citations, and so on. First we start with the syntax of Pandoc’s Markdown.</p> 
+<div id="a-single-document" class="section level2">
+<h2><span class="header-section-number">3.4</span> A single document</h2>
+<p>Sometimes you may not want to write a book, but just a single long-form article or report instead. Usually what you do is call <code>rmarkdown::render()</code> with a certain output format. The main features missing there are the automatic numbering of figure/table captions, and cross-referencing figures/tables/sections. We have factored out these features from <strong>bookdown</strong>, so that you can use them without having to prepare a book of multiple Rmd files.</p>
+<p>The functions <code>html_document2()</code>, <code>tufte_html2()</code>, <code>pdf_document2()</code>, <code>tufte_handout2()</code>, and <code>tufte_book2()</code> are designed for this purpose. If you render an R Markdown document with the output format, say, <code>bookdown::html_document2</code>, you will get figure/table numbers and be able to cross-reference them in the single HTML page using the syntax described in Chapter <a href="components.html#components">2</a>.</p>
+<p>Although the <code>gitbook()</code> format was designed primarily for books, you can actually also apply it to a single R Markdown document. The only difference is that there will be no search button on the single page output, because you can simply use the searching tool of your web browser to find text (e.g., press <code>Ctrl + F</code> or <code>Command + F</code>). You may also want to set the option <code>split_by</code> to <code>none</code> to only generate a single output page, in which case there will not be any navigation buttons, since there are no other pages to navigate to. You can still generate multiple-page HTML files if you like. Another option you may want to use is <code>self_contained = TRUE</code> when it is only a single output page.</p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="some-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="markdown-syntax.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="e-books.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="customization.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -210,7 +214,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/02-formats.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],

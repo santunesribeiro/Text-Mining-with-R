@@ -26,8 +26,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-tips.html">
-<link rel="next" href="markdown-syntax.html">
+<link rel="prev" href="tables.html">
+<link rel="next" href="custom-blocks.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,17 +173,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
-<p>In this chapter, we show the syntax of some basic components of a book, including R code, figures, tables, citations, and so on. First we start with the syntax of Pandoc’s Markdown.</p> 
+<div id="cross-references" class="section level2">
+<h2><span class="header-section-number">2.5</span> Cross-references</h2>
+<p>We have explained how cross-references work for figures (Section <a href="figures.html#figures">2.3</a>) and tables (Section <a href="tables.html#tables">2.4</a>). In fact, you can also reference sections using the same syntax <code>\@ref(label)</code>, where <code>label</code> is the section ID. By default, Pandoc will generate an ID for all section headers, e.g., a section <code># Hello World</code> will have an ID <code>hello-world</code>. We recommend you to manually assign an ID to a section header to make sure you do not forget to update the reference label after you change the section header. To assign an ID to a section header, simply add <code>{#id}</code> to the end of the section header.</p>
+<p>When a referenced label cannot be found, you will see two question marks like <a href="#fig:does-not-exist"><strong>??</strong></a>, as well as a warning message in the R console when rendering the book.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="some-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="markdown-syntax.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="custom-blocks.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>

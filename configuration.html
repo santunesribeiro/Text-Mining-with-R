@@ -26,8 +26,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-tips.html">
-<link rel="next" href="markdown-syntax.html">
+<link rel="prev" href="usage.html">
+<link rel="next" href="new-session.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,17 +173,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
-<p>In this chapter, we show the syntax of some basic components of a book, including R code, figures, tables, citations, and so on. First we start with the syntax of Pandoc’s Markdown.</p> 
+<div id="configuration" class="section level2">
+<h2><span class="header-section-number">1.4</span> Configuration</h2>
+<p>We have mentioned <code>rmd_files</code>, and there are more things you can configure for a book in <code>_bookdown.yml</code>:</p>
+<ul>
+<li><code>book_filename</code>: the filename of the main Rmd file, i.e., the Rmd file that is merged from all chapters; by default, it is named <code>_main.Rmd</code>.</li>
+<li><code>chapter_name</code>: (for HTML output only) either a character string to be prepended to the chapter number in the chapter title (e.g., <code>'Chapter '</code>), or an R function that takes the chapter number as the input and returns a string as the new chapter number (e.g., <code>!expr function(i) paste('Chapter', i)</code>).</li>
+<li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script.</li>
+<li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter.</li>
+<li><code>edit</code>: a link that collaborators can click to edit the Rmd source document of the current page; this was designed primarily for Github repositories, since it is easy to edit arbitrary plain-text files on Github even in other people’s repositories (if you do not have write access to the repository, Github will automatically fork it and let you submit a pull request after you finish editing the file). This link is should have <code>%s</code> in it, which will be substituted by the actual Rmd filename for each page.
+<ul>
+<li>Optionally, you can have a <code>text</code> field under the <code>edit</code> field to specify the text to which the link is attached.</li>
+</ul></li>
+<li><code>output_dir</code>: the output directory of the book; this setting is read and used by <code>render_book()</code>.</li>
+<li><code>clean</code>: a vector of files and directories to be cleaned by the <code>clean_book()</code> function.</li>
+</ul>
+<p>Here is a sample <code>_bookdown.yml</code>:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">book_filename:</span> <span class="st">&quot;my-book.Rmd&quot;</span>
+<span class="fu">chapter_name:</span> <span class="st">&quot;CHAPTER &quot;</span>
+<span class="fu">before_chapter_script:</span> <span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span> <span class="st">&quot;script2.R&quot;</span><span class="kw">]</span>
+<span class="fu">after_chapter_script:</span> <span class="st">&quot;script3.R&quot;</span>
+<span class="fu">edit:</span>
+  <span class="fu">link:</span> https://github.com/rstudio/bookdown/edit/master/inst/examples/%s
+  <span class="fu">text:</span> <span class="st">&quot;Edit&quot;</span>
+<span class="fu">output_dir:</span> <span class="st">&quot;book-output&quot;</span>
+<span class="fu">clean:</span> <span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span> <span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></code></pre></div>
+<p>Besides the configurations in <code>_bookdown.yml</code>, you can also specify some Pandoc-related configurations in the YAML metadata of the <em>first</em> Rmd file of the book, such as the title, author, and date of the book, etc. For example:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">--- </span>
+<span class="fu">title:</span> <span class="st">&quot;Authoring A Book with R Markdown&quot;</span>
+<span class="fu">author:</span> <span class="st">&quot;Yihui Xie&quot;</span>
+<span class="fu">date:</span> <span class="st">&quot;2016-03-17&quot;</span>
+<span class="fu">knit:</span> <span class="st">&quot;bookdown::render_book&quot;</span>
+<span class="fu">output:</span>
+  <span class="fu">bookdown:</span>:gitbook: default
+<span class="fu">documentclass:</span> book
+<span class="fu">bibliography:</span> <span class="kw">[</span><span class="st">&quot;book.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;packages.bib&quot;</span><span class="kw">]</span>
+<span class="fu">biblio-style:</span> apalike
+<span class="fu">link-citations:</span> yes
+<span class="ot">---</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="some-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="markdown-syntax.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="usage.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="new-session.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -210,7 +245,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],

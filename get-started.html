@@ -26,8 +26,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-tips.html">
-<link rel="next" href="markdown-syntax.html">
+<link rel="prev" href="motivation.html">
+<link rel="next" href="usage.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,17 +173,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
-<p>In this chapter, we show the syntax of some basic components of a book, including R code, figures, tables, citations, and so on. First we start with the syntax of Pandoc’s Markdown.</p> 
+<div id="get-started" class="section level2">
+<h2><span class="header-section-number">1.2</span> Get started</h2>
+<p>The easiest way for beginners to get started with writing a book with R Markdown and <strong>bookdown</strong> is through the demo <code>bookdown-demo</code> on GitHub:</p>
+<ol style="list-style-type: decimal">
+<li>Fork or clone the GitHub repository <a href="https://github.com/rstudio/bookdown-demo" class="uri">https://github.com/rstudio/bookdown-demo</a> if you are familiar with GIT and GitHub, or just download it as a Zip file then unzip it locally;</li>
+<li>Install the RStudio IDE (<a href="http://www.rstudio.com" class="uri">http://www.rstudio.com</a>) if you have not done so;</li>
+<li>Open the <code>bookdown-demo</code> repository you cloned or downloaded in RStudio by clicking <code>bookdown-demo.Rproj</code>;</li>
+<li><p>Install the R package <strong>bookdown</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;rstudio/bookdown&quot;</span>)</code></pre></div></li>
+<li><p>Open the R Markdown file <code>index.Rmd</code> and click the button <code>Knit</code> on the toolbar of RStudio;</p></li>
+</ol>
+<p>Now you should see the index page of this book demo in the RStudio Viewer. You may add or change the R Markdown files, come back to <code>index.Rmd</code>, and hit the <code>Knit</code> button again to preview the book. If you prefer not to use RStudio, you may also compile the book through command line. See the next section for details.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="some-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="markdown-syntax.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="motivation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="usage.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -210,7 +219,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],

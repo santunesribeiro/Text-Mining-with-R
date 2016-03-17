@@ -26,8 +26,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-tips.html">
-<link rel="next" href="markdown-syntax.html">
+<link rel="prev" href="build-the-book.html">
+<link rel="next" href="serve-the-book.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,17 +173,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
-<p>In this chapter, we show the syntax of some basic components of a book, including R code, figures, tables, citations, and so on. First we start with the syntax of Pandoc’s Markdown.</p> 
+<div id="preview-a-chapter" class="section level2">
+<h2><span class="header-section-number">5.2</span> Preview a chapter</h2>
+<p>Building the whole book can be slow when the size of the book is big. Two things can affect the speed of building a book: the computation in R code chunks, and the conversion from Markdown to other formats via Pandoc. The former can be improved by enabling caching in <strong>knitr</strong> using the chunk option <code>cache = TRUE</code>, and there is not much you can do to make the latter faster. However, you can choose to render only one chapter using the function <code>preview_chapter()</code> in <strong>bookdown</strong>, and usually this will be much faster than rendering the whole book. Only the Rmd files passed to <code>preview_chapter()</code> will be rendered.</p>
+<p>Previewing the current chapter is helpful when you are only focusing on this chapter, since you can quickly see the actual output as you add more content or revise the chapter. Although the preview works for all output formats, we recommend you to preview the HTML output.</p>
+<p>One downside of previewing a chapter is that the cross-references to other chapters will not work, since <strong>bookdown</strong> knows nothing about other chapters in this case. That is a reasonably small price to pay for the gain in speed.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="some-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="markdown-syntax.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="build-the-book.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="serve-the-book.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -210,7 +212,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/04-editing.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],

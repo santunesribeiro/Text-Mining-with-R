@@ -26,8 +26,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-tips.html">
-<link rel="next" href="markdown-syntax.html">
+<link rel="prev" href="html.html">
+<link rel="next" href="e-books.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,17 +173,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
-<p>In this chapter, we show the syntax of some basic components of a book, including R code, figures, tables, citations, and so on. First we start with the syntax of Pandoc’s Markdown.</p> 
+<div id="latexpdf" class="section level2">
+<h2><span class="header-section-number">3.2</span> LaTeX/PDF</h2>
+<p>We strongly recommend you to use an HTML output format instead of LaTeX when you develop a book, since you will not be too distracted by the typesetting details, which can bother you a lot if you constantly look at the PDF output of a book. Leave the job of careful typesetting to the very end (ideally after you have really finished the content of the book).</p>
+<p>The LaTeX/PDF output format is provided by <code>pdf_book()</code> in <strong>bookdown</strong>. There is not a significant difference between <code>pdf_book()</code> and the <code>pdf_document()</code> format in <strong>rmarkdown</strong>. The main purpose of <code>pdf_book()</code> is to resolve the labels and cross-references written using the syntax described in Sections <a href="figures.html#figures">2.3</a>, <a href="tables.html#tables">2.4</a>, and <a href="cross-references.html#cross-references">2.5</a>. If the only output format that you want for a book is LaTeX/PDF, you may use the syntax specific to LaTeX, such as <code>\label{}</code> to label figures/tables/sections, and <code>\ref{}</code> to cross-reference them via their labels, because Pandoc supports LaTeX commands in Markdown. However, the LaTeX syntax is not portable to other output formats, such as HTML and e-books. That is why we introduced the syntax <code>(\#label)</code> for labels and <code>\@ref(label)</code> for cross-references.</p>
+<p>There are some top-level YAML options that will be applied to the LaTeX output. For a book, you may change the default document class to <code>book</code> (the default is <code>article</code>), and specify a bibliography style required by your publisher. A brief YAML example:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">documentclass:</span> book
+<span class="fu">bibliography:</span> <span class="kw">[</span>book.bib<span class="kw">,</span> packages.bib<span class="kw">]</span>
+<span class="fu">biblio-style:</span> apalike
+<span class="ot">---</span></code></pre></div>
+<p>The <code>pdf_book()</code> format is a general format like <code>html_chapters</code>, and it also has a <code>base_format</code> argument:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf_book</span>(<span class="dt">toc =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, ..., <span class="dt">base_format =</span> rmarkdown::pdf_document)</code></pre></div>
+<p>You can change the <code>base_format</code> function to other output format functions, and <strong>bookdown</strong> has provided a simple wrapper function <code>tufte_book2()</code>, which is basically <code>pdf_book(base_format = tufte::tufte_book)</code>, to produce a PDF book using the Tufte PDF style (again, see the <strong>tufte</strong> package).</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="some-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="markdown-syntax.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="html.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="e-books.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -210,7 +220,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01-components.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/02-formats.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],

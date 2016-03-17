@@ -26,8 +26,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-tips.html">
-<link rel="next" href="markdown-syntax.html">
+<link rel="prev" href="components.html">
+<link rel="next" href="r-code.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,17 +173,80 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="components" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Components</h1>
-<p>In this chapter, we show the syntax of some basic components of a book, including R code, figures, tables, citations, and so on. First we start with the syntax of Pandoc’s Markdown.</p> 
+<div id="markdown-syntax" class="section level2">
+<h2><span class="header-section-number">2.1</span> Markdown syntax</h2>
+<p>We give a very brief introduction to Pandoc’s Markdown in this section. Readers who are familiar with Markdown can skip this section. The comprehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
+<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets like <code>^</code> produces a superscript (e.g., <code>ClO^-^</code> renders ClO<sup>-</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="references.html#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small caps&lt;/span&gt;</code> renders <span style="font-variant: small-caps;">Small caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="citations.html#citations">2.7</a>. Section headers can be written after a number of pound signs, e.g.,</p>
+<pre><code># First-level header
+
+## Second-level header
+
+### Third-level header</code></pre>
+<p>Unordered list items start with <code>*</code>, <code>-</code>, or <code>+</code>, and you can nest one list within another list by indenting the sub-list by four spaces, e.g.,</p>
+<pre><code>- one item
+- one item
+- one item
+    - one item
+    - one item</code></pre>
+<p>The output is:</p>
+<ul>
+<li>one item</li>
+<li>one item</li>
+<li>one item
+<ul>
+<li>one item</li>
+<li>one item</li>
+</ul></li>
+</ul>
+<p>Ordered list items start with numbers (the rule for nested lists is the same as above), e.g.,</p>
+<pre><code>1. the first item
+2. the second item
+3. the third item</code></pre>
+<p>The output does not look too much different with the Markdown source:</p>
+<ol style="list-style-type: decimal">
+<li>the first item</li>
+<li>the second item</li>
+<li>the third item</li>
+</ol>
+<p>Blockquotes are written after <code>&gt;</code>, e.g.,</p>
+<pre><code>&gt; &quot;I thoroughly disapprove of duels. If a man should challenge me,
+  I would take him kindly and forgivingly by the hand and lead him
+  to a quiet place and kill him.&quot;
+&gt;
+&gt; --- Mark Twain</code></pre>
+<p>The actual output:</p>
+<blockquote>
+<p>“I thoroughly disapprove of duels. If a man should challenge me, I would take him kindly and forgivingly by the hand and lead him to a quiet place and kill him.”</p>
+<p>— Mark Twain</p>
+</blockquote>
+<p>Plain code blocks can be written after three or more backticks, and you can also indent the blocks by four spaces, e.g.,</p>
+<pre><code>```
+This text is displayed verbatim / preformatted
+```
+
+Or indent by four spaces:
+
+    This text is displayed verbatim / preformatted</code></pre>
+<p>Inline LaTeX equations can be written in a pair of dollar signs using the LaTeX syntax, e.g., <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code> (actual output: <span class="math inline">\(f(k)={n \choose k}p^{k}(1-p)^{n-k}\)</span>); math expressions of the display style can be written in a pair of double dollar signs, e.g., <code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code>, and the output looks like this:</p>
+<p><span class="math display">\[f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}\]</span></p>
+<p>To number and refer to equations, put them in the equation environments and assign labels to them, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{equation}
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \label{eq:binom}
+\end{equation}</code></pre></div>
+<p>It renders the equation below:</p>
+\begin{equation}
+f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \label{eq:binom}
+\end{equation}
+<p>You may refer to it using <code>\@ref(eq:binom)</code>, e.g., see Equation \ref{eq:binom}. Due to some technical constraints, you must label your equations with the prefix <code>eq:</code> in <strong>bookdown</strong>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="some-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="markdown-syntax.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="components.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-code.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
