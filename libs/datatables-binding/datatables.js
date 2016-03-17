@@ -123,7 +123,6 @@ HTMLWidgets.widget({
       // force scrollX/scrollY and turn off autoWidth
       options.scrollX = true;
       options.scrollY = "100px"; // can be any value, we'll adjust below
-      options.bAutoWidth = true;
 
       // if we aren't paginating then move around the info/filter controls
       // to save space at the bottom and rephrase the info callback
@@ -170,6 +169,7 @@ HTMLWidgets.widget({
     }
 
     var table = $table.DataTable(options);
+    $el.data('datatable', table);
 
     var inArray = function(val, array) {
       return $.inArray(val, $.makeArray(array)) > -1;
@@ -204,10 +204,21 @@ HTMLWidgets.widget({
         });
         var $x = $td.children('div').last();
 
+        // remove the overflow: hidden attribute of the scrollHead
+        // (otherwise the scrolling table body obscures the filters)
+        var scrollHead = $(el).find('.dataTables_scrollHead,.dataTables_scrollFoot');
+        var cssOverflow = scrollHead.css('overflow');
+        if (cssOverflow === 'hidden') {
+          $x.on('show hide', function(e) {
+            scrollHead.css('overflow', e.type === 'show' ? '' : cssOverflow);
+          });
+          $x.css('z-index', 25);
+        }
+
         if (inArray(type, ['factor', 'logical'])) {
           $input.on({
             click: function() {
-              $input.parent().hide(); $x.show(); filter[0].selectize.focus();
+              $input.parent().hide(); $x.show().trigger('show'); filter[0].selectize.focus();
             },
             input: function() {
               if ($input.val() === '') filter[0].selectize.setValue([]);
@@ -232,7 +243,7 @@ HTMLWidgets.widget({
           // an ugly hack to deal with shiny: for some reason, the onBlur event
           // of selectize does not work in shiny
           $x.find('div > div.selectize-input > input').on('blur', function() {
-            $x.hide(); $input.parent().show();
+            $x.hide().trigger('hide'); $input.parent().show();
           });
           filter.next('div').css('margin-bottom', 'auto');
         } else if (type === 'character') {
@@ -275,7 +286,7 @@ HTMLWidgets.widget({
           };
           $input.on({
             focus: function() {
-              $x0.show();
+              $x0.show().trigger('show');
               // first, make sure the slider div leaves at least 20px between
               // the two (slider value) span's
               $x0.width(Math.max(160, $span1.outerWidth() + $span2.outerWidth() + 20));
@@ -292,7 +303,7 @@ HTMLWidgets.widget({
               }
             },
             blur: function() {
-              $x0.hide();
+              $x0.hide().trigger('hide');
             },
             input: function() {
               if ($input.val() === '') filter.val([r1, r2]);
@@ -502,21 +513,12 @@ HTMLWidgets.widget({
       var thiz = this;
       setTimeout(function() {
 
-        // if we have a filter then remove it's overflow: hidden attribute
-        // (otherwise the scrolling table body obscures it)
-        if (data.filter !== 'none') {
-          var scrollHead = $(el).find('.dataTables_scrollHead');
-          var css = scrollHead.prop('style');
-          if (css)
-            css.removeProperty('overflow');
-        }
-
         // calculate correct height
         thiz.fillAvailableHeight(el, $(el).innerHeight());
 
         // we need to force DT to recalculate column widths
         // (otherwise all the columns are the same size)
-        table.columns.adjust().draw();
+        table.columns.adjust();
       }, 200);
     }
 
@@ -774,7 +776,6 @@ HTMLWidgets.widget({
     }
 
     table.shinyMethods = methods;
-    $el.data('datatable', table);
   },
   resize: function(el, width, height, instance) {
     if (instance.data) this.renderValue(el, instance.data, instance);
@@ -782,6 +783,9 @@ HTMLWidgets.widget({
     // dynamically adjust height if fillContainer = TRUE
     if (instance.fillContainer)
       this.fillAvailableHeight(el, height);
+
+    var table = $(el).data('datatable');
+    if (table) table.columns.adjust();
   },
 
   // dynamically set the scroll body to fill available height
