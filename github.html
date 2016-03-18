@@ -8,7 +8,7 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Authoring A Book with R Markdown">
-  <meta name="generator" content="bookdown 0.0.52 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.53 and GitBook 2.6.7">
 
 <meta name="author" content="Yihui Xie">
 
@@ -26,7 +26,7 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="publishing.html">
+<link rel="prev" href="rstudio-connect.html">
 <link rel="next" href="publishers.html">
 
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
@@ -147,10 +147,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
-<li class="chapter" data-level="6.1" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.1</b> GitHub</a></li>
-<li class="chapter" data-level="6.2" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.2</b> Publishers</a></li>
-<li class="chapter" data-level="6.3" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.3</b> Licensing</a></li>
-<li class="chapter" data-level="6.4" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.4</b> Self-publishing</a></li>
+<li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
+<li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
+<li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
+<li class="chapter" data-level="6.4" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.4</b> Licensing</a></li>
+<li class="chapter" data-level="6.5" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.5</b> Self-publishing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -174,7 +175,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="github" class="section level2">
-<h2><span class="header-section-number">6.1</span> GitHub</h2>
+<h2><span class="header-section-number">6.2</span> GitHub</h2>
 <p>You can host your book on GitHub for free via GitHub Pages (<a href="https://pages.github.com" class="uri">https://pages.github.com</a>). GitHub supports Jekyll (<a href="http://jekyllrb.com" class="uri">http://jekyllrb.com</a>), a static website builder, to build a website from Markdown files. That may be the more common use case of GitHub Pages, but GitHub also supports arbitrary static HTML files, so you can just host the HTML output files of your book on GitHub. To publish to your book to GitHub Pages, you need to create a <code>gh-pages</code> branch in your repository, build the book, put the HTML output (including all external resources like images, CSS, and JavaScript files) in this branch, and push the branch to the remote repository.</p>
 <p>If your book repository does not have the <code>gh-pages</code> branch, you may use the following commands to create one:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># assume you have initialized the git repository,</span>
@@ -200,12 +201,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>You can clone this <code>gh-pages</code> branch on Travis using your GitHub token, add the HTML output files from R Markdown (do not forget to add figures and CSS style files as well), and push to the remote repository.</li>
 </ol>
 <p>Assume you are in the <code>master</code> branch right now (where you put the Rmd source files), and have compiled the book to the <code>_book</code> directory. What you can do next on Travis is:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># clone the repository to the book-output directory</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># configure your name and email if you have not done so</span>
+<span class="kw">git</span> config --global user.email <span class="st">&quot;you@example.com&quot;</span>
+<span class="kw">git</span> config --global user.name <span class="st">&quot;Your Name&quot;</span>
+
+<span class="co"># clone the repository to the book-output directory</span>
 <span class="kw">git</span> clone -b gh-pages \
   https://<span class="ot">${GH_TOKEN}</span>@github.com/<span class="ot">${TRAVIS_REPO_SLUG}</span>.git \
   book-output
 <span class="kw">cd</span> book-output
 <span class="kw">cp</span> -r ../_book/* ./
+<span class="kw">rm</span> -rf _bookdown_files
 <span class="kw">git</span> add *
 <span class="kw">git</span> commit -m<span class="st">&quot;Update the book&quot;</span>
 <span class="kw">git</span> push origin gh-pages</code></pre></div>
@@ -219,10 +225,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fu">r_github_packages:</span>
   <span class="kw">-</span> rstudio/bookdown
 
+<span class="fu">install:</span> true
+
+<span class="fu">before_script:</span>
+  <span class="kw">-</span> chmod +x ./_build.sh
+  <span class="kw">-</span> chmod +x ./_deploy.sh
+
 <span class="fu">script:</span>
   <span class="kw">-</span> ./build.sh
   <span class="kw">-</span> ./deploy.sh</code></pre></div>
 <p>The <code>language</code> key tells Travis to use a virtual machine that has R installed. The <code>secure</code> key is your encrypted personal access token. If you have already saved the <code>GH_TOKEN</code> variable using the web interface on Travis instead of the command-line tool <code>travis encrypt</code>, you can leave out this key.</p>
+<p>In the <code>install</code> step, the above example did not do anything, but you may want to install some dependencies for your book there, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">install:</span>
+  <span class="kw">-</span> Rscript -e <span class="st">&quot;if (!require(&#39;ggplot2&#39;)) install.packages(&#39;ggplot2&#39;)&quot;</span></code></pre></div>
 <p>If you use the <a href="https://docs.travis-ci.com/user/workers/container-based-infrastructure/">container-based infrastructure</a> on Travis, you can enable caching by using <code>sudo: false</code> in <code>.travis.yml</code>. Normally you should cache at least two types of directories: the figure directory (e.g., <code>_main_files</code>) and the cache directory (e.g., <code>_main_cache</code>). These directory names may also be different if you have specified the <strong>knitr</strong> chunk options <code>fig.path</code> and <code>cache.path</code>, but I’d strongly recommend you not to change these options. The figure and cache directories are stored under the <code>_bookdown_files</code> directory of the book output directory (e.g., <code>_book/</code>). A <code>.travis.yml</code> file that has enabled caching of <strong>knitr</strong> figure and cache directories may have additional configurations <code>sudo</code> and <code>cache</code> like this:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">sudo:</span> false
 
@@ -238,7 +253,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="publishing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rstudio-connect.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="publishers.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.js"></script>
