@@ -12,7 +12,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-03-22">
+<meta name="date" content="2016-03-23">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -186,7 +186,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">year</span> = {2015},
   <span class="dt">url</span> = {https://www.R-project.org/},
 }</code></pre></div>
-<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on. Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered to <span class="citation">R Core Team (<a href="references.html#ref-R-base">2015</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="references.html#ref-R-base">2015</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
+<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on. Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered to <span class="citation">R Core Team (<a href="references.html#ref-R-base">2016</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="references.html#ref-R-base">2016</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
 <p>There are a number of fields in a bibliography entry, such as <code>title</code>, <code>author</code>, and <code>year</code>, etc. You may see <a href="https://en.wikipedia.org/wiki/BibTeX" class="uri">https://en.wikipedia.org/wiki/BibTeX</a> for possible types of entries and fields in BibTeX.</p>
 <p>There is a helper function <code>write_bib()</code> in <strong>knitr</strong> to generate BibTeX entries automatically for R packages. Note it only generates one BibTeX entry for the package itself at the moment, whereas a package may contain multiple entries in the <code>CITATION</code> file, and some entries are about the publications related to the package. These entries are ignored by <code>write_bib()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the second argument can be a .bib file</span>
