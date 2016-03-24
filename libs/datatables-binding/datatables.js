@@ -224,7 +224,11 @@ HTMLWidgets.widget({
               if ($input.val() === '') filter[0].selectize.setValue([]);
             }
           });
-          filter = $x.children('select').selectize({
+          var $input2 = $x.children('select');
+          filter = $input2.selectize({
+            options: $input2.data('options').map(function(v, i) {
+              return ({text: v, value: v});
+            }),
             plugins: ['remove_button'],
             hideSelected: true,
             onChange: function(value) {
@@ -522,17 +526,15 @@ HTMLWidgets.widget({
     if (!HTMLWidgets.shinyMode) return;
 
     var methods = {};
-    var shinyData = {}, sameData = function(x, y) {
-      return x === y ? true : JSON.stringify(x) === JSON.stringify(y);
-    };
-
+    var shinyData = {};
 
     var changeInput = function(id, data, type) {
       id = el.id + '_' + id;
       if (type) id = id + ':' + type;
       // do not update if the new data is the same as old data
-      if (shinyData.hasOwnProperty(id) && sameData(shinyData[id], data)) return;
-      shinyData[id] = data;
+      if (shinyData.hasOwnProperty(id) && shinyData[id] === JSON.stringify(data))
+        return;
+      shinyData[id] = JSON.stringify(data);
       Shiny.onInputChange(id, data);
     };
 
