@@ -8,7 +8,7 @@
   <title>Authoring A Book with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.57 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.58 and GitBook 2.6.7">
 
   <meta property="og:title" content="Authoring A Book with R Markdown" />
   <meta property="og:type" content="book" />
@@ -185,7 +185,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">5.1</span> Build the book</h2>
 <p>To build all Rmd files into a book, you can call the <code>render_book()</code> function in <strong>bookdown</strong>. Below are the arguments of <code>render_book()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">render_book</span>(input, <span class="dt">output_format =</span> <span class="ot">NULL</span>, ..., <span class="dt">clean =</span> <span class="ot">TRUE</span>, <span class="dt">envir =</span> <span class="kw">parent.frame</span>(), 
-  <span class="dt">output_dir =</span> <span class="st">&quot;_book&quot;</span>, <span class="dt">new_session =</span> <span class="ot">FALSE</span>, <span class="dt">force_knit =</span> <span class="ot">FALSE</span>, <span class="dt">preview =</span> <span class="ot">FALSE</span>)</code></pre></div>
+  <span class="dt">output_dir =</span> <span class="ot">NULL</span>, <span class="dt">new_session =</span> <span class="ot">FALSE</span>, <span class="dt">force_knit =</span> <span class="ot">FALSE</span>, <span class="dt">preview =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <p>The most important argument is <code>output_format</code>, which can take a character string (e.g., <code>'bookdown::gitbook'</code>), or an object returned by an output format function (e.g., <code>bookdown::gitbook(lib_dir = 'assets')</code>). You can leave this argument empty, and the default output format will be the first output format specified in the YAML metadata of the first Rmd file or a separate YAML file <code>_output.yml</code>, as mentioned in Section <a href="configuration.html#configuration">1.4</a>. If you plan to generate multiple output formats for a book, you are recommended to specify all formats in <code>_output.yml</code>.</p>
 <p>Once all formats are specified in <code>_output.yml</code>, it is easy to write an R or Shell script or Makefile to compile the book. Below is a simple example of using a Shell script to compile a book to HTML (with the GitBook style) and PDF:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/usr/bin/env Rscript</span>
