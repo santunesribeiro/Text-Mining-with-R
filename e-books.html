@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.63 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.64 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-10">
+<meta name="date" content="2016-04-11">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -210,6 +210,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="mobi" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> MOBI</h3>
 <p>MOBI e-books can be read on Amazon’s Kindle devices. Pandoc does not support MOBI output natively, but Amazon has provided a tool named KindleGen (<a href="https://www.amazon.com/gp/feature.html?docId=1000765211" class="uri">https://www.amazon.com/gp/feature.html?docId=1000765211</a>) to create MOBI books from other formats, including EPUB and HTML. We have provided a simple wrapper function <code>kindlegen()</code> in <strong>bookdown</strong> to call KindleGen to convert an EPUB book to MOBI. This requires you to download KindleGen first, and make sure the KindleGen executable can be found via the system environment variable <code>PATH</code>.</p>
+<p>Another tool to convert EPUB to MOBI is provided by Calibre. Unlike KindleGen, Calibre is open-source and free, and supports conversion among many more formats. For example, you can convert HTML to EPUB, Word documents to MOBI, and so on. The function <code>calibre()</code> in <strong>bookdown</strong> is a wrapper function of the command-line utility <code>ebook-convert</code> in Calibre. Similarly, you need to make sure the executable <code>ebook-convert</code> can be found via the environment variable <code>PATH</code>. If you use OS X, you can install both KindleGen and Calibre via Homebrew-Cask (<a href="https://caskroom.github.io" class="uri">https://caskroom.github.io</a>), so you do not need to worry about the <code>PATH</code> issue.</p>
 </div>
 </div>
             </section>
@@ -220,7 +221,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="latexpdf.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="a-single-document.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook/js/app.js"></script>
+<script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
