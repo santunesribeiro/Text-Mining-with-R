@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-13">
+<meta name="date" content="2016-04-14">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -244,8 +244,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">-</span> chmod +x ./_deploy.sh
 
 <span class="fu">script:</span>
-  <span class="kw">-</span> ./build.sh
-  <span class="kw">-</span> ./deploy.sh</code></pre></div>
+  <span class="kw">-</span> ./_build.sh
+  <span class="kw">-</span> ./_deploy.sh</code></pre></div>
 <p>The <code>language</code> key tells Travis to use a virtual machine that has R installed. The <code>secure</code> key is your encrypted personal access token. If you have already saved the <code>GH_TOKEN</code> variable using the web interface on Travis instead of the command-line tool <code>travis encrypt</code>, you can leave out this key.</p>
 <p>In the <code>install</code> step, the above example did not do anything, but you may want to install some dependencies for your book there, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">install:</span>
