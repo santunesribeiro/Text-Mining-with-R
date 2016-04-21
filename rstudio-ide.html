@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.65 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.66 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-15">
+<meta name="date" content="2016-04-21">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -207,7 +207,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The addin “Preview Book” calls <code>bookdown::serve_book()</code> to compile and serve the book. It will block your current R session, i.e., when <code>serve_book()</code> is running, you will not be able to do anything in the R console any more. To avoid blocking the R session, you can daemonize the server using <code>bookdown::serve_book(daemon = TRUE)</code>. Note this addin must be used when the current document opened in RStudio is under the root directory of your book, otherwise <code>serve_book()</code> may not be able to find the book source.</p>
 <p>The addin “Input LaTeX Math” is essentially a small Shiny application that provides a text box to help you type LaTeX math expressions (Figure <a href="rstudio-ide.html#fig:mathquill">5.1</a>). As you type, you will see the preview of the math expression and its LaTeX source code. This will make it much less error-prone to type math expressions — when you type a long LaTeX math expression without preview, it is easy to make mistakes such as <code>X_ij</code> when you meant <code>X_{ij}</code>, or omitting a closing bracket. If you have selected a LaTeX math expression in the RStudio editor before clicking the addin, the expression will be automatically loaded and rendered in the text box. This addin was built on top of the MathQuill library (<a href="http://mathquill.com" class="uri">http://mathquill.com</a>). It is not meant to provide full support to all LaTeX commands for math expressions, but should help you type some common math expressions.</p>
 <div class="figure" style="text-align: center"><span id="fig:mathquill"></span>
-<img src="images/mathquill.png" alt="The RStudio addin to help input LaTeX math."  />
+<img src="images/mathquill.png" alt="The RStudio addin to help input LaTeX math." width="672" />
 <p class="caption">
 Figure 5.1: The RStudio addin to help input LaTeX math.
 </p>

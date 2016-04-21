@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.65 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.66 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-15">
+<meta name="date" content="2016-04-21">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -192,7 +192,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>A related function is <code>knitr::include_app()</code>, which is very similar to <code>include_url()</code>, and it was designed for embedding Shiny apps via their URLs in the output. Its only difference with <code>include_url()</code> is that it automatically adds a query parameter <code>?showcase=0</code> to the URL, if no other query parameters are present in the URL, to disable the Shiny showcase mode, which is unlikely to be useful for screenshots or iframes. If you do want the showcase mode, just use <code>include_url()</code> instead of <code>include_app()</code>. Below is a Shiny app example (Figure <a href="web-pages-and-shiny-apps.html#fig:miniUI">2.5</a>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_app</span>(<span class="st">&quot;https://yihui.shinyapps.io/miniUI/&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;600px&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:miniUI"></span>
-<iframe src="https://yihui.shinyapps.io/miniUI/?showcase=0" width="100%" height="600px">
+<iframe src="https://yihui.shinyapps.io/miniUI/?showcase=0" width="768" height="600px">
 </iframe>
 <p class="caption">
 Figure 2.5: A Shiny app created via the miniUI package: <a href="https://yihui.shinyapps.io/miniUI/" class="uri">https://yihui.shinyapps.io/miniUI/</a>.

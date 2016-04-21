@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.65 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.66 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-15">
+<meta name="date" content="2016-04-21">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -195,6 +195,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## Second-level header
 
 ### Third-level header</code></pre>
+<p>If you do not want a certain heading to be numbered, you can add <code>{-}</code> after the heading, e.g.,</p>
+<pre><code># Preface {-}</code></pre>
+<p>There is a special type of first-level headers that will be processed differently in <strong>bookdown</strong>, which is an unnumbered header that starts with the token <code>(PART)</code>. This kind of headers are translated to part titles. If you are familiar with LaTeX, this basically means <code>\part{}</code>. When your book has a large number of chapters, you may want to organize them into parts, e.g.,</p>
+<pre><code># (PART) Part I {-} 
+
+# Chapter One
+
+# Chapter Two
+
+# (PART) Part II {-} 
+
+# Chapter Three</code></pre>
 <p>Unordered list items start with <code>*</code>, <code>-</code>, or <code>+</code>, and you can nest one list within another list by indenting the sub-list by four spaces, e.g.,</p>
 <pre><code>- one item
 - one item
