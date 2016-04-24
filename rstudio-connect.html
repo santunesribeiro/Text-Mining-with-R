@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.66 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.67 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-21">
+<meta name="date" content="2016-04-24">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -193,7 +193,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">publish_book</span>(<span class="dt">name =</span> <span class="ot">NULL</span>, <span class="dt">account =</span> <span class="ot">NULL</span>, <span class="dt">server =</span> <span class="ot">NULL</span>, <span class="dt">render =</span> <span class="kw">c</span>(<span class="st">&quot;none&quot;</span>, 
   <span class="st">&quot;local&quot;</span>, <span class="st">&quot;server&quot;</span>))</code></pre></div>
 <p>The only argument of <code>publish_book()</code> that you may want to touch is <code>render</code>. It determines whether you want to render the book before publishing. If you have run <code>render_book()</code> before, you do not need to change this argument, otherwise you may set it to <code>'local'</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">bookdown.render_on_publish =</span> <span class="st">&quot;local&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown::<span class="kw">publish_book</span>(<span class="dt">render =</span> <span class="st">&quot;local&quot;</span>)</code></pre></div>
 <p>If you have set up your own RStudio Connect server, you can certainly publish the book to that server instead of bookdown.org.</p>
 </div>
             </section>

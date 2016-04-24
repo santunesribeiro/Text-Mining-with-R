@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.66 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.67 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-21">
+<meta name="date" content="2016-04-24">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -277,6 +277,9 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
 <p>Finally, there are a few more top-level options in the YAML metadata that can be passed to the GitBook HTML template via Pandoc. They may not have clear visible effects on the HTML output, but they may be useful when you deploy the HTML output as a website. These options include:</p>
 <ul>
 <li><code>description</code>: A character string to be written to the <code>content</code> attribute of the tag <code>&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</code> in the HTML head (if missing, the title of the book will be used). This can be useful for the purpose of search engine optimization (SEO);</li>
+<li><code>url</code>: The URL of book website, e.g., <code>https\://bookdown.org/yihui/bookdown/</code><a href="references.html#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>;</li>
+<li><code>github-repo</code>: The GitHub repository of the book of the form <code>user/repo</code>;</li>
+<li><code>cover-image</code>: The path to the cover image of the book;</li>
 <li><code>apple-touch-icon</code>: A path to an icon (e.g., a PNG image). This is for iOS only: when the website is added to the Home screen, the link is represented by this icon.</li>
 <li><code>apple-touch-icon-size</code>: The size of the icon (by default, 152 x 152 pixels).</li>
 <li><code>favicon</code>: A path to the “favorite icon”. Typically this icon is displayed in the browser’s address bar, or in front of the page title on the tab if the browser support tabs.</li>
@@ -286,10 +289,14 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
 <span class="fu">title:</span> <span class="st">&quot;An Awesome Book&quot;</span>
 <span class="fu">author:</span> <span class="st">&quot;John Smith&quot;</span>
 <span class="fu">description:</span> <span class="st">&quot;This book introduces the ABC theory, and ...&quot;</span>
+<span class="fu">url:</span> <span class="st">&quot;https\://bookdown.org/john/awesome/&quot;</span>
+<span class="fu">github-repo:</span> <span class="st">&quot;john/awesome&quot;</span>
+<span class="fu">cover-image:</span> <span class="st">&quot;images/cover.png&quot;</span>
 <span class="fu">apple-touch-icon:</span> <span class="st">&quot;touch-icon.png&quot;</span>
 <span class="fu">apple-touch-icon-size:</span> 120
 <span class="fu">favicon:</span> <span class="st">&quot;favicon.ico&quot;</span>
 <span class="ot">---</span></code></pre></div>
+<p>A nice effect of setting <code>description</code> and <code>cover-image</code> is that when you share the link of your book on some social network websites such as Twitter, the link can be automatically expanded to a card with the cover image and description of the book.</p>
 </div>
 <div id="bootstrap-style" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> Bootstrap style</h3>

@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.66 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.67 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-21">
+<meta name="date" content="2016-04-24">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -204,6 +204,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">template:</span> <span class="dt">null</span>
 <span class="ot">---</span></code></pre></div>
 <p>Some publishers (e.g., Springer and Chapman &amp; Hall/CRC) have their own LaTeX style or class files. You may try to change the <code>documentclass</code> option to use their document classes, although typically it is not as simple as that. You may end up with using <code>in_header</code>, or even design a custom Pandoc LaTeX template to accommodate these document classes.</p>
+<p>Note when you change <code>documentclass</code>, you are likely to specify an additional Pandoc argument <code>--chapters</code> so that Pandoc knows the first-level headers should be treated as chapters instead of sections (this is the default when <code>documentclass</code> is <code>book</code>), e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">documentclass:</span> krantz
+<span class="fu">output:</span>
+  <span class="fu">bookdown:</span>:pdf_book:
+    <span class="fu">pandoc_args:</span> --chapters</code></pre></div>
 </div>
             </section>
 

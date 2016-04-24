@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.66 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.67 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-21">
+<meta name="date" content="2016-04-24">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -205,7 +205,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">git</span> push origin gh-pages</code></pre></div>
 <p>The hidden file <code>.nojekyll</code> tells GitHub that your website is not to be built via Jekyll, since the <strong>bookdown</strong> HTML output is already a standalone website. If you are on Windows, you may not have the <code>touch</code> command, and you can just create the file in R using <code>file.create('.nojekyll')</code>.</p>
 <p>After you have set up GIT, the rest of work can be automated via a script (Shell, R, or Makefile, depending on your preference). Basically, you compile the book to HTML, then run git commands to push the files to GitHub, but you probably do not want to do this over and over again manually and locally. It can be very handy to automate the publishing process completely on the cloud, so once it is set up correctly, all you have to do next is write the book and push the Rmd source files to GitHub, and your book will always be automatically built and published from the server side.</p>
-<p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository<a href="references.html#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>. These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
+<p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository<a href="references.html#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
 <p>The next question is, how to publish the book built on Travis to GitHub? Basically you have to grant Travis write access to your GitHub repository. This authorization can be done via several ways, and the easiest one to beginners may be a personal access token. Below are a few steps you may follow:</p>
 <ol style="list-style-type: decimal">
 <li>Create a personal access token for your account on GitHub: <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/" class="uri">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a></li>
