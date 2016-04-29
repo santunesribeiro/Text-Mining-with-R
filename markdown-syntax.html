@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.68 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.69 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-04-27">
+<meta name="date" content="2016-04-29">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -189,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="markdown-syntax" class="section level2">
 <h2><span class="header-section-number">2.1</span> Markdown syntax</h2>
 <p>We give a very brief introduction to Pandoc’s Markdown in this section. Readers who are familiar with Markdown can skip this section. The comprehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
-<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets like <code>^</code> produces a superscript (e.g., <code>ClO^-^</code> renders ClO<sup>-</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="references.html#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small caps&lt;/span&gt;</code> renders <span style="font-variant: small-caps;">Small caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="citations.html#citations">2.7</a>. Section headers can be written after a number of pound signs, e.g.,</p>
+<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets like <code>^</code> produces a superscript (e.g., <code>ClO^-^</code> renders ClO<sup>-</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small caps&lt;/span&gt;</code> renders <span style="font-variant: small-caps;">Small caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](http://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="citations.html#citations">2.7</a>. Section headers can be written after a number of pound signs, e.g.,</p>
 <pre><code># First-level header
 
 ## Second-level header
@@ -275,6 +275,12 @@ Or indent by four spaces:
 f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \label{eq:binom}
 \end{equation}
 <p>You may refer to it using <code>\@ref(eq:binom)</code>, e.g., see Equation \ref{eq:binom}. Due to some technical constraints, you must label your equations with the prefix <code>eq:</code> in <strong>bookdown</strong>.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>To include literal backticks, just use more backticks outside, e.g., you can use two backticks to preserve one backtick inside: <code>`` `code` ``</code>.<a href="markdown-syntax.html#fnref2">↩</a></p></li>
+</ol>
 </div>
             </section>
 
