@@ -92,6 +92,15 @@ HTMLWidgets.widget({
       data.fillContainer = false;
     }
 
+    // if we are in the viewer then we always want to fillContainer and
+    // and autoHideNavigation (unless the user has explicitly set these)
+    if (window.HTMLWidgets.viewerMode) {
+      if (!data.hasOwnProperty("fillContainer"))
+        data.fillContainer = true;
+      if (!data.hasOwnProperty("autoHideNavigation"))
+        data.autoHideNavigation = true;
+    }
+
     // propagate fillContainer to instance (so we have it in resize)
     instance.fillContainer = data.fillContainer;
 
@@ -163,7 +172,7 @@ HTMLWidgets.widget({
     if (data.autoHideNavigation === true) {
       if (bootstrapActive && data.options.bPaginate !== false) {
         // strip all nav if length >= cells
-        if (data.options.iDisplayLength >= cells.length)
+        if ((cells instanceof Array) && data.options.iDisplayLength >= cells.length)
           options.dom = "<'row'<'col-sm-12'tr>>";
         // alternatively lean things out for flexdashboard mobile portrait
         else if (window.FlexDashboard && window.FlexDashboard.isMobilePhone())
@@ -808,6 +817,11 @@ HTMLWidgets.widget({
         throw 'New data must be of the same length as current data (' + n + ')';
       };
       table.row.add(data).draw();
+    }
+
+    methods.clearSearch = function() {
+      table.search('');
+      table.columns().search('').draw();
     }
 
     table.shinyMethods = methods;

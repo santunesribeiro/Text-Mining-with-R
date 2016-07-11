@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.70 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.79 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-05-03">
+<meta name="date" content="2016-07-11">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -191,11 +191,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The easiest way for beginners to get started with writing a book with R Markdown and <strong>bookdown</strong> is through the demo <code>bookdown-demo</code> on GitHub:</p>
 <ol style="list-style-type: decimal">
 <li>Fork or clone the GitHub repository <a href="https://github.com/rstudio/bookdown-demo" class="uri">https://github.com/rstudio/bookdown-demo</a> if you are familiar with GIT and GitHub, or just download it as a Zip file then unzip it locally;</li>
-<li>Install the RStudio IDE (<a href="http://www.rstudio.com" class="uri">http://www.rstudio.com</a>) if you have not done so;</li>
+<li>Install the RStudio IDE (<a href="https://www.rstudio.com/products/rstudio/download/preview/">the preview version</a> is recommended) if you have not done so;</li>
 <li>Open the <code>bookdown-demo</code> repository you cloned or downloaded in RStudio by clicking <code>bookdown-demo.Rproj</code>;</li>
 <li><p>Install the R package <strong>bookdown</strong>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&quot;rstudio/bookdown&quot;</span>)</code></pre></div></li>
-<li><p>Open the R Markdown file <code>index.Rmd</code> and click the button <code>Knit</code> on the toolbar of RStudio;</p></li>
+<li><p>Open the R Markdown file <code>index.Rmd</code> and click the button <code>Build Book</code> on the <code>Build</code> tab of RStudio;</p></li>
 </ol>
 <p>Now you should see the index page of this book demo in the RStudio Viewer. You may add or change the R Markdown files, come back to <code>index.Rmd</code>, and hit the <code>Knit</code> button again to preview the book. If you prefer not to use RStudio, you may also compile the book through command line. See the next section for details.</p>
 </div>

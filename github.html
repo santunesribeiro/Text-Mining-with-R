@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.70 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.79 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-05-03">
+<meta name="date" content="2016-07-11">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -208,8 +208,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
 <p>The next question is, how to publish the book built on Travis to GitHub? Basically you have to grant Travis write access to your GitHub repository. This authorization can be done via several ways, and the easiest one to beginners may be a personal access token. Below are a few steps you may follow:</p>
 <ol style="list-style-type: decimal">
-<li>Create a personal access token for your account on GitHub: <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/" class="uri">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a></li>
-<li>Encrypt it in the environment variable <code>GH_TOKEN</code> via command line <code>travis encrypt</code> and store it in <code>.travis.yml</code>. If you do not know how to install or use the Travis command-line tool, simply save this environment variable via <code>https://travis-ci.org/user/repo/settings</code> where <code>user</code> is your GitHub ID, and <code>repo</code> is the name of the repository;</li>
+<li>Create a personal access token for your account on GitHub: <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/" class="uri">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a> (make sure to enable the “repo” scope so that using this token will enable writing to your GitHub repos)</li>
+<li>Encrypt it in the environment variable <code>GITHUB_PAT</code> via command line <code>travis encrypt</code> and store it in <code>.travis.yml</code>. If you do not know how to install or use the Travis command-line tool, simply save this environment variable via <code>https://travis-ci.org/user/repo/settings</code> where <code>user</code> is your GitHub ID, and <code>repo</code> is the name of the repository;</li>
 <li>You can clone this <code>gh-pages</code> branch on Travis using your GitHub token, add the HTML output files from R Markdown (do not forget to add figures and CSS style files as well), and push to the remote repository.</li>
 </ol>
 <p>Assume you are in the <code>master</code> branch right now (where you put the Rmd source files), and have compiled the book to the <code>_book</code> directory. What you can do next on Travis is:</p>
@@ -219,24 +219,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="co"># clone the repository to the book-output directory</span>
 <span class="kw">git</span> clone -b gh-pages \
-  https://<span class="ot">${GH_TOKEN}</span>@github.com/<span class="ot">${TRAVIS_REPO_SLUG}</span>.git \
+  https://<span class="ot">${GITHUB_PAT}</span>@github.com/<span class="ot">${TRAVIS_REPO_SLUG}</span>.git \
   book-output
 <span class="kw">cd</span> book-output
 <span class="kw">cp</span> -r ../_book/* ./
-<span class="kw">git</span> add *
+<span class="kw">git</span> add --all *
 <span class="kw">git</span> commit -m<span class="st">&quot;Update the book&quot;</span>
 <span class="kw">git</span> push origin gh-pages</code></pre></div>
-<p>The variable name <code>GH_TOKEN</code> and the directory name <code>book-output</code> are arbitrary, and you can use any names you prefer, as long as the names do not conflict with existing environment variable names or directory names. This script, together with the build script we mentioned in Section <a href="build-the-book.html#build-the-book">5.1</a>, can be put in the <code>master</code> branch as Shell scripts, e.g., you can name them as <code>_build.sh</code> and <code>_deploy.sh</code>. Then your <code>.travis.yml</code> may look like this:</p>
+<p>The variable name <code>GITHUB_PAT</code> and the directory name <code>book-output</code> are arbitrary, and you can use any names you prefer, as long as the names do not conflict with existing environment variable names or directory names. This script, together with the build script we mentioned in Section <a href="build-the-book.html#build-the-book">5.1</a>, can be put in the <code>master</code> branch as Shell scripts, e.g., you can name them as <code>_build.sh</code> and <code>_deploy.sh</code>. Then your <code>.travis.yml</code> may look like this:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">language:</span> r
 
 <span class="fu">env:</span>
   <span class="fu">global:</span>
     <span class="kw">-</span> <span class="fu">secure:</span> A_LONG_ENCRYPTED_STRING
-
-<span class="fu">r_github_packages:</span>
-  <span class="kw">-</span> rstudio/bookdown
-
-<span class="fu">install:</span> true
 
 <span class="fu">before_script:</span>
   <span class="kw">-</span> chmod +x ./_build.sh
@@ -245,10 +240,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fu">script:</span>
   <span class="kw">-</span> ./_build.sh
   <span class="kw">-</span> ./_deploy.sh</code></pre></div>
-<p>The <code>language</code> key tells Travis to use a virtual machine that has R installed. The <code>secure</code> key is your encrypted personal access token. If you have already saved the <code>GH_TOKEN</code> variable using the web interface on Travis instead of the command-line tool <code>travis encrypt</code>, you can leave out this key.</p>
-<p>In the <code>install</code> step, the above example did not do anything, but you may want to install some dependencies for your book there, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">install:</span>
-  <span class="kw">-</span> Rscript -e <span class="st">&quot;if (!require(&#39;ggplot2&#39;)) install.packages(&#39;ggplot2&#39;)&quot;</span></code></pre></div>
+<p>The <code>language</code> key tells Travis to use a virtual machine that has R installed. The <code>secure</code> key is your encrypted personal access token. If you have already saved the <code>GITHUB_PAT</code> variable using the web interface on Travis instead of the command-line tool <code>travis encrypt</code>, you can leave out this key.</p>
+<p>Since this Travis service is primarily for checking R packages, you will also need a (fake) <code>DESCRIPTION</code> file as if the book repository were an R package. The only thing in this file that really matters is the specification of dependencies. All dependencies will be installed via the <strong>devtools</strong> package. If a dependency is on CRAN or BioConductor, you can simply list it in the <code>Imports</code> field of the <code>DESCRIPTION</code> file. If it is on GitHub, you may use the <code>Remotes</code> field to list its repository name. Below is an example:</p>
+<pre class="dcf"><code>Package: placeholder
+Title: Does not matter.
+Version: 0.0.1
+Imports: bookdown, ggplot2
+Remotes: rstudio/bookdown</code></pre>
 <p>If you use the <a href="https://docs.travis-ci.com/user/workers/container-based-infrastructure/">container-based infrastructure</a> on Travis, you can enable caching by using <code>sudo: false</code> in <code>.travis.yml</code>. Normally you should cache at least two types of directories: the figure directory (e.g., <code>_main_files</code>) and the cache directory (e.g., <code>_main_cache</code>). These directory names may also be different if you have specified the <strong>knitr</strong> chunk options <code>fig.path</code> and <code>cache.path</code>, but I’d strongly recommend you not to change these options. The figure and cache directories are stored under the <code>_bookdown_files</code> directory of the book root directory. A <code>.travis.yml</code> file that has enabled caching of <strong>knitr</strong> figure and cache directories may have additional configurations <code>sudo</code> and <code>cache</code> like this:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">sudo:</span> false
 

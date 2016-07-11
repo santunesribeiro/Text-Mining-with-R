@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.0.70 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.79 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-05-03">
+<meta name="date" content="2016-07-11">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -201,7 +201,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>We have also added some useful features in the user interface that we will introduce in detail soon. The output format function for the GitBook style in <strong>bookdown</strong> is <code>gitbook()</code>. Below are its arguments:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gitbook</span>(<span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">self_contained =</span> <span class="ot">FALSE</span>, 
   <span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>, ..., <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;chapter+number&quot;</span>, <span class="st">&quot;section&quot;</span>, 
-    <span class="st">&quot;section+number&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>), <span class="dt">config =</span> <span class="kw">list</span>())</code></pre></div>
+    <span class="st">&quot;section+number&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>), <span class="dt">split_bib =</span> <span class="ot">TRUE</span>, <span class="dt">config =</span> <span class="kw">list</span>())</code></pre></div>
 <p>Most arguments are passed to <code>rmarkdown::html_document()</code>, including <code>fig_caption</code>, <code>lib_dir</code>, and <code>...</code>. You can check out the help page of <code>rmarkdown::html_document()</code> for the full list of possible options. We strongly recommend you to use <code>fig_caption = TRUE</code> for two reasons: 1) it is important to explain your figures with captions; 2) enabling figure captions means figures will be placed in floating environments when the output is LaTeX, otherwise you may end up with a lot of white space on certain pages. The format of figure/table numbers depends on if sections are numbered or not: if <code>number_sections = TRUE</code>, these numbers will be of the format <code>X.i</code>, where <code>X</code> is the chapter number, and <code>i</code> in an incremental number; if sections are not numbered, all figures/tables will be numbered sequentially through the book from 1, 2, …, N. Note in either case, figures and tables will be numbered independently.</p>
 <p>Among all possible arguments in <code>...</code>, you are most likely to use the <code>css</code> argument to provide one or more custom CSS files to tweak the default CSS style. There are a few arguments of <code>html_document()</code> that have been hard-coded in <code>gitbook()</code> and you cannot change them: <code>toc = TRUE</code> (there must be a table of contents), <code>theme = NULL</code> (not using any Bootstrap themes), and <code>template</code> (there will be an internal GitBook template).</p>
 <p>Please note if you change <code>self_contained = TRUE</code> to make self-contained HTML pages, the total size of all HTML files can be significantly increased since there are many JS and CSS files tha have to be embedded in every single HTML file.</p>
@@ -218,6 +218,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 The default identifier is <span class="bn">`an-introduction`</span> but we changed
 it to <span class="bn">`introduction`</span>.</code></pre></div>
+<p>By default, the bibliography is split and relevant citation items are put at the bottom of each page, so that readers do not have to navigate to a different bibliography page to see the details of citations. This feature can be disabled using <code>split_bib = FALSE</code>, in which case all citations are put on a separate page.</p>
 <p>There are several sub-options in the <code>config</code> option for you to tweak some details in the user interface. Recall that all output format options (not only for <code>bookdown::gitbook</code>) can be either passed to the format function if you use the command-line interface <code>bookdown::render_book()</code>, or written in the YAML metadata. We display the default sub-options of <code>config</code> in the <code>gitbook</code> format as YAML metadata below (note they are indented under the <code>config</code> option):</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span>:gitbook:
   <span class="fu">config:</span>
@@ -303,8 +304,8 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
 <p>If you have used R Markdown before, you should be familiar with the Bootstrap style (<a href="http://getbootstrap.com" class="uri">http://getbootstrap.com</a>), which is the default style of the HTML output of R Markdown. The output format function in <strong>rmarkdown</strong> is <code>html_document()</code>, and we have a corresponding format <code>html_book()</code> in <strong>bookdown</strong> using <code>html_document()</code> as the base format. In fact, there is a more general format <code>html_chapters()</code> in <strong>bookdown</strong> and <code>html_book()</code> is just its special case:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_chapters</span>(<span class="dt">toc =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>, 
   <span class="dt">template =</span> <span class="kw">bookdown_file</span>(<span class="st">&quot;templates/default.html&quot;</span>), ..., <span class="dt">base_format =</span> rmarkdown::html_document, 
-  <span class="dt">page_builder =</span> build_chapter, <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;section+number&quot;</span>, <span class="st">&quot;section&quot;</span>, 
-    <span class="st">&quot;chapter+number&quot;</span>, <span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>))</code></pre></div>
+  <span class="dt">split_bib =</span> <span class="ot">TRUE</span>, <span class="dt">page_builder =</span> build_chapter, <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;section+number&quot;</span>, 
+    <span class="st">&quot;section&quot;</span>, <span class="st">&quot;chapter+number&quot;</span>, <span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>))</code></pre></div>
 <p>Note it has a <code>base_format</code> argument that takes a base output format function, and <code>html_book()</code> is basically <code>html_chapters(base_format = rmarkdown::html_document)</code>. All arguments of <code>html_book()</code> are passed to <code>html_chapters()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">html_book</span>(...)</code></pre></div>
 <p>That means you can use most arguments of <code>rmarkdown::html_document</code>, such as <code>toc</code> (whether to show the table of contents), <code>number_sections</code> (whether to number section headings), and so on. Again, check the help page of <code>rmarkdown::html_document</code> to see the full list of possible options. Note the argument <code>self_contained</code> is hard-coded to <code>FALSE</code> internally, so you cannot change the value of this argument. We have explained the argument <code>split_by</code> in the previous section.</p>
@@ -365,8 +366,7 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
   <span class="kw">&lt;/body&gt;</span>
 <span class="kw">&lt;/html&gt;</span></code></pre></div>
 <p>For all HTML pages, the main difference is the chapter body, and most of the rest of elements are the same. The default output from <code>html_book()</code> will include the Bootstrap CSS and JavaScript files in the <code>&lt;head&gt;</code> tag.</p>
-<p>The TOC is often used for navigation purposes. In the GitBook style, the TOC is displayed in the sidebar. For the Bootstrap style, we did not apply a special style to it, so it is shown as a plain unordered list (in the HTML tag <code>&lt;ul&gt;</code>). It is easy to turn this list into a navigation bar with some CSS techniques. We have provided a CSS file <code>toc.css</code> in this package that you can use, and you can find it here:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown:::<span class="kw">bookdown_file</span>(<span class="st">&quot;examples/css/toc.css&quot;</span>)</code></pre></div>
+<p>The TOC is often used for navigation purposes. In the GitBook style, the TOC is displayed in the sidebar. For the Bootstrap style, we did not apply a special style to it, so it is shown as a plain unordered list (in the HTML tag <code>&lt;ul&gt;</code>). It is easy to turn this list into a navigation bar with some CSS techniques. We have provided a CSS file <code>toc.css</code> in this package that you can use, and you can find it here: <a href="https://github.com/rstudio/bookdown/blob/master/inst/examples/css/toc.css" class="uri">https://github.com/rstudio/bookdown/blob/master/inst/examples/css/toc.css</a></p>
 <p>You may copy this file to the root directory of your book, and apply it to the HTML output via the <code>css</code> option, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">output:</span>
