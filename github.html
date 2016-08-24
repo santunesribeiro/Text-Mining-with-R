@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-08-18">
+<meta name="date" content="2016-08-24">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -209,7 +209,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The next question is, how to publish the book built on Travis to GitHub? Basically you have to grant Travis write access to your GitHub repository. This authorization can be done via several ways, and the easiest one to beginners may be a personal access token. Below are a few steps you may follow:</p>
 <ol style="list-style-type: decimal">
 <li>Create a personal access token for your account on GitHub: <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/" class="uri">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a> (make sure to enable the “repo” scope so that using this token will enable writing to your GitHub repos)</li>
-<li>Encrypt it in the environment variable <code>GITHUB_PAT</code> via command line <code>travis encrypt</code> and store it in <code>.travis.yml</code>. If you do not know how to install or use the Travis command-line tool, simply save this environment variable via <code>https://travis-ci.org/user/repo/settings</code> where <code>user</code> is your GitHub ID, and <code>repo</code> is the name of the repository;</li>
+<li>Encrypt it in the environment variable <code>GITHUB_PAT</code> via command line <code>travis encrypt</code> and store it in <code>.travis.yml</code>, e.g <code>travis encrypt GITHUB_PAT=TOKEN</code>. If you do not know how to install or use the Travis command-line tool, simply save this environment variable via <a href="https://travis-ci.org/user/repo/settings" class="uri">https://travis-ci.org/user/repo/settings</a> where <code>user</code> is your GitHub ID, and <code>repo</code> is the name of the repository;</li>
 <li>You can clone this <code>gh-pages</code> branch on Travis using your GitHub token, add the HTML output files from R Markdown (do not forget to add figures and CSS style files as well), and push to the remote repository.</li>
 </ol>
 <p>Assume you are in the <code>master</code> branch right now (where you put the Rmd source files), and have compiled the book to the <code>_book</code> directory. What you can do next on Travis is:</p>
