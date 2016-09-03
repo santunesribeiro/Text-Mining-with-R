@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.6 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-08-31">
+<meta name="date" content="2016-09-03">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -205,7 +205,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Most arguments are passed to <code>rmarkdown::html_document()</code>, including <code>fig_caption</code>, <code>lib_dir</code>, and <code>...</code>. You can check out the help page of <code>rmarkdown::html_document()</code> for the full list of possible options. We strongly recommend you to use <code>fig_caption = TRUE</code> for two reasons: 1) it is important to explain your figures with captions; 2) enabling figure captions means figures will be placed in floating environments when the output is LaTeX, otherwise you may end up with a lot of white space on certain pages. The format of figure/table numbers depends on if sections are numbered or not: if <code>number_sections = TRUE</code>, these numbers will be of the format <code>X.i</code>, where <code>X</code> is the chapter number, and <code>i</code> in an incremental number; if sections are not numbered, all figures/tables will be numbered sequentially through the book from 1, 2, …, N. Note in either case, figures and tables will be numbered independently.</p>
 <p>Among all possible arguments in <code>...</code>, you are most likely to use the <code>css</code> argument to provide one or more custom CSS files to tweak the default CSS style. There are a few arguments of <code>html_document()</code> that have been hard-coded in <code>gitbook()</code> and you cannot change them: <code>toc = TRUE</code> (there must be a table of contents), <code>theme = NULL</code> (not using any Bootstrap themes), and <code>template</code> (there will be an internal GitBook template).</p>
 <p>Please note if you change <code>self_contained = TRUE</code> to make self-contained HTML pages, the total size of all HTML files can be significantly increased since there are many JS and CSS files tha have to be embedded in every single HTML file.</p>
-<p>Besides these <code>html_document()</code> options, <code>gitbook()</code> has two other arguments: <code>split_by</code> and <code>config</code>. The <code>split_by</code> argument specifies how you want to split the HTML output into multiple pages, and its possible values are:</p>
+<p>Besides these <code>html_document()</code> options, <code>gitbook()</code> has three other arguments: <code>split_by</code>, <code>split_bib</code>, and <code>config</code>. The <code>split_by</code> argument specifies how you want to split the HTML output into multiple pages, and its possible values are:</p>
 <ul>
 <li><code>rmd</code>: use the base filenames of the input Rmd files to create the HTML filenames, e.g., generate <code>chapter3.html</code> for <code>chapter3.Rmd</code>;</li>
 <li><code>none</code>: do not split the HTML file (the book will be a single HTML file);</li>
