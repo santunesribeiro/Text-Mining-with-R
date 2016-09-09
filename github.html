@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-09-03">
+<meta name="date" content="2016-09-09">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -188,8 +188,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="github" class="section level2">
 <h2><span class="header-section-number">6.2</span> GitHub</h2>
-<p>You can host your book on GitHub for free via GitHub Pages (<a href="https://pages.github.com" class="uri">https://pages.github.com</a>). GitHub supports Jekyll (<a href="http://jekyllrb.com" class="uri">http://jekyllrb.com</a>), a static website builder, to build a website from Markdown files. That may be the more common use case of GitHub Pages, but GitHub also supports arbitrary static HTML files, so you can just host the HTML output files of your book on GitHub. To publish to your book to GitHub Pages, you need to create a <code>gh-pages</code> branch in your repository, build the book, put the HTML output (including all external resources like images, CSS, and JavaScript files) in this branch, and push the branch to the remote repository.</p>
-<p>If your book repository does not have the <code>gh-pages</code> branch, you may use the following commands to create one:</p>
+<p>You can host your book on GitHub for free via GitHub Pages (<a href="https://pages.github.com" class="uri">https://pages.github.com</a>). GitHub supports Jekyll (<a href="http://jekyllrb.com" class="uri">http://jekyllrb.com</a>), a static website builder, to build a website from Markdown files. That may be the more common use case of GitHub Pages, but GitHub also supports arbitrary static HTML files, so you can just host the HTML output files of your book on GitHub.</p>
+<p>One approach to publish your book as a GitHub Pages site from a <code>/docs</code> folder on your <code>master</code> branch as described in <a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/">GitHub Help</a>. First set the output directory of your book to be <code>/docs</code> by adding the line <code>output_dir: &quot;docs&quot;</code> to the configuration file <code>_bookdown.yml</code>. Then after pushing your changes to GitHub go to your repository’s settings and under “GitHub Pages” change the “Source” to be “master branch /docs folder”.</p>
+<p>An alternative approach is to create a <code>gh-pages</code> branch in your repository, build the book, put the HTML output (including all external resources like images, CSS, and JavaScript files) in this branch, and push the branch to the remote repository. If your book repository does not have the <code>gh-pages</code> branch, you may use the following commands to create one:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># assume you have initialized the git repository,</span>
 <span class="co"># and are under the directory of the book repository now</span>
 
