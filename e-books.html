@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Yihui Xie">
 
-<meta name="date" content="2016-09-09">
+<meta name="date" content="2016-09-20">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -114,7 +114,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
@@ -192,10 +194,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="epub" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> EPUB</h3>
 <p>To create an EPUB book, you can use the <code>epub_book()</code> format. It has some options in common with <code>rmarkdown::html_document()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">epub_book</span>(<span class="dt">fig_width =</span> <span class="dv">5</span>, <span class="dt">fig_height =</span> <span class="dv">4</span>, <span class="dt">dev =</span> <span class="st">&quot;png&quot;</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, 
-  <span class="dt">toc =</span> <span class="ot">FALSE</span>, <span class="dt">toc_depth =</span> <span class="dv">3</span>, <span class="dt">stylesheet =</span> <span class="ot">NULL</span>, <span class="dt">cover_image =</span> <span class="ot">NULL</span>, <span class="dt">metadata =</span> <span class="ot">NULL</span>, 
-  <span class="dt">chapter_level =</span> <span class="dv">1</span>, <span class="dt">epub_version =</span> <span class="kw">c</span>(<span class="st">&quot;epub3&quot;</span>, <span class="st">&quot;epub&quot;</span>), <span class="dt">md_extensions =</span> <span class="ot">NULL</span>, 
-  <span class="dt">pandoc_args =</span> <span class="ot">NULL</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">epub_book</span>(<span class="dt">fig_width =</span> <span class="dv">5</span>, <span class="dt">fig_height =</span> <span class="dv">4</span>, <span class="dt">dev =</span> <span class="st">&quot;png&quot;</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, 
+  <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">toc =</span> <span class="ot">FALSE</span>, <span class="dt">toc_depth =</span> <span class="dv">3</span>, 
+  <span class="dt">stylesheet =</span> <span class="ot">NULL</span>, <span class="dt">cover_image =</span> <span class="ot">NULL</span>, <span class="dt">metadata =</span> <span class="ot">NULL</span>, 
+  <span class="dt">chapter_level =</span> <span class="dv">1</span>, <span class="dt">epub_version =</span> <span class="kw">c</span>(<span class="st">&quot;epub3&quot;</span>, <span class="st">&quot;epub&quot;</span>), 
+  <span class="dt">md_extensions =</span> <span class="ot">NULL</span>, <span class="dt">pandoc_args =</span> <span class="ot">NULL</span>)</code></pre></div>
 <p>The option <code>toc</code> is turned off because the e-book reader can often figure out a TOC automatically from the book, so it is not necessary to add a few pages for the TOC. There are a few options specific to EPUB:</p>
 <ul>
 <li><code>stylesheet</code>: It is similar to the <code>css</code> option in HTML output formats, and you can customize the appearance of elements using CSS;</li>
@@ -246,7 +249,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/02-formats.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/03-formats.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
