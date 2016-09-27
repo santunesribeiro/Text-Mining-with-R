@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-24">
+<meta name="date" content="2016-09-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -115,7 +115,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
+<li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
@@ -127,14 +130,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
 <li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a></li>
-<li class="chapter" data-level="2.2" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.2</b> R code</a></li>
-<li class="chapter" data-level="2.3" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.3</b> Figures</a></li>
-<li class="chapter" data-level="2.4" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.4</b> Tables</a></li>
-<li class="chapter" data-level="2.5" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.5</b> Cross-references</a></li>
-<li class="chapter" data-level="2.6" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.6</b> Custom blocks</a></li>
-<li class="chapter" data-level="2.7" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.7</b> Citations</a></li>
-<li class="chapter" data-level="2.8" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.8</b> HTML widgets</a></li>
-<li class="chapter" data-level="2.9" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.9</b> Web pages and Shiny apps</a></li>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a></li>
+<li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
+<li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
+<li class="chapter" data-level="2.5" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.5</b> Tables</a></li>
+<li class="chapter" data-level="2.6" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.6</b> Cross-references</a></li>
+<li class="chapter" data-level="2.7" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="2.8" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.8</b> Citations</a></li>
+<li class="chapter" data-level="2.9" data-path="index.html"><a href="index.html#index"><i class="fa fa-check"></i><b>2.9</b> Index</a></li>
+<li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
+<li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
 <li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
@@ -192,7 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="github" class="section level2">
 <h2><span class="header-section-number">6.2</span> GitHub</h2>
 <p>You can host your book on GitHub for free via GitHub Pages (<a href="https://pages.github.com" class="uri">https://pages.github.com</a>). GitHub supports Jekyll (<a href="http://jekyllrb.com" class="uri">http://jekyllrb.com</a>), a static website builder, to build a website from Markdown files. That may be the more common use case of GitHub Pages, but GitHub also supports arbitrary static HTML files, so you can just host the HTML output files of your book on GitHub.</p>
-<p>One approach to publish your book as a GitHub Pages site from a <code>/docs</code> folder on your <code>master</code> branch as described in <a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/">GitHub Help</a>. First set the output directory of your book to be <code>/docs</code> by adding the line <code>output_dir: &quot;docs&quot;</code> to the configuration file <code>_bookdown.yml</code>. Then after pushing your changes to GitHub go to your repository’s settings and under “GitHub Pages” change the “Source” to be “master branch /docs folder”.</p>
+<p>One approach to publish your book as a GitHub Pages site from a <code>/docs</code> folder on your <code>master</code> branch as described in <a href="http://bit.ly/2cvloKV">GitHub Help</a>. First set the output directory of your book to be <code>/docs</code> by adding the line <code>output_dir: &quot;docs&quot;</code> to the configuration file <code>_bookdown.yml</code>. Then after pushing your changes to GitHub go to your repository’s settings and under “GitHub Pages” change the “Source” to be “master branch /docs folder”.</p>
 <p>An alternative approach is to create a <code>gh-pages</code> branch in your repository, build the book, put the HTML output (including all external resources like images, CSS, and JavaScript files) in this branch, and push the branch to the remote repository. If your book repository does not have the <code>gh-pages</code> branch, you may use the following commands to create one:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># assume you have initialized the git repository,</span>
 <span class="co"># and are under the directory of the book repository now</span>
@@ -209,10 +214,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">git</span> push origin gh-pages</code></pre></div>
 <p>The hidden file <code>.nojekyll</code> tells GitHub that your website is not to be built via Jekyll, since the <strong>bookdown</strong> HTML output is already a standalone website. If you are on Windows, you may not have the <code>touch</code> command, and you can just create the file in R using <code>file.create('.nojekyll')</code>.</p>
 <p>After you have set up GIT, the rest of work can be automated via a script (Shell, R, or Makefile, depending on your preference). Basically, you compile the book to HTML, then run git commands to push the files to GitHub, but you probably do not want to do this over and over again manually and locally. It can be very handy to automate the publishing process completely on the cloud, so once it is set up correctly, all you have to do next is write the book and push the Rmd source files to GitHub, and your book will always be automatically built and published from the server side.</p>
-<p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>. These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
+<p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>. These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
 <p>The next question is, how to publish the book built on Travis to GitHub? Basically you have to grant Travis write access to your GitHub repository. This authorization can be done via several ways, and the easiest one to beginners may be a personal access token. Below are a few steps you may follow:</p>
 <ol style="list-style-type: decimal">
-<li>Create a personal access token for your account on GitHub: <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/" class="uri">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a> (make sure to enable the “repo” scope so that using this token will enable writing to your GitHub repos)</li>
+<li>Create a <a href="http://bit.ly/2cEBYWB">personal access token</a> for your account on GitHub (make sure to enable the “repo” scope so that using this token will enable writing to your GitHub repos);</li>
 <li>Encrypt it in the environment variable <code>GITHUB_PAT</code> via command line <code>travis encrypt</code> and store it in <code>.travis.yml</code>, e.g <code>travis encrypt GITHUB_PAT=TOKEN</code>. If you do not know how to install or use the Travis command-line tool, simply save this environment variable via <a href="https://travis-ci.org/user/repo/settings" class="uri">https://travis-ci.org/user/repo/settings</a> where <code>user</code> is your GitHub ID, and <code>repo</code> is the name of the repository;</li>
 <li>You can clone this <code>gh-pages</code> branch on Travis using your GitHub token, add the HTML output files from R Markdown (do not forget to add figures and CSS style files as well), and push to the remote repository.</li>
 </ol>
@@ -259,12 +264,13 @@ Remotes: rstudio/bookdown</code></pre>
   <span class="fu">directories:</span>
     <span class="kw">-</span> $TRAVIS_BUILD_DIR/_bookdown_files</code></pre></div>
 <p>If your book is very time-consuming to build, you may use the above configurations on Travis to save time. Note <code>packages: yes</code> means the R packages installed on Travis are also cached.</p>
+<p>All above scripts and configurations can be found in the <code>bookdown-demo</code> repository: <a href="https://github.com/rstudio/bookdown-demo/" class="uri">https://github.com/rstudio/bookdown-demo/</a>. If you copy them to your own repository, please remember to change the <code>secure</code> key in <code>.travis.yml</code> using your own encrypted variable <code>GITHUB_PAT</code>.</p>
 <p>GitHub and Travis CI are certainly not the only choices to build and publish your book. You are free to store and publish the book on your own server.</p>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="8">
-<li id="fn8"><p>You need to authorize the Travis CI service for your repository on GitHub first. See <a href="https://docs.travis-ci.com/user/getting-started/" class="uri">https://docs.travis-ci.com/user/getting-started/</a> for how to get started with Travis CI.<a href="github.html#fnref8">↩</a></p></li>
+<ol start="10">
+<li id="fn10"><p>You need to authorize the Travis CI service for your repository on GitHub first. See <a href="https://docs.travis-ci.com/user/getting-started/" class="uri">https://docs.travis-ci.com/user/getting-started/</a> for how to get started with Travis CI.<a href="github.html#fnref10">↩</a></p></li>
 </ol>
 </div>
             </section>

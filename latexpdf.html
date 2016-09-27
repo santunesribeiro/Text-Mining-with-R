@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-24">
+<meta name="date" content="2016-09-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -115,7 +115,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
+<li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
@@ -127,14 +130,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
 <li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a></li>
-<li class="chapter" data-level="2.2" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.2</b> R code</a></li>
-<li class="chapter" data-level="2.3" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.3</b> Figures</a></li>
-<li class="chapter" data-level="2.4" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.4</b> Tables</a></li>
-<li class="chapter" data-level="2.5" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.5</b> Cross-references</a></li>
-<li class="chapter" data-level="2.6" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.6</b> Custom blocks</a></li>
-<li class="chapter" data-level="2.7" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.7</b> Citations</a></li>
-<li class="chapter" data-level="2.8" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.8</b> HTML widgets</a></li>
-<li class="chapter" data-level="2.9" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.9</b> Web pages and Shiny apps</a></li>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a></li>
+<li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
+<li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
+<li class="chapter" data-level="2.5" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.5</b> Tables</a></li>
+<li class="chapter" data-level="2.6" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.6</b> Cross-references</a></li>
+<li class="chapter" data-level="2.7" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="2.8" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.8</b> Citations</a></li>
+<li class="chapter" data-level="2.9" data-path="index.html"><a href="index.html#index"><i class="fa fa-check"></i><b>2.9</b> Index</a></li>
+<li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
+<li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
 <li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
@@ -192,17 +197,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="latexpdf" class="section level2">
 <h2><span class="header-section-number">3.2</span> LaTeX/PDF</h2>
 <p>We strongly recommend you to use an HTML output format instead of LaTeX when you develop a book, since you will not be too distracted by the typesetting details, which can bother you a lot if you constantly look at the PDF output of a book. Leave the job of careful typesetting to the very end (ideally after you have really finished the content of the book).</p>
-<p>The LaTeX/PDF output format is provided by <code>pdf_book()</code> in <strong>bookdown</strong>. There is not a significant difference between <code>pdf_book()</code> and the <code>pdf_document()</code> format in <strong>rmarkdown</strong>. The main purpose of <code>pdf_book()</code> is to resolve the labels and cross-references written using the syntax described in Sections <a href="figures.html#figures">2.3</a>, <a href="tables.html#tables">2.4</a>, and <a href="cross-references.html#cross-references">2.5</a>. If the only output format that you want for a book is LaTeX/PDF, you may use the syntax specific to LaTeX, such as <code>\label{}</code> to label figures/tables/sections, and <code>\ref{}</code> to cross-reference them via their labels, because Pandoc supports LaTeX commands in Markdown. However, the LaTeX syntax is not portable to other output formats, such as HTML and e-books. That is why we introduced the syntax <code>(\#label)</code> for labels and <code>\@ref(label)</code> for cross-references.</p>
+<p>The LaTeX/PDF output format is provided by <code>pdf_book()</code> in <strong>bookdown</strong>. There is not a significant difference between <code>pdf_book()</code> and the <code>pdf_document()</code> format in <strong>rmarkdown</strong>. The main purpose of <code>pdf_book()</code> is to resolve the labels and cross-references written using the syntax described in Sections <a href="figures.html#figures">2.4</a>, <a href="tables.html#tables">2.5</a>, and <a href="cross-references.html#cross-references">2.6</a>. If the only output format that you want for a book is LaTeX/PDF, you may use the syntax specific to LaTeX, such as <code>\label{}</code> to label figures/tables/sections, and <code>\ref{}</code> to cross-reference them via their labels, because Pandoc supports LaTeX commands in Markdown. However, the LaTeX syntax is not portable to other output formats, such as HTML and e-books. That is why we introduced the syntax <code>(\#label)</code> for labels and <code>\@ref(label)</code> for cross-references.</p>
 <p>There are some top-level YAML options that will be applied to the LaTeX output. For a book, you may change the default document class to <code>book</code> (the default is <code>article</code>), and specify a bibliography style required by your publisher. A brief YAML example:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">documentclass:</span> book
 <span class="fu">bibliography:</span> <span class="kw">[</span>book.bib<span class="kw">,</span> packages.bib<span class="kw">]</span>
 <span class="fu">biblio-style:</span> apalike
 <span class="ot">---</span></code></pre></div>
-<p>The <code>pdf_book()</code> format is a general format like <code>html_chapters</code>, and it also has a <code>base_format</code> argument:</p>
+<p>The <code>pdf_book()</code> format is a general format like <code>html_book()</code>, and it also has a <code>base_format</code> argument:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf_book</span>(<span class="dt">toc =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, 
   ..., <span class="dt">base_format =</span> rmarkdown::pdf_document, <span class="dt">toc_unnumbered =</span> <span class="ot">TRUE</span>, 
-  <span class="dt">toc_appendix =</span> <span class="ot">FALSE</span>, <span class="dt">toc_bib =</span> <span class="ot">FALSE</span>)</code></pre></div>
+  <span class="dt">toc_appendix =</span> <span class="ot">FALSE</span>, <span class="dt">toc_bib =</span> <span class="ot">FALSE</span>, <span class="dt">quote_footer =</span> <span class="ot">NULL</span>)</code></pre></div>
 <p>You can change the <code>base_format</code> function to other output format functions, and <strong>bookdown</strong> has provided a simple wrapper function <code>tufte_book2()</code>, which is basically <code>pdf_book(base_format = tufte::tufte_book)</code>, to produce a PDF book using the Tufte PDF style (again, see the <strong>tufte</strong> package).</p>
 </div>
             </section>

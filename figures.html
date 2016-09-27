@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-24">
+<meta name="date" content="2016-09-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -115,7 +115,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
+<li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
@@ -127,14 +130,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
 <li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a></li>
-<li class="chapter" data-level="2.2" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.2</b> R code</a></li>
-<li class="chapter" data-level="2.3" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.3</b> Figures</a></li>
-<li class="chapter" data-level="2.4" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.4</b> Tables</a></li>
-<li class="chapter" data-level="2.5" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.5</b> Cross-references</a></li>
-<li class="chapter" data-level="2.6" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.6</b> Custom blocks</a></li>
-<li class="chapter" data-level="2.7" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.7</b> Citations</a></li>
-<li class="chapter" data-level="2.8" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.8</b> HTML widgets</a></li>
-<li class="chapter" data-level="2.9" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.9</b> Web pages and Shiny apps</a></li>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a></li>
+<li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
+<li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
+<li class="chapter" data-level="2.5" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.5</b> Tables</a></li>
+<li class="chapter" data-level="2.6" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.6</b> Cross-references</a></li>
+<li class="chapter" data-level="2.7" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="2.8" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.8</b> Citations</a></li>
+<li class="chapter" data-level="2.9" data-path="index.html"><a href="index.html#index"><i class="fa fa-check"></i><b>2.9</b> Index</a></li>
+<li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
+<li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
 <li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
@@ -190,13 +195,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="figures" class="section level2">
-<h2><span class="header-section-number">2.3</span> Figures</h2>
+<h2><span class="header-section-number">2.4</span> Figures</h2>
 <p>By default, figures have no captions in the output generated by <strong>knitr</strong>, which means they will just be placed wherever they were generated in the R code. Below is such an example.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
 <span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
 <p><img src="bookdown_files/figure-html/no-caption-1.png" width="70%" /></p>
 <p>The disadvantage of typesetting figures in this way is that when there is not enough space on the current page to place a figure, it may either reach the bottom of the page (hence exceeds the page margin), or be pushed to the next page, leaving a large white margin at the bottom of the current page. That is basically why there are “floating environments” in LaTeX: elements that cannot be split over multiple pages (like figures) are put in floating environments, so they can float to a page that has enough space to hold them. There is also a disadvantage of floating things forward or backward, though. That is, readers may have to jump to a different page to find the figure mentioned on the current page. This is simply a natural consequence of having to typeset things on multiple pages of fixed sizes. This issue does not exist in HTML, however, since everything can be placed continuously on one single page (presumably with infinite height), and there is no need to split anything across multiple pages of the same page size.</p>
-<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>, where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
+<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
 
 <div class="rmdimportant">
 If you want to cross-reference figures or tables generated from a code chunk, please make sure the chunk label only contains <em>alphanumeric</em> characters (a-z, A-Z, 0-9), slashes (/), or dashes (-). Other characters do not qualify.
@@ -208,7 +213,7 @@ If you want to cross-reference figures or tables generated from a code chunk, pl
 <div class="figure" style="text-align: center"><span id="fig:pressure-plot"></span>
 <img src="bookdown_files/figure-html/pressure-plot-1.png" alt="A figure example with the specified aspect ratio, width, and alignment." width="80%" />
 <p class="caption">
-Figure 2.1: A figure example with the specified aspect ratio, width, and alignment.
+FIGURE 2.1: A figure example with the specified aspect ratio, width, and alignment.
 </p>
 </div>
 <p>The actual size of a plot is determined by the chunk options <code>fig.width</code> and <code>fig.height</code> (the size of the plot generated from a graphical device), and we can specify the output size of plots via the chunk options <code>out.width</code> and <code>out.height</code>. The possible value of these two options depends on the output format of the document. For example, <code>out.width = '30%'</code> is a valid value for HTML output, but not for LaTeX/PDF output. However, <strong>knitr</strong> will automatically convert a percentage value for <code>out.width</code> of the form <code>x%</code> to <code>(x / 100) \linewidth</code>, e.g., <code>out.width = '70%'</code> will be treated as <code>.7\linewidth</code> when the output format is LaTeX. This makes it possible to specify a relative width of a plot in a consistent manner. Figure <a href="figures.html#fig:cars-plot">2.2</a> is an example of <code>out.width = 70%</code>.</p>
@@ -217,7 +222,7 @@ Figure 2.1: A figure example with the specified aspect ratio, width, and alignme
 <div class="figure"><span id="fig:cars-plot"></span>
 <img src="bookdown_files/figure-html/cars-plot-1.png" alt="A figure example with a relative width 70\%." width="70%" />
 <p class="caption">
-Figure 2.2: A figure example with a relative width 70%.
+FIGURE 2.2: A figure example with a relative width 70%.
 </p>
 </div>
 <p>If you want to put multiple plots in one figure environment, you must use the chunk option <code>fig.show = 'hold'</code> to hold multiple plots from a code chunk and include them in one environment. You can also place plots side by side if the sum of the width of all plots is smaller than or equal to the current line width. For example, if two plots have the same width <code>50%</code>, they will be placed side by side. Similarly, you can specify <code>out.width = '33%'</code> to arrange three plots on one line. Figure <a href="figures.html#fig:multi-plots">2.3</a> is an example of two plots, each with a width <code>50%</code>.</p>
@@ -227,7 +232,7 @@ Figure 2.2: A figure example with a relative width 70%.
 <div class="figure"><span id="fig:multi-plots"></span>
 <img src="bookdown_files/figure-html/multi-plots-1.png" alt="Two plots placed side by side." width="50%" /><img src="bookdown_files/figure-html/multi-plots-2.png" alt="Two plots placed side by side." width="50%" />
 <p class="caption">
-Figure 2.3: Two plots placed side by side.
+FIGURE 2.3: Two plots placed side by side.
 </p>
 </div>
 <p>Sometimes you may have certain images that are not generated from R code, and you can include them them in R Markdown via the function <code>knitr::include_graphics()</code>. Figure <a href="figures.html#fig:knitr-logo">2.4</a> is an example of three <strong>knitr</strong> logos included in a figure environment. You may pass one or multiple image paths to the <code>include_graphics()</code> function, and all chunk options that apply to normal R plots also apply to these images, e.g., you can use <code>out.width = '33%'</code> to set the widths of these images in the output document.</p>
@@ -235,7 +240,7 @@ Figure 2.3: Two plots placed side by side.
 <div class="figure"><span id="fig:knitr-logo"></span>
 <img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="32.8%" /><img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="32.8%" /><img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="32.8%" />
 <p class="caption">
-Figure 2.4: Three knitr logos included in the document from an external PNG image file.
+FIGURE 2.4: Three knitr logos included in the document from an external PNG image file.
 </p>
 </div>
 <p>There are a few advantages of using <code>include_graphics()</code>:</p>
@@ -248,8 +253,8 @@ Figure 2.4: Three knitr logos included in the document from an external PNG imag
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>Do not forget the leading backslash!<a href="figures.html#fnref3">↩</a></p></li>
+<ol start="4">
+<li id="fn4"><p>Do not forget the leading backslash!<a href="figures.html#fnref4">↩</a></p></li>
 </ol>
 </div>
             </section>

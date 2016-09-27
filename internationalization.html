@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-24">
+<meta name="date" content="2016-09-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -115,7 +115,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
+<li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
@@ -127,14 +130,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
 <li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a></li>
-<li class="chapter" data-level="2.2" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.2</b> R code</a></li>
-<li class="chapter" data-level="2.3" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.3</b> Figures</a></li>
-<li class="chapter" data-level="2.4" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.4</b> Tables</a></li>
-<li class="chapter" data-level="2.5" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.5</b> Cross-references</a></li>
-<li class="chapter" data-level="2.6" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.6</b> Custom blocks</a></li>
-<li class="chapter" data-level="2.7" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.7</b> Citations</a></li>
-<li class="chapter" data-level="2.8" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.8</b> HTML widgets</a></li>
-<li class="chapter" data-level="2.9" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.9</b> Web pages and Shiny apps</a></li>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a></li>
+<li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
+<li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
+<li class="chapter" data-level="2.5" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.5</b> Tables</a></li>
+<li class="chapter" data-level="2.6" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.6</b> Cross-references</a></li>
+<li class="chapter" data-level="2.7" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="2.8" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.8</b> Citations</a></li>
+<li class="chapter" data-level="2.9" data-path="index.html"><a href="index.html#index"><i class="fa fa-check"></i><b>2.9</b> Index</a></li>
+<li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
+<li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
 <li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
@@ -192,8 +197,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="internationalization" class="section level2">
 <h2><span class="header-section-number">4.4</span> Internationalization</h2>
 <p>If the language of your book is not English, you will need to translate certain English words and phrases into your language, such as the words “Figure” and “Table” when figures/tables are automatically numbered in the HTML output. Internationalization may not be an issue for LaTeX output, since some LaTeX packages can automatically translate these terms into the local language, such as the <strong>ctexcap</strong> package for Chinese.</p>
-<p>TODO…</p>
-<p>There is one caveat when you write in a language that uses multibyte characters, such as Chinese, Japanese, and Korean (CJK): Pandoc cannot generate identifiers from section headings that are pure CJK characters, so you will not be able to cross-reference sections (they do not have labels), unless you manually assign identifiers to them by appending <code>{#identifier}</code> to the section heading, where <code>identifier</code> is an arbitrary identifier you choose.</p>
+<p>For non-LaTeX output, you can set the <code>language</code> field in the configuration file <code>_bookdown.yml</code>. Currently the default settings are:</p>
+<pre><code>language:
+  label:
+    fig: &#39;Figure &#39;
+    tab: &#39;Table &#39;</code></pre>
+<p>For example, if you want <code>FIGURE x.x</code> instead of <code>Figure x.x</code>, you can change <code>fig</code> to <code>&quot;FIGURE &quot;</code>:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">language:</span>
+  <span class="fu">label:</span>
+    <span class="fu">fig:</span> <span class="st">&quot;FIGURE &quot;</span></code></pre></div>
+<p>There is one caveat when you write in a language that uses multibyte characters, such as Chinese, Japanese, and Korean (CJK): Pandoc cannot generate identifiers from section headings that are pure CJK characters, so you will not be able to cross-reference sections (they do not have labels), unless you manually assign identifiers to them by appending <code>{#identifier}</code> to the section heading, where <code>identifier</code> is an identifier of your choice.</p>
 
 </div>
 <!-- </div> -->

@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-24">
+<meta name="date" content="2016-09-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -115,7 +115,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
+<li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
@@ -127,14 +130,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
 <li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a></li>
-<li class="chapter" data-level="2.2" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.2</b> R code</a></li>
-<li class="chapter" data-level="2.3" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.3</b> Figures</a></li>
-<li class="chapter" data-level="2.4" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.4</b> Tables</a></li>
-<li class="chapter" data-level="2.5" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.5</b> Cross-references</a></li>
-<li class="chapter" data-level="2.6" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.6</b> Custom blocks</a></li>
-<li class="chapter" data-level="2.7" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.7</b> Citations</a></li>
-<li class="chapter" data-level="2.8" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.8</b> HTML widgets</a></li>
-<li class="chapter" data-level="2.9" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.9</b> Web pages and Shiny apps</a></li>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a></li>
+<li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
+<li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
+<li class="chapter" data-level="2.5" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.5</b> Tables</a></li>
+<li class="chapter" data-level="2.6" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.6</b> Cross-references</a></li>
+<li class="chapter" data-level="2.7" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="2.8" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.8</b> Citations</a></li>
+<li class="chapter" data-level="2.9" data-path="index.html"><a href="index.html#index"><i class="fa fa-check"></i><b>2.9</b> Index</a></li>
+<li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
+<li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="output-formats.html"><a href="output-formats.html"><i class="fa fa-check"></i><b>3</b> Output Formats</a><ul>
 <li class="chapter" data-level="3.1" data-path="html.html"><a href="html.html"><i class="fa fa-check"></i><b>3.1</b> HTML</a><ul>
@@ -202,12 +207,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>You can embed interactive content in the book (for HTML output only), such as HTML widgets and Shiny apps;</li>
 </ul>
 <p>We have also added some useful features in the user interface that we will introduce in detail soon. The output format function for the GitBook style in <strong>bookdown</strong> is <code>gitbook()</code>. Below are its arguments:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gitbook</span>(<span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">self_contained =</span> <span class="ot">FALSE</span>, 
-  <span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>, ..., <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;chapter+number&quot;</span>, 
-    <span class="st">&quot;section&quot;</span>, <span class="st">&quot;section+number&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>), <span class="dt">split_bib =</span> <span class="ot">TRUE</span>, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gitbook</span>(<span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, 
+  <span class="dt">self_contained =</span> <span class="ot">FALSE</span>, <span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>, ..., 
+  <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;chapter+number&quot;</span>, <span class="st">&quot;section&quot;</span>, 
+    <span class="st">&quot;section+number&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>), <span class="dt">split_bib =</span> <span class="ot">TRUE</span>, 
   <span class="dt">config =</span> <span class="kw">list</span>())</code></pre></div>
 <p>Most arguments are passed to <code>rmarkdown::html_document()</code>, including <code>fig_caption</code>, <code>lib_dir</code>, and <code>...</code>. You can check out the help page of <code>rmarkdown::html_document()</code> for the full list of possible options. We strongly recommend you to use <code>fig_caption = TRUE</code> for two reasons: 1) it is important to explain your figures with captions; 2) enabling figure captions means figures will be placed in floating environments when the output is LaTeX, otherwise you may end up with a lot of white space on certain pages. The format of figure/table numbers depends on if sections are numbered or not: if <code>number_sections = TRUE</code>, these numbers will be of the format <code>X.i</code>, where <code>X</code> is the chapter number, and <code>i</code> in an incremental number; if sections are not numbered, all figures/tables will be numbered sequentially through the book from 1, 2, …, N. Note in either case, figures and tables will be numbered independently.</p>
-<p>Among all possible arguments in <code>...</code>, you are most likely to use the <code>css</code> argument to provide one or more custom CSS files to tweak the default CSS style. There are a few arguments of <code>html_document()</code> that have been hard-coded in <code>gitbook()</code> and you cannot change them: <code>toc = TRUE</code> (there must be a table of contents), <code>theme = NULL</code> (not using any Bootstrap themes), and <code>template</code> (there will be an internal GitBook template).</p>
+<p>Among all possible arguments in <code>...</code>, you are most likely to use the <code>css</code> argument to provide one or more custom CSS files to tweak the default CSS style. There are a few arguments of <code>html_document()</code> that have been hard-coded in <code>gitbook()</code> and you cannot change them: <code>toc = TRUE</code> (there must be a table of contents), <code>theme = NULL</code> (not using any Bootstrap themes), and <code>template</code> (there exists an internal GitBook template).</p>
 <p>Please note if you change <code>self_contained = TRUE</code> to make self-contained HTML pages, the total size of all HTML files can be significantly increased since there are many JS and CSS files tha have to be embedded in every single HTML file.</p>
 <p>Besides these <code>html_document()</code> options, <code>gitbook()</code> has three other arguments: <code>split_by</code>, <code>split_bib</code>, and <code>config</code>. The <code>split_by</code> argument specifies how you want to split the HTML output into multiple pages, and its possible values are:</p>
 <ul>
@@ -217,7 +223,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>section</code>: split the file by the second-level headers;</li>
 <li><code>chapter+number</code> and <code>section+number</code>: similar to <code>chapter</code> and <code>section</code>, but the files will be numbered;</li>
 </ul>
-<p>For <code>chapter</code> and <code>section</code>, the HTML filenames will be determined by the header identifiers, e.g., the filename for the first chapter with a chapter title <code># Introduction</code> will be <code>introduction.html</code> by default. For <code>chapter+number</code> and <code>section+number</code>, the chapter/section numbers will be prepended to the HTML filenames, e.g., <code>1-introduction.html</code> and <code>2-1-literature.html</code>. The header identifier is automatically generated from the header text by default<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>, and you can manually specify an identifier using the syntax <code>{#your-custom-id}</code> after the header text, e.g.,</p>
+<p>For <code>chapter</code> and <code>section</code>, the HTML filenames will be determined by the header identifiers, e.g., the filename for the first chapter with a chapter title <code># Introduction</code> will be <code>introduction.html</code> by default. For <code>chapter+number</code> and <code>section+number</code>, the chapter/section numbers will be prepended to the HTML filenames, e.g., <code>1-introduction.html</code> and <code>2-1-literature.html</code>. The header identifier is automatically generated from the header text by default<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>, and you can manually specify an identifier using the syntax <code>{#your-custom-id}</code> after the header text, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># An Introduction {#introduction}</span>
 
 The default identifier is <span class="bn">`an-introduction`</span> but we changed
@@ -281,8 +287,8 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
 <p>On the right of the toolbar, there are some buttons to share the link on social network websites such as Twitter, Facebook, and Google+. You can use the <code>sharing</code> option to decide which buttons to enable. If you want to get rid of these buttons entirely, just use <code>sharing: null</code> (or <code>no</code>).</p>
 <p>Finally, there are a few more top-level options in the YAML metadata that can be passed to the GitBook HTML template via Pandoc. They may not have clear visible effects on the HTML output, but they may be useful when you deploy the HTML output as a website. These options include:</p>
 <ul>
-<li><code>description</code>: A character string to be written to the <code>content</code> attribute of the tag <code>&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</code> in the HTML head (if missing, the title of the book will be used). This can be useful for the purpose of search engine optimization (SEO);</li>
-<li><code>url</code>: The URL of book website, e.g., <code>https\://bookdown.org/yihui/bookdown/</code><a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>;</li>
+<li><code>description</code>: A character string to be written to the <code>content</code> attribute of the tag <code>&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</code> in the HTML head (if missing, the title of the book will be used). This can be useful for the purpose of search engine optimization (SEO). Note it should be plain text without any Markdown formatting such as <code>_italic_</code> or <code>**bold**</code>;</li>
+<li><code>url</code>: The URL of book website, e.g., <code>https\://bookdown.org/yihui/bookdown/</code><a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>;</li>
 <li><code>github-repo</code>: The GitHub repository of the book of the form <code>user/repo</code>;</li>
 <li><code>cover-image</code>: The path to the cover image of the book;</li>
 <li><code>apple-touch-icon</code>: A path to an icon (e.g., a PNG image). This is for iOS only: when the website is added to the Home screen, the link is represented by this icon.</li>
@@ -402,9 +408,9 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="6">
-<li id="fn6"><p>To see more details on how an identifier is automatically generated, see the <code>auto_identifiers</code> extension in Pandoc’s documentation <a href="http://pandoc.org/README.html#header-identifiers" class="uri">http://pandoc.org/README.html#header-identifiers</a><a href="html.html#fnref6">↩</a></p></li>
-<li id="fn7"><p>The backslash before <code>:</code> is due to a technical issue: we want to prevent Pandoc from translating the link to HTML code <code>&lt;a href=&quot;...&quot;&gt;&lt;/a&gt;</code>.<a href="html.html#fnref7">↩</a></p></li>
+<ol start="7">
+<li id="fn7"><p>To see more details on how an identifier is automatically generated, see the <code>auto_identifiers</code> extension in Pandoc’s documentation <a href="http://pandoc.org/MANUAL.html#header-identifiers" class="uri">http://pandoc.org/MANUAL.html#header-identifiers</a><a href="html.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>The backslash before <code>:</code> is due to a technical issue: we want to prevent Pandoc from translating the link to HTML code <code>&lt;a href=&quot;...&quot;&gt;&lt;/a&gt;</code>. More details at <a href="https://github.com/jgm/pandoc/issues/2139" class="uri">https://github.com/jgm/pandoc/issues/2139</a>.<a href="html.html#fnref8">↩</a></p></li>
 </ol>
 </div>
             </section>
