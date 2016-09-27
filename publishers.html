@@ -40,7 +40,7 @@ MathJax.Hub.Config({
   
   
 <link rel="prev" href="github.html">
-<link rel="next" href="licensing.html">
+<link rel="next" href="references.html">
 
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
@@ -170,8 +170,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
 <li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
 <li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
-<li class="chapter" data-level="6.4" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i><b>6.4</b> Licensing</a></li>
-<li class="chapter" data-level="6.5" data-path="self-publishing.html"><a href="self-publishing.html"><i class="fa fa-check"></i><b>6.5</b> Self-publishing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -196,14 +194,66 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="publishers" class="section level2">
 <h2><span class="header-section-number">6.3</span> Publishers</h2>
+<p>Besides publishing your book online, you can certainly consider publishing it with a publisher. For example, this book was published with Chapman &amp; Hall/CRC, and there is also a free online version at <a href="https://bookdown.org/yihui/bookdown/" class="uri">https://bookdown.org/yihui/bookdown/</a> (with an agreement with the publisher). Another option that you can consider is self-publishing (<a href="https://en.wikipedia.org/wiki/Self-publishing" class="uri">https://en.wikipedia.org/wiki/Self-publishing</a>) if you do not want to work with an established publisher.</p>
+<p>It will be much easier to publish a book written with <strong>bookdown</strong> if the publisher you choose supports LaTeX. For example, Chapman &amp; Hall provides a LaTeX class named <code>krantz.cls</code>, and Springer provides <code>svmono.cls</code>. To apply these LaTeX classes to your PDF book, just set <code>documentclass</code> in the YAML metadata of <code>index.Rmd</code> to the class filename (without the extension <code>.cls</code>).</p>
+<p>The LaTeX class is the most important setting in the YAML metadata. It controls the overall style of the PDF book. There are often other settings you want to tweak, and we will show some details about this book below.</p>
+<p>The YAML metadata of this book contains these settings:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">documentclass:</span> krantz
+<span class="fu">lot:</span> yes
+<span class="fu">lof:</span> yes
+<span class="fu">fontsize:</span> 12pt
+<span class="fu">monofont:</span> <span class="st">&quot;Source Code Pro&quot;</span>
+<span class="fu">monofontoptions:</span> <span class="st">&quot;Scale=0.7&quot;</span></code></pre></div>
+<p>The field <code>lot: yes</code> means we want the “List of Tables”, and similarly, <code>lof</code> means “List of Figures”. The base font size is <code>12pt</code>, and we used “Source Code Pro” as the monospaced (fixed-width) font, which is applied to all program code in this book.</p>
+<p>In the LaTeX preamble (Section <a href="yaml-options.html#yaml-options">4.1</a>), we have a few more settings. First, we set the main font to be “Alegreya”, and since this font does not have the <span style="font-variant: small-caps;">Small Capitals</span> feature, we used the “Alegreya SC” font.</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\setmainfont[
+  UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}
+]{Alegreya}</code></pre></div>
+<p>The following commands make floating environments less likely to float by allowing them to occupy larger fractions of pages without floating.</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}</code></pre></div>
+<p>Since <code>krantz.cls</code> provided an environment <code>VF</code> for quotes, we just redefine the standard <code>quote</code> environment to <code>VF</code>. You can see its style in Section <a href="markdown-syntax.html#markdown-syntax">2.1</a>.</p>
+<pre><code>\renewenvironment{quote}{\begin{VF}}{\end{VF}}</code></pre>
+<p>Then we redefine hyperlinks to be footnotes, because when the book is printed on paper, readers are not able to click on links on text. Footnotes will tell them what the actual links are.</p>
+<pre><code>\let\oldhref\href
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}</code></pre>
+<p>We also have some settings for the <code>bookdown::pdf_book</code> format in <code>_output.yml</code>:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span>:pdf_book:
+  <span class="fu">includes:</span>
+    <span class="fu">in_header:</span> latex/preamble.tex
+    <span class="fu">before_body:</span> latex/before_body.tex
+    <span class="fu">after_body:</span> latex/after_body.tex
+  <span class="fu">keep_tex:</span> yes
+  <span class="fu">dev:</span> <span class="st">&quot;cairo_pdf&quot;</span>
+  <span class="fu">latex_engine:</span> xelatex
+  <span class="fu">citation_package:</span> natbib
+  <span class="fu">template:</span> <span class="dt">null</span>
+  <span class="fu">pandoc_args:</span> <span class="st">&quot;--chapters&quot;</span>
+  <span class="fu">toc_unnumbered:</span> no
+  <span class="fu">toc_appendix:</span> yes
+  <span class="fu">quote_footer:</span> <span class="kw">[</span><span class="st">&quot;\\VA{&quot;</span><span class="kw">,</span> <span class="st">&quot;}{}&quot;</span><span class="kw">]</span></code></pre></div>
+<p>All preamble settings we mentioned above are in the file <code>latex/preamble.tex</code>. In <code>latex/before_body.tex</code>, we inserted a few blank pages required by the publisher, wrote the dedication page, and specified that the front matter starts:</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\frontmatter</code></pre></div>
+<p>Before the first chapter of the book, we inserted</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\mainmatter</code></pre></div>
+<p>so that LaTeX knows to change the page numbering style from Roman numerals (for the front matter) to arabic numerals (for the book body).</p>
+<p>We printed the index in <code>latex/after_body.tex</code> (Section <a href="index.html#index">2.9</a>).</p>
+<p>The graphical device (<code>dev</code>) for saving plots was set to <code>cairo_pdf</code> so that the fonts are embedded in plots, since the default device <code>pdf</code> does not embed fonts. Your copyeditor is likely to require you to embed all fonts used in the PDF, so that the book can be printed exactly like what it looks, otherwise certain fonts may be substituted and the typeface can be unpredictable.</p>
+<p>The <code>quote_footer</code> field was to make sure the quote footers were right-aligned: the LaTeX command <code>\VA{}</code> was provided by <code>krantz.cls</code> to include the quote footer.</p>
+<p>The book was compiled to PDF through <code>xelatex</code> to make it easier for us to use custom fonts.</p>
+<p>All above settings except the <code>VF</code> environment and the <code>\VA{}</code> command can be applied to any other LaTeX document classes.</p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="github.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="licensing.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
