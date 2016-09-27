@@ -137,7 +137,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6" data-path="cross-references.html"><a href="cross-references.html"><i class="fa fa-check"></i><b>2.6</b> Cross-references</a></li>
 <li class="chapter" data-level="2.7" data-path="custom-blocks.html"><a href="custom-blocks.html"><i class="fa fa-check"></i><b>2.7</b> Custom blocks</a></li>
 <li class="chapter" data-level="2.8" data-path="citations.html"><a href="citations.html"><i class="fa fa-check"></i><b>2.8</b> Citations</a></li>
-<li class="chapter" data-level="2.9" data-path="index.html"><a href="index.html#index"><i class="fa fa-check"></i><b>2.9</b> Index</a></li>
+<li class="chapter" data-level="2.9" data-path="latex-index.html"><a href="latex-index.html"><i class="fa fa-check"></i><b>2.9</b> Index</a></li>
 <li class="chapter" data-level="2.10" data-path="html-widgets.html"><a href="html-widgets.html"><i class="fa fa-check"></i><b>2.10</b> HTML widgets</a></li>
 <li class="chapter" data-level="2.11" data-path="web-pages-and-shiny-apps.html"><a href="web-pages-and-shiny-apps.html"><i class="fa fa-check"></i><b>2.11</b> Web pages and Shiny apps</a></li>
 </ul></li>
@@ -170,6 +170,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
 <li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
 <li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
+<li class="chapter" data-level="A.1" data-path="r-and-r-packages.html"><a href="r-and-r-packages.html"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
+<li class="chapter" data-level="A.2" data-path="pandoc.html"><a href="pandoc.html"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
+<li class="chapter" data-level="A.3" data-path="latex.html"><a href="latex.html"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a><ul>
+<li class="chapter" data-level="B.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>B.1</b> knitr</a></li>
+<li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -229,7 +239,7 @@ in this chapter.
 We have finished a nice book.</code></pre></div></li>
 </ul>
 <p>By default, <strong>bookdown</strong> merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. If there exists an Rmd file named <code>index.Rmd</code>, it will always be treated as the first file when merging all Rmd files. The reason for this special treatment is that the HTML file <code>index.html</code> to be generated from <code>index.Rmd</code> is usually the default index file when you view a website, e.g., you are actually browsing <a href="http://yihui.name/index.html" class="uri">http://yihui.name/index.html</a> when you open <a href="http://yihui.name/" class="uri">http://yihui.name/</a>.</p>
-<p>You can override the above behavior by including a configuration file named <code>_bookdown.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents (you can learn more about YAML in Section <a href="#yaml-syntax"><strong>??</strong></a>). You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
+<p>You can override the above behavior by including a configuration file named <code>_bookdown.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents (you can learn more about YAML in Section <a href="r-markdown.html#r-markdown">B.2</a>). You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span> <span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
 <p>In this case, <strong>bookdown</strong> will just use whatever you defined in this YAML field without any special treatments of <code>index.Rmd</code> or underscores. If you want both HTML and LaTeX/PDF output from the book, and use different Rmd files for HTML and LaTeX output, you may specify these files for the two output formats separately, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>

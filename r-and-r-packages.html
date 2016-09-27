@@ -39,8 +39,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="why-read-this-book.html">
+<link rel="prev" href="software-tools.html">
+<link rel="next" href="pandoc.html">
 
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
@@ -202,23 +202,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Bookdown: Authoring Books with R Markdown</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2016-09-27</em></h4>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><img src="images/cover.png" style="display: block; margin: auto;" /></p>
-<p>This short book introduces an R package, <strong>bookdown</strong>, to change your workflow of writing books. It should be technically easy to write a book, visually pleasant to view the book, fun to interact with the book, convenient to navigate through the book, straightforward for readers to contribute or leave feedback to the book, and more importantly, authors should not always be distracted by typesetting details.</p> 
+<div id="r-and-r-packages" class="section level2">
+<h2><span class="header-section-number">A.1</span> R and R packages</h2>
+<p>R can be downloaded and installed from any CRAN (the Comprehensive R Archive Network) mirorrs, e.g., <a href="https://cran.rstudio.com" class="uri">https://cran.rstudio.com</a>. Please note there will be a few new releases of R every year, and you may want to upgrade R occasionally.</p>
+<p>To install the <strong>bookdown</strong> package, you can type this in R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</code></pre></div>
+<p>This installs all required R packages. You can also choose to install all optional packages as well, if you do not care too much about whether these packages will actually be used to compile your book (such as <strong>htmlwidgets</strong>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>If you want to test the development version of <strong>bookdown</strong> on GitHub, you need to install <strong>devtools</strong> first:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">requireNamespace</span>(<span class="st">&quot;devtools&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;rstudio/bookdown&quot;</span>)</code></pre></div>
+<p>R packages are also often constantly updated on CRAN or GitHub, so you may want to update them once in a while:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">update.packages</span>(<span class="dt">ask =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>Although it is not required, the RStudio IDE can make a lot of things much easier when you work on R-related projects. The RStudio IDE can be downloaded from <a href="https://www.rstudio.com" class="uri">https://www.rstudio.com</a>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="why-read-this-book.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="software-tools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pandoc.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -245,7 +249,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/07-tools.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],

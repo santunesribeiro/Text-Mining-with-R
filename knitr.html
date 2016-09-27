@@ -39,8 +39,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="why-read-this-book.html">
+<link rel="prev" href="software-usage.html">
+<link rel="next" href="r-markdown.html">
 
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
@@ -202,23 +202,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Bookdown: Authoring Books with R Markdown</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2016-09-27</em></h4>
+<div id="knitr" class="section level2">
+<h2><span class="header-section-number">B.1</span> knitr</h2>
+<p>The <strong>knitr</strong> package was designed based on the idea of “Literate Programming” <span class="citation">(Knuth <a href="#ref-knuth1984">1984</a>)</span>, which allows you to intermingle program code with text in a source document. When <strong>knitr</strong> compiles a document, the program code (in code chunks) will be extracted and executed, and the program output will be displayed together with the original text in the output document. We have introduced the basic syntax in Section <a href="r-code.html#r-code">2.3</a>.</p>
+<p>R Markdown is not the only source format that <strong>knitr</strong> supports. The basic idea can be applied to other computing and authoring languages. For example, <strong>knitr</strong> also supports the combination of R and LaTeX (<code>*.Rnw</code> documents), and R + HTML (<code>*.Rhtml</code>), etc. You can use other computing languages with <strong>knitr</strong> as well, such as C++, Python, SQL, and so on. Below is a simple example and you can see <a href="http://rmarkdown.rstudio.com/authoring_knitr_engines.html" class="uri">http://rmarkdown.rstudio.com/authoring_knitr_engines.html</a> for more.</p>
+<pre><code>```{python}
+x = &#39;Hello, Python World!&#39;
+print(x.split(&#39; &#39;))
+```</code></pre>
+<p>If you want to show a literal chunk in your document, you can add an inline expression that generates an empty string (<code>`r ''`</code>) before the chunk header, and indent the code chunk by four spaces<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>, e.g.,</p>
+<pre><code>    `r &#39;&#39;````{r}
+    # a literal code chunk
+    ```</code></pre>
+<p>After the document is compiled, the inline expression will disappear and you will see:</p>
+<pre><code>```{r}
+# a literal code chunk
+```</code></pre>
+<p>Normally you do not need to call <strong>knitr</strong> functions directly when compiling a document, since <strong>rmarkdown</strong> will call <strong>knitr</strong>. If you do want to compile a source document without further converting it to other formats, you may use the <code>knitr::knit()</code> function.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><img src="images/cover.png" style="display: block; margin: auto;" /></p>
-<p>This short book introduces an R package, <strong>bookdown</strong>, to change your workflow of writing books. It should be technically easy to write a book, visually pleasant to view the book, fun to interact with the book, convenient to navigate through the book, straightforward for readers to contribute or leave feedback to the book, and more importantly, authors should not always be distracted by typesetting details.</p> 
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-knuth1984">
+<p>Knuth, Donald E. 1984. “Literate Programming.” <em>The Computer Journal</em> 27 (2). British Computer Society: 97–111.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="11">
+<li id="fn11"><p>Follow the four-space rule if the literal code chunk is to be displayed in other environments such as a list: <a href="http://pandoc.org/MANUAL.html#the-four-space-rule" class="uri">http://pandoc.org/MANUAL.html#the-four-space-rule</a><a href="knitr.html#fnref11">↩</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="why-read-this-book.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="software-usage.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-markdown.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -245,7 +265,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/08-usage.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],

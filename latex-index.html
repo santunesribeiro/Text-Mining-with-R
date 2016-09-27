@@ -39,8 +39,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="why-read-this-book.html">
+<link rel="prev" href="citations.html">
+<link rel="next" href="html-widgets.html">
 
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
@@ -202,23 +202,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Bookdown: Authoring Books with R Markdown</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2016-09-27</em></h4>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><img src="images/cover.png" style="display: block; margin: auto;" /></p>
-<p>This short book introduces an R package, <strong>bookdown</strong>, to change your workflow of writing books. It should be technically easy to write a book, visually pleasant to view the book, fun to interact with the book, convenient to navigate through the book, straightforward for readers to contribute or leave feedback to the book, and more importantly, authors should not always be distracted by typesetting details.</p> 
+<div id="latex-index" class="section level2">
+<h2><span class="header-section-number">2.9</span> Index</h2>
+<p>Currently the index is only supported for LaTeX/PDF output. To print an index after the book, you can use the LaTeX package <strong>makeidx</strong> in the preamble (see Section <a href="yaml-options.html#yaml-options">4.1</a>):</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\usepackage{makeidx}
+\makeindex</code></pre></div>
+<p>Then insert <code>\printindex</code> at the end of your book through the YAML option <code>includes -&gt; after_body</code>. An index entry can be created via the <code>\index{}</code> command in the book body, e.g., <code>\index{GIT}</code>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="why-read-this-book.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="citations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="html-widgets.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
@@ -245,7 +242,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/index.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/02-components.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown.pdf", "bookdown.epub", "bookdown.mobi"],
