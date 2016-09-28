@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-27">
+<meta name="date" content="2016-09-28">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -118,6 +118,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
@@ -181,6 +182,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="B.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>B.1</b> knitr</a></li>
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
+<li class="chapter" data-level="C" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>C</b> FAQ</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -209,13 +211,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 Some text for this block.
 ```</code></pre>
 <p>will be this:</p>
-<pre><code>&lt;div class=&quot;FOO&quot;&gt;
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;FOO&quot;</span><span class="kw">&gt;</span>
 Some text for this block.
-&lt;/div&gt;</code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>and the LaTeX output will be this:</p>
-<pre><code>\begin{FOO}
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{FOO}
 Some text for this block.
-\end{FOO}</code></pre>
+\end{FOO}</code></pre></div>
 <p>It is up to the book author how to define the style of the block. You can define the style of the <code>&lt;div&gt;</code> in CSS and include it in the output via the <code>includes</code> option in the YAML metadata. Similarly, you may define the LaTeX environment via <code>\newenvironment</code> and include the definition in the LaTeX output via the <code>includes</code> option. For example, we may save the following style in a CSS file, say, <code>style.css</code>:</p>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">div<span class="fl">.FOO</span> <span class="kw">{</span>
   <span class="kw">font-weight:</span> <span class="dt">bold</span><span class="kw">;</span>
