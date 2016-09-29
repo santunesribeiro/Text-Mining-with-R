@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.11 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.12 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -214,6 +214,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>The most significant difference is that M-K runs <em>all</em> code chunks in all chapters in the same R session, whereas K-M uses separate R sessions for individual chapters. For M-K, the state of the R session from previous chapters is carried over to later chapters (e.g., objects created in previous chapters are available to later chapters, unless you deliberately deleted them); for K-M, all chapters are isolated from each other<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. If you want each chapter to compile from a clean state, use the K-M approach. It can be very tricky and difficult to restore a running R session to a completely clean state if you use the M-K approach. For example, even you detach/unload packages loaded in a previous chapter, R will not clean up the S3 methods registered by these packages.</li>
 <li>Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters when you use the M-K approach, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file. Note this means there must not be duplicate labels throughout the whole book. The K-M approach only requires no duplicate labels within any single Rmd file.</li>
+<li>K-M does not allow Rmd files to be in subdirectories, but M-K does.</li>
 </ul>
 <p>The default approach in <strong>bookdown</strong> is M-K. To switch to K-M, you either use the argument <code>new_session = TRUE</code> when calling <code>render_book()</code>, or set <code>new_session: yes</code> in the configuration file <code>_bookdown.yml</code>.</p>
 <p>You can still configure <code>book_filename</code> in <code>_bookdown.yml</code> for the K-M approach, but it should be a Markdown filename, e.g., <code>_main.md</code>, although the filename extension does not really matter, and you can even leave out the extension, e.g., just set <code>book_filename: _main</code>. All other configurations work for both M-K and K-M.</p>
