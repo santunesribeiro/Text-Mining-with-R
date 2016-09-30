@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.13 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-29">
+<meta name="date" content="2016-09-30">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -224,10 +224,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>stylesheet</code>: It is similar to the <code>css</code> option in HTML output formats, and you can customize the appearance of elements using CSS;</li>
 <li><code>cover_image</code>: The path to the cover image of the book;</li>
 <li><code>metadata</code>: The path to an XML file for the metadata of the book (see Pandoc documentation for more details);</li>
-<li><code>chapter_level</code>: Internally an EPUB book is a series of “chapter” files, and this option determines the level by which the book is split into these files. This is similar to the <code>split_by</code> argument of HTML output formats we mentioned in Section <a href="html.html#html">3.1</a>, but an EPUB book is a single file, and you will not see these “chapter” files directly. The default level is the first level, and if you set it to 2, it means the book will be organized by section files internally, which may make the reader faster to load the book;</li>
+<li><code>chapter_level</code>: Internally an EPUB book is a series of “chapter” files, and this option determines the level by which the book is split into these files. This is similar to the <code>split_by</code> argument of HTML output formats we mentioned in Section <a href='#html'>3.1</a>, but an EPUB book is a single file, and you will not see these “chapter” files directly. The default level is the first level, and if you set it to 2, it means the book will be organized by section files internally, which may make the reader faster to load the book;</li>
 <li><code>epub_version</code>: Version 3 or 2 of EPUB;</li>
 </ul>
-<p>An EPUB book is essentially a collection of HTML pages, e.g., you can apply CSS rules to its elements, embed images, insert math expressions (because MathML is partially supported), and so on. Figure/table captions, cross-references, custom blocks, and citations mentioned in Chapter <a href="components.html#components">2</a> also work for EPUB. You may compare the EPUB output of this book to the HTML output, and you will see the only major difference is the visual appearance.</p>
+<p>An EPUB book is essentially a collection of HTML pages, e.g., you can apply CSS rules to its elements, embed images, insert math expressions (because MathML is partially supported), and so on. Figure/table captions, cross-references, custom blocks, and citations mentioned in Chapter <a href='#components'>2</a> also work for EPUB. You may compare the EPUB output of this book to the HTML output, and you will see the only major difference is the visual appearance.</p>
 <p>There are several EPUB readers available, including Calibre (<a href="https://www.calibre-ebook.com" class="uri">https://www.calibre-ebook.com</a>), Apple’s iBooks, and Google Play Books.</p>
 </div>
 <div id="mobi" class="section level3">

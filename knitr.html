@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.13 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-29">
+<meta name="date" content="2016-09-30">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -210,7 +210,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="knitr" class="section level2">
 <h2><span class="header-section-number">B.1</span> knitr</h2>
-<p>The <strong>knitr</strong> package was designed based on the idea of “Literate Programming” <span class="citation">(Knuth <a href="#ref-knuth1984">1984</a>)</span>, which allows you to intermingle program code with text in a source document. When <strong>knitr</strong> compiles a document, the program code (in code chunks) will be extracted and executed, and the program output will be displayed together with the original text in the output document. We have introduced the basic syntax in Section <a href="r-code.html#r-code">2.3</a>.</p>
+<p>The <strong>knitr</strong> package was designed based on the idea of “Literate Programming” <span class="citation">(Knuth <a href="#ref-knuth1984">1984</a>)</span>, which allows you to intermingle program code with text in a source document. When <strong>knitr</strong> compiles a document, the program code (in code chunks) will be extracted and executed, and the program output will be displayed together with the original text in the output document. We have introduced the basic syntax in Section <a href='#r-code'>2.3</a>.</p>
 <p>R Markdown is not the only source format that <strong>knitr</strong> supports. The basic idea can be applied to other computing and authoring languages. For example, <strong>knitr</strong> also supports the combination of R and LaTeX (<code>*.Rnw</code> documents), and R + HTML (<code>*.Rhtml</code>), etc. You can use other computing languages with <strong>knitr</strong> as well, such as C++, Python, SQL, and so on. Below is a simple example and you can see <a href="http://rmarkdown.rstudio.com/authoring_knitr_engines.html" class="uri">http://rmarkdown.rstudio.com/authoring_knitr_engines.html</a> for more.</p>
 <pre><code>```{python}
 x = &#39;Hello, Python World!&#39;

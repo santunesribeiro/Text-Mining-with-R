@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.13 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-29">
+<meta name="date" content="2016-09-30">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -211,7 +211,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="latexpdf" class="section level2">
 <h2><span class="header-section-number">3.2</span> LaTeX/PDF</h2>
 <p>We strongly recommend you to use an HTML output format instead of LaTeX when you develop a book, since you will not be too distracted by the typesetting details, which can bother you a lot if you constantly look at the PDF output of a book. Leave the job of careful typesetting to the very end (ideally after you have really finished the content of the book).</p>
-<p>The LaTeX/PDF output format is provided by <code>pdf_book()</code> in <strong>bookdown</strong>. There is not a significant difference between <code>pdf_book()</code> and the <code>pdf_document()</code> format in <strong>rmarkdown</strong>. The main purpose of <code>pdf_book()</code> is to resolve the labels and cross-references written using the syntax described in Sections <a href="figures.html#figures">2.4</a>, <a href="tables.html#tables">2.5</a>, and <a href="cross-references.html#cross-references">2.6</a>. If the only output format that you want for a book is LaTeX/PDF, you may use the syntax specific to LaTeX, such as <code>\label{}</code> to label figures/tables/sections, and <code>\ref{}</code> to cross-reference them via their labels, because Pandoc supports LaTeX commands in Markdown. However, the LaTeX syntax is not portable to other output formats, such as HTML and e-books. That is why we introduced the syntax <code>(\#label)</code> for labels and <code>\@ref(label)</code> for cross-references.</p>
+<p>The LaTeX/PDF output format is provided by <code>pdf_book()</code> in <strong>bookdown</strong>. There is not a significant difference between <code>pdf_book()</code> and the <code>pdf_document()</code> format in <strong>rmarkdown</strong>. The main purpose of <code>pdf_book()</code> is to resolve the labels and cross-references written using the syntax described in Sections <a href='#figures'>2.4</a>, <a href='#tables'>2.5</a>, and <a href='#cross-references'>2.6</a>. If the only output format that you want for a book is LaTeX/PDF, you may use the syntax specific to LaTeX, such as <code>\label{}</code> to label figures/tables/sections, and <code>\ref{}</code> to cross-reference them via their labels, because Pandoc supports LaTeX commands in Markdown. However, the LaTeX syntax is not portable to other output formats, such as HTML and e-books. That is why we introduced the syntax <code>(\#label)</code> for labels and <code>\@ref(label)</code> for cross-references.</p>
 <p>There are some top-level YAML options that will be applied to the LaTeX output. For a book, you may change the default document class to <code>book</code> (the default is <code>article</code>), and specify a bibliography style required by your publisher. A brief YAML example:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">documentclass:</span> book

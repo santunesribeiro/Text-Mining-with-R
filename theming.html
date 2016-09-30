@@ -8,7 +8,7 @@
   <title>Bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.13 and GitBook 2.6.7">
 
   <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-29">
+<meta name="date" content="2016-09-30">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -211,7 +211,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="theming" class="section level2">
 <h2><span class="header-section-number">4.2</span> Theming</h2>
 <p>Sometimes you may want to change the overall theme of the output, and usually this can be done through the <code>in_header</code> option described in the previous section, or the <code>css</code> option if the output is HTML. Some output formats have their unique themes, such as <code>gitbook</code>, <code>tufte_html_book</code>, and <code>tufte_book2</code>, and you may not want to customize these themes too much. By comparison, the output formats <code>html_book()</code> and <code>pdf_book()</code> are not tied to particular themes and more customizable.</p>
-<p>As mentioned in Section <a href="html.html#bootstrap-style">3.1.2</a>, the default style for <code>html_book()</code> is the Bootstrap style. The Bootstrap style actually has several built-in themes that you can use, including <code>default</code>, <code>cerulean</code>, <code>journal</code>, <code>flatly</code>, <code>readable</code>, <code>spacelab</code>, <code>united</code>, <code>cosmo</code>, <code>lumen</code>, <code>paper</code>, <code>sandstone</code>, <code>simplex</code>, and <code>yeti</code>. You can set the theme via the <code>theme</code> option, e.g.,</p>
+<p>As mentioned in Section <a href='#bootstrap-style'>3.1.2</a>, the default style for <code>html_book()</code> is the Bootstrap style. The Bootstrap style actually has several built-in themes that you can use, including <code>default</code>, <code>cerulean</code>, <code>journal</code>, <code>flatly</code>, <code>readable</code>, <code>spacelab</code>, <code>united</code>, <code>cosmo</code>, <code>lumen</code>, <code>paper</code>, <code>sandstone</code>, <code>simplex</code>, and <code>yeti</code>. You can set the theme via the <code>theme</code> option, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">output:</span>
   <span class="fu">bookdown:</span>:html_book:
