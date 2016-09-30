@@ -221,7 +221,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fu">monofont:</span> <span class="st">&quot;Source Code Pro&quot;</span>
 <span class="fu">monofontoptions:</span> <span class="st">&quot;Scale=0.7&quot;</span></code></pre></div>
 <p>The field <code>lot: yes</code> means we want the “List of Tables”, and similarly, <code>lof</code> means “List of Figures”. The base font size is <code>12pt</code>, and we used “<a href="https://www.fontsquirrel.com/fonts/source-code-pro">Source Code Pro</a>” as the monospaced (fixed-width) font, which is applied to all program code in this book.</p>
-<p>In the LaTeX preamble (Section <a href='#yaml-options'>4.1</a>), we have a few more settings. First, we set the main font to be “<a href="https://www.fontsquirrel.com/fonts/alegreya">Alegreya</a>”, and since this font does not have the <span style="font-variant: small-caps;">Small Capitals</span> feature, we used the “Alegreya SC” font.</p>
+<p>In the LaTeX preamble (Section <a href="yaml-options.html#yaml-options">4.1</a>), we have a few more settings. First, we set the main font to be “<a href="https://www.fontsquirrel.com/fonts/alegreya">Alegreya</a>”, and since this font does not have the <span style="font-variant: small-caps;">Small Capitals</span> feature, we used the “Alegreya SC” font.</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\setmainfont[
   UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}
 ]{Alegreya}</code></pre></div>
@@ -230,7 +230,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \renewcommand{\topfraction}{0.8}
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\floatpagefraction}{0.75}</code></pre></div>
-<p>Since <code>krantz.cls</code> provided an environment <code>VF</code> for quotes, we just redefine the standard <code>quote</code> environment to <code>VF</code>. You can see its style in Section <a href='#markdown-syntax'>2.1</a>.</p>
+<p>Since <code>krantz.cls</code> provided an environment <code>VF</code> for quotes, we just redefine the standard <code>quote</code> environment to <code>VF</code>. You can see its style in Section <a href="markdown-syntax.html#markdown-syntax">2.1</a>.</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\renewenvironment{quote}{\begin{VF}}{\end{VF}}</code></pre></div>
 <p>Then we redefine hyperlinks to be footnotes, because when the book is printed on paper, readers are not able to click on links on text. Footnotes will tell them what the actual links are.</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\let\oldhref\href
@@ -255,7 +255,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Before the first chapter of the book, we inserted</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\mainmatter</code></pre></div>
 <p>so that LaTeX knows to change the page numbering style from Roman numerals (for the front matter) to arabic numerals (for the book body).</p>
-<p>We printed the index in <code>latex/after_body.tex</code> (Section <a href='#latex-index'>2.9</a>).</p>
+<p>We printed the index in <code>latex/after_body.tex</code> (Section <a href="latex-index.html#latex-index">2.9</a>).</p>
 <p>The graphical device (<code>dev</code>) for saving plots was set to <code>cairo_pdf</code> so that the fonts are embedded in plots, since the default device <code>pdf</code> does not embed fonts. Your copyeditor is likely to require you to embed all fonts used in the PDF, so that the book can be printed exactly like what it looks, otherwise certain fonts may be substituted and the typeface can be unpredictable.</p>
 <p>The <code>quote_footer</code> field was to make sure the quote footers were right-aligned: the LaTeX command <code>\VA{}</code> was provided by <code>krantz.cls</code> to include the quote footer.</p>
 <p>The book was compiled to PDF through <code>xelatex</code> to make it easier for us to use custom fonts.</p>

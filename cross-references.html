@@ -210,8 +210,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="cross-references" class="section level2">
 <h2><span class="header-section-number">2.6</span> Cross-references</h2>
-<p>We have explained how cross-references work for figures (Section <a href='#figures'>2.4</a>) and tables (Section <a href='#tables'>2.5</a>). In fact, you can also reference sections using the same syntax <code>\@ref(label)</code>, where <code>label</code> is the section ID. By default, Pandoc will generate an ID for all section headers, e.g., a section <code># Hello World</code> will have an ID <code>hello-world</code>. We recommend you to manually assign an ID to a section header to make sure you do not forget to update the reference label after you change the section header. To assign an ID to a section header, simply add <code>{#id}</code> to the end of the section header.</p>
-<p>When a referenced label cannot be found, you will see two question marks like <a href='#fig:does-not-exist'><strong>??</strong></a>, as well as a warning message in the R console when rendering the book.</p>
+<p>We have explained how cross-references work for figures (Section <a href="figures.html#figures">2.4</a>) and tables (Section <a href="tables.html#tables">2.5</a>). In fact, you can also reference sections using the same syntax <code>\@ref(label)</code>, where <code>label</code> is the section ID. By default, Pandoc will generate an ID for all section headers, e.g., a section <code># Hello World</code> will have an ID <code>hello-world</code>. We recommend you to manually assign an ID to a section header to make sure you do not forget to update the reference label after you change the section header. To assign an ID to a section header, simply add <code>{#id}</code> to the end of the section header.</p>
+<p>When a referenced label cannot be found, you will see two question marks like <a href="#fig:does-not-exist"><strong>??</strong></a>, as well as a warning message in the R console when rendering the book.</p>
 <p>You can also create text-based links using explicit or automatic section IDs or even the actual section header text.</p>
 <ul>
 <li>If you’re happy with the section header as the link text, use it inside a single set of square brackets:
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 <p>The Pandoc documentation provides more detail on <a href="http://pandoc.org/MANUAL.html#extension-auto_identifiers">automatic section IDs</a> and <a href="http://pandoc.org/MANUAL.html#extension-implicit_header_references">implicit header references</a>.</p>
-<p>Cross-references still work even when we refer to an item that is not on the current page of the PDF or HTML output. For example, see Equation <a href='#eq:binom'>(<strong>??</strong>)</a> and Figure <a href='#fig:knitr-logo'>2.4</a>.</p>
+<p>Cross-references still work even when we refer to an item that is not on the current page of the PDF or HTML output. For example, see Equation <a href="#eq:binom">(<strong>??</strong>)</a> and Figure <a href="figures.html#fig:knitr-logo">2.4</a>.</p>
 </div>
             </section>
 
