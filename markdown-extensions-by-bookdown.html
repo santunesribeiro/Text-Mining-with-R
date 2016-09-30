@@ -5,12 +5,12 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Bookdown: Authoring Books with R Markdown</title>
+  <title>bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.13 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.14 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
+  <meta property="og:title" content="bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -18,7 +18,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Bookdown: Authoring Books with R Markdown" />
+  <meta name="twitter:title" content="bookdown: Authoring Books with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -135,7 +135,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>2.1.2</b> Block-level elements</a></li>
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a></li>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#number-and-reference-equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.2</b> Special headers</a></li>
+<li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#text-references"><i class="fa fa-check"></i><b>2.2.3</b> Text references</a></li>
+</ul></li>
 <li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
 <li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
 <li class="chapter" data-level="2.5" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.5</b> Tables</a></li>
@@ -200,7 +204,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bookdown: Authoring Books with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown: Authoring Books with R Markdown</a>
           </h1>
         </div>
 
@@ -210,6 +214,64 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="markdown-extensions-by-bookdown" class="section level2">
 <h2><span class="header-section-number">2.2</span> Markdown extensions by bookdown</h2>
+<p>Although Pandoc’s Markdown is much richer than the <a href="http://daringfireball.net/projects/markdown/">original Markdown syntax</a>, it still has a number of things that we may need for academic writing. For example, it supports math equations, but you cannot number and reference equations in multi-page HTML or EPUB output. We have provided a few Markdown extensions in <strong>bookdown</strong> to fill up the gaps.</p>
+<div id="number-and-reference-equations" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Number and reference equations</h3>
+<p>To number and refer to equations, put them in the equation environments and assign labels to them using the syntax <code>(\#label)</code>, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation} </code></pre></div>
+<p>It renders the equation below:</p>
+\begin{equation}
+f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} (\#eq:binom)
+\end{equation}
+<p>You may refer to it using <code>\@ref(eq:binom)</code>, e.g., see Equation <a href="#eq:binom">(<strong>??</strong>)</a>.</p>
+
+<div class="rmdcaution">
+Equation labels must start with the prefix <code>eq:</code> in <strong>bookdown</strong>. Equation references work best for LaTeX/PDF output, and they are not well supported in Word output or e-books. For HTML output, <strong>bookdown</strong> can only number the equations with labels. Please make sure equations without labels are not numbered by either using the <code>equation*</code> environment or adding <code>\nonumber</code> or <code>\notag</code> to your equations. The same rules apply to other math environments, such as <code>eqnarray</code>, <code>gather</code>, <code>align</code>, and so on (e.g., you can use the <code>align*</code> environment).
+</div>
+<p></p>
+<p>We demonstrate a few more math equation environments below. Here is an unnumbered equation using the <code>equation*</code> environment:</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*} </code></pre></div>
+\begin{equation*}
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*}
+<p>Below is an <code>align</code> environment <a href="#eq:align">(<strong>??</strong>)</a>:</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{align} 
+g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
+\sqrt{n}[g(X_{n})-g(\theta)] &amp;= g&#39;\left({\tilde{\theta}}\right)
+  \sqrt{n}[X_{n}-\theta ] (\#eq:align)
+\end{align} </code></pre></div>
+\begin{align}
+g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
+\sqrt{n}[g(X_{n})-g(\theta)] &amp;= g&#39;\left({\tilde{\theta}}\right)
+  \sqrt{n}[X_{n}-\theta ] (\#eq:align)
+\end{align}
+<p>The <code>split</code> environment inside <code>equation</code> so that all lines share the same number <a href="#eq:var-beta">(<strong>??</strong>)</a><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>:</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}\sigma^{2}
+\end{split}
+(\#eq:var-beta)
+\end{equation} </code></pre></div>
+\begin{equation}
+\begin{split}
+\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}\sigma^{2}
+\end{split}
+(\#eq:var-beta)
+\end{equation}
+</div>
+<div id="special-headers" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Special headers</h3>
 <p>There are a few special types of first-level headers that will be processed differently in <strong>bookdown</strong>. The first type is an unnumbered header that starts with the token <code>(PART)</code>. This kind of headers are translated to part titles. If you are familiar with LaTeX, this basically means <code>\part{}</code>. When your book has a large number of chapters, you may want to organize them into parts, e.g.,</p>
 <pre><code># (PART) Part I {-} 
 
@@ -231,6 +293,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 # Appendix B</code></pre>
 <p>The numbering style of appendices will be automatically changed in LaTeX/PDF and HTML output (usually in the form A, A.1, A.2, B, B.1, …). This feature is not available to e-books or Word output.</p>
+</div>
+<div id="text-references" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Text references</h3>
+<p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="figures.html#figures">2.4</a> and <a href="tables.html#tables">2.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = &quot;A long long figure caption.&quot;</code>) or your R code (e.g., <code>kable(caption = &quot;A long long table caption.&quot;)</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
+<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> through out the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">(ref:foo) Define a text reference **here**. </code></pre></div>
+<p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>By default, each line in the <code>align</code> environment will be assigned an equation number. We suppressed the number of the first line in the previous example using <code>\notag</code>. In this example, the whole <code>split</code> environment was assigned a single number.<a href="markdown-extensions-by-bookdown.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>You may consider using the code chunk labels. The label should only contain alphanumeric characters, <code>:</code>, <code>-</code>, and/or <code>/</code>. This is the same requirement as labels for figure/table references in Section <a href="figures.html#figures">2.4</a>.<a href="markdown-extensions-by-bookdown.html#fnref5">↩</a></p></li>
+</ol>
 </div>
             </section>
 

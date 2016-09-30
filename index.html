@@ -5,12 +5,12 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Bookdown: Authoring Books with R Markdown</title>
+  <title>bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.13 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.14 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Bookdown: Authoring Books with R Markdown" />
+  <meta property="og:title" content="bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -18,7 +18,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Bookdown: Authoring Books with R Markdown" />
+  <meta name="twitter:title" content="bookdown: Authoring Books with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -135,7 +135,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.2" data-path="markdown-syntax.html"><a href="markdown-syntax.html#block-level-elements"><i class="fa fa-check"></i><b>2.1.2</b> Block-level elements</a></li>
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a></li>
+<li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#number-and-reference-equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.2</b> Special headers</a></li>
+<li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#text-references"><i class="fa fa-check"></i><b>2.2.3</b> Text references</a></li>
+</ul></li>
 <li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
 <li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
 <li class="chapter" data-level="2.5" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>2.5</b> Tables</a></li>
@@ -200,7 +204,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bookdown: Authoring Books with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown: Authoring Books with R Markdown</a>
           </h1>
         </div>
 
@@ -209,7 +213,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Bookdown: Authoring Books with R Markdown</h1>
+<h1 class="title">bookdown: Authoring Books with R Markdown</h1>
 <h4 class="author"><em>Yihui Xie</em></h4>
 <h4 class="date"><em>2016-09-30</em></h4>
 </div>
@@ -218,7 +222,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><img src="images/cover.png" style="display: block; margin: auto;" /></p>
 <p>This short book introduces an R package, <strong>bookdown</strong>, to change your workflow of writing books. It should be technically easy to write a book, visually pleasant to view the book, fun to interact with the book, convenient to navigate through the book, straightforward for readers to contribute or leave feedback to the book author(s), and more importantly, authors should not always be distracted by typesetting details.</p>
 <p>The <strong>bookdown</strong> package was built on top of R Markdown (<a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>), and inherited the simplicity of the Markdown syntax (you can learn the basics in five minutes; see Section <a href="markdown-syntax.html#markdown-syntax">2.1</a>), as well as the possibility of multiple types of output formats (PDF/HTML/Word/…). It also added features like multi-page HTML output, numbering and cross-referencing figures/tables/sections/equations, inserting parts/appendices, and imported the GitBook style (<a href="https://www.gitbook.com" class="uri">https://www.gitbook.com</a>) to create elegant and appealing HTML book pages. This book itself is an example of how you can produce a book from a series of R Markdown documents, and both the printed version and the online version can look professional.</p>
-<p>Despite that the package name contains the word “book”, <strong>bookdown</strong> is not only for books. The “book” can be anything that consists of multiple R Markdown documents, such as course handouts, study notes, a software manual, a master/PhD thesis, or even a diary. In fact, many <strong>bookdown</strong> features apply to single R Markdown documents as well (Section <a href="a-single-document.html#a-single-document">3.4</a>).</p> 
+<p>Despite that the package name contains the word “book”, <strong>bookdown</strong> is not only for books. The “book” can be anything that consists of multiple R Markdown documents meant to be read in a linear sequence, such as course handouts, study notes, a software manual, a master/PhD thesis, or even a diary. In fact, many <strong>bookdown</strong> features apply to single R Markdown documents as well (Section <a href="a-single-document.html#a-single-document">3.4</a>).</p> 
 </div>
             </section>
 
