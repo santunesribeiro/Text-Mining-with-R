@@ -8,7 +8,7 @@
   <title>bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.14 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.15 and GitBook 2.6.7">
 
   <meta property="og:title" content="bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-30">
+<meta name="date" content="2016-10-04">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -136,9 +136,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#number-and-reference-equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
-<li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.2</b> Special headers</a></li>
-<li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#text-references"><i class="fa fa-check"></i><b>2.2.3</b> Text references</a></li>
+<li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#theorems"><i class="fa fa-check"></i><b>2.2.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.3</b> Special headers</a></li>
+<li class="chapter" data-level="2.2.4" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#text-references"><i class="fa fa-check"></i><b>2.2.4</b> Text references</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
 <li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
@@ -232,7 +233,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">git</span> push origin gh-pages</code></pre></div>
 <p>The hidden file <code>.nojekyll</code> tells GitHub that your website is not to be built via Jekyll, since the <strong>bookdown</strong> HTML output is already a standalone website. If you are on Windows, you may not have the <code>touch</code> command, and you can just create the file in R using <code>file.create('.nojekyll')</code>.</p>
 <p>After you have set up GIT, the rest of work can be automated via a script (Shell, R, or Makefile, depending on your preference). Basically, you compile the book to HTML, then run git commands to push the files to GitHub, but you probably do not want to do this over and over again manually and locally. It can be very handy to automate the publishing process completely on the cloud, so once it is set up correctly, all you have to do next is write the book and push the Rmd source files to GitHub, and your book will always be automatically built and published from the server side.</p>
-<p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>. These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
+<p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>. These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
 <p>The next question is, how to publish the book built on Travis to GitHub? Basically you have to grant Travis write access to your GitHub repository. This authorization can be done via several ways, and the easiest one to beginners may be a personal access token. Below are a few steps you may follow:</p>
 <ol style="list-style-type: decimal">
 <li>Create a <a href="http://bit.ly/2cEBYWB">personal access token</a> for your account on GitHub (make sure to enable the “repo” scope so that using this token will enable writing to your GitHub repos);</li>
@@ -287,8 +288,8 @@ Remotes: rstudio/bookdown</code></pre>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="12">
-<li id="fn12"><p>You need to authorize the Travis CI service for your repository on GitHub first. See <a href="https://docs.travis-ci.com/user/getting-started/" class="uri">https://docs.travis-ci.com/user/getting-started/</a> for how to get started with Travis CI.<a href="github.html#fnref12">↩</a></p></li>
+<ol start="13">
+<li id="fn13"><p>You need to authorize the Travis CI service for your repository on GitHub first. See <a href="https://docs.travis-ci.com/user/getting-started/" class="uri">https://docs.travis-ci.com/user/getting-started/</a> for how to get started with Travis CI.<a href="github.html#fnref13">↩</a></p></li>
 </ol>
 </div>
             </section>

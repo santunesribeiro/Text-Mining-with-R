@@ -8,7 +8,7 @@
   <title>bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.14 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.15 and GitBook 2.6.7">
 
   <meta property="og:title" content="bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-09-30">
+<meta name="date" content="2016-10-04">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -136,9 +136,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.3" data-path="markdown-syntax.html"><a href="markdown-syntax.html#math-expressions"><i class="fa fa-check"></i><b>2.1.3</b> Math expressions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html"><i class="fa fa-check"></i><b>2.2</b> Markdown extensions by bookdown</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#number-and-reference-equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
-<li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.2</b> Special headers</a></li>
-<li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#text-references"><i class="fa fa-check"></i><b>2.2.3</b> Text references</a></li>
+<li class="chapter" data-level="2.2.1" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#equations"><i class="fa fa-check"></i><b>2.2.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="2.2.2" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#theorems"><i class="fa fa-check"></i><b>2.2.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="2.2.3" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#special-headers"><i class="fa fa-check"></i><b>2.2.3</b> Special headers</a></li>
+<li class="chapter" data-level="2.2.4" data-path="markdown-extensions-by-bookdown.html"><a href="markdown-extensions-by-bookdown.html#text-references"><i class="fa fa-check"></i><b>2.2.4</b> Text references</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i><b>2.3</b> R code</a></li>
 <li class="chapter" data-level="2.4" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>2.4</b> Figures</a></li>
@@ -214,10 +215,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="markdown-extensions-by-bookdown" class="section level2">
 <h2><span class="header-section-number">2.2</span> Markdown extensions by bookdown</h2>
-<p>Although Pandoc’s Markdown is much richer than the original Markdown syntax, it still has a number of things that we may need for academic writing. For example, it supports math equations, but you cannot number and reference equations in multi-page HTML or EPUB output. We have provided a few Markdown extensions in <strong>bookdown</strong> to fill up the gaps.</p>
-<div id="number-and-reference-equations" class="section level3">
+<p>Although Pandoc’s Markdown is much richer than the original Markdown syntax, it still has a number of things that we may need for academic writing. For example, it supports math equations, but you cannot number and reference equations in multi-page HTML or EPUB output. We have provided a few Markdown extensions in <strong>bookdown</strong> to fill the gaps.</p>
+<div id="equations" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Number and reference equations</h3>
-<p>To number and refer to equations, put them in the equation environments and assign labels to them using the syntax <code>(\#label)</code>, e.g.,</p>
+<p>To number and refer to equations, put them in the equation environments and assign labels to them using the syntax <code>(\#eq:label)</code>, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{equation} 
   f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
   (\#eq:binom)
@@ -229,7 +230,7 @@ f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} (\#eq:binom)
 <p>You may refer to it using <code>\@ref(eq:binom)</code>, e.g., see Equation <a href="#eq:binom">(<strong>??</strong>)</a>.</p>
 
 <div class="rmdcaution">
-Equation labels must start with the prefix <code>eq:</code> in <strong>bookdown</strong>. Equation references work best for LaTeX/PDF output, and they are not well supported in Word output or e-books. For HTML output, <strong>bookdown</strong> can only number the equations with labels. Please make sure equations without labels are not numbered by either using the <code>equation*</code> environment or adding <code>\nonumber</code> or <code>\notag</code> to your equations. The same rules apply to other math environments, such as <code>eqnarray</code>, <code>gather</code>, <code>align</code>, and so on (e.g., you can use the <code>align*</code> environment).
+Equation labels must start with the prefix <code>eq:</code> in <strong>bookdown</strong>. All labels in <strong>bookdown</strong> must only contain alphanumeric characters, <code>:</code>, <code>-</code>, and/or <code>/</code>. Equation references work best for LaTeX/PDF output, and they are not well supported in Word output or e-books. For HTML output, <strong>bookdown</strong> can only number the equations with labels. Please make sure equations without labels are not numbered by either using the <code>equation*</code> environment or adding <code>\nonumber</code> or <code>\notag</code> to your equations. The same rules apply to other math environments, such as <code>eqnarray</code>, <code>gather</code>, <code>align</code>, and so on (e.g., you can use the <code>align*</code> environment).
 </div>
 <p></p>
 <p>We demonstrate a few more math equation environments below. Here is an unnumbered equation using the <code>equation*</code> environment:</p>
@@ -256,6 +257,7 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 \mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
  &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
  &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\\
  &amp; =(X&#39;X)^{-1}\sigma^{2}
 \end{split}
 (\#eq:var-beta)
@@ -265,13 +267,163 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 \mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
  &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
  &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\\
  &amp; =(X&#39;X)^{-1}\sigma^{2}
 \end{split}
 (\#eq:var-beta)
 \end{equation}
 </div>
+<div id="theorems" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Theorems and proofs</h3>
+<p>Theorems and proofs are commonly used in articles and books in mathematics. However, please do not be mislead by the names: a “theorem” is just a numbered/labeled environment, and it does not have to be a mathematical theorem (e.g., it can be an example irrelevant to mathematics). Similarly, a “proof” is an unnumbered environment. In this section, we always use the <em>general</em> meanings of a “theorem” and “proof” unless explicitly stated.</p>
+<p>In <strong>bookdown</strong>, the types of theorem environments supported are in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>. To write a theorem, you can use the syntax below:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem}
+Here is my theorem.
+```</code></pre></div>
+
+<table>
+<caption><span id="tab:theorem-envs">TABLE 2.1: </span>Theorem environments in <strong>bookdown</strong>.</caption>
+<thead>
+<tr class="header">
+<th align="left">Environment</th>
+<th align="left">Printed Name</th>
+<th align="left">Label Prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">theorem</td>
+<td align="left">Theorem</td>
+<td align="left">thm</td>
+</tr>
+<tr class="even">
+<td align="left">lemma</td>
+<td align="left">Lemma</td>
+<td align="left">lem</td>
+</tr>
+<tr class="odd">
+<td align="left">definition</td>
+<td align="left">Definition</td>
+<td align="left">def</td>
+</tr>
+<tr class="even">
+<td align="left">corollary</td>
+<td align="left">Corollary</td>
+<td align="left">cor</td>
+</tr>
+<tr class="odd">
+<td align="left">proposition</td>
+<td align="left">Proposition</td>
+<td align="left">prp</td>
+</tr>
+<tr class="even">
+<td align="left">example</td>
+<td align="left">Example</td>
+<td align="left">ex</td>
+</tr>
+</tbody>
+</table>
+<p>To write other theorem environments, just replace <code>```{theorem}</code> with other environment names in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>, e.g., <code>```{lemma}</code>.</p>
+<p>A theorem can have a <code>name</code> option so its name will be printed, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, name=&quot;Pythagorean theorem&quot;}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+$$a^2 + b^2 = c^2$$
+```</code></pre></div>
+<p>If you want to refer to a theorem, you should label it. The label can be written after <code>```{theorem</code>, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, label=&quot;foo&quot;}
+A labeled theorem here.
+```</code></pre></div>
+<p>The <code>label</code> option can be implicit, e.g., the following theorem has the label <code>bar</code>:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, bar}
+A labeled theorem here.
+```</code></pre></div>
+<p>After you label a theorem, you can refer to it using the syntax <code>\@ref(prefix:label)</code>. See the column <code>Label Prefix</code> in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a> for the value of <code>prefix</code> for each environment. For example, we have a labeled and named theorem below, and <code>\@ref(thm:pyth)</code> gives us its theorem number <a href="markdown-extensions-by-bookdown.html#thm:pyth">2.1</a>:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, pyth, name=&quot;Pythagorean theorem&quot;}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+
+$$a^2 + b^2 = c^2$$
+```</code></pre></div>
+
+<div class="theorem">
+<p><span id="thm:pyth" class="theorem"><strong>Theorem 2.1  (Pythagorean theorem) </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the other two sides, we have</p>
+<span class="math display">\[a^2 + b^2 = c^2\]</span>
+</div>
+<p></p>
+<p>The proof environments currently supported are <code>proof</code> and <code>remark</code>. The syntax is similar to theorem environments, and proof environments can also be named. The only difference is that since they are unnumbered, you cannot reference them.</p>
+<p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF, HTML, or EPUB. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="customization.html#customization">4</a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class=&quot;lemma&quot;&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code> and <code>example</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package.</p>
+<p>Theorems are numbered by chapters by default. If there are no chapters in your document, they are numbered by sections instead. If the whole document is unnumbered (the output format option <code>number_sections = FALSE</code>), all theorems are numbered sequentially from 1, 2, …, N. LaTeX supports numbering one theorem environment after another, e.g., let theorems and lemmas share the same counter. This is not supported for HTML/EPUB output in <strong>bookdown</strong>. You can change the numbering scheme in the LaTeX preamble by defining your own theorem environments, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}</code></pre></div>
+<p>When <strong>bookdown</strong> detects <code>\newtheorem{theorem}</code> in your LaTeX preamble, it will not write out its default theorem definitions, which means you have to define all theorem environments by yourself. For the sake of simplicity and consistency, we do not recommend you to do this. It can be confusing when your Theorem 18 in PDF becomes Theorem 2.4 in HTML.</p>
+<p>Below we show more examples<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-7" class="definition"><strong>Definition 2.1 </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
+<span class="math display">\[\varphi _{X}(t)=\operatorname {E} \left[e^{itX}\right], \; t\in\mathcal{R}\]</span>
+</div>
+<p></p>
+
+<div class="example">
+<p><span id="ex:unnamed-chunk-8" class="example"><strong>Example 2.1 </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
+\begin{equation*}
+\begin{split}
+\varphi _{X}(t) &amp;= \operatorname {E} \left[e^{itX}\right] =\int e^{itx}f(x)dx =\int_{0}^{1}e^{itx}dx\\
+ &amp; =\int_{0}^{1}\left(\cos(tx)+i\sin(tx)\right)dx\\
+ &amp; =\left.\left(\frac{\sin(tx)}{t}-i\frac{\cos(tx)}{t}\right)\right|_{0}^{1}\\
+ &amp; =\frac{\sin(t)}{t}-i\left(\frac{\cos(t)-1}{t}\right)\\
+ &amp; =\frac{i\sin(t)}{it}+\frac{\cos(t)-1}{it}\\
+ &amp; =\frac{e^{it}-1}{it}
+\end{split}
+\end{equation*}
+Note we used the fact <span class="math inline">\(e^{ix}=\cos(x)+i\sin(x)\)</span> twice.
+</div>
+<p></p>
+
+<div class="lemma">
+<p><span id="lem:chf-pdf" class="lemma"><strong>Lemma 2.1 </strong></span>For any two random variables <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, they both have the same probability distribution if and only if</p>
+<span class="math display">\[\varphi _{X_1}(t)=\varphi _{X_2}(t)\]</span>
+</div>
+<p></p>
+
+<div class="theorem">
+<p><span id="thm:chf-sum" class="theorem"><strong>Theorem 2.2 </strong></span>If <span class="math inline">\(X_1\)</span>, …, <span class="math inline">\(X_n\)</span> are independent random variables, and <span class="math inline">\(a_1\)</span>, …, <span class="math inline">\(a_n\)</span> are some constants, then the characteristic function of the linear combination <span class="math inline">\(S_n=\sum_{i=1}^na_iX_i\)</span> is</p>
+<span class="math display">\[\varphi _{S_{n}}(t)=\prod_{i=1}^n\varphi _{X_i}(a_{i}t)=\varphi _{X_{1}}(a_{1}t)\cdots \varphi _{X_{n}}(a_{n}t)\]</span>
+</div>
+<p></p>
+
+<div class="proposition">
+<span id="prp:unnamed-chunk-9" class="proposition"><strong>Proposition 2.1 </strong></span>The distribution of the sum of independent Poisson random variables <span class="math inline">\(X_i \sim \mathrm{Pois}(\lambda_i),\: i=1,2,\cdots,n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
+</div>
+<p></p>
+
+<div class="proof">
+<p><span class="proof"><em>Proof. </em></span> The characteristic function of <span class="math inline">\(X\sim\mathrm{Pois}(\lambda)\)</span> is <span class="math inline">\(\varphi _{X}(t)=e^{\lambda (e^{it}-1)}\)</span>. Let <span class="math inline">\(P_n=\sum_{i=1}^nX_i\)</span>. We know from Theorem <a href="markdown-extensions-by-bookdown.html#thm:chf-sum">2.2</a> that</p>
+\begin{equation*}
+\begin{split}
+\varphi _{P_{n}}(t) &amp; =\prod_{i=1}^n\varphi _{X_i}(t) \\
+&amp; =\prod_{i=1}^n e^{\lambda_i (e^{it}-1)} \\
+&amp; = e^{\sum_{i=1}^n \lambda_i (e^{it}-1)}
+\end{split}
+\end{equation*}
+This is the characteristic function of a Poisson random variable with the parameter <span class="math inline">\(\lambda=\sum_{i=1}^n \lambda_i\)</span>. From Lemma <a href="markdown-extensions-by-bookdown.html#lem:chf-pdf">2.1</a>, we know the distribution of <span class="math inline">\(P_n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
+</div>
+<p></p>
+
+<div class="remark">
+<span class="remark"><em>Remark. </em></span> In some cases, it is very convenient and easy to figure out the distribution of the sum of independent random variables using characteristic functions.
+</div>
+<p></p>
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-12" class="corollary"><strong>Corollary 2.1 </strong></span>The characteristic function of the sum of two independent random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is the product of characteristic functions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, i.e.,</p>
+<span class="math display">\[\varphi _{X_1+X_2}(t)=\varphi _{X_1}(t) \varphi _{X_2}(t)\]</span>
+</div>
+<p></p>
+</div>
 <div id="special-headers" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Special headers</h3>
+<h3><span class="header-section-number">2.2.3</span> Special headers</h3>
 <p>There are a few special types of first-level headers that will be processed differently in <strong>bookdown</strong>. The first type is an unnumbered header that starts with the token <code>(PART)</code>. This kind of headers are translated to part titles. If you are familiar with LaTeX, this basically means <code>\part{}</code>. When your book has a large number of chapters, you may want to organize them into parts, e.g.,</p>
 <pre><code># (PART) Part I {-} 
 
@@ -295,9 +447,9 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 <p>The numbering style of appendices will be automatically changed in LaTeX/PDF and HTML output (usually in the form A, A.1, A.2, B, B.1, …). This feature is not available to e-books or Word output.</p>
 </div>
 <div id="text-references" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Text references</h3>
+<h3><span class="header-section-number">2.2.4</span> Text references</h3>
 <p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="figures.html#figures">2.4</a> and <a href="tables.html#tables">2.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = &quot;A long long figure caption.&quot;</code>) or your R code (e.g., <code>kable(caption = &quot;A long long table caption.&quot;)</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
-<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> through out the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
+<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> through out the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">(ref:foo) Define a text reference **here**. </code></pre></div>
 <p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph.</p>
 </div>
@@ -306,7 +458,8 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 <hr />
 <ol start="4">
 <li id="fn4"><p>By default, each line in the <code>align</code> environment will be assigned an equation number. We suppressed the number of the first line in the previous example using <code>\notag</code>. In this example, the whole <code>split</code> environment was assigned a single number.<a href="markdown-extensions-by-bookdown.html#fnref4">↩</a></p></li>
-<li id="fn5"><p>You may consider using the code chunk labels. The label should only contain alphanumeric characters, <code>:</code>, <code>-</code>, and/or <code>/</code>. This is the same requirement as labels for figure/table references in Section <a href="figures.html#figures">2.4</a>.<a href="markdown-extensions-by-bookdown.html#fnref5">↩</a></p></li>
+<li id="fn5"><p>Some examples are adapted from the Wikipedia page <a href="https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)" class="uri">https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)</a><a href="markdown-extensions-by-bookdown.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>You may consider using the code chunk labels.<a href="markdown-extensions-by-bookdown.html#fnref6">↩</a></p></li>
 </ol>
 </div>
             </section>
