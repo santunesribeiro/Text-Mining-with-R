@@ -8,7 +8,7 @@
   <title>bookdown: Authoring Books with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.16 and GitBook 2.6.7">
 
   <meta property="og:title" content="bookdown: Authoring Books with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-10-04">
+<meta name="date" content="2016-10-05">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -125,9 +125,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1.2</b> Get started</a></li>
 <li class="chapter" data-level="1.3" data-path="usage.html"><a href="usage.html"><i class="fa fa-check"></i><b>1.3</b> Usage</a></li>
-<li class="chapter" data-level="1.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>1.4</b> Configuration</a></li>
-<li class="chapter" data-level="1.5" data-path="new-session.html"><a href="new-session.html"><i class="fa fa-check"></i><b>1.5</b> Two rendering approaches</a></li>
-<li class="chapter" data-level="1.6" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.6</b> Some tips</a></li>
+<li class="chapter" data-level="1.4" data-path="new-session.html"><a href="new-session.html"><i class="fa fa-check"></i><b>1.4</b> Two rendering approaches</a></li>
+<li class="chapter" data-level="1.5" data-path="some-tips.html"><a href="some-tips.html"><i class="fa fa-check"></i><b>1.5</b> Some tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="components.html"><a href="components.html"><i class="fa fa-check"></i><b>2</b> Components</a><ul>
 <li class="chapter" data-level="2.1" data-path="markdown-syntax.html"><a href="markdown-syntax.html"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax</a><ul>
@@ -168,7 +167,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="yaml-options.html"><a href="yaml-options.html"><i class="fa fa-check"></i><b>4.1</b> YAML options</a></li>
 <li class="chapter" data-level="4.2" data-path="theming.html"><a href="theming.html"><i class="fa fa-check"></i><b>4.2</b> Theming</a></li>
 <li class="chapter" data-level="4.3" data-path="templates.html"><a href="templates.html"><i class="fa fa-check"></i><b>4.3</b> Templates</a></li>
-<li class="chapter" data-level="4.4" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.4</b> Internationalization</a></li>
+<li class="chapter" data-level="4.4" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>4.4</b> Configuration</a></li>
+<li class="chapter" data-level="4.5" data-path="internationalization.html"><a href="internationalization.html"><i class="fa fa-check"></i><b>4.5</b> Internationalization</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="editing.html"><a href="editing.html"><i class="fa fa-check"></i><b>5</b> Editing</a><ul>
 <li class="chapter" data-level="5.1" data-path="build-the-book.html"><a href="build-the-book.html"><i class="fa fa-check"></i><b>5.1</b> Build the book</a></li>
@@ -253,16 +253,14 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
   <span class="fu">config:</span>
     <span class="fu">toc:</span>
       <span class="fu">collapse:</span> subsection
-      <span class="fu">scroll_highlight:</span> true
+      <span class="fu">scroll_highlight:</span> yes
       <span class="fu">before:</span> <span class="dt">null</span>
       <span class="fu">after:</span> <span class="dt">null</span>
     <span class="fu">toolbar:</span>
       <span class="fu">position:</span> fixed
-    <span class="fu">edit:</span>
-      <span class="fu">link:</span> <span class="dt">null</span>
-      <span class="fu">text:</span> <span class="dt">null</span>
+    <span class="fu">edit :</span> <span class="dt">null</span>
     <span class="fu">download:</span> <span class="dt">null</span>
-    <span class="fu">search:</span> true
+    <span class="fu">search:</span> yes
     <span class="fu">fontsettings:</span>
       <span class="fu">theme:</span> white
       <span class="fu">family:</span> sans
@@ -287,15 +285,21 @@ it to <span class="bn">`introduction`</span>.</code></pre></div>
         &lt;li&gt;&lt;a href=&quot;https://github.com/rstudio/bookdown&quot;&gt;
         Proudly published with bookdown&lt;/a&gt;&lt;/li&gt;</code></pre>
 <p>As you navigate through different HTML pages, we will try to preserve the scroll position of TOC. Normally you will see the scrollbar in TOC at a fixed position even if you navigate to the next page. However, if the TOC item for the current chapter/section is not visible when the page is loaded, we will automatically scroll TOC to make it visible to you.</p>
-<p>The GitBook style has a toolbar at the top of each page that allows you to dynamically change the book settings. The <code>toolbar</code> option has a sub-option <code>position</code>, which can take values <code>fixed</code> or <code>static</code>. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there. If it is <code>static</code>, the toolbar will not scroll with the page, i.e., once you scroll away, you will no longer see it.</p>
+<div class="figure"><span id="fig:gitbook-toolbar"></span>
+<img src="images/gitbook.png" alt="The GitBook toolbar." width="100%" />
+<p class="caption">
+FIGURE 3.1: The GitBook toolbar.
+</p>
+</div>
+<p>The GitBook style has a toolbar (Figure <a href="html.html#fig:gitbook-toolbar">3.1</a>) at the top of each page that allows you to dynamically change the book settings. The <code>toolbar</code> option has a sub-option <code>position</code>, which can take values <code>fixed</code> or <code>static</code>. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there. If it is <code>static</code>, the toolbar will not scroll with the page, i.e., once you scroll away, you will no longer see it.</p>
 <p>The first button on the toolbar can toggle the visibility of the sidebar. You can also hit the <code>S</code> key on your keyboard to do the same thing. The GitBook style can remember the visibility status of the sidebar, e.g., if you closed the sidebar, it will remain closed the next time you open the book. In fact, the GitBook style remembers many other settings as well, such as the search keyword and the font settings.</p>
 <p>The second button on the toolbar is the search button. Its keyboard shortcut is <code>F</code> (Find). When the button is clicked, you will see a search box at the top of the sidebar. As you type in the box, the TOC will be filtered to display the sections that match the search keyword. Now you can use the arrow keys <code>Up</code>/<code>Down</code> to highlight the next keyword on the current page. When you click the search button again (or hit <code>F</code> outside the search box), the search keyword will be emptied and the search box will be hidden. To disable searching, set the option <code>search: no</code> in <code>config</code>.</p>
 <p>The third button is for font/theme settings. You can change the font size (bigger or smaller), the font family (serif or sans serif), and the theme (<code>White</code>, <code>Sepia</code>, or <code>Night</code>). These settings can be changed via the <code>fontsettings</code> option.</p>
-<p>The <code>edit</code> option is the same as the option that we mentioned in Section <a href="configuration.html#configuration">1.4</a>. If it is not empty, an edit button will be added to the toolbar. This was designed for potential contributors of the book to contribute to the book by editing the book on GitHub after clicking the button and send pull requests.</p>
+<p>The <code>edit</code> option is the same as the option mentioned in Section <a href="configuration.html#configuration">4.4</a>. If it is not empty, an edit button will be added to the toolbar. This was designed for potential contributors of the book to contribute to the book by editing the book on GitHub after clicking the button and send pull requests.</p>
 <p>If your book has other output formats for readers to download, you may provide the <code>download</code> option so that a download button can be added to the toolbar. This option takes either a character vector, or a list of character vectors with the length of each vector being 2. When it is a character vector, it should be either a vector of filenames, or filename extensions, e.g., both of the following settings are okay:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">    <span class="fu">download:</span> <span class="kw">[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;book.epub&quot;</span><span class="kw">]</span>
     <span class="fu">download:</span> <span class="kw">[</span><span class="st">&quot;pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;epub&quot;</span><span class="kw">,</span> <span class="st">&quot;mobi&quot;</span><span class="kw">]</span></code></pre></div>
-<p>When you only provide the filename extensions, the filename is derived from the book filename of the configuration file <code>_bookdown.yml</code> (Section <a href="configuration.html#configuration">1.4</a>). When <code>download</code> is <code>null</code>, <code>gitbook()</code> will look for PDF, EPUB, and MOBI files in the book output directory, and automatically add them to the <code>download</code> option. If you just want to suppress the download button, use <code>download: no</code>. All files for readers to download will be displayed in a dropdown menu, and the filename extensions are used as the menu text. When the only available format for readers to download is PDF, the download button will be a single PDF button instead of a drop-down menu.</p>
+<p>When you only provide the filename extensions, the filename is derived from the book filename of the configuration file <code>_bookdown.yml</code> (Section <a href="configuration.html#configuration">4.4</a>). When <code>download</code> is <code>null</code>, <code>gitbook()</code> will look for PDF, EPUB, and MOBI files in the book output directory, and automatically add them to the <code>download</code> option. If you just want to suppress the download button, use <code>download: no</code>. All files for readers to download will be displayed in a dropdown menu, and the filename extensions are used as the menu text. When the only available format for readers to download is PDF, the download button will be a single PDF button instead of a drop-down menu.</p>
 <p>An alternative form for the value of the <code>download</code> option is a list of length-2 vectors, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">    <span class="fu">download:</span> <span class="kw">[[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;PDF&quot;</span><span class="kw">],</span> <span class="kw">[</span><span class="st">&quot;book.epub&quot;</span><span class="kw">,</span> <span class="st">&quot;EPUB&quot;</span><span class="kw">]]</span></code></pre></div>
 <p>You can also write it as:</p>
