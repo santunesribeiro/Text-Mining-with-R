@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-10-11">
+<meta name="date" content="2016-10-12">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -216,7 +216,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="motivation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Motivation</h2>
 <p>Markdown is a wonderful language to write relatively simple documents that contain elements like sections, paragraphs, lists, links, and images, etc. Pandoc (<a href="http://pandoc.org" class="uri">http://pandoc.org</a>) has greatly extended the <a href="http://daringfireball.net/projects/markdown/">original Markdown syntax</a>, and added quite a few useful new features, such as footnotes, citations, and tables. More importantly, Pandoc makes it possible to generate output documents of a large variety of formats from Markdown, including HTML, LaTeX/PDF, Word, and slides.</p>
-<p>To write a relatively complicated document like a book, there are still a few useful features missing in Pandoc’s Markdown at the moment, such as automatic numbering of figures and tables in the HTML output, cross-references of figures and tables, and fine control of the appearance of figures (e.g., currently it is impossible to specify the alignment of images using the Markdown syntax). These are some of the problems that we have addressed in the <strong>bookdown</strong> package.</p>
+<p>There are still a few useful features missing in Pandoc’s Markdown at the moment that are necessary to write a relatively complicated document like a book, such as automatic numbering of figures and tables in the HTML output, cross-references of figures and tables, and fine control of the appearance of figures (e.g., currently it is impossible to specify the alignment of images using the Markdown syntax). These are some of the problems that we have addressed in the <strong>bookdown</strong> package.</p>
 <p>Under the constraint that we want to produce the book in multiple output formats, it is nearly impossible to cover all possible features specific to these output formats. For example, it may be difficult to reinvent a certain complicated LaTeX environment in the HTML output using the (R) Markdown syntax. Our main goal is not to replace <em>everything</em> with Markdown, but to cover <em>most</em> common functionalities required to write a relatively complicated document, and make the syntax of such functionalities consistent across all output formats, so that you only need to learn one thing and it works for all output formats.</p>
 <p>Another goal of this project is to make it easy to produce books that look visually pleasant. Some nice existing examples include GitBook (<a href="https://www.gitbook.com" class="uri">https://www.gitbook.com</a>), Tufte CSS (<a href="http://edwardtufte.github.io/tufte-css/" class="uri">http://edwardtufte.github.io/tufte-css/</a>), and Tufte-LaTeX (<a href="https://tufte-latex.github.io/tufte-latex/" class="uri">https://tufte-latex.github.io/tufte-latex/</a>). We hope to integrate these themes and styles into <strong>bookdown</strong>, so authors do not have to dive into the details of how to use a certain LaTeX class or how to configure CSS for HTML output.</p>
 </div>
