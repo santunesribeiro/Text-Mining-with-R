@@ -5,12 +5,12 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>bookdown: Authoring Books with R Markdown</title>
+  <title>bookdown: Authoring Books and Technical Publications with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.16 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
 
-  <meta property="og:title" content="bookdown: Authoring Books with R Markdown" />
+  <meta property="og:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -18,7 +18,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="bookdown: Authoring Books with R Markdown" />
+  <meta name="twitter:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-10-24">
+<meta name="date" content="2016-10-26">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -117,6 +117,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
+<li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
@@ -205,7 +206,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown: Authoring Books with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Publications with R Markdown</a>
           </h1>
         </div>
 
@@ -323,7 +324,7 @@ Here is my theorem.
 </tr>
 </tbody>
 </table>
-<p>To write other theorem environments, just replace <code>```{theorem}</code> with other environment names in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>, e.g., <code>```{lemma}</code>.</p>
+<p>To write other theorem environments, replace <code>```{theorem}</code> with other environment names in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>, e.g., <code>```{lemma}</code>.</p>
 <p>A theorem can have a <code>name</code> option so its name will be printed, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, name=&quot;Pythagorean theorem&quot;}
 For a right triangle, if $c$ denotes the length of the hypotenuse
@@ -360,13 +361,13 @@ $$a^2 + b^2 = c^2$$
 <p>Below we show more examples<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-8" class="definition"><strong>Definition 2.1 </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
+<p><span id="def:unnamed-chunk-7" class="definition"><strong>Definition 2.1 </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
 <span class="math display">\[\varphi _{X}(t)=\operatorname {E} \left[e^{itX}\right], \; t\in\mathcal{R}\]</span>
 </div>
 <p></p>
 
 <div class="example">
-<p><span id="ex:unnamed-chunk-9" class="example"><strong>Example 2.1 </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
+<p><span id="ex:unnamed-chunk-8" class="example"><strong>Example 2.1 </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
 \begin{equation*}
 \begin{split}
 \varphi _{X}(t) &amp;= \operatorname {E} \left[e^{itX}\right] =\int e^{itx}f(x)dx =\int_{0}^{1}e^{itx}dx\\
@@ -394,7 +395,7 @@ Note we used the fact <span class="math inline">\(e^{ix}=\cos(x)+i\sin(x)\)</spa
 <p></p>
 
 <div class="proposition">
-<span id="prp:unnamed-chunk-10" class="proposition"><strong>Proposition 2.1 </strong></span>The distribution of the sum of independent Poisson random variables <span class="math inline">\(X_i \sim \mathrm{Pois}(\lambda_i),\: i=1,2,\cdots,n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
+<span id="prp:unnamed-chunk-9" class="proposition"><strong>Proposition 2.1 </strong></span>The distribution of the sum of independent Poisson random variables <span class="math inline">\(X_i \sim \mathrm{Pois}(\lambda_i),\: i=1,2,\cdots,n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
 </div>
 <p></p>
 
@@ -417,7 +418,7 @@ This is the characteristic function of a Poisson random variable with the parame
 <p></p>
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-13" class="corollary"><strong>Corollary 2.1 </strong></span>The characteristic function of the sum of two independent random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is the product of characteristic functions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, i.e.,</p>
+<p><span id="cor:unnamed-chunk-12" class="corollary"><strong>Corollary 2.1 </strong></span>The characteristic function of the sum of two independent random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is the product of characteristic functions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, i.e.,</p>
 <span class="math display">\[\varphi _{X_1+X_2}(t)=\varphi _{X_1}(t) \varphi _{X_2}(t)\]</span>
 </div>
 <p></p>
@@ -452,7 +453,15 @@ This is the characteristic function of a Poisson random variable with the parame
 <p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="figures.html#figures">2.4</a> and <a href="tables.html#tables">2.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = &quot;A long long figure caption.&quot;</code>) or your R code (e.g., <code>kable(caption = &quot;A long long table caption.&quot;)</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
 <p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> through out the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">(ref:foo) Define a text reference **here**. </code></pre></div>
-<p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph.</p>
+<p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph. Here is a complete example:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">A normal paragraph.
+
+(ref:foo) A scatterplot of the data <span class="bn">`cars`</span> using **base** R graphics. 
+
+```{r foo, fig.cap=&#39;(ref:foo)&#39;}
+plot(cars)  # a scatterplot
+```</code></pre></div>
+<p>Text references can be used anywhere in the document (not limited to figure captions). It can also be useful if you want to reuse a fragment of text in multiple places.</p>
 </div>
 </div>
 <div class="footnotes">

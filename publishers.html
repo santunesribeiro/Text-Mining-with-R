@@ -5,12 +5,12 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>bookdown: Authoring Books with R Markdown</title>
+  <title>bookdown: Authoring Books and Technical Publications with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.16 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
 
-  <meta property="og:title" content="bookdown: Authoring Books with R Markdown" />
+  <meta property="og:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -18,7 +18,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="bookdown: Authoring Books with R Markdown" />
+  <meta name="twitter:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-10-24">
+<meta name="date" content="2016-10-26">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -117,6 +117,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
+<li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
@@ -205,7 +206,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown: Authoring Books with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Publications with R Markdown</a>
           </h1>
         </div>
 
@@ -216,7 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="publishers" class="section level2">
 <h2><span class="header-section-number">6.3</span> Publishers</h2>
 <p>Besides publishing your book online, you can certainly consider publishing it with a publisher. For example, this book was published with Chapman &amp; Hall/CRC, and there is also a free online version at <a href="https://bookdown.org/yihui/bookdown/" class="uri">https://bookdown.org/yihui/bookdown/</a> (with an agreement with the publisher). Another option that you can consider is self-publishing (<a href="https://en.wikipedia.org/wiki/Self-publishing" class="uri">https://en.wikipedia.org/wiki/Self-publishing</a>) if you do not want to work with an established publisher.</p>
-<p>It will be much easier to publish a book written with <strong>bookdown</strong> if the publisher you choose supports LaTeX. For example, Chapman &amp; Hall provides a LaTeX class named <code>krantz.cls</code>, and Springer provides <code>svmono.cls</code>. To apply these LaTeX classes to your PDF book, just set <code>documentclass</code> in the YAML metadata of <code>index.Rmd</code> to the class filename (without the extension <code>.cls</code>).</p>
+<p>It will be much easier to publish a book written with <strong>bookdown</strong> if the publisher you choose supports LaTeX. For example, Chapman &amp; Hall provides a LaTeX class named <code>krantz.cls</code>, and Springer provides <code>svmono.cls</code>. To apply these LaTeX classes to your PDF book, set <code>documentclass</code> in the YAML metadata of <code>index.Rmd</code> to the class filename (without the extension <code>.cls</code>).</p>
 <p>The LaTeX class is the most important setting in the YAML metadata. It controls the overall style of the PDF book. There are often other settings you want to tweak, and we will show some details about this book below.</p>
 <p>The YAML metadata of this book contains these settings:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">documentclass:</span> krantz
@@ -235,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \renewcommand{\topfraction}{0.8}
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\floatpagefraction}{0.75}</code></pre></div>
-<p>Since <code>krantz.cls</code> provided an environment <code>VF</code> for quotes, we just redefine the standard <code>quote</code> environment to <code>VF</code>. You can see its style in Section <a href="markdown-syntax.html#markdown-syntax">2.1</a>.</p>
+<p>Since <code>krantz.cls</code> provided an environment <code>VF</code> for quotes, we redefine the standard <code>quote</code> environment to <code>VF</code>. You can see its style in Section <a href="markdown-syntax.html#markdown-syntax">2.1</a>.</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\renewenvironment{quote}{\begin{VF}}{\end{VF}}</code></pre></div>
 <p>Then we redefine hyperlinks to be footnotes, because when the book is printed on paper, readers are not able to click on links on text. Footnotes will tell them what the actual links are.</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\let\oldhref\href
@@ -254,7 +255,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="fu">pandoc_args:</span> <span class="st">&quot;--chapters&quot;</span>
   <span class="fu">toc_unnumbered:</span> no
   <span class="fu">toc_appendix:</span> yes
-  <span class="fu">quote_footer:</span> <span class="kw">[</span><span class="st">&quot;\\VA{&quot;</span><span class="kw">,</span> <span class="st">&quot;}{}&quot;</span><span class="kw">]</span></code></pre></div>
+  <span class="fu">quote_footer:</span> <span class="kw">[</span><span class="st">&quot;\\VA{&quot;</span><span class="kw">,</span> <span class="st">&quot;}{}&quot;</span><span class="kw">]</span>
+  <span class="fu">highlight_bw:</span> yes</code></pre></div>
 <p>All preamble settings we mentioned above are in the file <code>latex/preamble.tex</code>. In <code>latex/before_body.tex</code>, we inserted a few blank pages required by the publisher, wrote the dedication page, and specified that the front matter starts:</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\frontmatter</code></pre></div>
 <p>Before the first chapter of the book, we inserted</p>
@@ -263,6 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>We printed the index in <code>latex/after_body.tex</code> (Section <a href="latex-index.html#latex-index">2.9</a>).</p>
 <p>The graphical device (<code>dev</code>) for saving plots was set to <code>cairo_pdf</code> so that the fonts are embedded in plots, since the default device <code>pdf</code> does not embed fonts. Your copyeditor is likely to require you to embed all fonts used in the PDF, so that the book can be printed exactly like what it looks, otherwise certain fonts may be substituted and the typeface can be unpredictable.</p>
 <p>The <code>quote_footer</code> field was to make sure the quote footers were right-aligned: the LaTeX command <code>\VA{}</code> was provided by <code>krantz.cls</code> to include the quote footer.</p>
+<p>The <code>highlight_bw</code> option was set to true so that the colors in syntax highlighted code blocks were converted to grayscale, since this book will be printed in black-and-white.</p>
 <p>The book was compiled to PDF through <code>xelatex</code> to make it easier for us to use custom fonts.</p>
 <p>All above settings except the <code>VF</code> environment and the <code>\VA{}</code> command can be applied to any other LaTeX document classes.</p>
 <p>In case you want to work with Chapman &amp; Hall as well, you may start with the copy of <code>krantz.cls</code> in our repository (<a href="https://github.com/rstudio/bookdown/tree/master/inst/examples" class="uri">https://github.com/rstudio/bookdown/tree/master/inst/examples</a>) instead of the copy you get from your editor. We have worked with the LaTeX help desk to fix quite a few issues with this LaTeX class, so hopefully it will work well for your book if you use <strong>bookdown</strong>.</p>

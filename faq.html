@@ -5,12 +5,12 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>bookdown: Authoring Books with R Markdown</title>
+  <title>bookdown: Authoring Books and Technical Publications with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
-  <meta name="generator" content="bookdown 0.1.16 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
 
-  <meta property="og:title" content="bookdown: Authoring Books with R Markdown" />
+  <meta property="og:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -18,7 +18,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="bookdown: Authoring Books with R Markdown" />
+  <meta name="twitter:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
   
-<meta name="date" content="2016-10-24">
+<meta name="date" content="2016-10-26">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -117,6 +117,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
+<li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
@@ -205,7 +206,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">bookdown: Authoring Books with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Publications with R Markdown</a>
           </h1>
         </div>
 
@@ -215,11 +216,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="faq" class="section level1">
 <h1><span class="header-section-number">C</span> FAQ</h1>
-<p>Below is the <em>complete</em> list of frequently asked questions (FAQ). Yes, there is only one question here. I do not like FAQ’s. They often mean surprises, and surprises are not good for software users.</p>
+<p>Below is the <em>complete</em> list of frequently asked questions (FAQ). Yes, there is only one question here. Personally I do not like FAQ’s. They often mean surprises, and surprises are not good for software users.</p>
 <ol style="list-style-type: decimal">
 <li><p>Q: Will <strong>bookdown</strong> have the features X, Y, and Z?</p>
-<p>A: The short answer is no, but if you have asked yourself three times “do I really need them” and the answer is still “yes”, please feel free to file a feature request to <a href="https://github.com/rstudio/bookdown/issues" class="uri">https://github.com/rstudio/bookdown/issues</a>, and I will see if God is going to kill a kitten.</p></li>
+<p>A: The short answer is no, but if you have asked yourself three times “do I really need them” and the answer is still “yes”, please feel free to file a feature request to <a href="https://github.com/rstudio/bookdown/issues" class="uri">https://github.com/rstudio/bookdown/issues</a>.</p>
+<p>Users asking for more features often come from the LaTeX world. If that is the case for you, the answer to this question is yes, because Pandoc’s Markdown supports raw LaTeX code. Whenever you feel Markdown cannot do the job for you, you always have the option to apply some raw LaTeX code in your Markdown document. For example, you can create glossaries using the <strong>glossaries</strong> package, or embed a complicated LaTeX table, as long as you know the LaTeX syntax. However, please keep in mind that the LaTeX content is not portable. It will only work for LaTeX/PDF output, and will be ignored in other types of output. Depending on the request, we may port a few more LaTeX features into <strong>bookdown</strong> in the future, but our general philosophy is Markdown should be kept as simple as possible.</p></li>
 </ol>
+<p>The most challenging thing in the world is not to learn fancy technologies, but control your own wild heart.</p>
 
 </div>
             </section>
