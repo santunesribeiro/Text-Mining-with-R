@@ -25,8 +25,8 @@
 
 <meta name="author" content="Yihui Xie">
 
-  
-<meta name="date" content="2016-10-26">
+
+<meta name="date" content="2016-10-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -176,6 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
 <li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
 <li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
+<li class="chapter" data-level="5.5" data-path="collaboration.html"><a href="collaboration.html"><i class="fa fa-check"></i><b>5.5</b> Collaboration</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
 <li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
@@ -267,24 +268,24 @@ R is free software and comes with ABSOLUTELY NO WARRANTY. You are welcome to red
 </div>
 <p></p>
 <p>The <strong>knitr</strong> <code>block</code> engine was designed to display simple content (typically a paragraph of plain text). You can use simple formatting syntax such as making certain words bold or italic, but more advanced syntax such as citations and cross-references will not work. However, there is an alternative engine named <code>block2</code> that supports arbitrary Markdown syntax, e.g.,</p>
-<pre><code>```{block2, type=&#39;FOO&#39;}
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{block2, type=&#39;FOO&#39;}
 Some text for this block [@citation-key].
 
-- a list item
-- another item
+- <span class="fl">a list item</span>
+<span class="fl">- another item</span>
 
-More text.
-```</code></pre>
+<span class="fl">More text.</span>
+<span class="fl">```</span></code></pre></div>
 <p>The <code>block2</code> engine should also be faster than the <code>block</code> engine if you have a lot of custom blocks in the document, but its implementation was based on <a href="https://github.com/jgm/pandoc/issues/2453">a hack</a>, so we are not 100% sure if it is always going to work in the future. We have not seen problems with Pandoc v1.17.2 yet.</p>
 <p>One more caveat for the <code>block2</code> engine: if the last element in the block is not an ordinary paragraph, you must leave a blank line at the end, e.g.,</p>
-<pre><code>```{block2, type=&#39;FOO&#39;}
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{block2, type=&#39;FOO&#39;}
 Some text for this block [@citation-key].
 
-- a list item
-- another item
-- end the list with a blank line
+- <span class="fl">a list item</span>
+<span class="fl">- another item</span>
+<span class="fl">- end the list with a blank line</span>
 
-```</code></pre>
+<span class="fl">```</span></code></pre></div>
 <p>The theorem and proof environments in Section <a href="markdown-extensions-by-bookdown.html#theorems">2.2.2</a> are actually implemented through the <code>block2</code> engine.</p>
 <p>For all custom blocks based on the <code>block</code> or <code>block2</code> engine, there is one chunk option <code>echo</code> that you can use to show (<code>echo = TRUE</code>) or hide (<code>echo = FALSE</code>) the blocks.</p>
 </div>

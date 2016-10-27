@@ -25,8 +25,8 @@
 
 <meta name="author" content="Yihui Xie">
 
-  
-<meta name="date" content="2016-10-26">
+
+<meta name="date" content="2016-10-27">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -176,6 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="preview-a-chapter.html"><a href="preview-a-chapter.html"><i class="fa fa-check"></i><b>5.2</b> Preview a chapter</a></li>
 <li class="chapter" data-level="5.3" data-path="serve-the-book.html"><a href="serve-the-book.html"><i class="fa fa-check"></i><b>5.3</b> Serve the book</a></li>
 <li class="chapter" data-level="5.4" data-path="rstudio-ide.html"><a href="rstudio-ide.html"><i class="fa fa-check"></i><b>5.4</b> RStudio IDE</a></li>
+<li class="chapter" data-level="5.5" data-path="collaboration.html"><a href="collaboration.html"><i class="fa fa-check"></i><b>5.5</b> Collaboration</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6</b> Publishing</a><ul>
 <li class="chapter" data-level="6.1" data-path="rstudio-connect.html"><a href="rstudio-connect.html"><i class="fa fa-check"></i><b>6.1</b> RStudio Connect</a></li>
@@ -361,13 +362,13 @@ $$a^2 + b^2 = c^2$$
 <p>Below we show more examples<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-7" class="definition"><strong>Definition 2.1 </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
+<p><span id="def:unnamed-chunk-8" class="definition"><strong>Definition 2.1 </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
 <span class="math display">\[\varphi _{X}(t)=\operatorname {E} \left[e^{itX}\right], \; t\in\mathcal{R}\]</span>
 </div>
 <p></p>
 
 <div class="example">
-<p><span id="ex:unnamed-chunk-8" class="example"><strong>Example 2.1 </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
+<p><span id="ex:unnamed-chunk-9" class="example"><strong>Example 2.1 </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
 \begin{equation*}
 \begin{split}
 \varphi _{X}(t) &amp;= \operatorname {E} \left[e^{itX}\right] =\int e^{itx}f(x)dx =\int_{0}^{1}e^{itx}dx\\
@@ -395,7 +396,7 @@ Note we used the fact <span class="math inline">\(e^{ix}=\cos(x)+i\sin(x)\)</spa
 <p></p>
 
 <div class="proposition">
-<span id="prp:unnamed-chunk-9" class="proposition"><strong>Proposition 2.1 </strong></span>The distribution of the sum of independent Poisson random variables <span class="math inline">\(X_i \sim \mathrm{Pois}(\lambda_i),\: i=1,2,\cdots,n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
+<span id="prp:unnamed-chunk-10" class="proposition"><strong>Proposition 2.1 </strong></span>The distribution of the sum of independent Poisson random variables <span class="math inline">\(X_i \sim \mathrm{Pois}(\lambda_i),\: i=1,2,\cdots,n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
 </div>
 <p></p>
 
@@ -418,7 +419,7 @@ This is the characteristic function of a Poisson random variable with the parame
 <p></p>
 
 <div class="corollary">
-<p><span id="cor:unnamed-chunk-12" class="corollary"><strong>Corollary 2.1 </strong></span>The characteristic function of the sum of two independent random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is the product of characteristic functions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, i.e.,</p>
+<p><span id="cor:unnamed-chunk-13" class="corollary"><strong>Corollary 2.1 </strong></span>The characteristic function of the sum of two independent random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is the product of characteristic functions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, i.e.,</p>
 <span class="math display">\[\varphi _{X_1+X_2}(t)=\varphi _{X_1}(t) \varphi _{X_2}(t)\]</span>
 </div>
 <p></p>
