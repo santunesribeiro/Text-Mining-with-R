@@ -5,12 +5,12 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>bookdown: Authoring Books and Technical Publications with R Markdown</title>
+  <title>bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
   <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
 
-  <meta property="og:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
+  <meta property="og:title" content="bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -18,7 +18,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
+  <meta name="twitter:title" content="bookdown: Authoring Books and Technical Documents with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
 
-<meta name="date" content="2016-10-27">
+<meta name="date" content="2016-10-29">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -207,7 +207,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Publications with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Documents with R Markdown</a>
           </h1>
         </div>
 
@@ -220,7 +220,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The main difference between rendering a book (using <strong>bookdown</strong>) with rendering a single R Markdown document (using <strong>rmarkdown</strong>) to HTML is that a book will generate multiple HTML pages by default — normally one HTML file per chapter. This makes it easier to bookmark a certain chapter or share its URL with others as you read the book, and faster to load a book into the web browser. Currently we have provided a number of different styles for HTML output: the GitBook style, the Bootstrap style, and the Tufte style.</p>
 <div id="gitbook-style" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> GitBook style</h3>
-<p>The GitBook style was borrowed GitBook, a project launched by Friendcode, Inc (<a href="https://www.gitbook.com" class="uri">https://www.gitbook.com</a>) and dedicated to helping authors write books with Markdown. It provides a beautiful style, with a layout consisting of a sidebar showing the table of contents on the left, and the main body of a book on the right. The design is responsive to the window size, e.g., the navigation buttons are displayed on the left/right of the book body when the window is wide enough, and collapsed into the bottom when the window is narrow to give readers more horizontal space to read the book body.</p>
+<p>The GitBook style was borrowed from GitBook, a project launched by Friendcode, Inc (<a href="https://www.gitbook.com" class="uri">https://www.gitbook.com</a>) and dedicated to helping authors write books with Markdown. It provides a beautiful style, with a layout consisting of a sidebar showing the table of contents on the left, and the main body of a book on the right. The design is responsive to the window size, e.g., the navigation buttons are displayed on the left/right of the book body when the window is wide enough, and collapsed into the bottom when the window is narrow to give readers more horizontal space to read the book body.</p>
 <p>We have made several improvements over the original GitBook project. The most significant one is that we replaced the Markdown engine with R Markdown v2 based on Pandoc, so that there are a lot more features for you to use when writing a book. For instance,</p>
 <ul>
 <li>You can embed R code chunks and inline R expressions in Markdown, and this makes it easy to create reproducible documents and frees you from synchronizing your computation with its actual output (<strong>knitr</strong> will take care of it automatically);</li>

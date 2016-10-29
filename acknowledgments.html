@@ -5,12 +5,12 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>bookdown: Authoring Books and Technical Publications with R Markdown</title>
+  <title>bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
   <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
 
-  <meta property="og:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
+  <meta property="og:title" content="bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/yihui/bookdown/" />
   <meta property="og:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -18,7 +18,7 @@
   <meta name="github-repo" content="rstudio/bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="bookdown: Authoring Books and Technical Publications with R Markdown" />
+  <meta name="twitter:title" content="bookdown: Authoring Books and Technical Documents with R Markdown" />
   
   <meta name="twitter:description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
   <meta name="twitter:image" content="https://bookdown.org/yihui/bookdown/images/cover.png" />
@@ -26,7 +26,7 @@
 <meta name="author" content="Yihui Xie">
 
 
-<meta name="date" content="2016-10-27">
+<meta name="date" content="2016-10-29">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -207,7 +207,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Publications with R Markdown</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Authoring Books and Technical Documents with R Markdown</a>
           </h1>
         </div>
 
@@ -219,11 +219,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Acknowledgments</h2>
 <p>First I’d like to thank my employer, RStudio, for providing me the opportunity to work on this exciting project. I was hoping to work on it when I first saw the GitBook project in 2013, because I immediately realized it was a beautiful book style and there was a lot more power we could add to it, judging from my experience of writing the <strong>knitr</strong> book <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span> and reading other books. R Markdown became mature after two years, and luckily, <strong>bookdown</strong> became my official job in late 2015. There are not many things in the world better than the fact that your job happens to be your hobby (or vice versa). I totally enjoyed messing around JavaScript libraries, LaTeX packages, and endless regular expressions in R. Honestly I should also thank StackOverflow (<a href="http://stackoverflow.com" class="uri">http://stackoverflow.com</a>), and I believe you all know <a href="http://bit.ly/2cWbiAp">what I mean</a>, if you have ever written any program code.</p>
 <p>This project is certainly not a single person’s effort. Several colleagues at RStudio have helped me along the way. Hadley Wickham provided a huge amount of feedback during the development of <strong>bookdown</strong>, as he was working on his book “R for Data Science” with Garrett Grolemund. JJ Allaire and Jonathan McPherson provided a lot of technical help directly to this package as well as support in the RStudio IDE. Jeff Allen, Chaita Chaudhari, and the RStudio Connect team have been maintaining the <a href="https://bookdown.org" class="uri">https://bookdown.org</a> website. Robby Shaver designed a nice cover image for this book. Both Hadley Wickham and Mine Cetinkaya-Rundel reviewed the manuscript and gave me a lot of helpful comments. Tareef Kawaf tried his best to help me grow to a professional software engineer. It is such a blessing to work in this company with enthusiastic and smart people. I remember once I told Jonathan “hey I found a problem in caching HTML widgets dependencies and finally figured out a possible solution”, and Jonathan grabbed his beer, “I already solved it.” “Oh nice, nice.”</p>
-<p>I also received a lot of feedback from book authors outside RStudio, including Jan de Leeuw, Jenny Bryan, Dean Attali, Rafael Irizarry, Michael Love, Roger Peng, Andrew Clark, and so on. Some users also contributed code to the project and helped revise the book. Here is a list of all contributors: <a href="https://github.com/rstudio/bookdown/graphs/contributors" class="uri">https://github.com/rstudio/bookdown/graphs/contributors</a> It feels good when you invent a tool and realize you are also the beneficiary of your own tool. As someone who loves the GitHub pull request model, I wished readers did not have to email me there was a typo or obvious mistake in my book, but could just fix it via a pull request. This was made possible in <strong>bookdown</strong>. You can see how many pull requests on typos I have merged: <a href="https://github.com/rstudio/bookdown/pulls" class="uri">https://github.com/rstudio/bookdown/pulls</a> It is nice to have so many outsourced careful human spell checkers. It is not that I do not know how to use a real spell checker, but I do not want to do this before the book is finished, and the evil Yihui also wants to leave a few simple tasks to the readers to engage them in improving the book.</p>
+<p>I also received a lot of feedback from book authors outside RStudio, including Jan de Leeuw, Jenny Bryan, Dean Attali, Rafael Irizarry, Michael Love, Roger Peng, Andrew Clark, and so on. Some users also contributed code to the project and helped revise the book. Here is a list of all contributors: <a href="https://github.com/rstudio/bookdown/graphs/contributors" class="uri">https://github.com/rstudio/bookdown/graphs/contributors</a>. It feels good when you invent a tool and realize you are also the beneficiary of your own tool. As someone who loves the GitHub pull request model, I wished readers did not have to email me there was a typo or obvious mistake in my book, but could just fix it via a pull request. This was made possible in <strong>bookdown</strong>. You can see how many pull requests on typos I have merged: <a href="https://github.com/rstudio/bookdown/pulls" class="uri">https://github.com/rstudio/bookdown/pulls</a>. It is nice to have so many outsourced careful human spell checkers. It is not that I do not know how to use a real spell checker, but I do not want to do this before the book is finished, and the evil Yihui also wants to leave a few simple tasks to the readers to engage them in improving the book.</p>
 <p>The <strong>bookdown</strong> package is not possible without a few open-source software packages. In particular, Pandoc, GitBook, jQuery, and the dependent R packages, not to mention R itself. I thank the developers of these packages.</p>
 <p>I moved to Omaha, Nebraska in 2015, and enjoyed one year with Steeplechase Apartments, where I lived comfortably to develop the <strong>bookdown</strong> package, thanks to the extremely friendly and helpful staff. Then I met a professional and smart realtor, Kevin Schaben, who found a fabulous home for us in an amazingly short period of time, and I finished this book in our new home.</p>
-<p>John Kimmel, the editor from Chapman &amp; Hall/CRC, helped me publish my first book. It is my pleasure to work with him again. He generously agreed to let me keep the online version of this book for free, so I can continue to update it after it is printed and published (i.e., you do not have to wait for years for the second edition to correct mistakes and introduce new features). I wish I could be as open-minded as him when I’m his age. Shashi Kumar solved some of my technical issues with the publisher’s LaTeX class (<code>krantz.cls</code>) when I was trying to integrate it with <strong>bookdown</strong>.</p>
-<p>Lastly I want to thank my family, in particular, my wife and son, for their support. The one-year-old has discovered that my monitor will light up when he touches my keyboard, so occasionally he just creeps into my office and presses randomly on the keyboard. I’m not sure if this counts as his contribution to the book… @)!%)&amp;@*</p>
+<p>John Kimmel, the editor from Chapman &amp; Hall/CRC, helped me publish my first book. It is my pleasure to work with him again. He generously agreed to let me keep the online version of this book for free, so I can continue to update it after it is printed and published (i.e., you do not have to wait for years for the second edition to correct mistakes and introduce new features). I wish I could be as open-minded as him when I’m his age. Shashi Kumar solved some of my technical issues with the publisher’s LaTeX class (<code>krantz.cls</code>) when I was trying to integrate it with <strong>bookdown</strong>. I also appreciate the very helpful comments from the reviewers Jan de Leeuw, Karl Broman, Brooke Anderson, and Max Kuhn.</p>
+<p>Lastly I want to thank my family, in particular, my wife and son, for their support. The one-year-old has discovered that my monitor will light up when he touches my keyboard, so occasionally he just creeps into my office and presses randomly on the keyboard when I’m away. I’m not sure if this counts as his contribution to the book… @)!%)&amp;@*</p>
 
 <p class="flushright">
 Yihui Xie<br />
