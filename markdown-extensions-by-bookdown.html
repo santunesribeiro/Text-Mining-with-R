@@ -218,10 +218,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   (\#eq:binom)
 \end{equation} </code></pre></div>
 <p>It renders the equation below:</p>
-\begin{equation}
-f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} (\#eq:binom)
-\end{equation}
-<p>You may refer to it using <code>\@ref(eq:binom)</code>, e.g., see Equation <a href="#eq:binom">(<strong>??</strong>)</a>.</p>
+<span class="math display" id="eq:binom">\[\begin{equation}
+f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \tag{2.1}
+\end{equation}\]</span>
+<p>You may refer to it using <code>\@ref(eq:binom)</code>, e.g., see Equation <a href="markdown-extensions-by-bookdown.html#eq:binom">(2.1)</a>.</p>
 
 <div class="rmdcaution">
 Equation labels must start with the prefix <code>eq:</code> in <strong>bookdown</strong>. All labels in <strong>bookdown</strong> must only contain alphanumeric characters, <code>:</code>, <code>-</code>, and/or <code>/</code>. Equation references work best for LaTeX/PDF output, and they are not well supported in Word output or e-books. For HTML output, <strong>bookdown</strong> can only number the equations with labels. Please make sure equations without labels are not numbered by either using the <code>equation*</code> environment or adding <code>\nonumber</code> or <code>\notag</code> to your equations. The same rules apply to other math environments, such as <code>eqnarray</code>, <code>gather</code>, <code>align</code>, and so on (e.g., you can use the <code>align*</code> environment).
@@ -231,21 +231,21 @@ Equation labels must start with the prefix <code>eq:</code> in <strong>bookdown<
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{equation*} 
 \frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
 \end{equation*} </code></pre></div>
-\begin{equation*}
+<span class="math display">\[\begin{equation*}
 \frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
-\end{equation*}
-<p>Below is an <code>align</code> environment <a href="#eq:align">(<strong>??</strong>)</a>:</p>
+\end{equation*}\]</span>
+<p>Below is an <code>align</code> environment <a href="markdown-extensions-by-bookdown.html#eq:align">(2.2)</a>:</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{align} 
 g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 \sqrt{n}[g(X_{n})-g(\theta)] &amp;= g&#39;\left({\tilde{\theta}}\right)
   \sqrt{n}[X_{n}-\theta ] (\#eq:align)
 \end{align} </code></pre></div>
-\begin{align}
+<span class="math display" id="eq:align">\[\begin{align}
 g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 \sqrt{n}[g(X_{n})-g(\theta)] &amp;= g&#39;\left({\tilde{\theta}}\right)
-  \sqrt{n}[X_{n}-\theta ] (\#eq:align)
-\end{align}
-<p>The <code>split</code> environment inside <code>equation</code> so that all lines share the same number <a href="#eq:var-beta">(<strong>??</strong>)</a><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>:</p>
+  \sqrt{n}[X_{n}-\theta ] \tag{2.2}
+\end{align}\]</span>
+<p>The <code>split</code> environment inside <code>equation</code> so that all lines share the same number <a href="markdown-extensions-by-bookdown.html#eq:var-beta">(2.3)</a><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>:</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\begin{equation} 
 \begin{split}
 \mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
@@ -256,7 +256,7 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 \end{split}
 (\#eq:var-beta)
 \end{equation} </code></pre></div>
-\begin{equation}
+<span class="math display" id="eq:var-beta">\[\begin{equation}
 \begin{split}
 \mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
  &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
@@ -264,8 +264,8 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
  &amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\\
  &amp; =(X&#39;X)^{-1}\sigma^{2}
 \end{split}
-(\#eq:var-beta)
-\end{equation}
+\tag{2.3}
+\end{equation}\]</span>
 </div>
 <div id="theorems" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Theorems and proofs</h3>
@@ -361,7 +361,7 @@ $$a^2 + b^2 = c^2$$
 
 <div class="example">
 <p><span id="ex:unnamed-chunk-9" class="example"><strong>Example 2.1 </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
-\begin{equation*}
+<span class="math display">\[\begin{equation*}
 \begin{split}
 \varphi _{X}(t) &amp;= \operatorname {E} \left[e^{itX}\right] =\int e^{itx}f(x)dx =\int_{0}^{1}e^{itx}dx\\
  &amp; =\int_{0}^{1}\left(\cos(tx)+i\sin(tx)\right)dx\\
@@ -370,7 +370,7 @@ $$a^2 + b^2 = c^2$$
  &amp; =\frac{i\sin(t)}{it}+\frac{\cos(t)-1}{it}\\
  &amp; =\frac{e^{it}-1}{it}
 \end{split}
-\end{equation*}
+\end{equation*}\]</span>
 Note we used the fact <span class="math inline">\(e^{ix}=\cos(x)+i\sin(x)\)</span> twice.
 </div>
 <p></p>
@@ -394,13 +394,13 @@ Note we used the fact <span class="math inline">\(e^{ix}=\cos(x)+i\sin(x)\)</spa
 
 <div class="proof">
 <p><span class="proof"><em>Proof. </em></span> The characteristic function of <span class="math inline">\(X\sim\mathrm{Pois}(\lambda)\)</span> is <span class="math inline">\(\varphi _{X}(t)=e^{\lambda (e^{it}-1)}\)</span>. Let <span class="math inline">\(P_n=\sum_{i=1}^nX_i\)</span>. We know from Theorem <a href="markdown-extensions-by-bookdown.html#thm:chf-sum">2.2</a> that</p>
-\begin{equation*}
+<span class="math display">\[\begin{equation*}
 \begin{split}
 \varphi _{P_{n}}(t) &amp; =\prod_{i=1}^n\varphi _{X_i}(t) \\
 &amp; =\prod_{i=1}^n e^{\lambda_i (e^{it}-1)} \\
 &amp; = e^{\sum_{i=1}^n \lambda_i (e^{it}-1)}
 \end{split}
-\end{equation*}
+\end{equation*}\]</span>
 This is the characteristic function of a Poisson random variable with the parameter <span class="math inline">\(\lambda=\sum_{i=1}^n \lambda_i\)</span>. From Lemma <a href="markdown-extensions-by-bookdown.html#lem:chf-pdf">2.1</a>, we know the distribution of <span class="math inline">\(P_n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
 </div>
 <p></p>
