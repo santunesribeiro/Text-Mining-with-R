@@ -268,7 +268,7 @@ Some text for this block [@citation-key].
 
 <span class="fl">More text.</span>
 <span class="fl">```</span></code></pre></div>
-<p>The <code>block2</code> engine should also be faster than the <code>block</code> engine if you have a lot of custom blocks in the document, but its implementation was based on <a href="https://github.com/jgm/pandoc/issues/2453">a hack</a>, so we are not 100% sure if it is always going to work in the future. We have not seen problems with Pandoc v1.17.2 yet.</p>
+<p>The <code>block2</code> engine should also be faster than the <code>block</code> engine if you have a lot of custom blocks in the document, but its implementation was based on <a href="https://github.com/jgm/pandoc/issues/2453">a hack,</a> so we are not 100% sure if it is always going to work in the future. We have not seen problems with Pandoc v1.17.2 yet.</p>
 <p>One more caveat for the <code>block2</code> engine: if the last element in the block is not an ordinary paragraph, you must leave a blank line at the end, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{block2, type=&#39;FOO&#39;}
 Some text for this block [@citation-key].

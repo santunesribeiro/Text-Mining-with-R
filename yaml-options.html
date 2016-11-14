@@ -215,7 +215,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="fu">bookdown:</span>:gitbook:
     <span class="fu">highlight:</span> tango
 <span class="ot">---</span></code></pre></div>
-<p>For HTML output formats, you are most likely to use the <code>css</code> option to provide your own CSS stylesheets to customize the appearance of HTML elements. There is an option <code>includes</code> that applies to more formats, including HTML and LaTeX. The <code>includes</code> option allows your to insert arbitrary custom content before and/or after the body of the output. It has three sub options: <code>in_header</code>, <code>before_body</code>, and <code>after_body</code>. You need to know the basic structure of an HTML or LaTeX document to understand these options. The source of an HTML document looks like this:</p>
+<p>For HTML output formats, you are most likely to use the <code>css</code> option to provide your own CSS stylesheets to customize the appearance of HTML elements. There is an option <code>includes</code> that applies to more formats, including HTML and LaTeX. The <code>includes</code> option allows you to insert arbitrary custom content before and/or after the body of the output. It has three sub-options: <code>in_header</code>, <code>before_body</code>, and <code>after_body</code>. You need to know the basic structure of an HTML or LaTeX document to understand these options. The source of an HTML document looks like this:</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
   
   <span class="kw">&lt;head&gt;</span>
@@ -241,7 +241,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="co">% insert after_body here</span>
 \end{document}</code></pre></div>
-<p>The <code>includes</code> option is very useful and flexible. For HTML output, it means you can insert arbitrary HTML code to the output. For example, when you have LaTeX math expressions rendered via the MathJax library in the HTML output, and want the equation numbers to be displayed on the left (default is on the right), you can create a text file that contains the following code:</p>
+<p>The <code>includes</code> option is very useful and flexible. For HTML output, it means you can insert arbitrary HTML code into the output. For example, when you have LaTeX math expressions rendered via the MathJax library in the HTML output, and want the equation numbers to be displayed on the left (default is on the right), you can create a text file that contains the following code:</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/x-mathjax-config&quot;</span><span class="kw">&gt;</span>
 <span class="va">MathJax</span>.<span class="va">Hub</span>.<span class="at">Config</span>(<span class="op">{</span>
   <span class="dt">TeX</span><span class="op">:</span> <span class="op">{</span> <span class="dt">TagSide</span><span class="op">:</span> <span class="st">&quot;left&quot;</span> <span class="op">}</span>
@@ -255,7 +255,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <span class="fu">in_header:</span> mathjax-number.html
 <span class="ot">---</span></code></pre></div>
 <p>Another example is to enable comments or discussions on your HTML pages. There are several possibilities, such as Disqus (<a href="https://disqus.com" class="uri">https://disqus.com</a>) or Hypothesis (<a href="https://hypothes.is" class="uri">https://hypothes.is</a>). These services can be easily embedded in your HTML book via the <code>includes</code> option (see Section <a href="collaboration.html#collaboration">5.5</a> for details).</p>
-<p>Similarly, if you are familiar with LaTeX, you can add arbitrary LaTeX code to the preamble. That means you can use any LaTeX packages and set up any package options for your book. For example, this book used the <code>in_header</code> option to use a few more LaTeX packages like <strong>booktabs</strong> (for better-looking tables) and <strong>longtable</strong> (for tables that span across multiple pages), and apply a fix to an XeLaTeX problem that links on graphics do not work:</p>
+<p>Similarly, if you are familiar with LaTeX, you can add arbitrary LaTeX code to the preamble. That means you can use any LaTeX packages and set up any package options for your book. For example, this book used the <code>in_header</code> option to use a few more LaTeX packages like <strong>booktabs</strong> (for better-looking tables) and <strong>longtable</strong> (for tables that span across multiple pages), and applied a fix to an XeLaTeX problem that links on graphics do not work:</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\usepackage{booktabs}
 \usepackage{longtable}
 

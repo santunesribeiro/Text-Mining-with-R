@@ -217,15 +217,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">theme:</span> united
 <span class="ot">---</span></code></pre></div>
 <p>If you do not like any of these Bootstrap styles, you can set <code>theme</code> to <code>null</code>, and apply your own CSS through the <code>css</code> or <code>includes</code> option.</p>
-<p>For <code>pdf_book()</code>, besides the <code>in_header</code> option mentioned in the previous section, another possibility is to change the document class. There are many possible LaTeX classes for books, such as <strong>memoir</strong> (<a href="https://www.ctan.org/pkg/memoir" class="uri">https://www.ctan.org/pkg/memoir</a>), <strong>amsbook</strong> (<a href="https://www.ctan.org/pkg/amsbook" class="uri">https://www.ctan.org/pkg/amsbook</a>), KOMA-Script (<a href="https://www.ctan.org/pkg/koma-script" class="uri">https://www.ctan.org/pkg/koma-script</a>) and so on. A brief sample of the YAML metadata specifying the <code>scrbook</code> class from the KOMA-Script package:</p>
+<p>For <code>pdf_book()</code>, besides the <code>in_header</code> option mentioned in the previous section, another possibility is to change the document class. There are many possible LaTeX classes for books, such as <strong>memoir</strong> (<a href="https://www.ctan.org/pkg/memoir" class="uri">https://www.ctan.org/pkg/memoir</a>), <strong>amsbook</strong> (<a href="https://www.ctan.org/pkg/amsbook" class="uri">https://www.ctan.org/pkg/amsbook</a>), KOMA-Script (<a href="https://www.ctan.org/pkg/koma-script" class="uri">https://www.ctan.org/pkg/koma-script</a>) and so on. Here is a brief sample of the YAML metadata specifying the <code>scrbook</code> class from the KOMA-Script package:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">documentclass:</span> scrbook
 <span class="fu">output:</span>
   <span class="fu">bookdown:</span>:pdf_book:
     <span class="fu">template:</span> <span class="dt">null</span>
 <span class="ot">---</span></code></pre></div>
-<p>Some publishers (e.g., Springer and Chapman &amp; Hall/CRC) have their own LaTeX style or class files. You may try to change the <code>documentclass</code> option to use their document classes, although typically it is not as simple as that. You may end up with using <code>in_header</code>, or even design a custom Pandoc LaTeX template to accommodate these document classes.</p>
-<p>Note when you change <code>documentclass</code>, you are likely to specify an additional Pandoc argument <code>--chapters</code> so that Pandoc knows the first-level headers should be treated as chapters instead of sections (this is the default when <code>documentclass</code> is <code>book</code>), e.g.,</p>
+<p>Some publishers (e.g., Springer and Chapman &amp; Hall/CRC) have their own LaTeX style or class files. You may try to change the <code>documentclass</code> option to use their document classes, although typically it is not as simple as that. You may end up using <code>in_header</code>, or even design a custom Pandoc LaTeX template to accommodate these document classes.</p>
+<p>Note that when you change <code>documentclass</code>, you are likely to specify an additional Pandoc argument <code>--chapters</code> so that Pandoc knows the first-level headers should be treated as chapters instead of sections (this is the default when <code>documentclass</code> is <code>book</code>), e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">documentclass:</span> krantz
 <span class="fu">output:</span>
   <span class="fu">bookdown:</span>:pdf_book:
