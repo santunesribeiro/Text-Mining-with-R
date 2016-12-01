@@ -351,6 +351,10 @@ $$a^2 + b^2 = c^2$$
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">\newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}</code></pre></div>
 <p>When <strong>bookdown</strong> detects <code>\newtheorem{theorem}</code> in your LaTeX preamble, it will not write out its default theorem definitions, which means you have to define all theorem environments by yourself. For the sake of simplicity and consistency, we do not recommend that you do this. It can be confusing when your Theorem 18 in PDF becomes Theorem 2.4 in HTML.</p>
+<p>Theorem and proof environments will be hidden if the chunk option <code>echo</code> is set to <code>FALSE</code>. To make sure they are always shown, you may add the chunk option <code>echo=TRUE</code>, e.g.,</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, echo=TRUE}
+Here is my theorem.
+```</code></pre></div>
 <p>Below we show more examples<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
 
 <div class="definition">
@@ -363,7 +367,9 @@ $$a^2 + b^2 = c^2$$
 <p><span id="ex:unnamed-chunk-9" class="example"><strong>Example 2.1 </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
 <span class="math display">\[\begin{equation*}
 \begin{split}
-\varphi _{X}(t) &amp;= \operatorname {E} \left[e^{itX}\right] =\int e^{itx}f(x)dx =\int_{0}^{1}e^{itx}dx\\
+\varphi _{X}(t) &amp;= \operatorname {E} \left[e^{itX}\right]\\
+ &amp; =\int e^{itx}f(x)dx\\
+ &amp; =\int_{0}^{1}e^{itx}dx\\
  &amp; =\int_{0}^{1}\left(\cos(tx)+i\sin(tx)\right)dx\\
  &amp; =\left.\left(\frac{\sin(tx)}{t}-i\frac{\cos(tx)}{t}\right)\right|_{0}^{1}\\
  &amp; =\frac{\sin(t)}{t}-i\left(\frac{\cos(t)-1}{t}\right)\\

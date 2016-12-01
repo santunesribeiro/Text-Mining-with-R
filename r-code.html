@@ -210,11 +210,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="r-code" class="section level2">
 <h2><span class="header-section-number">2.3</span> R code</h2>
 <p>There are two types of R code in R Markdown/<strong>knitr</strong> documents: R code chunks, and inline R code. The syntax for the latter is <code>`r R_CODE`</code>, and it can be embedded inline with other document elements. R code chunks look like plain code blocks, but have <code>{r}</code> after the three backticks and (optionally) chunk options inside <code>{}</code>, e.g.,</p>
-<pre><code>```{r chunk-label, echo = FALSE, fig.cap = &#39;A figure caption.&#39;}
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{r chunk-label, echo = FALSE, fig.cap = &#39;A figure caption.&#39;}
 1 + 1
 rnorm(10)  # 10 random numbers
 plot(dist ~ speed, cars)  # a scatterplot
-```</code></pre>
+```</code></pre></div>
 <p>To learn more about <strong>knitr</strong> chunk options, see <span class="citation">Xie (<a href="#ref-xie2015">2015</a>)</span> or the web page <a href="http://yihui.name/knitr/options" class="uri">http://yihui.name/knitr/options</a>. For books, additional R code can be executed before/after each chapter; see <code>before_chapter_script</code> and <code>after_chapter_script</code> in Section <a href="configuration.html#configuration">4.4</a>.</p>
 </div>
 <h3>References</h3>
