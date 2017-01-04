@@ -65,12 +65,40 @@ var transposeArray2D = function(a) {
   return a.length === 0 ? a : HTMLWidgets.transposeArray2D(a);
 };
 
+var crosstalkPluginsInstalled = false;
+
+function maybeInstallCrosstalkPlugins() {
+  if (crosstalkPluginsInstalled)
+    return;
+  crosstalkPluginsInstalled = true;
+
+  $.fn.dataTable.ext.afnFiltering.push(
+    function(oSettings, aData, iDataIndex) {
+      var ctfilter = oSettings.nTable.ctfilter;
+      if (ctfilter && !ctfilter[iDataIndex])
+        return false;
+
+      var ctselect = oSettings.nTable.ctselect;
+      if (ctselect && !ctselect[iDataIndex])
+        return false;
+
+      return true;
+    }
+  );
+}
+
 HTMLWidgets.widget({
   name: "datatables",
   type: "output",
   initialize: function(el, width, height) {
     $(el).html('&nbsp;');
-    return { data: null };
+    return {
+      data: null,
+      ctfilterHandle: new crosstalk.FilterHandle(),
+      ctfilterSubscription: null,
+      ctselectHandle: new crosstalk.SelectionHandle(),
+      ctselectSubscription: null
+    };
   },
   renderValue: function(el, data, instance) {
     if (el.offsetWidth === 0 || el.offsetHeight === 0) {
@@ -83,6 +111,12 @@ HTMLWidgets.widget({
 
     if (data === null) {
       return;
+    }
+
+    if (data.options.crosstalkOptions.group) {
+      maybeInstallCrosstalkPlugins();
+      instance.ctfilterHandle.setGroup(data.options.crosstalkOptions.group);
+      instance.ctselectHandle.setGroup(data.options.crosstalkOptions.group);
     }
 
     // If we are in a flexdashboard scroll layout then we:
@@ -212,6 +246,71 @@ HTMLWidgets.widget({
 
     var table = $table.DataTable(options);
     $el.data('datatable', table);
+
+    // Unregister previous Crosstalk event subscriptions, if they exist
+    if (instance.ctfilterSubscription) {
+      instance.ctfilterHandle.off("change", instance.ctfilterSubscription);
+      instance.ctfilterSubscription = null;
+    }
+    if (instance.ctselectSubscription) {
+      instance.ctselectHandle.off("change", instance.ctselectSubscription);
+      instance.ctselectSubscription = null;
+    }
+
+    if (!data.options.crosstalkOptions.group) {
+      $table[0].ctfilter = null;
+      $table[0].ctselect = null;
+    } else {
+      var key = data.options.crosstalkOptions.key;
+      function keysToMatches(keys) {
+        if (!keys) {
+          return null;
+        } else {
+          var selectedKeys = {};
+          for (var i = 0; i < keys.length; i++) {
+            selectedKeys[keys[i]] = true;
+          }
+          var matches = {};
+          for (var j = 0; j < key.length; j++) {
+            if (selectedKeys[key[j]])
+              matches[j] = true;
+          }
+          return matches;
+        }
+      }
+
+      function applyCrosstalkFilter(e) {
+        $table[0].ctfilter = keysToMatches(e.value);
+        table.draw();
+      }
+      instance.ctfilterSubscription = instance.ctfilterHandle.on("change", applyCrosstalkFilter);
+      applyCrosstalkFilter({value: instance.ctfilterHandle.filteredKeys});
+
+      function applyCrosstalkSelection(e) {
+        if (e.sender !== instance.ctselectHandle) {
+          table
+            .rows('.' + selClass, {search: 'applied'})
+            .nodes()
+            .to$()
+            .removeClass(selClass);
+          if (selectedRows)
+            changeInput('rows_selected', selectedRows(), void 0, true);
+        }
+
+        if (e.sender !== instance.ctselectHandle && e.value && e.value.length) {
+          $table[0].ctselect = keysToMatches(e.value);
+          table.draw();
+        } else {
+          if ($table[0].ctselect) {
+            $table[0].ctselect = null;
+            table.draw();
+          }
+        }
+      }
+      instance.ctselectSubscription = instance.ctselectHandle.on("change", applyCrosstalkSelection);
+      // TODO: This next line doesn't seem to work when renderDataTable is used
+      applyCrosstalkSelection({value: instance.ctselectHandle.value});
+    }
 
     var inArray = function(val, array) {
       return $.inArray(val, $.makeArray(array)) > -1;
@@ -561,7 +660,7 @@ HTMLWidgets.widget({
     });
 
     // interaction with shiny
-    if (!HTMLWidgets.shinyMode) return;
+    if (!HTMLWidgets.shinyMode && !data.options.crosstalkOptions.group) return;
 
     var methods = {};
     var shinyData = {};
@@ -571,14 +670,33 @@ HTMLWidgets.widget({
       $table.children('caption').replaceWith(caption);
     }
 
-    var changeInput = function(id, data, type) {
+    var changeInput = function(id, value, type, noCrosstalk) {
+      var event = id;
       id = el.id + '_' + id;
       if (type) id = id + ':' + type;
-      // do not update if the new data is the same as old data
-      if (shinyData.hasOwnProperty(id) && shinyData[id] === JSON.stringify(data))
+      // do not update if the new value is the same as old value
+      if (shinyData.hasOwnProperty(id) && shinyData[id] === JSON.stringify(value))
         return;
-      shinyData[id] = JSON.stringify(data);
-      Shiny.onInputChange(id, data);
+      shinyData[id] = JSON.stringify(value);
+      if (HTMLWidgets.shinyMode)
+        Shiny.onInputChange(id, value);
+
+      // HACK
+      if (event === "rows_selected" && !noCrosstalk) {
+        if (data.options.crosstalkOptions.group) {
+          var keys = data.options.crosstalkOptions.key;
+          var selectedKeys = null;
+          if (value) {
+            selectedKeys = [];
+            for (var i = 0; i < value.length; i++) {
+              // The value array's contents use 1-based row numbers, so we must
+              // convert to 0-based before indexing into the keys array.
+              selectedKeys.push(keys[value[i] - 1]);
+            }
+          }
+          instance.ctselectHandle.set(selectedKeys);
+        }
+      }
     };
 
     var addOne = function(x) {
@@ -803,41 +921,17 @@ HTMLWidgets.widget({
     table.on('draw.dt', updateSearchInfo);
     updateSearchInfo();
 
-    var cellInfo = function(thiz) {
-      var info = tweakCellIndex(table.cell(thiz));
-      info.value = table.cell(thiz).data();
-      return info;
-    }
     // the current cell clicked on
     table.on('click.dt', 'tbody td', function() {
-      changeInput('cell_clicked', cellInfo(this));
+      var info = tweakCellIndex(table.cell(this));
+      info.value = table.cell(this).data();
+      changeInput('cell_clicked', info);
     })
     changeInput('cell_clicked', {});
 
     // do not trigger table selection when clicking on links unless they have classes
     table.on('click.dt', 'tbody td a', function(e) {
       if (this.className === '') e.stopPropagation();
-    });
-
-    // double click to edit the cell
-    table.on('dblclick.dt', 'tbody td', function() {
-      var $input = $('<input type="text">');
-      var $this = $(this), value = table.cell(this).data(), html = $this.html();
-      $input.val(value);
-      $this.empty().append($input);
-      $input.css('width', '100%').focus().on('change', function() {
-        var valueNew = $input.val();
-        if (valueNew != value) {
-          table.cell($this).data(valueNew);
-          changeInput('cell_edit', cellInfo($this));
-          // for server-side processing, redraw must happen **after** we update
-          // data via session$registerDataObj(); how to hold the redraw then??
-          table.draw(false);
-        } else {
-          $this.html(html);
-        }
-        $input.remove();
-      });
     });
 
     methods.addRow = function(data, rowname) {
