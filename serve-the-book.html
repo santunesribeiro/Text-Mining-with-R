@@ -6,7 +6,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>bookdown: Authoring Books and Technical Documents with R Markdown</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
 
   <meta property="og:title" content="bookdown: Authoring Books and Technical Documents with R Markdown" />
@@ -216,7 +215,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Instead of running <code>render_book()</code> or <code>preview_chapter()</code> over and over again, you can actually live preview the book in the web browser, and the only thing you need to do is save the Rmd file. The function <code>serve_book()</code> in <strong>bookdown</strong> can start a local web server to serve the HTML output based on the <strong>servr</strong> package <span class="citation">(Xie <a href="#ref-R-servr">2016</a><a href="#ref-R-servr">d</a>)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">serve_book</span>(<span class="dt">dir =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">output_dir =</span> <span class="st">&quot;_book&quot;</span>, <span class="dt">preview =</span> <span class="ot">TRUE</span>, 
   <span class="dt">in_session =</span> <span class="ot">TRUE</span>, <span class="dt">daemon =</span> <span class="ot">FALSE</span>, ...)</code></pre></div>
-<p>You pass the root directory of the book to the <code>dir</code> argument, and this function will start a local web server so you can view the book output using the server. The default URL to access the book output is <code>http://127.0.0.1:4321</code>. If you run this function in an interactive R session, this URL will be automatically opened in your web browser. If you are in the RStudio IDE, the RStudio Viewer will be used as the default web browser, so you will be able to write the Rmd source files and preview the output in the same environment (e.g, source on the left and output on the right).</p>
+<p>You pass the root directory of the book to the <code>dir</code> argument, and this function will start a local web server so you can view the book output using the server. The default URL to access the book output is <code>http://127.0.0.1:4321</code>. If you run this function in an interactive R session, this URL will be automatically opened in your web browser. If you are in the RStudio IDE, the RStudio Viewer will be used as the default web browser, so you will be able to write the Rmd source files and preview the output in the same environment (e.g., source on the left and output on the right).</p>
 <p>The server will listen to changes in the book root directory: whenever you modify any files in the book directory, <code>serve_book()</code> can detect the changes, recompile the Rmd files, and refresh the web browser automatically. If the modified files do not include Rmd files, it just refreshes the browser (e.g., if you only updated a certain CSS file). This means once the server is launched, all you have to do next is simply write the book and save the files. Compilation and preview will take place automatically as you save files.</p>
 <p>If it does not really take too much time to recompile the whole book, you may set the argument <code>preview = FALSE</code>, so that every time you update the book, the whole book is recompiled, otherwise only the modified chapters are recompiled via <code>preview_chapter()</code>.</p>
 <p>The arguments <code>daemon</code> and <code>...</code> are passed to <code>servr::httw()</code>, and please refer to its help page to see all possible options, such as <code>port</code>. There are pros and cons of using <code>in_session = TRUE</code> or <code>FALSE</code>:</p>
@@ -238,7 +237,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="preview-a-chapter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rstudio-ide.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="rstudio-ide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>

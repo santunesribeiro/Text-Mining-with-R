@@ -6,7 +6,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>bookdown: Authoring Books and Technical Documents with R Markdown</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org).">
 
   <meta property="og:title" content="bookdown: Authoring Books and Technical Documents with R Markdown" />
@@ -251,7 +250,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">cp</span> -r ../_book/* ./
 <span class="kw">git</span> add --all *
 <span class="kw">git</span> commit -m<span class="st">&quot;Update the book&quot;</span>
-<span class="kw">git</span> push origin gh-pages</code></pre></div>
+<span class="kw">git</span> push -q origin gh-pages</code></pre></div>
 <p>The variable name <code>GITHUB_PAT</code> and the directory name <code>book-output</code> are arbitrary, and you can use any names you prefer, as long as the names do not conflict with existing environment variable names or directory names. This script, together with the build script we mentioned in Section <a href="build-the-book.html#build-the-book">5.1</a>, can be put in the <code>master</code> branch as Shell scripts, e.g., you can name them as <code>_build.sh</code> and <code>_deploy.sh</code>. Then your <code>.travis.yml</code> may look like this:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">language:</span> r
 
@@ -296,7 +295,7 @@ Remotes: rstudio/bookdown</code></pre>
         </div>
       </div>
 <a href="rstudio-connect.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="publishers.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="publishers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
