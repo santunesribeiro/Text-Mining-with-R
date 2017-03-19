@@ -345,7 +345,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>If you want to put multiple tables in a single table environment, wrap the data objects (usually data frames in R) into a list. See Table <a href="tables.html#tab:table-multi">2.3</a> for an example.</p>
+<p>If you want to put multiple tables in a single table environment, wrap the data objects (usually data frames in R) into a list. See Table <a href="tables.html#tab:table-multi">2.3</a> for an example. Please note that this feature is only available in HTML and PDF output.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(
   <span class="kw">list</span>(
     <span class="kw">head</span>(iris[, <span class="dv">1</span>:<span class="dv">2</span>], <span class="dv">3</span>),
