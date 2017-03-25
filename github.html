@@ -246,6 +246,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   https://<span class="ot">${GITHUB_PAT}</span>@github.com/<span class="ot">${TRAVIS_REPO_SLUG}</span>.git \
   book-output
 <span class="kw">cd</span> book-output
+<span class="kw">git</span> rm -rf *
 <span class="kw">cp</span> -r ../_book/* ./
 <span class="kw">git</span> add --all *
 <span class="kw">git</span> commit -m<span class="st">&quot;Update the book&quot;</span>
