@@ -436,7 +436,7 @@ This is the characteristic function of a Poisson random variable with the parame
 # (PART) Part II {-} 
 
 # Chapter Three</code></pre>
-<p>A part title should be written right before the first chapter title in this part.</p>
+<p>A part title should be written right before the first chapter title in this part. You can use <code>(PART\*)</code> (the backslash before <code>*</code> is required) instead of <code>(PART)</code> if a part title should not be numbered.</p>
 <p>The second type is an unnumbered header that starts with <code>(APPENDIX)</code>, indicating that all chapters after this header are appendices, e.g.,</p>
 <pre><code># Chapter One 
 
@@ -523,7 +523,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
