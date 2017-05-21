@@ -216,7 +216,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;webshot&quot;</span>)
 webshot::<span class="kw">install_phantomjs</span>()</code></pre></div>
 <p>The function <code>install_phantomjs()</code> works for Windows, OS X, and Linux. You may also choose to download and install PhantomJS by yourself, if you are familiar with modifying the system environment variable <code>PATH</code>.</p>
-<p>When <strong>knitr</strong> detects an HTML widget object in a code chunk, it either renders the widget normally when the current output format is HTML, or saves the widget as an HTML page and calls <strong>webshot</strong> to capture the screen of the HTML page when the output format is not HTML. Here is an example of a table created from the <strong>DT</strong> package <span class="citation">(Xie <a href="#ref-R-DT">2016</a><a href="#ref-R-DT">b</a>)</span>:</p>
+<p>When <strong>knitr</strong> detects an HTML widget object in a code chunk, it either renders the widget normally when the current output format is HTML, or saves the widget as an HTML page and calls <strong>webshot</strong> to capture the screen of the HTML page when the output format is not HTML. Here is an example of a table created from the <strong>DT</strong> package <span class="citation">(Xie <a href="#ref-R-DT">2016</a>)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DT::<span class="kw">datatable</span>(iris)</code></pre></div>
 <div class="figure"><span id="fig:DT-demo"></span>
 <div id="htmlwidget-9100e56c8908db070567" style="width:100%;height:auto;" class="datatables html-widget"></div>
@@ -241,7 +241,7 @@ FIGURE 2.5: A table widget rendered via the DT package.
 <p>Chang, Winston. 2016. <em>Webshot: Take Screenshots of Web Pages</em>. <a href="https://CRAN.R-project.org/package=webshot" class="uri">https://CRAN.R-project.org/package=webshot</a>.</p>
 </div>
 <div id="ref-R-DT">
-<p>Xie, Yihui. 2016b. <em>DT: A Wrapper of the Javascript Library ’Datatables’</em>. <a href="http://rstudio.github.io/DT" class="uri">http://rstudio.github.io/DT</a>.</p>
+<p>Xie, Yihui. 2016. <em>DT: A Wrapper of the Javascript Library ’Datatables’</em>. <a href="http://rstudio.github.io/DT" class="uri">http://rstudio.github.io/DT</a>.</p>
 </div>
 </div>
             </section>
