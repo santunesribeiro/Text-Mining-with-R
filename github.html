@@ -253,6 +253,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">git</span> push -q origin gh-pages</code></pre></div>
 <p>The variable name <code>GITHUB_PAT</code> and the directory name <code>book-output</code> are arbitrary, and you can use any names you prefer, as long as the names do not conflict with existing environment variable names or directory names. This script, together with the build script we mentioned in Section <a href="build-the-book.html#build-the-book">5.1</a>, can be put in the <code>master</code> branch as Shell scripts, e.g., you can name them as <code>_build.sh</code> and <code>_deploy.sh</code>. Then your <code>.travis.yml</code> may look like this:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">language:</span> r
+<span class="fu">pandoc_version:</span> 1.19.2.1
 
 <span class="fu">env:</span>
   <span class="fu">global:</span>
@@ -268,6 +269,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The <code>language</code> key tells Travis to use a virtual machine that has R installed. The <code>secure</code> key is your encrypted personal access token. If you have already saved the <code>GITHUB_PAT</code> variable using the web interface on Travis instead of the command-line tool <code>travis encrypt</code>, you can leave out this key.</p>
 <p>Since this Travis service is primarily for checking R packages, you will also need a (fake) <code>DESCRIPTION</code> file as if the book repository were an R package. The only thing in this file that really matters is the specification of dependencies. All dependencies will be installed via the <strong>devtools</strong> package. If a dependency is on CRAN or BioConductor, you can simply list it in the <code>Imports</code> field of the <code>DESCRIPTION</code> file. If it is on GitHub, you may use the <code>Remotes</code> field to list its repository name. Below is an example:</p>
 <pre class="dcf"><code>Package: placeholder
+Type: Book
 Title: Does not matter.
 Version: 0.0.1
 Imports: bookdown, ggplot2
