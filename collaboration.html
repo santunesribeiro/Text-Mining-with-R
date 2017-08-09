@@ -223,16 +223,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="va">s</span>.<span class="at">setAttribute</span>(<span class="st">&#39;data-timestamp&#39;</span><span class="op">,</span> <span class="op">+</span><span class="kw">new</span> <span class="at">Date</span>())<span class="op">;</span>
 (<span class="va">d</span>.<span class="at">head</span> <span class="op">||</span> <span class="va">d</span>.<span class="at">body</span>).<span class="at">appendChild</span>(s)<span class="op">;</span>
 <span class="op">}</span>)()<span class="op">;</span>
-<span class="op">&lt;</span><span class="ss">/script&gt;</span>
-<span class="ss">&lt;noscript&gt;Please enable JavaScript to view the</span>
-<span class="ss">&lt;a href=&quot;https://disqus.com/</span><span class="op">?</span>ref_noscript<span class="st">&quot;&gt;</span>
-  comments powered by <span class="va">Disqus</span>.<span class="op">&lt;</span><span class="ss">/a&gt;&lt;/noscript</span><span class="op">&gt;</span></code></pre></div>
+<span class="kw">&lt;/script&gt;</span>
+<span class="kw">&lt;noscript&gt;</span>Please enable JavaScript to view the
+<span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://disqus.com/?ref_noscript&quot;</span><span class="kw">&gt;</span>
+  comments powered by Disqus.<span class="kw">&lt;/a&gt;&lt;/noscript&gt;</span></code></pre></div>
 <p>Note that you will need to replace the name <code>yihui</code> with your own forum name (this name has to be provided when you create a new Disqus forum). You can save the code to an HTML file named, for example, <code>disqus.html</code>. Then you can embed it at the end of every page via the <code>after_body</code> option (Figure <a href="collaboration.html#fig:disqus">5.3</a> shows what the discussion area looks like):</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">output:</span>
-  <span class="fu">bookdown:</span>:gitbook:
+  <span class="fu">bookdown:</span><span class="at">:gitbook:</span>
     <span class="fu">includes:</span>
-      <span class="fu">after_body:</span> disqus.html
+      <span class="fu">after_body:</span><span class="at"> disqus.html</span>
 <span class="ot">---</span></code></pre></div>
 <div class="figure"><span id="fig:disqus"></span>
 <img src="images/disqus.png" alt="A book page with a discussion area." width="100%" />

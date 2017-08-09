@@ -277,31 +277,31 @@ Or indent by four spaces:
 <p>Inline LaTeX equations can be written in a pair of dollar signs using the LaTeX syntax, e.g., <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code> (actual output: <span class="math inline">\(f(k)={n \choose k}p^{k}(1-p)^{n-k}\)</span>); math expressions of the display style can be written in a pair of double dollar signs, e.g., <code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code>, and the output looks like this:</p>
 <p><span class="math display">\[f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}\]</span></p>
 <p>You can also use math environments inside <code>$ $</code> or <code>$$ $$</code>, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">$$\begin{array}{ccc}
-x_{11} &amp; x_{12} &amp; x_{13}\\
-x_{21} &amp; x_{22} &amp; x_{23}
-\end{array}$$</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{array}{ccc}</span>
+<span class="ss">x_{11} &amp; x_{12} &amp; x_{13}</span><span class="sc">\\</span>
+<span class="ss">x_{21} &amp; x_{22} &amp; x_{23}</span>
+<span class="sc">\end</span><span class="ss">{array}$$</span></code></pre></div>
 <p><span class="math display">\[\begin{array}{ccc}
 x_{11} &amp; x_{12} &amp; x_{13}\\
 x_{21} &amp; x_{22} &amp; x_{23}
 \end{array}\]</span></p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">$$X = \begin{bmatrix}1 &amp; x_{1}\\
-1 &amp; x_{2}\\
-1 &amp; x_{3}
-\end{bmatrix}$$</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$X = </span><span class="sc">\begin</span><span class="ss">{bmatrix}1 &amp; x_{1}</span><span class="sc">\\</span>
+<span class="ss">1 &amp; x_{2}</span><span class="sc">\\</span>
+<span class="ss">1 &amp; x_{3}</span>
+<span class="sc">\end</span><span class="ss">{bmatrix}$$</span></code></pre></div>
 <p><span class="math display">\[X = \begin{bmatrix}1 &amp; x_{1}\\
 1 &amp; x_{2}\\
 1 &amp; x_{3}
 \end{bmatrix}\]</span></p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">$$\Theta = \begin{pmatrix}\alpha &amp; \beta\\
-\gamma &amp; \delta
-\end{pmatrix}$$</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\Theta</span><span class="ss"> = </span><span class="sc">\begin</span><span class="ss">{pmatrix}</span><span class="sc">\alpha</span><span class="ss"> &amp; </span><span class="sc">\beta\\</span>
+<span class="sc">\gamma</span><span class="ss"> &amp; </span><span class="sc">\delta</span>
+<span class="sc">\end</span><span class="ss">{pmatrix}$$</span></code></pre></div>
 <p><span class="math display">\[\Theta = \begin{pmatrix}\alpha &amp; \beta\\
 \gamma &amp; \delta
 \end{pmatrix}\]</span></p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">$$\begin{vmatrix}a &amp; b\\
-c &amp; d
-\end{vmatrix}=ad-bc$$</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{vmatrix}a &amp; b</span><span class="sc">\\</span>
+<span class="ss">c &amp; d</span>
+<span class="sc">\end</span><span class="ss">{vmatrix}=ad-bc$$</span></code></pre></div>
 <p><span class="math display">\[\begin{vmatrix}a &amp; b\\
 c &amp; d
 \end{vmatrix}=ad-bc\]</span></p>
