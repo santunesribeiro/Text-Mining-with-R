@@ -317,6 +317,11 @@ Here is my theorem.
 <td align="left">Example</td>
 <td align="left">ex</td>
 </tr>
+<tr class="odd">
+<td align="left">exercise</td>
+<td align="left">Exercise</td>
+<td align="left">exr</td>
+</tr>
 </tbody>
 </table>
 <p>To write other theorem environments, replace <code>```{theorem}</code> with other environment names in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>, e.g., <code>```{lemma}</code>.</p>
@@ -347,8 +352,8 @@ $$a^2 + b^2 = c^2$$
 <span class="math display">\[a^2 + b^2 = c^2\]</span>
 </div>
 
-<p>The proof environments currently supported are <code>proof</code> and <code>remark</code>. The syntax is similar to theorem environments, and proof environments can also be named. The only difference is that since they are unnumbered, you cannot reference them.</p>
-<p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF, HTML, or EPUB. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="customization.html#customization">4</a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class=&quot;lemma&quot;&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code> and <code>example</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package.</p>
+<p>The proof environments currently supported are <code>proof</code>, <code>remark</code>, and <code>solution</code>. The syntax is similar to theorem environments, and proof environments can also be named. The only difference is that since they are unnumbered, you cannot reference them.</p>
+<p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF, HTML, or EPUB. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="customization.html#customization">4</a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class=&quot;lemma&quot;&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code>, <code>example</code>, and <code>exercise</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package.</p>
 <p>Theorems are numbered by chapters by default. If there are no chapters in your document, they are numbered by sections instead. If the whole document is unnumbered (the output format option <code>number_sections = FALSE</code>), all theorems are numbered sequentially from 1, 2, …, N. LaTeX supports numbering one theorem environment after another, e.g., let theorems and lemmas share the same counter. This is not supported for HTML/EPUB output in <strong>bookdown</strong>. You can change the numbering scheme in the LaTeX preamble by defining your own theorem environments, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="fu">\newtheorem</span>{theorem}{Theorem}
 <span class="fu">\newtheorem</span>{lemma}[theorem]{Lemma}</code></pre></div>
