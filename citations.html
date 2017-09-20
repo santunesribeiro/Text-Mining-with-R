@@ -232,7 +232,7 @@ knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw
     Generation in R},
   author = {Yihui Xie},
   year = {2017},
-  note = {R package version 1.17.2},
+  note = {R package version 1.17.3},
   url = {https://yihui.name/knitr/},
 }
 @Manual{R-stringr,
@@ -243,7 +243,7 @@ knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw
   note = {R package version 1.2.0},
   url = {https://CRAN.R-project.org/package=stringr},
 }</code></pre>
-<p>Once you have one or multiple <code>.bib</code> files, you may use the field <code>bibliography</code> in the YAML metadata of your R Markdown document, and you can also specify the bibliography style via <code>biblio-style</code> (this only applies to PDF output), e.g.,</p>
+<p>Once you have one or multiple <code>.bib</code> files, you may use the field <code>bibliography</code> in the YAML metadata of your first R Markdown document (which is typically <code>index.Rmd</code>), and you can also specify the bibliography style via <code>biblio-style</code> (this only applies to PDF output), e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">bibliography:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;one.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;another.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;yet-another.bib&quot;</span><span class="kw">]</span>
 <span class="fu">biblio-style:</span><span class="at"> </span><span class="st">&quot;apalike&quot;</span>
