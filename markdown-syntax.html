@@ -228,11 +228,11 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="markdown-syntax" class="section level2">
 <h2><span class="header-section-number">2.1</span> Markdown syntax</h2>
 <p>In this section, we give a very brief introduction to Pandoc’s Markdown. Readers who are familiar with Markdown can skip this section. The comprehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
-<div id="inline-formatting" class="level3">
+<div id="inline-formatting" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Inline formatting</h3>
 <p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets (<code>^</code>) produce a superscript (e.g., <code>Fe^2+^</code> renders Fe<sup>2+</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code>.<a href="references.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small Caps&lt;/span&gt;</code> renders <span class="smallcaps">Small Caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](https://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="citations.html#citations">2.8</a>.</p>
 </div>
-<div id="block-level-elements" class="level3">
+<div id="block-level-elements" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Block-level elements</h3>
 <p>Section headers can be written after a number of pound signs, e.g.,</p>
 <pre class="sourceCode markdown" id="cb9"><code class="sourceCode markdown"><div class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu"># First-level header</span></div>
@@ -288,7 +288,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div class="sourceLine" id="cb14-6" data-line-number="6"></div>
 <div class="sourceLine" id="cb14-7" data-line-number="7"><span class="bn">    This text is displayed verbatim / preformatted</span></div></code></pre>
 </div>
-<div id="math-expressions" class="level3">
+<div id="math-expressions" class="section level3">
 <h3><span class="header-section-number">2.1.3</span> Math expressions</h3>
 <p>Inline LaTeX equations can be written in a pair of dollar signs using the LaTeX syntax, e.g., <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code> (actual output: <span class="math inline">\(f(k)={n \choose k}p^{k}(1-p)^{n-k}\)</span>); math expressions of the display style can be written in a pair of double dollar signs, e.g., <code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code>, and the output looks like this:</p>
 <p><span class="math display">\[f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}\]</span></p>
@@ -374,9 +374,12 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "true";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "true";
+    if (src === "") return;
+    if (src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

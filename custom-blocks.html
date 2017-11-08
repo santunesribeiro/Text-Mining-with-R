@@ -294,7 +294,7 @@ R is free software and comes with ABSOLUTELY NO WARRANTY. You are welcome to red
 <div class="sourceLine" id="cb49-6" data-line-number="6"><span class="fl">- end the list with a blank line</span></div>
 <div class="sourceLine" id="cb49-7" data-line-number="7"></div>
 <div class="sourceLine" id="cb49-8" data-line-number="8">```</div></code></pre>
-<p>The theorem and proof environments in Section <a href="markdown-extensions-by-bookdown.html#theorems"><strong>??</strong></a> are actually implemented through the <code>block2</code> engine.</p>
+<p>The theorem and proof environments in Section <a href="markdown-extensions-by-bookdown.html#theorems">2.2.2</a> are actually implemented through the <code>block2</code> engine.</p>
 <p>For all custom blocks based on the <code>block</code> or <code>block2</code> engine, there is one chunk option <code>echo</code> that you can use to show (<code>echo = TRUE</code>) or hide (<code>echo = FALSE</code>) the blocks.</p>
 </div>
             </section>
@@ -348,9 +348,12 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "true";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "true";
+    if (src === "") return;
+    if (src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

@@ -228,7 +228,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="markdown-extensions-by-bookdown" class="section level2">
 <h2><span class="header-section-number">2.2</span> Markdown extensions by bookdown</h2>
 <p>Although Pandoc’s Markdown is much richer than the original Markdown syntax, it still lacks a number of things that we may need for academic writing. For example, it supports math equations, but you cannot number and reference equations in multi-page HTML or EPUB output. We have provided a few Markdown extensions in <strong>bookdown</strong> to fill the gaps.</p>
-<div id="equations" class="level3">
+<div id="equations" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Number and reference equations</h3>
 <p>To number and refer to equations, put them in the equation environments and assign labels to them using the syntax <code>(\#eq:label)</code>, e.g.,</p>
 <pre class="sourceCode latex" id="cb19"><code class="sourceCode latex"><div class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span></div>
@@ -285,7 +285,7 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 \tag{2.3}
 \end{equation}\]</span>
 </div>
-<div id="theorems" class="level3">
+<div id="theorems" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Theorems and proofs</h3>
 <p>Theorems and proofs are commonly used in articles and books in mathematics. However, please do not be misled by the names: a “theorem” is just a numbered/labeled environment, and it does not have to be a mathematical theorem (e.g., it can be an example irrelevant to mathematics). Similarly, a “proof” is an unnumbered environment. In this section, we always use the <em>general</em> meanings of a “theorem” and “proof” unless explicitly stated.</p>
 <p>In <strong>bookdown</strong>, the types of theorem environments supported are in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>. To write a theorem, you can use the syntax below:</p>
@@ -456,7 +456,7 @@ This is the characteristic function of a Poisson random variable with the parame
 </div>
 
 </div>
-<div id="special-headers" class="level3">
+<div id="special-headers" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Special headers</h3>
 <p>There are a few special types of first-level headers that will be processed differently in <strong>bookdown</strong>. The first type is an unnumbered header that starts with the token <code>(PART)</code>. This kind of headers are translated to part titles. If you are familiar with LaTeX, this basically means <code>\part{}</code>. When your book has a large number of chapters, you may want to organize them into parts, e.g.,</p>
 <pre><code># (PART) Part I {-} 
@@ -481,7 +481,7 @@ This is the characteristic function of a Poisson random variable with the parame
 # Appendix B</code></pre>
 <p>The numbering style of appendices will be automatically changed in LaTeX/PDF and HTML output (usually in the form A, A.1, A.2, B, B.1, …). This feature is not available to e-books or Word output.</p>
 </div>
-<div id="text-references" class="level3">
+<div id="text-references" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> Text references</h3>
 <p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="figures.html#figures">2.4</a> and <a href="tables.html#tables">2.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = &quot;A long long figure caption.&quot;</code>) or your R code (e.g., <code>kable(caption = &quot;A long long table caption.&quot;)</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
 <p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="references.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
@@ -548,9 +548,12 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "true";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "true";
+    if (src === "") return;
+    if (src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

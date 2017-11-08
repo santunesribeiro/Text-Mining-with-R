@@ -229,7 +229,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2><span class="header-section-number">5.5</span> Collaboration</h2>
 <p>Writing a book will almost surely involve more than a single person. You may have co-authors, and readers who give you feedback from time to time.</p>
 <p>Since all book chapters are plain-text files, they are perfect for version control tools, which means if all your co-authors and collaborators have basic knowledge of a version control tool like GIT, you can collaborate with them on the book content using these tools. In fact, collaboration with GIT is possible even if they do not know how to use GIT, because GitHub has made it possible to create and edit files online right in your web browser. Only one person has to be familiar with GIT, and that person can set up the book repository. The rest of the collaborators can contribute content online, although they will have more freedom if they know the basic usage of GIT to work locally.</p>
-<p>Readers can contribute in two ways. One way is to contribute content directly, and the easiest way, is through <a href="https://help.github.com/articles/about-pull-requests/">GitHub pull requests</a> if your book source is hosted on GitHub. Basically, any GitHub user can click the edit button on the page of an Rmd source file, edit the content, and submit the changes to you for your approval. If you are satisfied with the changes proposed (you can clearly see what exactly was changed), you can click a “Merge” button to merge the changes. If you are not satisfied, you can provide your feedback in the pull request, so the reader can further revise it according to your requirements. We mentioned the edit button in the GitBook style in Section <a href="html.html#gitbook-style"><strong>??</strong></a>. That button is linked to the Rmd source of each page, and can guide you to create the pull request. There is no need to write emails back and forth to communicate simple changes, such as fixing a typo.</p>
+<p>Readers can contribute in two ways. One way is to contribute content directly, and the easiest way, is through <a href="https://help.github.com/articles/about-pull-requests/">GitHub pull requests</a> if your book source is hosted on GitHub. Basically, any GitHub user can click the edit button on the page of an Rmd source file, edit the content, and submit the changes to you for your approval. If you are satisfied with the changes proposed (you can clearly see what exactly was changed), you can click a “Merge” button to merge the changes. If you are not satisfied, you can provide your feedback in the pull request, so the reader can further revise it according to your requirements. We mentioned the edit button in the GitBook style in Section <a href="html.html#gitbook-style">3.1.1</a>. That button is linked to the Rmd source of each page, and can guide you to create the pull request. There is no need to write emails back and forth to communicate simple changes, such as fixing a typo.</p>
 <p>Another way for readers to contribute to your book is to leave comments. Comments can be left in multiple forms: emails, GitHub issues, or HTML page comments. Here we use Disqus (see Section <a href="yaml-options.html#yaml-options">4.1</a>) as an example. Disqus is a service to embed a discussion area on your web pages, and can be loaded via JavaScript. You can find the JavaScript code after you register and create a new forum on Disqus, which looks like this:</p>
 <pre class="sourceCode html" id="cb103"><code class="sourceCode html"><div class="sourceLine" id="cb103-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;disqus_thread&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></div>
 <div class="sourceLine" id="cb103-2" data-line-number="2"><span class="kw">&lt;script&gt;</span></div>
@@ -310,9 +310,12 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "true";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "true";
+    if (src === "") return;
+    if (src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
