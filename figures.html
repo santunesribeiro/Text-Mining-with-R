@@ -56,44 +56,60 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -212,20 +228,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="figures" class="section level2">
 <h2><span class="header-section-number">2.4</span> Figures</h2>
 <p>By default, figures have no captions in the output generated by <strong>knitr</strong>, which means they will be placed wherever they were generated in the R code. Below is such an example.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
-<span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
+<pre class="sourceCode r" id="cb35"><code class="sourceCode r"><div class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))</div>
+<div class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</div></code></pre>
 <p><img src="bookdown_files/figure-html/no-caption-1.svg" width="70%" /></p>
 <p>The disadvantage of typesetting figures in this way is that when there is not enough space on the current page to place a figure, it may either reach the bottom of the page (hence exceeds the page margin), or be pushed to the next page, leaving a large white margin at the bottom of the current page. That is basically why there are “floating environments” in LaTeX: elements that cannot be split over multiple pages (like figures) are put in floating environments, so they can float to a page that has enough space to hold them. There is also a disadvantage of floating things forward or backward, though. That is, readers may have to jump to a different page to find the figure mentioned on the current page. This is simply a natural consequence of having to typeset things on multiple pages of fixed sizes. This issue does not exist in HTML, however, since everything can be placed continuously on one single page (presumably with infinite height), and there is no need to split anything across multiple pages of the same page size.</p>
-<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code>,<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
-<p>To take advantage of Markdown formatting <em>within</em> the figure caption, you will need to use text references (see Section <a href="markdown-extensions-by-bookdown.html#text-references">2.2.4</a>). For example, a figure caption that contains <code>_italic text_</code> will not work when the output format is LaTeX/PDF, since the underscore is a special character in LaTeX, but if you use text references, <code>_italic text_</code> will be translated to LaTeX code when the output is LaTeX.</p>
+<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code>,<a href="references.html#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
+<p>To take advantage of Markdown formatting <em>within</em> the figure caption, you will need to use text references (see Section <a href="markdown-extensions-by-bookdown.html#text-references"><strong>??</strong></a>). For example, a figure caption that contains <code>_italic text_</code> will not work when the output format is LaTeX/PDF, since the underscore is a special character in LaTeX, but if you use text references, <code>_italic text_</code> will be translated to LaTeX code when the output is LaTeX.</p>
 
 <div class="rmdimportant">
 If you want to cross-reference figures or tables generated from a code chunk, please make sure the chunk label only contains <em>alphanumeric</em> characters (a-z, A-Z, 0-9), slashes (/), or dashes (-).
 </div>
 
 <p>The chunk option <code>fig.asp</code> can be used to set the aspect ratio of plots, i.e., the ratio of figure height/width. If the figure width is 6 inches (<code>fig.width = 6</code>) and <code>fig.asp = 0.7</code>, the figure height will be automatically calculated from <code>fig.width * fig.asp = 6 * 0.7 = 4.2</code>. Figure <a href="figures.html#fig:pressure-plot">2.1</a> is an example using the chunk options <code>fig.asp = 0.7</code>, <code>fig.width = 6</code>, and <code>fig.align = 'center'</code>, generated from the code below:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
-<span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
+<pre class="sourceCode r" id="cb36"><code class="sourceCode r"><div class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))</div>
+<div class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</div></code></pre>
 <div class="figure" style="text-align: center"><span id="fig:pressure-plot"></span>
 <img src="bookdown_files/figure-html/pressure-plot-1.svg" alt="A figure example with the specified aspect ratio, width, and alignment." width="90%" />
 <p class="caption">
@@ -233,8 +249,8 @@ FIGURE 2.1: A figure example with the specified aspect ratio, width, and alignme
 </p>
 </div>
 <p>The actual size of a plot is determined by the chunk options <code>fig.width</code> and <code>fig.height</code> (the size of the plot generated from a graphical device), and we can specify the output size of plots via the chunk options <code>out.width</code> and <code>out.height</code>. The possible value of these two options depends on the output format of the document. For example, <code>out.width = '30%'</code> is a valid value for HTML output, but not for LaTeX/PDF output. However, <strong>knitr</strong> will automatically convert a percentage value for <code>out.width</code> of the form <code>x%</code> to <code>(x / 100) \linewidth</code>, e.g., <code>out.width = '70%'</code> will be treated as <code>.7\linewidth</code> when the output format is LaTeX. This makes it possible to specify a relative width of a plot in a consistent manner. Figure <a href="figures.html#fig:cars-plot">2.2</a> is an example of <code>out.width = 70%</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
-<span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
+<pre class="sourceCode r" id="cb37"><code class="sourceCode r"><div class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))</div>
+<div class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</div></code></pre>
 <div class="figure"><span id="fig:cars-plot"></span>
 <img src="bookdown_files/figure-html/cars-plot-1.svg" alt="A figure example with a relative width 70\%." width="70%" />
 <p class="caption">
@@ -242,9 +258,9 @@ FIGURE 2.2: A figure example with a relative width 70%.
 </p>
 </div>
 <p>If you want to put multiple plots in one figure environment, you must use the chunk option <code>fig.show = 'hold'</code> to hold multiple plots from a code chunk and include them in one environment. You can also place plots side by side if the sum of the width of all plots is smaller than or equal to the current line width. For example, if two plots have the same width <code>50%</code>, they will be placed side by side. Similarly, you can specify <code>out.width = '33%'</code> to arrange three plots on one line. Figure <a href="figures.html#fig:multi-plots">2.3</a> is an example of two plots, each with a width of <code>50%</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
-<span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)
-<span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
+<pre class="sourceCode r" id="cb38"><code class="sourceCode r"><div class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))</div>
+<div class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</div>
+<div class="sourceLine" id="cb38-3" data-line-number="3"><span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</div></code></pre>
 <div class="figure"><span id="fig:multi-plots"></span>
 <img src="bookdown_files/figure-html/multi-plots-1.svg" alt="Two plots placed side by side." width="50%" /><img src="bookdown_files/figure-html/multi-plots-2.svg" alt="Two plots placed side by side." width="50%" />
 <p class="caption">
@@ -252,7 +268,7 @@ FIGURE 2.3: Two plots placed side by side.
 </p>
 </div>
 <p>Sometimes you may have certain images that are not generated from R code, and you can include them in R Markdown via the function <code>knitr::include_graphics()</code>. Figure <a href="figures.html#fig:knitr-logo">2.4</a> is an example of three <strong>knitr</strong> logos included in a figure environment. You may pass one or multiple image paths to the <code>include_graphics()</code> function, and all chunk options that apply to normal R plots also apply to these images, e.g., you can use <code>out.width = '33%'</code> to set the widths of these images in the output document.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="kw">rep</span>(<span class="st">&quot;images/knit-logo.png&quot;</span>, <span class="dv">3</span>))</code></pre></div>
+<pre class="sourceCode r" id="cb39"><code class="sourceCode r"><div class="sourceLine" id="cb39-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="kw">rep</span>(<span class="st">&quot;images/knit-logo.png&quot;</span>, <span class="dv">3</span>))</div></code></pre>
 <div class="figure"><span id="fig:knitr-logo"></span>
 <img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="32.8%" /><img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="32.8%" /><img src="images/knit-logo.png" alt="Three knitr logos included in the document from an external PNG image file." width="32.8%" />
 <p class="caption">
@@ -260,17 +276,11 @@ FIGURE 2.4: Three knitr logos included in the document from an external PNG imag
 </p>
 </div>
 <p>There are a few advantages of using <code>include_graphics()</code>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>You do not need to worry about the document output format, e.g., when the output format is LaTeX, you may have to use the LaTeX command <code>\includegraphics{}</code> to include an image, and when the output format is Markdown, you have to use <code>![]()</code>. The function <code>include_graphics()</code> in <strong>knitr</strong> takes care of these details automatically.</li>
 <li>The syntax for controlling the image attributes is the same as when images are generated from R code, e.g., chunk options <code>fig.cap</code>, <code>out.width</code>, and <code>fig.show</code> still have the same meanings.</li>
 <li><code>include_graphics()</code> is smart enough to use PDF graphics automatically when the output format is LaTeX and the PDF graphics files exist, e.g., an image path <code>foo/bar.png</code> can be automatically replaced with <code>foo/bar.pdf</code> if the latter exists. PDF images often have better qualities than raster images in LaTeX/PDF output. Of course, you can disable this feature by <code>include_graphics(auto_pdf = FALSE)</code> if you do not like it.</li>
 <li>You can easily scale these images proportionally using the same ratio. This can be done via the <code>dpi</code> argument (dots per inch), which takes the value from the chunk option <code>dpi</code> by default. If it is a numeric value and the chunk option <code>out.width</code> is not set, the output width of an image will be its actual width (in pixels) divided by <code>dpi</code>, and the unit will be inches. For example, for an image with the size 672 x 480, its output width will be 7 inches (<code>7in</code>) when <code>dpi = 96</code>. This feature requires the package <strong>png</strong> and/or <strong>jpeg</strong> to be installed. You can always override the automatic calculation of width in inches by providing a non-NULL value to the chunk option <code>out.width</code>, or use <code>include_graphics(dpi = NA)</code>.</li>
-</ol>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="6">
-<li id="fn6"><p>Do not forget the leading backslash! And also note the parentheses <code>()</code> after <code>ref</code>; they are not curly braces <code>{}</code>.<a href="figures.html#fnref6">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -324,7 +334,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    script.src  = "true";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

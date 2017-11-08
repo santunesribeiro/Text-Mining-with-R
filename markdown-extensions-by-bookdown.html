@@ -56,44 +56,60 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -212,13 +228,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="markdown-extensions-by-bookdown" class="section level2">
 <h2><span class="header-section-number">2.2</span> Markdown extensions by bookdown</h2>
 <p>Although Pandoc’s Markdown is much richer than the original Markdown syntax, it still lacks a number of things that we may need for academic writing. For example, it supports math equations, but you cannot number and reference equations in multi-page HTML or EPUB output. We have provided a few Markdown extensions in <strong>bookdown</strong> to fill the gaps.</p>
-<div id="equations" class="section level3">
+<div id="equations" class="level3">
 <h3><span class="header-section-number">2.2.1</span> Number and reference equations</h3>
 <p>To number and refer to equations, put them in the equation environments and assign labels to them using the syntax <code>(\#eq:label)</code>, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
-<span class="ss">  f</span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">) = </span><span class="sc">\binom</span><span class="ss">{n}{k} p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k}</span>
-<span class="ss">  (</span><span class="sc">\#</span><span class="ss">eq:binom)</span>
-<span class="kw">\end</span>{<span class="ex">equation</span>} </code></pre></div>
+<pre class="sourceCode latex" id="cb19"><code class="sourceCode latex"><div class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span></div>
+<div class="sourceLine" id="cb19-2" data-line-number="2"><span class="ss">  f</span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">) = </span><span class="sc">\binom</span><span class="ss">{n}{k} p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k}</span></div>
+<div class="sourceLine" id="cb19-3" data-line-number="3"><span class="ss">  (</span><span class="sc">\#</span><span class="ss">eq:binom)</span></div>
+<div class="sourceLine" id="cb19-4" data-line-number="4"><span class="kw">\end</span>{<span class="ex">equation</span>} </div></code></pre>
 <p>It renders the equation below:</p>
 <span class="math display" id="eq:binom">\[\begin{equation}
 f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \tag{2.1}
@@ -230,34 +246,34 @@ Equation labels must start with the prefix <code>eq:</code> in <strong>bookdown<
 </div>
 
 <p>We demonstrate a few more math equation environments below. Here is an unnumbered equation using the <code>equation*</code> environment:</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation*</span>}<span class="ss"> </span>
-<span class="sc">\frac</span><span class="ss">{d}{dx}</span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\int</span><span class="ss">_{a}^{x} f(u)</span><span class="sc">\,</span><span class="ss">du</span><span class="sc">\right</span><span class="ss">)=f(x)</span>
-<span class="kw">\end</span>{<span class="ex">equation*</span>} </code></pre></div>
+<pre class="sourceCode latex" id="cb20"><code class="sourceCode latex"><div class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">equation*</span>}<span class="ss"> </span></div>
+<div class="sourceLine" id="cb20-2" data-line-number="2"><span class="sc">\frac</span><span class="ss">{d}{dx}</span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\int</span><span class="ss">_{a}^{x} f(u)</span><span class="sc">\,</span><span class="ss">du</span><span class="sc">\right</span><span class="ss">)=f(x)</span></div>
+<div class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">\end</span>{<span class="ex">equation*</span>} </div></code></pre>
 <span class="math display">\[\begin{equation*}
 \frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
 \end{equation*}\]</span>
 <p>Below is an <code>align</code> environment <a href="markdown-extensions-by-bookdown.html#eq:align">(2.2)</a>:</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">align</span>}<span class="ss"> </span>
-<span class="ss">g(X_{n}) &amp;= g(</span><span class="sc">\theta</span><span class="ss">)+g&#39;({</span><span class="sc">\tilde</span><span class="ss">{</span><span class="sc">\theta</span><span class="ss">}})(X_{n}-</span><span class="sc">\theta</span><span class="ss">) </span><span class="sc">\notag</span><span class="ss"> </span><span class="sc">\\</span>
-<span class="sc">\sqrt</span><span class="ss">{n}[g(X_{n})-g(</span><span class="sc">\theta</span><span class="ss">)] &amp;= g&#39;</span><span class="sc">\left</span><span class="ss">({</span><span class="sc">\tilde</span><span class="ss">{</span><span class="sc">\theta</span><span class="ss">}}</span><span class="sc">\right</span><span class="ss">)</span>
-<span class="ss">  </span><span class="sc">\sqrt</span><span class="ss">{n}[X_{n}-</span><span class="sc">\theta</span><span class="ss"> ] (</span><span class="sc">\#</span><span class="ss">eq:align)</span>
-<span class="kw">\end</span>{<span class="ex">align</span>} </code></pre></div>
+<pre class="sourceCode latex" id="cb21"><code class="sourceCode latex"><div class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">align</span>}<span class="ss"> </span></div>
+<div class="sourceLine" id="cb21-2" data-line-number="2"><span class="ss">g(X_{n}) &amp;= g(</span><span class="sc">\theta</span><span class="ss">)+g&#39;({</span><span class="sc">\tilde</span><span class="ss">{</span><span class="sc">\theta</span><span class="ss">}})(X_{n}-</span><span class="sc">\theta</span><span class="ss">) </span><span class="sc">\notag</span><span class="ss"> </span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb21-3" data-line-number="3"><span class="sc">\sqrt</span><span class="ss">{n}[g(X_{n})-g(</span><span class="sc">\theta</span><span class="ss">)] &amp;= g&#39;</span><span class="sc">\left</span><span class="ss">({</span><span class="sc">\tilde</span><span class="ss">{</span><span class="sc">\theta</span><span class="ss">}}</span><span class="sc">\right</span><span class="ss">)</span></div>
+<div class="sourceLine" id="cb21-4" data-line-number="4"><span class="ss">  </span><span class="sc">\sqrt</span><span class="ss">{n}[X_{n}-</span><span class="sc">\theta</span><span class="ss"> ] (</span><span class="sc">\#</span><span class="ss">eq:align)</span></div>
+<div class="sourceLine" id="cb21-5" data-line-number="5"><span class="kw">\end</span>{<span class="ex">align</span>} </div></code></pre>
 <span class="math display" id="eq:align">\[\begin{align}
 g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 \sqrt{n}[g(X_{n})-g(\theta)] &amp;= g&#39;\left({\tilde{\theta}}\right)
   \sqrt{n}[X_{n}-\theta ] \tag{2.2}
 \end{align}\]</span>
 <p>You can use the <code>split</code> environment inside <code>equation</code> so that all lines share the same number <a href="markdown-extensions-by-bookdown.html#eq:var-beta">(2.3)</a>. By default, each line in the <code>align</code> environment will be assigned an equation number. We suppressed the number of the first line in the previous example using <code>\notag</code>. In this example, the whole <code>split</code> environment was assigned a single number.</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
-<span class="kw">\begin</span>{<span class="ex">split</span>}
-<span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y)</span><span class="sc">\\</span>
-<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;</span><span class="sc">\\</span>
-<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span>
-<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1}</span><span class="sc">\\</span>
-<span class="ss"> &amp; =(X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span>
-<span class="kw">\end</span>{<span class="ss">split}</span>
-<span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span>
-<span class="kw">\end</span>{<span class="ex">equation</span>} </code></pre></div>
+<pre class="sourceCode latex" id="cb22"><code class="sourceCode latex"><div class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span></div>
+<div class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">\begin</span>{<span class="ex">split</span>}</div>
+<div class="sourceLine" id="cb22-3" data-line-number="3"><span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y)</span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb22-4" data-line-number="4"><span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;</span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb22-5" data-line-number="5"><span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb22-6" data-line-number="6"><span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1}</span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb22-7" data-line-number="7"><span class="ss"> &amp; =(X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span></div>
+<div class="sourceLine" id="cb22-8" data-line-number="8"><span class="kw">\end</span>{<span class="ss">split}</span></div>
+<div class="sourceLine" id="cb22-9" data-line-number="9"><span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span></div>
+<div class="sourceLine" id="cb22-10" data-line-number="10"><span class="kw">\end</span>{<span class="ex">equation</span>} </div></code></pre>
 <span class="math display" id="eq:var-beta">\[\begin{equation}
 \begin{split}
 \mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
@@ -269,83 +285,83 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 \tag{2.3}
 \end{equation}\]</span>
 </div>
-<div id="theorems" class="section level3">
+<div id="theorems" class="level3">
 <h3><span class="header-section-number">2.2.2</span> Theorems and proofs</h3>
 <p>Theorems and proofs are commonly used in articles and books in mathematics. However, please do not be misled by the names: a “theorem” is just a numbered/labeled environment, and it does not have to be a mathematical theorem (e.g., it can be an example irrelevant to mathematics). Similarly, a “proof” is an unnumbered environment. In this section, we always use the <em>general</em> meanings of a “theorem” and “proof” unless explicitly stated.</p>
 <p>In <strong>bookdown</strong>, the types of theorem environments supported are in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>. To write a theorem, you can use the syntax below:</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem}
-Here is my theorem.
-```</code></pre></div>
+<pre class="sourceCode markdown" id="cb23"><code class="sourceCode markdown"><div class="sourceLine" id="cb23-1" data-line-number="1">```{theorem}</div>
+<div class="sourceLine" id="cb23-2" data-line-number="2">Here is my theorem.</div>
+<div class="sourceLine" id="cb23-3" data-line-number="3">```</div></code></pre>
 
 <table>
 <caption><span id="tab:theorem-envs">TABLE 2.1: </span>Theorem environments in <strong>bookdown</strong>.</caption>
 <thead>
 <tr class="header">
-<th align="left">Environment</th>
-<th align="left">Printed Name</th>
-<th align="left">Label Prefix</th>
+<th style="text-align: left;">Environment</th>
+<th style="text-align: left;">Printed Name</th>
+<th style="text-align: left;">Label Prefix</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">theorem</td>
-<td align="left">Theorem</td>
-<td align="left">thm</td>
+<td style="text-align: left;">theorem</td>
+<td style="text-align: left;">Theorem</td>
+<td style="text-align: left;">thm</td>
 </tr>
 <tr class="even">
-<td align="left">lemma</td>
-<td align="left">Lemma</td>
-<td align="left">lem</td>
+<td style="text-align: left;">lemma</td>
+<td style="text-align: left;">Lemma</td>
+<td style="text-align: left;">lem</td>
 </tr>
 <tr class="odd">
-<td align="left">definition</td>
-<td align="left">Definition</td>
-<td align="left">def</td>
+<td style="text-align: left;">definition</td>
+<td style="text-align: left;">Definition</td>
+<td style="text-align: left;">def</td>
 </tr>
 <tr class="even">
-<td align="left">corollary</td>
-<td align="left">Corollary</td>
-<td align="left">cor</td>
+<td style="text-align: left;">corollary</td>
+<td style="text-align: left;">Corollary</td>
+<td style="text-align: left;">cor</td>
 </tr>
 <tr class="odd">
-<td align="left">proposition</td>
-<td align="left">Proposition</td>
-<td align="left">prp</td>
+<td style="text-align: left;">proposition</td>
+<td style="text-align: left;">Proposition</td>
+<td style="text-align: left;">prp</td>
 </tr>
 <tr class="even">
-<td align="left">example</td>
-<td align="left">Example</td>
-<td align="left">exm</td>
+<td style="text-align: left;">example</td>
+<td style="text-align: left;">Example</td>
+<td style="text-align: left;">exm</td>
 </tr>
 <tr class="odd">
-<td align="left">exercise</td>
-<td align="left">Exercise</td>
-<td align="left">exr</td>
+<td style="text-align: left;">exercise</td>
+<td style="text-align: left;">Exercise</td>
+<td style="text-align: left;">exr</td>
 </tr>
 </tbody>
 </table>
 <p>To write other theorem environments, replace <code>```{theorem}</code> with other environment names in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a>, e.g., <code>```{lemma}</code>.</p>
 <p>A theorem can have a <code>name</code> option so its name will be printed, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, name=&quot;Pythagorean theorem&quot;}
-For a right triangle, if $c$ denotes the length of the hypotenuse
-and $a$ and $b$ denote the lengths of the other two sides, we have
-$$a^2 + b^2 = c^2$$
-```</code></pre></div>
+<pre class="sourceCode markdown" id="cb24"><code class="sourceCode markdown"><div class="sourceLine" id="cb24-1" data-line-number="1">```{theorem, name=&quot;Pythagorean theorem&quot;}</div>
+<div class="sourceLine" id="cb24-2" data-line-number="2">For a right triangle, if $c$ denotes the length of the hypotenuse</div>
+<div class="sourceLine" id="cb24-3" data-line-number="3">and $a$ and $b$ denote the lengths of the other two sides, we have</div>
+<div class="sourceLine" id="cb24-4" data-line-number="4">$$a^2 + b^2 = c^2$$</div>
+<div class="sourceLine" id="cb24-5" data-line-number="5">```</div></code></pre>
 <p>If you want to refer to a theorem, you should label it. The label can be written after <code>```{theorem</code>, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, label=&quot;foo&quot;}
-A labeled theorem here.
-```</code></pre></div>
+<pre class="sourceCode markdown" id="cb25"><code class="sourceCode markdown"><div class="sourceLine" id="cb25-1" data-line-number="1">```{theorem, label=&quot;foo&quot;}</div>
+<div class="sourceLine" id="cb25-2" data-line-number="2">A labeled theorem here.</div>
+<div class="sourceLine" id="cb25-3" data-line-number="3">```</div></code></pre>
 <p>The <code>label</code> option can be implicit, e.g., the following theorem has the label <code>bar</code>:</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, bar}
-A labeled theorem here.
-```</code></pre></div>
+<pre class="sourceCode markdown" id="cb26"><code class="sourceCode markdown"><div class="sourceLine" id="cb26-1" data-line-number="1">```{theorem, bar}</div>
+<div class="sourceLine" id="cb26-2" data-line-number="2">A labeled theorem here.</div>
+<div class="sourceLine" id="cb26-3" data-line-number="3">```</div></code></pre>
 <p>After you label a theorem, you can refer to it using the syntax <code>\@ref(prefix:label)</code>. See the column <code>Label Prefix</code> in Table <a href="markdown-extensions-by-bookdown.html#tab:theorem-envs">2.1</a> for the value of <code>prefix</code> for each environment. For example, we have a labeled and named theorem below, and <code>\@ref(thm:pyth)</code> gives us its theorem number <a href="markdown-extensions-by-bookdown.html#thm:pyth">2.1</a>:</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, pyth, name=&quot;Pythagorean theorem&quot;}
-For a right triangle, if $c$ denotes the length of the hypotenuse
-and $a$ and $b$ denote the lengths of the other two sides, we have
-
-$$a^2 + b^2 = c^2$$
-```</code></pre></div>
+<pre class="sourceCode markdown" id="cb27"><code class="sourceCode markdown"><div class="sourceLine" id="cb27-1" data-line-number="1">```{theorem, pyth, name=&quot;Pythagorean theorem&quot;}</div>
+<div class="sourceLine" id="cb27-2" data-line-number="2">For a right triangle, if $c$ denotes the length of the hypotenuse</div>
+<div class="sourceLine" id="cb27-3" data-line-number="3">and $a$ and $b$ denote the lengths of the other two sides, we have</div>
+<div class="sourceLine" id="cb27-4" data-line-number="4"></div>
+<div class="sourceLine" id="cb27-5" data-line-number="5">$$a^2 + b^2 = c^2$$</div>
+<div class="sourceLine" id="cb27-6" data-line-number="6">```</div></code></pre>
 
 <div class="theorem">
 <p><span id="thm:pyth" class="theorem"><strong>Theorem 2.1  (Pythagorean theorem)  </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the other two sides, we have</p>
@@ -355,14 +371,14 @@ $$a^2 + b^2 = c^2$$
 <p>The proof environments currently supported are <code>proof</code>, <code>remark</code>, and <code>solution</code>. The syntax is similar to theorem environments, and proof environments can also be named. The only difference is that since they are unnumbered, you cannot reference them.</p>
 <p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF, HTML, or EPUB. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="customization.html#customization">4</a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class=&quot;lemma&quot;&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code>, <code>example</code>, and <code>exercise</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package.</p>
 <p>Theorems are numbered by chapters by default. If there are no chapters in your document, they are numbered by sections instead. If the whole document is unnumbered (the output format option <code>number_sections = FALSE</code>), all theorems are numbered sequentially from 1, 2, …, N. LaTeX supports numbering one theorem environment after another, e.g., let theorems and lemmas share the same counter. This is not supported for HTML/EPUB output in <strong>bookdown</strong>. You can change the numbering scheme in the LaTeX preamble by defining your own theorem environments, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="fu">\newtheorem</span>{theorem}{Theorem}
-<span class="fu">\newtheorem</span>{lemma}[theorem]{Lemma}</code></pre></div>
+<pre class="sourceCode latex" id="cb28"><code class="sourceCode latex"><div class="sourceLine" id="cb28-1" data-line-number="1"><span class="fu">\newtheorem</span>{theorem}{Theorem}</div>
+<div class="sourceLine" id="cb28-2" data-line-number="2"><span class="fu">\newtheorem</span>{lemma}[theorem]{Lemma}</div></code></pre>
 <p>When <strong>bookdown</strong> detects <code>\newtheorem{theorem}</code> in your LaTeX preamble, it will not write out its default theorem definitions, which means you have to define all theorem environments by yourself. For the sake of simplicity and consistency, we do not recommend that you do this. It can be confusing when your Theorem 18 in PDF becomes Theorem 2.4 in HTML.</p>
 <p>Theorem and proof environments will be hidden if the chunk option <code>echo</code> is set to <code>FALSE</code>. To make sure they are always shown, you may add the chunk option <code>echo=TRUE</code>, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```{theorem, echo=TRUE}
-Here is my theorem.
-```</code></pre></div>
-<p>Below we show more examples<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
+<pre class="sourceCode markdown" id="cb29"><code class="sourceCode markdown"><div class="sourceLine" id="cb29-1" data-line-number="1">```{theorem, echo=TRUE}</div>
+<div class="sourceLine" id="cb29-2" data-line-number="2">Here is my theorem.</div>
+<div class="sourceLine" id="cb29-3" data-line-number="3">```</div></code></pre>
+<p>Below we show more examples<a href="references.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
 
 <div class="definition">
 <p><span id="def:unnamed-chunk-9" class="definition"><strong>Definition 2.1  </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
@@ -440,7 +456,7 @@ This is the characteristic function of a Poisson random variable with the parame
 </div>
 
 </div>
-<div id="special-headers" class="section level3">
+<div id="special-headers" class="level3">
 <h3><span class="header-section-number">2.2.3</span> Special headers</h3>
 <p>There are a few special types of first-level headers that will be processed differently in <strong>bookdown</strong>. The first type is an unnumbered header that starts with the token <code>(PART)</code>. This kind of headers are translated to part titles. If you are familiar with LaTeX, this basically means <code>\part{}</code>. When your book has a large number of chapters, you may want to organize them into parts, e.g.,</p>
 <pre><code># (PART) Part I {-} 
@@ -465,28 +481,21 @@ This is the characteristic function of a Poisson random variable with the parame
 # Appendix B</code></pre>
 <p>The numbering style of appendices will be automatically changed in LaTeX/PDF and HTML output (usually in the form A, A.1, A.2, B, B.1, …). This feature is not available to e-books or Word output.</p>
 </div>
-<div id="text-references" class="section level3">
+<div id="text-references" class="level3">
 <h3><span class="header-section-number">2.2.4</span> Text references</h3>
 <p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="figures.html#figures">2.4</a> and <a href="tables.html#tables">2.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = &quot;A long long figure caption.&quot;</code>) or your R code (e.g., <code>kable(caption = &quot;A long long table caption.&quot;)</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
-<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">(ref:foo) Define a text reference **here**. </code></pre></div>
+<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="references.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
+<pre class="sourceCode markdown" id="cb32"><code class="sourceCode markdown"><div class="sourceLine" id="cb32-1" data-line-number="1">(ref:foo) Define a text reference **here**. </div></code></pre>
 <p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph. Here is a complete example:</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">A normal paragraph.
-
-(ref:foo) A scatterplot of the data <span class="bn">`cars`</span> using **base** R graphics. 
-
-```{r foo, fig.cap=&#39;(ref:foo)&#39;}
-plot(cars)  # a scatterplot
-```</code></pre></div>
+<pre class="sourceCode markdown" id="cb33"><code class="sourceCode markdown"><div class="sourceLine" id="cb33-1" data-line-number="1">A normal paragraph.</div>
+<div class="sourceLine" id="cb33-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb33-3" data-line-number="3">(ref:foo) A scatterplot of the data <span class="bn">`cars`</span> using **base** R graphics. </div>
+<div class="sourceLine" id="cb33-4" data-line-number="4"></div>
+<div class="sourceLine" id="cb33-5" data-line-number="5">```{r foo, fig.cap=&#39;(ref:foo)&#39;}</div>
+<div class="sourceLine" id="cb33-6" data-line-number="6">plot(cars)  # a scatterplot</div>
+<div class="sourceLine" id="cb33-7" data-line-number="7">```</div></code></pre>
 <p>Text references can be used anywhere in the document (not limited to figure captions). It can also be useful if you want to reuse a fragment of text in multiple places.</p>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="4">
-<li id="fn4"><p>Some examples are adapted from the Wikipedia page <a href="https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)" class="uri">https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)</a><a href="markdown-extensions-by-bookdown.html#fnref4">↩</a></p></li>
-<li id="fn5"><p>You may consider using the code chunk labels.<a href="markdown-extensions-by-bookdown.html#fnref5">↩</a></p></li>
-</ol>
 </div>
             </section>
 
@@ -539,7 +548,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    script.src  = "true";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

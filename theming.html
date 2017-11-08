@@ -56,44 +56,60 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -212,26 +228,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="theming" class="section level2">
 <h2><span class="header-section-number">4.2</span> Theming</h2>
 <p>Sometimes you may want to change the overall theme of the output, and usually this can be done through the <code>in_header</code> option described in the previous section, or the <code>css</code> option if the output is HTML. Some output formats have their unique themes, such as <code>gitbook</code>, <code>tufte_html_book</code>, and <code>tufte_book2</code>, and you may not want to customize these themes too much. By comparison, the output formats <code>html_book()</code> and <code>pdf_book()</code> are not tied to particular themes and more customizable.</p>
-<p>As mentioned in Section <a href="html.html#bootstrap-style">3.1.2</a>, the default style for <code>html_book()</code> is the Bootstrap style. The Bootstrap style actually has several built-in themes that you can use, including <code>default</code>, <code>cerulean</code>, <code>journal</code>, <code>flatly</code>, <code>readable</code>, <code>spacelab</code>, <code>united</code>, <code>cosmo</code>, <code>lumen</code>, <code>paper</code>, <code>sandstone</code>, <code>simplex</code>, and <code>yeti</code>. You can set the theme via the <code>theme</code> option, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">output:</span>
-  <span class="fu">bookdown:</span><span class="at">:html_book:</span>
-    <span class="fu">theme:</span><span class="at"> united</span>
-<span class="ot">---</span></code></pre></div>
+<p>As mentioned in Section <a href="html.html#bootstrap-style"><strong>??</strong></a>, the default style for <code>html_book()</code> is the Bootstrap style. The Bootstrap style actually has several built-in themes that you can use, including <code>default</code>, <code>cerulean</code>, <code>journal</code>, <code>flatly</code>, <code>readable</code>, <code>spacelab</code>, <code>united</code>, <code>cosmo</code>, <code>lumen</code>, <code>paper</code>, <code>sandstone</code>, <code>simplex</code>, and <code>yeti</code>. You can set the theme via the <code>theme</code> option, e.g.,</p>
+<pre class="sourceCode yaml" id="cb89"><code class="sourceCode yaml"><div class="sourceLine" id="cb89-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb89-2" data-line-number="2"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb89-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:html_book:</span></div>
+<div class="sourceLine" id="cb89-4" data-line-number="4">    <span class="fu">theme:</span><span class="at"> united</span></div>
+<div class="sourceLine" id="cb89-5" data-line-number="5"><span class="ot">---</span></div></code></pre>
 <p>If you do not like any of these Bootstrap styles, you can set <code>theme</code> to <code>null</code>, and apply your own CSS through the <code>css</code> or <code>includes</code> option.</p>
 <p>For <code>pdf_book()</code>, besides the <code>in_header</code> option mentioned in the previous section, another possibility is to change the document class. There are many possible LaTeX classes for books, such as <strong>memoir</strong> (<a href="https://www.ctan.org/pkg/memoir" class="uri">https://www.ctan.org/pkg/memoir</a>), <strong>amsbook</strong> (<a href="https://www.ctan.org/pkg/amsbook" class="uri">https://www.ctan.org/pkg/amsbook</a>), KOMA-Script (<a href="https://www.ctan.org/pkg/koma-script" class="uri">https://www.ctan.org/pkg/koma-script</a>) and so on. Here is a brief sample of the YAML metadata specifying the <code>scrbook</code> class from the KOMA-Script package:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">documentclass:</span><span class="at"> scrbook</span>
-<span class="fu">output:</span>
-  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
-    <span class="fu">template:</span><span class="at"> </span><span class="dt">null</span>
-<span class="ot">---</span></code></pre></div>
+<pre class="sourceCode yaml" id="cb90"><code class="sourceCode yaml"><div class="sourceLine" id="cb90-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb90-2" data-line-number="2"><span class="fu">documentclass:</span><span class="at"> scrbook</span></div>
+<div class="sourceLine" id="cb90-3" data-line-number="3"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb90-4" data-line-number="4">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></div>
+<div class="sourceLine" id="cb90-5" data-line-number="5">    <span class="fu">template:</span><span class="at"> </span><span class="dt">null</span></div>
+<div class="sourceLine" id="cb90-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
 <p>Some publishers (e.g., Springer and Chapman &amp; Hall/CRC) have their own LaTeX style or class files. You may try to change the <code>documentclass</code> option to use their document classes, although typically it is not as simple as that. You may end up using <code>in_header</code>, or even design a custom Pandoc LaTeX template to accommodate these document classes.</p>
 <p>Note that when you change <code>documentclass</code>, you are likely to specify an additional Pandoc argument <code>--chapters</code> so that Pandoc knows the first-level headers should be treated as chapters instead of sections (this is the default when <code>documentclass</code> is <code>book</code>), e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">documentclass:</span><span class="at"> krantz</span>
-<span class="fu">output:</span>
-  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
-    <span class="fu">pandoc_args:</span><span class="at"> --chapters</span></code></pre></div>
+<pre class="sourceCode yaml" id="cb91"><code class="sourceCode yaml"><div class="sourceLine" id="cb91-1" data-line-number="1"><span class="fu">documentclass:</span><span class="at"> krantz</span></div>
+<div class="sourceLine" id="cb91-2" data-line-number="2"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb91-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></div>
+<div class="sourceLine" id="cb91-4" data-line-number="4">    <span class="fu">pandoc_args:</span><span class="at"> --chapters</span></div></code></pre>
 </div>
             </section>
 
@@ -284,7 +300,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    script.src  = "true";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

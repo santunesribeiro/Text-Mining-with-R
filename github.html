@@ -56,44 +56,60 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -212,67 +228,67 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="github" class="section level2">
 <h2><span class="header-section-number">6.2</span> GitHub</h2>
 <p>You can host your book on GitHub for free via GitHub Pages (<a href="https://pages.github.com" class="uri">https://pages.github.com</a>). GitHub supports Jekyll (<a href="http://jekyllrb.com" class="uri">http://jekyllrb.com</a>), a static website builder, to build a website from Markdown files. That may be the more common use case of GitHub Pages, but GitHub also supports arbitrary static HTML files, so you can just host the HTML output files of your book on GitHub. The key is to create a hidden file <code>.nojekyll</code> that tells GitHub that your website is not to be built via Jekyll, since the <strong>bookdown</strong> HTML output is already a standalone website.</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># assume you have initialized the git repository,</span>
-<span class="co"># and are under the directory of the book repository now</span>
-
-<span class="co"># create a hidden file .nojekyll</span>
-<span class="fu">touch</span> .nojekyll
-<span class="co"># add to git here because will not show up in RStudio</span>
-<span class="fu">git</span> add .nojekyll</code></pre></div>
+<pre class="sourceCode bash" id="cb107"><code class="sourceCode bash"><div class="sourceLine" id="cb107-1" data-line-number="1"><span class="co"># assume you have initialized the git repository,</span></div>
+<div class="sourceLine" id="cb107-2" data-line-number="2"><span class="co"># and are under the directory of the book repository now</span></div>
+<div class="sourceLine" id="cb107-3" data-line-number="3"></div>
+<div class="sourceLine" id="cb107-4" data-line-number="4"><span class="co"># create a hidden file .nojekyll</span></div>
+<div class="sourceLine" id="cb107-5" data-line-number="5"><span class="fu">touch</span> .nojekyll</div>
+<div class="sourceLine" id="cb107-6" data-line-number="6"><span class="co"># add to git here because will not show up in RStudio</span></div>
+<div class="sourceLine" id="cb107-7" data-line-number="7"><span class="fu">git</span> add .nojekyll</div></code></pre>
 <p>If you are on Windows, you may not have the <code>touch</code> command, and you can create the file in R using <code>file.create('.nojekyll')</code>.</p>
 <p>One approach is to publish your book as a GitHub Pages site from a <code>/docs</code> folder on your <code>master</code> branch as described in <a href="http://bit.ly/2cvloKV">GitHub Help.</a> First, set the output directory of your book to be <code>/docs</code> by adding the line <code>output_dir: &quot;docs&quot;</code> to the configuration file <code>_bookdown.yml</code>. Then, after pushing your changes to GitHub, go to your repository’s settings and under “GitHub Pages” change the “Source” to be “master branch /docs folder”. In this case, the <code>.nojekyll</code> file has to be in the <code>/docs</code> folder.</p>
 <p>An alternative approach is to create a <code>gh-pages</code> branch in your repository, build the book, put the HTML output (including all external resources like images, CSS, and JavaScript files) in this branch, and push the branch to the remote repository. If your book repository does not have the <code>gh-pages</code> branch, you may use the following commands to create one:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># assume you have initialized the git repository,</span>
-<span class="co"># and are under the directory of the book repository now</span>
-
-<span class="co"># create a branch named gh-pages and clean up everything</span>
-<span class="fu">git</span> checkout --orphan gh-pages
-<span class="fu">git</span> rm -rf .
-
-<span class="co"># create a hidden file .nojekyll</span>
-<span class="fu">touch</span> .nojekyll
-<span class="fu">git</span> add .nojekyll
-
-<span class="fu">git</span> commit -m<span class="st">&quot;Initial commit&quot;</span>
-<span class="fu">git</span> push origin gh-pages</code></pre></div>
+<pre class="sourceCode bash" id="cb108"><code class="sourceCode bash"><div class="sourceLine" id="cb108-1" data-line-number="1"><span class="co"># assume you have initialized the git repository,</span></div>
+<div class="sourceLine" id="cb108-2" data-line-number="2"><span class="co"># and are under the directory of the book repository now</span></div>
+<div class="sourceLine" id="cb108-3" data-line-number="3"></div>
+<div class="sourceLine" id="cb108-4" data-line-number="4"><span class="co"># create a branch named gh-pages and clean up everything</span></div>
+<div class="sourceLine" id="cb108-5" data-line-number="5"><span class="fu">git</span> checkout --orphan gh-pages</div>
+<div class="sourceLine" id="cb108-6" data-line-number="6"><span class="fu">git</span> rm -rf .</div>
+<div class="sourceLine" id="cb108-7" data-line-number="7"></div>
+<div class="sourceLine" id="cb108-8" data-line-number="8"><span class="co"># create a hidden file .nojekyll</span></div>
+<div class="sourceLine" id="cb108-9" data-line-number="9"><span class="fu">touch</span> .nojekyll</div>
+<div class="sourceLine" id="cb108-10" data-line-number="10"><span class="fu">git</span> add .nojekyll</div>
+<div class="sourceLine" id="cb108-11" data-line-number="11"></div>
+<div class="sourceLine" id="cb108-12" data-line-number="12"><span class="fu">git</span> commit -m<span class="st">&quot;Initial commit&quot;</span></div>
+<div class="sourceLine" id="cb108-13" data-line-number="13"><span class="fu">git</span> push origin gh-pages</div></code></pre>
 <p>After you have set up GIT, the rest of work can be automated via a script (Shell, R, or Makefile, depending on your preference). Basically, you compile the book to HTML, then run git commands to push the files to GitHub, but you probably do not want to do this over and over again manually and locally. It can be very handy to automate the publishing process completely on the cloud, so once it is set up correctly, all you have to do next is write the book and push the Rmd source files to GitHub, and your book will always be automatically built and published from the server side.</p>
-<p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository.<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a> These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note that Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
+<p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository.<a href="references.html#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note that Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
 <p>The next question is, how to publish the book built on Travis to GitHub? Basically you have to grant Travis write access to your GitHub repository. This authorization can be done in several ways, and the easiest one to beginners may be a personal access token. Here are a few steps you may follow:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Create a <a href="http://bit.ly/2cEBYWB">personal access token</a> for your account on GitHub (make sure to enable the “repo” scope so that using this token will enable writing to your GitHub repos).</li>
 <li>Encrypt it in the environment variable <code>GITHUB_PAT</code> via command line <code>travis encrypt</code> and store it in <code>.travis.yml</code>, e.g <code>travis encrypt GITHUB_PAT=TOKEN</code>. If you do not know how to install or use the Travis command-line tool, simply save this environment variable via <a href="https://travis-ci.org/user/repo/settings" class="uri">https://travis-ci.org/user/repo/settings</a> where <code>user</code> is your GitHub ID, and <code>repo</code> is the name of the repository.</li>
 <li>You can clone this <code>gh-pages</code> branch on Travis using your GitHub token, add the HTML output files from R Markdown (do not forget to add figures and CSS style files as well), and push to the remote repository.</li>
 </ol>
 <p>Assume you are in the <code>master</code> branch right now (where you put the Rmd source files), and have compiled the book to the <code>_book</code> directory. What you can do next on Travis is:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># configure your name and email if you have not done so</span>
-<span class="fu">git</span> config --global user.email <span class="st">&quot;you@example.com&quot;</span>
-<span class="fu">git</span> config --global user.name <span class="st">&quot;Your Name&quot;</span>
-
-<span class="co"># clone the repository to the book-output directory</span>
-<span class="fu">git</span> clone -b gh-pages \
-  https://<span class="va">${GITHUB_PAT}</span>@github.com/<span class="va">${TRAVIS_REPO_SLUG}</span>.git \
-  book-output
-<span class="bu">cd</span> book-output
-<span class="fu">git</span> rm -rf *
-<span class="fu">cp</span> -r ../_book/* ./
-<span class="fu">git</span> add --all *
-<span class="fu">git</span> commit -m<span class="st">&quot;Update the book&quot;</span>
-<span class="fu">git</span> push -q origin gh-pages</code></pre></div>
+<pre class="sourceCode bash" id="cb109"><code class="sourceCode bash"><div class="sourceLine" id="cb109-1" data-line-number="1"><span class="co"># configure your name and email if you have not done so</span></div>
+<div class="sourceLine" id="cb109-2" data-line-number="2"><span class="fu">git</span> config --global user.email <span class="st">&quot;you@example.com&quot;</span></div>
+<div class="sourceLine" id="cb109-3" data-line-number="3"><span class="fu">git</span> config --global user.name <span class="st">&quot;Your Name&quot;</span></div>
+<div class="sourceLine" id="cb109-4" data-line-number="4"></div>
+<div class="sourceLine" id="cb109-5" data-line-number="5"><span class="co"># clone the repository to the book-output directory</span></div>
+<div class="sourceLine" id="cb109-6" data-line-number="6"><span class="fu">git</span> clone -b gh-pages \</div>
+<div class="sourceLine" id="cb109-7" data-line-number="7">  https://<span class="va">${GITHUB_PAT}</span>@github.com/<span class="va">${TRAVIS_REPO_SLUG}</span>.git \</div>
+<div class="sourceLine" id="cb109-8" data-line-number="8">  book-output</div>
+<div class="sourceLine" id="cb109-9" data-line-number="9"><span class="bu">cd</span> book-output</div>
+<div class="sourceLine" id="cb109-10" data-line-number="10"><span class="fu">git</span> rm -rf *</div>
+<div class="sourceLine" id="cb109-11" data-line-number="11"><span class="fu">cp</span> -r ../_book/* ./</div>
+<div class="sourceLine" id="cb109-12" data-line-number="12"><span class="fu">git</span> add --all *</div>
+<div class="sourceLine" id="cb109-13" data-line-number="13"><span class="fu">git</span> commit -m<span class="st">&quot;Update the book&quot;</span></div>
+<div class="sourceLine" id="cb109-14" data-line-number="14"><span class="fu">git</span> push -q origin gh-pages</div></code></pre>
 <p>The variable name <code>GITHUB_PAT</code> and the directory name <code>book-output</code> are arbitrary, and you can use any names you prefer, as long as the names do not conflict with existing environment variable names or directory names. This script, together with the build script we mentioned in Section <a href="build-the-book.html#build-the-book">5.1</a>, can be put in the <code>master</code> branch as Shell scripts, e.g., you can name them as <code>_build.sh</code> and <code>_deploy.sh</code>. Then your <code>.travis.yml</code> may look like this:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">language:</span><span class="at"> r</span>
-<span class="fu">pandoc_version:</span><span class="at"> 1.19.2.1</span>
-
-<span class="fu">env:</span>
-  <span class="fu">global:</span>
-    <span class="kw">-</span> <span class="fu">secure:</span><span class="at"> A_LONG_ENCRYPTED_STRING</span>
-
-<span class="fu">before_script:</span>
-  <span class="kw">-</span> chmod +x ./_build.sh
-  <span class="kw">-</span> chmod +x ./_deploy.sh
-
-<span class="fu">script:</span>
-  <span class="kw">-</span> ./_build.sh
-  <span class="kw">-</span> ./_deploy.sh</code></pre></div>
+<pre class="sourceCode yaml" id="cb110"><code class="sourceCode yaml"><div class="sourceLine" id="cb110-1" data-line-number="1"><span class="fu">language:</span><span class="at"> r</span></div>
+<div class="sourceLine" id="cb110-2" data-line-number="2"><span class="fu">pandoc_version:</span><span class="at"> 1.19.2.1</span></div>
+<div class="sourceLine" id="cb110-3" data-line-number="3"></div>
+<div class="sourceLine" id="cb110-4" data-line-number="4"><span class="fu">env:</span></div>
+<div class="sourceLine" id="cb110-5" data-line-number="5">  <span class="fu">global:</span></div>
+<div class="sourceLine" id="cb110-6" data-line-number="6">    <span class="kw">-</span> <span class="fu">secure:</span><span class="at"> A_LONG_ENCRYPTED_STRING</span></div>
+<div class="sourceLine" id="cb110-7" data-line-number="7"></div>
+<div class="sourceLine" id="cb110-8" data-line-number="8"><span class="fu">before_script:</span></div>
+<div class="sourceLine" id="cb110-9" data-line-number="9">  <span class="kw">-</span> chmod +x ./_build.sh</div>
+<div class="sourceLine" id="cb110-10" data-line-number="10">  <span class="kw">-</span> chmod +x ./_deploy.sh</div>
+<div class="sourceLine" id="cb110-11" data-line-number="11"></div>
+<div class="sourceLine" id="cb110-12" data-line-number="12"><span class="fu">script:</span></div>
+<div class="sourceLine" id="cb110-13" data-line-number="13">  <span class="kw">-</span> ./_build.sh</div>
+<div class="sourceLine" id="cb110-14" data-line-number="14">  <span class="kw">-</span> ./_deploy.sh</div></code></pre>
 <p>The <code>language</code> key tells Travis to use a virtual machine that has R installed. The <code>secure</code> key is your encrypted personal access token. If you have already saved the <code>GITHUB_PAT</code> variable using the web interface on Travis instead of the command-line tool <code>travis encrypt</code>, you can leave out this key.</p>
 <p>Since this Travis service is primarily for checking R packages, you will also need a (fake) <code>DESCRIPTION</code> file as if the book repository were an R package. The only thing in this file that really matters is the specification of dependencies. All dependencies will be installed via the <strong>devtools</strong> package. If a dependency is on CRAN or BioConductor, you can simply list it in the <code>Imports</code> field of the <code>DESCRIPTION</code> file. If it is on GitHub, you may use the <code>Remotes</code> field to list its repository name. Below is an example:</p>
 <pre class="dcf"><code>Package: placeholder
@@ -282,21 +298,15 @@ Version: 0.0.1
 Imports: bookdown, ggplot2
 Remotes: rstudio/bookdown</code></pre>
 <p>If you use the <a href="https://docs.travis-ci.com/user/workers/container-based-infrastructure/">container-based infrastructure</a> on Travis, you can enable caching by using <code>sudo: false</code> in <code>.travis.yml</code>. Normally you should cache at least two types of directories: the figure directory (e.g., <code>_main_files</code>) and the cache directory (e.g., <code>_main_cache</code>). These directory names may also be different if you have specified the <strong>knitr</strong> chunk options <code>fig.path</code> and <code>cache.path</code>, but I’d strongly recommend you not to change these options. The figure and cache directories are stored under the <code>_bookdown_files</code> directory of the book root directory. A <code>.travis.yml</code> file that has enabled caching of <strong>knitr</strong> figure and cache directories may have additional configurations <code>sudo</code> and <code>cache</code> like this:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">sudo:</span><span class="at"> false</span>
-
-<span class="fu">cache:</span>
-  <span class="fu">packages:</span><span class="at"> yes</span>
-  <span class="fu">directories:</span>
-    <span class="kw">-</span> $TRAVIS_BUILD_DIR/_bookdown_files</code></pre></div>
+<pre class="sourceCode yaml" id="cb112"><code class="sourceCode yaml"><div class="sourceLine" id="cb112-1" data-line-number="1"><span class="fu">sudo:</span><span class="at"> false</span></div>
+<div class="sourceLine" id="cb112-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb112-3" data-line-number="3"><span class="fu">cache:</span></div>
+<div class="sourceLine" id="cb112-4" data-line-number="4">  <span class="fu">packages:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb112-5" data-line-number="5">  <span class="fu">directories:</span></div>
+<div class="sourceLine" id="cb112-6" data-line-number="6">    <span class="kw">-</span> $TRAVIS_BUILD_DIR/_bookdown_files</div></code></pre>
 <p>If your book is very time-consuming to build, you may use the above configurations on Travis to save time. Note that <code>packages: yes</code> means the R packages installed on Travis are also cached.</p>
 <p>All above scripts and configurations can be found in the <code>bookdown-demo</code> repository: <a href="https://github.com/rstudio/bookdown-demo/" class="uri">https://github.com/rstudio/bookdown-demo/</a>. If you copy them to your own repository, please remember to change the <code>secure</code> key in <code>.travis.yml</code> using your own encrypted variable <code>GITHUB_PAT</code>.</p>
 <p>GitHub and Travis CI are certainly not the only choices to build and publish your book. You are free to store and publish the book on your own server.</p>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="12">
-<li id="fn12"><p>You need to authorize the Travis CI service for your repository on GitHub first. See <a href="https://docs.travis-ci.com/user/getting-started/" class="uri">https://docs.travis-ci.com/user/getting-started/</a> for how to get started with Travis CI.<a href="github.html#fnref12">↩</a></p></li>
-</ol>
 </div>
             </section>
 
@@ -349,7 +359,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    script.src  = "true";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

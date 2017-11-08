@@ -56,44 +56,60 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -212,26 +228,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="markdown-syntax" class="section level2">
 <h2><span class="header-section-number">2.1</span> Markdown syntax</h2>
 <p>In this section, we give a very brief introduction to Pandoc’s Markdown. Readers who are familiar with Markdown can skip this section. The comprehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
-<div id="inline-formatting" class="section level3">
+<div id="inline-formatting" class="level3">
 <h3><span class="header-section-number">2.1.1</span> Inline formatting</h3>
-<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets (<code>^</code>) produce a superscript (e.g., <code>Fe^2+^</code> renders Fe<sup>2+</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code>.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small Caps&lt;/span&gt;</code> renders <span style="font-variant: small-caps;">Small Caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](https://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="citations.html#citations">2.8</a>.</p>
+<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets (<code>^</code>) produce a superscript (e.g., <code>Fe^2+^</code> renders Fe<sup>2+</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code>.<a href="references.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small Caps&lt;/span&gt;</code> renders <span class="smallcaps">Small Caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](https://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="citations.html#citations">2.8</a>.</p>
 </div>
-<div id="block-level-elements" class="section level3">
+<div id="block-level-elements" class="level3">
 <h3><span class="header-section-number">2.1.2</span> Block-level elements</h3>
 <p>Section headers can be written after a number of pound signs, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># First-level header</span>
-
-<span class="fu">## Second-level header</span>
-
-<span class="fu">### Third-level header</span></code></pre></div>
+<pre class="sourceCode markdown" id="cb9"><code class="sourceCode markdown"><div class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu"># First-level header</span></div>
+<div class="sourceLine" id="cb9-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb9-3" data-line-number="3"><span class="fu">## Second-level header</span></div>
+<div class="sourceLine" id="cb9-4" data-line-number="4"></div>
+<div class="sourceLine" id="cb9-5" data-line-number="5"><span class="fu">### Third-level header</span></div></code></pre>
 <p>If you do not want a certain heading to be numbered, you can add <code>{-}</code> after the heading, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Preface {-}</span></code></pre></div>
+<pre class="sourceCode markdown" id="cb10"><code class="sourceCode markdown"><div class="sourceLine" id="cb10-1" data-line-number="1"><span class="fu"># Preface {-}</span></div></code></pre>
 <p>Unordered list items start with <code>*</code>, <code>-</code>, or <code>+</code>, and you can nest one list within another list by indenting the sub-list by four spaces, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">- <span class="fl">one item</span>
-<span class="fl">- one item</span>
-<span class="fl">- one item</span>
-<span class="fl">    - one item</span>
-<span class="fl">    - one item</span></code></pre></div>
+<pre class="sourceCode markdown" id="cb11"><code class="sourceCode markdown"><div class="sourceLine" id="cb11-1" data-line-number="1">- <span class="fl">one item</span></div>
+<div class="sourceLine" id="cb11-2" data-line-number="2"><span class="fl">- one item</span></div>
+<div class="sourceLine" id="cb11-3" data-line-number="3"><span class="fl">- one item</span></div>
+<div class="sourceLine" id="cb11-4" data-line-number="4"><span class="fl">    - one item</span></div>
+<div class="sourceLine" id="cb11-5" data-line-number="5"><span class="fl">    - one item</span></div></code></pre>
 <p>The output is:</p>
 <ul>
 <li>one item</li>
@@ -243,75 +259,69 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 <p>Ordered list items start with numbers (the rule for nested lists is the same as above), e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">1. <span class="fl">the first item</span>
-<span class="fl">2. the second item</span>
-<span class="fl">3. the third item</span></code></pre></div>
+<pre class="sourceCode markdown" id="cb12"><code class="sourceCode markdown"><div class="sourceLine" id="cb12-1" data-line-number="1">1. <span class="fl">the first item</span></div>
+<div class="sourceLine" id="cb12-2" data-line-number="2"><span class="fl">2. the second item</span></div>
+<div class="sourceLine" id="cb12-3" data-line-number="3"><span class="fl">3. the third item</span></div></code></pre>
 <p>The output does not look too much different with the Markdown source:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>the first item</li>
 <li>the second item</li>
 <li>the third item</li>
 </ol>
 <p>Blockquotes are written after <code>&gt;</code>, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">&gt;<span class="dt"> &quot;I thoroughly disapprove of duels. If a man should challenge me,</span>
-<span class="dt">  I would take him kindly and forgivingly by the hand and lead him</span>
-<span class="dt">  to a quiet place and kill him.&quot;</span>
-<span class="dt">&gt;</span>
-<span class="dt">&gt; --- Mark Twain</span></code></pre></div>
+<pre class="sourceCode markdown" id="cb13"><code class="sourceCode markdown"><div class="sourceLine" id="cb13-1" data-line-number="1">&gt;<span class="dt"> &quot;I thoroughly disapprove of duels. If a man should challenge me,</span></div>
+<div class="sourceLine" id="cb13-2" data-line-number="2"><span class="dt">  I would take him kindly and forgivingly by the hand and lead him</span></div>
+<div class="sourceLine" id="cb13-3" data-line-number="3"><span class="dt">  to a quiet place and kill him.&quot;</span></div>
+<div class="sourceLine" id="cb13-4" data-line-number="4"><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb13-5" data-line-number="5"><span class="dt">&gt; --- Mark Twain</span></div></code></pre>
 <p>The actual output (we customized the style for blockquotes in this book):</p>
 <blockquote>
 <p>“I thoroughly disapprove of duels. If a man should challenge me, I would take him kindly and forgivingly by the hand and lead him to a quiet place and kill him.”</p>
 <p>— Mark Twain</p>
 </blockquote>
 <p>Plain code blocks can be written after three or more backticks, and you can also indent the blocks by four spaces, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">```
-This text is displayed verbatim / preformatted
-```
-
-Or indent by four spaces:
-
-<span class="bn">    This text is displayed verbatim / preformatted</span></code></pre></div>
+<pre class="sourceCode markdown" id="cb14"><code class="sourceCode markdown"><div class="sourceLine" id="cb14-1" data-line-number="1">```</div>
+<div class="sourceLine" id="cb14-2" data-line-number="2">This text is displayed verbatim / preformatted</div>
+<div class="sourceLine" id="cb14-3" data-line-number="3">```</div>
+<div class="sourceLine" id="cb14-4" data-line-number="4"></div>
+<div class="sourceLine" id="cb14-5" data-line-number="5">Or indent by four spaces:</div>
+<div class="sourceLine" id="cb14-6" data-line-number="6"></div>
+<div class="sourceLine" id="cb14-7" data-line-number="7"><span class="bn">    This text is displayed verbatim / preformatted</span></div></code></pre>
 </div>
-<div id="math-expressions" class="section level3">
+<div id="math-expressions" class="level3">
 <h3><span class="header-section-number">2.1.3</span> Math expressions</h3>
 <p>Inline LaTeX equations can be written in a pair of dollar signs using the LaTeX syntax, e.g., <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code> (actual output: <span class="math inline">\(f(k)={n \choose k}p^{k}(1-p)^{n-k}\)</span>); math expressions of the display style can be written in a pair of double dollar signs, e.g., <code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code>, and the output looks like this:</p>
 <p><span class="math display">\[f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}\]</span></p>
 <p>You can also use math environments inside <code>$ $</code> or <code>$$ $$</code>, e.g.,</p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{array}{ccc}</span>
-<span class="ss">x_{11} &amp; x_{12} &amp; x_{13}</span><span class="sc">\\</span>
-<span class="ss">x_{21} &amp; x_{22} &amp; x_{23}</span>
-<span class="sc">\end</span><span class="ss">{array}$$</span></code></pre></div>
+<pre class="sourceCode latex" id="cb15"><code class="sourceCode latex"><div class="sourceLine" id="cb15-1" data-line-number="1"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{array}{ccc}</span></div>
+<div class="sourceLine" id="cb15-2" data-line-number="2"><span class="ss">x_{11} &amp; x_{12} &amp; x_{13}</span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb15-3" data-line-number="3"><span class="ss">x_{21} &amp; x_{22} &amp; x_{23}</span></div>
+<div class="sourceLine" id="cb15-4" data-line-number="4"><span class="sc">\end</span><span class="ss">{array}$$</span></div></code></pre>
 <p><span class="math display">\[\begin{array}{ccc}
 x_{11} &amp; x_{12} &amp; x_{13}\\
 x_{21} &amp; x_{22} &amp; x_{23}
 \end{array}\]</span></p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$X = </span><span class="sc">\begin</span><span class="ss">{bmatrix}1 &amp; x_{1}</span><span class="sc">\\</span>
-<span class="ss">1 &amp; x_{2}</span><span class="sc">\\</span>
-<span class="ss">1 &amp; x_{3}</span>
-<span class="sc">\end</span><span class="ss">{bmatrix}$$</span></code></pre></div>
+<pre class="sourceCode latex" id="cb16"><code class="sourceCode latex"><div class="sourceLine" id="cb16-1" data-line-number="1"><span class="ss">$$X = </span><span class="sc">\begin</span><span class="ss">{bmatrix}1 &amp; x_{1}</span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb16-2" data-line-number="2"><span class="ss">1 &amp; x_{2}</span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb16-3" data-line-number="3"><span class="ss">1 &amp; x_{3}</span></div>
+<div class="sourceLine" id="cb16-4" data-line-number="4"><span class="sc">\end</span><span class="ss">{bmatrix}$$</span></div></code></pre>
 <p><span class="math display">\[X = \begin{bmatrix}1 &amp; x_{1}\\
 1 &amp; x_{2}\\
 1 &amp; x_{3}
 \end{bmatrix}\]</span></p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\Theta</span><span class="ss"> = </span><span class="sc">\begin</span><span class="ss">{pmatrix}</span><span class="sc">\alpha</span><span class="ss"> &amp; </span><span class="sc">\beta\\</span>
-<span class="sc">\gamma</span><span class="ss"> &amp; </span><span class="sc">\delta</span>
-<span class="sc">\end</span><span class="ss">{pmatrix}$$</span></code></pre></div>
+<pre class="sourceCode latex" id="cb17"><code class="sourceCode latex"><div class="sourceLine" id="cb17-1" data-line-number="1"><span class="ss">$$</span><span class="sc">\Theta</span><span class="ss"> = </span><span class="sc">\begin</span><span class="ss">{pmatrix}</span><span class="sc">\alpha</span><span class="ss"> &amp; </span><span class="sc">\beta\\</span></div>
+<div class="sourceLine" id="cb17-2" data-line-number="2"><span class="sc">\gamma</span><span class="ss"> &amp; </span><span class="sc">\delta</span></div>
+<div class="sourceLine" id="cb17-3" data-line-number="3"><span class="sc">\end</span><span class="ss">{pmatrix}$$</span></div></code></pre>
 <p><span class="math display">\[\Theta = \begin{pmatrix}\alpha &amp; \beta\\
 \gamma &amp; \delta
 \end{pmatrix}\]</span></p>
-<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{vmatrix}a &amp; b</span><span class="sc">\\</span>
-<span class="ss">c &amp; d</span>
-<span class="sc">\end</span><span class="ss">{vmatrix}=ad-bc$$</span></code></pre></div>
+<pre class="sourceCode latex" id="cb18"><code class="sourceCode latex"><div class="sourceLine" id="cb18-1" data-line-number="1"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{vmatrix}a &amp; b</span><span class="sc">\\</span></div>
+<div class="sourceLine" id="cb18-2" data-line-number="2"><span class="ss">c &amp; d</span></div>
+<div class="sourceLine" id="cb18-3" data-line-number="3"><span class="sc">\end</span><span class="ss">{vmatrix}=ad-bc$$</span></div></code></pre>
 <p><span class="math display">\[\begin{vmatrix}a &amp; b\\
 c &amp; d
 \end{vmatrix}=ad-bc\]</span></p>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="3">
-<li id="fn3"><p>To include literal backticks, use more backticks outside, e.g., you can use two backticks to preserve one backtick inside: <code>`` `code` ``</code>.<a href="markdown-syntax.html#fnref3">↩</a></p></li>
-</ol>
 </div>
             </section>
 
@@ -364,7 +374,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    script.src  = "true";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
