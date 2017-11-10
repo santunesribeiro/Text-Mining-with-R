@@ -230,7 +230,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 
 <div id="refs" class="references">
 <div>
-<p>Allaire, JJ, Jonathan McPherson, Yihui Xie, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, and Winston Chang. 2017. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, and Winston Chang. 2017. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 </div>
 <div>
 <p>Aust, Frederik. 2016. <em>Citr: RStudio Add-in to Insert Markdown Citations</em>. <a href="https://CRAN.R-project.org/package=citr" class="uri">https://CRAN.R-project.org/package=citr</a>.</p>
@@ -340,8 +340,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "") return;
-    if (src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
