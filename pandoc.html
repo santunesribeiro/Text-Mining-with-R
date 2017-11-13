@@ -228,8 +228,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="pandoc" class="section level2">
 <h2><span class="header-section-number">A.2</span> Pandoc</h2>
 <p>An R Markdown document (<code>*.Rmd</code>) is first compiled to Markdown (<code>*.md</code>) through the <strong>knitr</strong> package, and then Markdown is compiled to other output formats (such as LaTeX or HTML) through Pandoc. This process is automated by the <strong>rmarkdown</strong> package. You do not need to install <strong>knitr</strong> or <strong>rmarkdown</strong> separately, because they are the required packages of <strong>bookdown</strong> and will be automatically installed when you install <strong>bookdown</strong>. However, Pandoc is not an R package, so it will not be automatically installed when you install <strong>bookdown</strong>. You can follow the installation instructions on the Pandoc homepage (<a href="http://pandoc.org" class="uri">http://pandoc.org</a>) to install Pandoc, but if you use the RStudio IDE, you do not really need to install Pandoc separately, because RStudio includes a copy of Pandoc. The Pandoc version number can be obtained via:</p>
-<pre class="sourceCode r" id="cb125"><code class="sourceCode r"><div class="sourceLine" id="cb125-1" data-line-number="1">rmarkdown<span class="op">::</span><span class="kw">pandoc_version</span>()</div>
-<div class="sourceLine" id="cb125-2" data-line-number="2">## [1] &#39;2.0.1.1&#39;</div></code></pre>
+<pre class="sourceCode r" id="cb132"><code class="sourceCode r"><div class="sourceLine" id="cb132-1" data-line-number="1">rmarkdown<span class="op">::</span><span class="kw">pandoc_version</span>()</div>
+<div class="sourceLine" id="cb132-2" data-line-number="2">## [1] &#39;2.0.2&#39;</div></code></pre>
 <p>If you find this version too low and there are Pandoc features only in a later version, you can install the later version of Pandoc, and <strong>rmarkdown</strong> will call the newer version instead of its built-in version.</p>
 </div>
             </section>

@@ -228,75 +228,75 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="yaml-options" class="section level2">
 <h2><span class="header-section-number">4.1</span> YAML options</h2>
 <p>For most types of output formats, you can customize the syntax highlighting styles using the <code>highlight</code> option of the specific format. Currently, the possible styles are <code>default</code>, <code>tango</code>, <code>pygments</code>, <code>kate</code>, <code>monochrome</code>, <code>espresso</code>, <code>zenburn</code>, and <code>haddock</code>. For example, you can choose the <code>tango</code> style for the <code>gitbook</code> format:</p>
-<pre class="sourceCode yaml" id="cb82"><code class="sourceCode yaml"><div class="sourceLine" id="cb82-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb82-2" data-line-number="2"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb82-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></div>
-<div class="sourceLine" id="cb82-4" data-line-number="4">    <span class="fu">highlight:</span><span class="at"> tango</span></div>
-<div class="sourceLine" id="cb82-5" data-line-number="5"><span class="ot">---</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb89"><code class="sourceCode yaml"><div class="sourceLine" id="cb89-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb89-2" data-line-number="2"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb89-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></div>
+<div class="sourceLine" id="cb89-4" data-line-number="4">    <span class="fu">highlight:</span><span class="at"> tango</span></div>
+<div class="sourceLine" id="cb89-5" data-line-number="5"><span class="ot">---</span></div></code></pre>
 <p>For HTML output formats, you are most likely to use the <code>css</code> option to provide your own CSS stylesheets to customize the appearance of HTML elements. There is an option <code>includes</code> that applies to more formats, including HTML and LaTeX. The <code>includes</code> option allows you to insert arbitrary custom content before and/or after the body of the output. It has three sub-options: <code>in_header</code>, <code>before_body</code>, and <code>after_body</code>. You need to know the basic structure of an HTML or LaTeX document to understand these options. The source of an HTML document looks like this:</p>
-<pre class="sourceCode html" id="cb83"><code class="sourceCode html"><div class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">&lt;html&gt;</span></div>
-<div class="sourceLine" id="cb83-2" data-line-number="2">  </div>
-<div class="sourceLine" id="cb83-3" data-line-number="3">  <span class="kw">&lt;head&gt;</span></div>
-<div class="sourceLine" id="cb83-4" data-line-number="4">  <span class="co">&lt;!-- head content here, e.g. CSS and JS --&gt;</span></div>
-<div class="sourceLine" id="cb83-5" data-line-number="5">  <span class="kw">&lt;/head&gt;</span></div>
-<div class="sourceLine" id="cb83-6" data-line-number="6">  </div>
-<div class="sourceLine" id="cb83-7" data-line-number="7">  <span class="kw">&lt;body&gt;</span></div>
-<div class="sourceLine" id="cb83-8" data-line-number="8">  <span class="co">&lt;!-- body content here --&gt;</span></div>
-<div class="sourceLine" id="cb83-9" data-line-number="9">  <span class="kw">&lt;/body&gt;</span></div>
-<div class="sourceLine" id="cb83-10" data-line-number="10"></div>
-<div class="sourceLine" id="cb83-11" data-line-number="11"><span class="kw">&lt;/html&gt;</span></div></code></pre>
+<pre class="sourceCode html" id="cb90"><code class="sourceCode html"><div class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">&lt;html&gt;</span></div>
+<div class="sourceLine" id="cb90-2" data-line-number="2">  </div>
+<div class="sourceLine" id="cb90-3" data-line-number="3">  <span class="kw">&lt;head&gt;</span></div>
+<div class="sourceLine" id="cb90-4" data-line-number="4">  <span class="co">&lt;!-- head content here, e.g. CSS and JS --&gt;</span></div>
+<div class="sourceLine" id="cb90-5" data-line-number="5">  <span class="kw">&lt;/head&gt;</span></div>
+<div class="sourceLine" id="cb90-6" data-line-number="6">  </div>
+<div class="sourceLine" id="cb90-7" data-line-number="7">  <span class="kw">&lt;body&gt;</span></div>
+<div class="sourceLine" id="cb90-8" data-line-number="8">  <span class="co">&lt;!-- body content here --&gt;</span></div>
+<div class="sourceLine" id="cb90-9" data-line-number="9">  <span class="kw">&lt;/body&gt;</span></div>
+<div class="sourceLine" id="cb90-10" data-line-number="10"></div>
+<div class="sourceLine" id="cb90-11" data-line-number="11"><span class="kw">&lt;/html&gt;</span></div></code></pre>
 <p>The <code>in_header</code> option takes a file path and inserts it into the <code>&lt;head&gt;</code> tag. The <code>before_body</code> file will be inserted right below the opening <code>&lt;body&gt;</code> tag, and <code>after_body</code> is inserted before the closing tag <code>&lt;/body&gt;</code>.</p>
 <p>A LaTeX source document has a similar structure:</p>
-<pre class="sourceCode latex" id="cb84"><code class="sourceCode latex"><div class="sourceLine" id="cb84-1" data-line-number="1"><span class="bu">\documentclass</span>{<span class="ex">book</span>}</div>
-<div class="sourceLine" id="cb84-2" data-line-number="2"></div>
-<div class="sourceLine" id="cb84-3" data-line-number="3"><span class="co">% LaTeX preamble</span></div>
-<div class="sourceLine" id="cb84-4" data-line-number="4"><span class="co">% insert in_header here</span></div>
-<div class="sourceLine" id="cb84-5" data-line-number="5"></div>
-<div class="sourceLine" id="cb84-6" data-line-number="6"><span class="kw">\begin</span>{<span class="ex">document</span>}</div>
-<div class="sourceLine" id="cb84-7" data-line-number="7"><span class="co">% insert before_body here</span></div>
-<div class="sourceLine" id="cb84-8" data-line-number="8"></div>
-<div class="sourceLine" id="cb84-9" data-line-number="9"><span class="co">% body content here</span></div>
-<div class="sourceLine" id="cb84-10" data-line-number="10"></div>
-<div class="sourceLine" id="cb84-11" data-line-number="11"><span class="co">% insert after_body here</span></div>
-<div class="sourceLine" id="cb84-12" data-line-number="12"><span class="kw">\end</span>{<span class="ex">document</span>}</div></code></pre>
+<pre class="sourceCode latex" id="cb91"><code class="sourceCode latex"><div class="sourceLine" id="cb91-1" data-line-number="1"><span class="bu">\documentclass</span>{<span class="ex">book</span>}</div>
+<div class="sourceLine" id="cb91-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb91-3" data-line-number="3"><span class="co">% LaTeX preamble</span></div>
+<div class="sourceLine" id="cb91-4" data-line-number="4"><span class="co">% insert in_header here</span></div>
+<div class="sourceLine" id="cb91-5" data-line-number="5"></div>
+<div class="sourceLine" id="cb91-6" data-line-number="6"><span class="kw">\begin</span>{<span class="ex">document</span>}</div>
+<div class="sourceLine" id="cb91-7" data-line-number="7"><span class="co">% insert before_body here</span></div>
+<div class="sourceLine" id="cb91-8" data-line-number="8"></div>
+<div class="sourceLine" id="cb91-9" data-line-number="9"><span class="co">% body content here</span></div>
+<div class="sourceLine" id="cb91-10" data-line-number="10"></div>
+<div class="sourceLine" id="cb91-11" data-line-number="11"><span class="co">% insert after_body here</span></div>
+<div class="sourceLine" id="cb91-12" data-line-number="12"><span class="kw">\end</span>{<span class="ex">document</span>}</div></code></pre>
 <p>The <code>includes</code> option is very useful and flexible. For HTML output, it means you can insert arbitrary HTML code into the output. For example, when you have LaTeX math expressions rendered via the MathJax library in the HTML output, and want the equation numbers to be displayed on the left (default is on the right), you can create a text file that contains the following code:</p>
-<pre class="sourceCode html" id="cb85"><code class="sourceCode html"><div class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/x-mathjax-config&quot;</span><span class="kw">&gt;</span></div>
-<div class="sourceLine" id="cb85-2" data-line-number="2"><span class="va">MathJax</span>.<span class="va">Hub</span>.<span class="at">Config</span>(<span class="op">{</span></div>
-<div class="sourceLine" id="cb85-3" data-line-number="3">  <span class="dt">TeX</span><span class="op">:</span> <span class="op">{</span> <span class="dt">TagSide</span><span class="op">:</span> <span class="st">&quot;left&quot;</span> <span class="op">}</span></div>
-<div class="sourceLine" id="cb85-4" data-line-number="4"><span class="op">}</span>)<span class="op">;</span></div>
-<div class="sourceLine" id="cb85-5" data-line-number="5"><span class="kw">&lt;/script&gt;</span></div></code></pre>
+<pre class="sourceCode html" id="cb92"><code class="sourceCode html"><div class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;text/x-mathjax-config&quot;</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb92-2" data-line-number="2"><span class="va">MathJax</span>.<span class="va">Hub</span>.<span class="at">Config</span>(<span class="op">{</span></div>
+<div class="sourceLine" id="cb92-3" data-line-number="3">  <span class="dt">TeX</span><span class="op">:</span> <span class="op">{</span> <span class="dt">TagSide</span><span class="op">:</span> <span class="st">&quot;left&quot;</span> <span class="op">}</span></div>
+<div class="sourceLine" id="cb92-4" data-line-number="4"><span class="op">}</span>)<span class="op">;</span></div>
+<div class="sourceLine" id="cb92-5" data-line-number="5"><span class="kw">&lt;/script&gt;</span></div></code></pre>
 <p>Let’s assume the file is named <code>mathjax-number.html</code>, and it is in the root directory of your book (the directory that contains all your Rmd files). You can insert this file into the HTML head via the <code>in_header</code> option, e.g.,</p>
-<pre class="sourceCode yaml" id="cb86"><code class="sourceCode yaml"><div class="sourceLine" id="cb86-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb86-2" data-line-number="2"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb86-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></div>
-<div class="sourceLine" id="cb86-4" data-line-number="4">    <span class="fu">includes:</span></div>
-<div class="sourceLine" id="cb86-5" data-line-number="5">      <span class="fu">in_header:</span><span class="at"> mathjax-number.html</span></div>
-<div class="sourceLine" id="cb86-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb93"><code class="sourceCode yaml"><div class="sourceLine" id="cb93-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb93-2" data-line-number="2"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb93-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></div>
+<div class="sourceLine" id="cb93-4" data-line-number="4">    <span class="fu">includes:</span></div>
+<div class="sourceLine" id="cb93-5" data-line-number="5">      <span class="fu">in_header:</span><span class="at"> mathjax-number.html</span></div>
+<div class="sourceLine" id="cb93-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
 <p>Another example is to enable comments or discussions on your HTML pages. There are several possibilities, such as Disqus (<a href="https://disqus.com" class="uri">https://disqus.com</a>) or Hypothesis (<a href="https://hypothes.is" class="uri">https://hypothes.is</a>). These services can be easily embedded in your HTML book via the <code>includes</code> option (see Section <a href="collaboration.html#collaboration">5.5</a> for details).</p>
 <p>Similarly, if you are familiar with LaTeX, you can add arbitrary LaTeX code to the preamble. That means you can use any LaTeX packages and set up any package options for your book. For example, this book used the <code>in_header</code> option to use a few more LaTeX packages like <strong>booktabs</strong> (for better-looking tables) and <strong>longtable</strong> (for tables that span across multiple pages), and applied a fix to an XeLaTeX problem that links on graphics do not work:</p>
-<pre class="sourceCode latex" id="cb87"><code class="sourceCode latex"><div class="sourceLine" id="cb87-1" data-line-number="1"><span class="bu">\usepackage</span>{<span class="ex">booktabs</span>}</div>
-<div class="sourceLine" id="cb87-2" data-line-number="2"><span class="bu">\usepackage</span>{<span class="ex">longtable</span>}</div>
-<div class="sourceLine" id="cb87-3" data-line-number="3"></div>
-<div class="sourceLine" id="cb87-4" data-line-number="4"><span class="fu">\ifxetex</span></div>
-<div class="sourceLine" id="cb87-5" data-line-number="5">  <span class="bu">\usepackage</span>{<span class="ex">letltxmacro</span>}</div>
-<div class="sourceLine" id="cb87-6" data-line-number="6">  <span class="fu">\setlength</span>{<span class="fu">\XeTeXLinkMargin</span>}{1pt}</div>
-<div class="sourceLine" id="cb87-7" data-line-number="7">  <span class="fu">\LetLtxMacro\SavedIncludeGraphics\includegraphics</span></div>
-<div class="sourceLine" id="cb87-8" data-line-number="8">  <span class="fu">\def</span>\includegraphics#1#{<span class="co">% #1 catches optional stuff (star/opt. arg.)</span></div>
-<div class="sourceLine" id="cb87-9" data-line-number="9">    \IncludeGraphicsAux{#1}<span class="co">%</span></div>
-<div class="sourceLine" id="cb87-10" data-line-number="10">  }<span class="co">%</span></div>
-<div class="sourceLine" id="cb87-11" data-line-number="11">  <span class="fu">\newcommand*</span>{<span class="ex">\IncludeGraphicsAux</span>}[2]{<span class="co">%</span></div>
-<div class="sourceLine" id="cb87-12" data-line-number="12">    <span class="fu">\XeTeXLinkBox</span>{<span class="co">%</span></div>
-<div class="sourceLine" id="cb87-13" data-line-number="13">      <span class="fu">\SavedIncludeGraphics</span>#1{#2}<span class="co">%</span></div>
-<div class="sourceLine" id="cb87-14" data-line-number="14">    }<span class="co">%</span></div>
-<div class="sourceLine" id="cb87-15" data-line-number="15">  }<span class="co">%</span></div>
-<div class="sourceLine" id="cb87-16" data-line-number="16"><span class="fu">\fi</span></div></code></pre>
+<pre class="sourceCode latex" id="cb94"><code class="sourceCode latex"><div class="sourceLine" id="cb94-1" data-line-number="1"><span class="bu">\usepackage</span>{<span class="ex">booktabs</span>}</div>
+<div class="sourceLine" id="cb94-2" data-line-number="2"><span class="bu">\usepackage</span>{<span class="ex">longtable</span>}</div>
+<div class="sourceLine" id="cb94-3" data-line-number="3"></div>
+<div class="sourceLine" id="cb94-4" data-line-number="4"><span class="fu">\ifxetex</span></div>
+<div class="sourceLine" id="cb94-5" data-line-number="5">  <span class="bu">\usepackage</span>{<span class="ex">letltxmacro</span>}</div>
+<div class="sourceLine" id="cb94-6" data-line-number="6">  <span class="fu">\setlength</span>{<span class="fu">\XeTeXLinkMargin</span>}{1pt}</div>
+<div class="sourceLine" id="cb94-7" data-line-number="7">  <span class="fu">\LetLtxMacro\SavedIncludeGraphics\includegraphics</span></div>
+<div class="sourceLine" id="cb94-8" data-line-number="8">  <span class="fu">\def</span>\includegraphics#1#{<span class="co">% #1 catches optional stuff (star/opt. arg.)</span></div>
+<div class="sourceLine" id="cb94-9" data-line-number="9">    \IncludeGraphicsAux{#1}<span class="co">%</span></div>
+<div class="sourceLine" id="cb94-10" data-line-number="10">  }<span class="co">%</span></div>
+<div class="sourceLine" id="cb94-11" data-line-number="11">  <span class="fu">\newcommand*</span>{<span class="ex">\IncludeGraphicsAux</span>}[2]{<span class="co">%</span></div>
+<div class="sourceLine" id="cb94-12" data-line-number="12">    <span class="fu">\XeTeXLinkBox</span>{<span class="co">%</span></div>
+<div class="sourceLine" id="cb94-13" data-line-number="13">      <span class="fu">\SavedIncludeGraphics</span>#1{#2}<span class="co">%</span></div>
+<div class="sourceLine" id="cb94-14" data-line-number="14">    }<span class="co">%</span></div>
+<div class="sourceLine" id="cb94-15" data-line-number="15">  }<span class="co">%</span></div>
+<div class="sourceLine" id="cb94-16" data-line-number="16"><span class="fu">\fi</span></div></code></pre>
 <p>The above LaTeX code is saved in a file <code>preamble.tex</code>, and the YAML metadata looks like this:</p>
-<pre class="sourceCode yaml" id="cb88"><code class="sourceCode yaml"><div class="sourceLine" id="cb88-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb88-2" data-line-number="2"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb88-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></div>
-<div class="sourceLine" id="cb88-4" data-line-number="4">    <span class="fu">includes:</span></div>
-<div class="sourceLine" id="cb88-5" data-line-number="5">      <span class="fu">in_header:</span><span class="at"> preamble.tex</span></div>
-<div class="sourceLine" id="cb88-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb95"><code class="sourceCode yaml"><div class="sourceLine" id="cb95-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb95-2" data-line-number="2"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb95-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></div>
+<div class="sourceLine" id="cb95-4" data-line-number="4">    <span class="fu">includes:</span></div>
+<div class="sourceLine" id="cb95-5" data-line-number="5">      <span class="fu">in_header:</span><span class="at"> preamble.tex</span></div>
+<div class="sourceLine" id="cb95-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
 </div>
             </section>
 

@@ -231,47 +231,47 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <p>It will be much easier to publish a book written with <strong>bookdown</strong> if the publisher you choose supports LaTeX. For example, Chapman &amp; Hall provides a LaTeX class named <code>krantz.cls</code>, and Springer provides <code>svmono.cls</code>. To apply these LaTeX classes to your PDF book, set <code>documentclass</code> in the YAML metadata of <code>index.Rmd</code> to the class filename (without the extension <code>.cls</code>).</p>
 <p>The LaTeX class is the most important setting in the YAML metadata. It controls the overall style of the PDF book. There are often other settings you want to tweak, and we will show some details about this book below.</p>
 <p>The YAML metadata of this book contains these settings:</p>
-<pre class="sourceCode yaml" id="cb113"><code class="sourceCode yaml"><div class="sourceLine" id="cb113-1" data-line-number="1"><span class="fu">documentclass:</span><span class="at"> krantz</span></div>
-<div class="sourceLine" id="cb113-2" data-line-number="2"><span class="fu">lot:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb113-3" data-line-number="3"><span class="fu">lof:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb113-4" data-line-number="4"><span class="fu">fontsize:</span><span class="at"> 12pt</span></div>
-<div class="sourceLine" id="cb113-5" data-line-number="5"><span class="fu">monofont:</span><span class="at"> </span><span class="st">&quot;Source Code Pro&quot;</span></div>
-<div class="sourceLine" id="cb113-6" data-line-number="6"><span class="fu">monofontoptions:</span><span class="at"> </span><span class="st">&quot;Scale=0.7&quot;</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb120"><code class="sourceCode yaml"><div class="sourceLine" id="cb120-1" data-line-number="1"><span class="fu">documentclass:</span><span class="at"> krantz</span></div>
+<div class="sourceLine" id="cb120-2" data-line-number="2"><span class="fu">lot:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb120-3" data-line-number="3"><span class="fu">lof:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb120-4" data-line-number="4"><span class="fu">fontsize:</span><span class="at"> 12pt</span></div>
+<div class="sourceLine" id="cb120-5" data-line-number="5"><span class="fu">monofont:</span><span class="at"> </span><span class="st">&quot;Source Code Pro&quot;</span></div>
+<div class="sourceLine" id="cb120-6" data-line-number="6"><span class="fu">monofontoptions:</span><span class="at"> </span><span class="st">&quot;Scale=0.7&quot;</span></div></code></pre>
 <p>The field <code>lot: yes</code> means we want the List of Tables, and similarly, <code>lof</code> means List of Figures. The base font size is <code>12pt</code>, and we used <a href="https://www.fontsquirrel.com/fonts/source-code-pro">Source Code Pro</a> as the monospaced (fixed-width) font, which is applied to all program code in this book.</p>
 <p>In the LaTeX preamble (Section <a href="yaml-options.html#yaml-options">4.1</a>), we have a few more settings. First, we set the main font to be <a href="https://www.fontsquirrel.com/fonts/alegreya">Alegreya</a>, and since this font does not have the <span class="smallcaps">Small Capitals</span> feature, we used the Alegreya SC font.</p>
-<pre class="sourceCode latex" id="cb114"><code class="sourceCode latex"><div class="sourceLine" id="cb114-1" data-line-number="1"><span class="fu">\setmainfont</span>[</div>
-<div class="sourceLine" id="cb114-2" data-line-number="2">  UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}</div>
-<div class="sourceLine" id="cb114-3" data-line-number="3">]{Alegreya}</div></code></pre>
+<pre class="sourceCode latex" id="cb121"><code class="sourceCode latex"><div class="sourceLine" id="cb121-1" data-line-number="1"><span class="fu">\setmainfont</span>[</div>
+<div class="sourceLine" id="cb121-2" data-line-number="2">  UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}</div>
+<div class="sourceLine" id="cb121-3" data-line-number="3">]{Alegreya}</div></code></pre>
 <p>The following commands make floating environments less likely to float by allowing them to occupy larger fractions of pages without floating.</p>
-<pre class="sourceCode latex" id="cb115"><code class="sourceCode latex"><div class="sourceLine" id="cb115-1" data-line-number="1"><span class="fu">\renewcommand</span>{<span class="ex">\textfraction</span>}{0.05}</div>
-<div class="sourceLine" id="cb115-2" data-line-number="2"><span class="fu">\renewcommand</span>{<span class="ex">\topfraction</span>}{0.8}</div>
-<div class="sourceLine" id="cb115-3" data-line-number="3"><span class="fu">\renewcommand</span>{<span class="ex">\bottomfraction</span>}{0.8}</div>
-<div class="sourceLine" id="cb115-4" data-line-number="4"><span class="fu">\renewcommand</span>{<span class="ex">\floatpagefraction</span>}{0.75}</div></code></pre>
+<pre class="sourceCode latex" id="cb122"><code class="sourceCode latex"><div class="sourceLine" id="cb122-1" data-line-number="1"><span class="fu">\renewcommand</span>{<span class="ex">\textfraction</span>}{0.05}</div>
+<div class="sourceLine" id="cb122-2" data-line-number="2"><span class="fu">\renewcommand</span>{<span class="ex">\topfraction</span>}{0.8}</div>
+<div class="sourceLine" id="cb122-3" data-line-number="3"><span class="fu">\renewcommand</span>{<span class="ex">\bottomfraction</span>}{0.8}</div>
+<div class="sourceLine" id="cb122-4" data-line-number="4"><span class="fu">\renewcommand</span>{<span class="ex">\floatpagefraction</span>}{0.75}</div></code></pre>
 <p>Since <code>krantz.cls</code> provided an environment <code>VF</code> for quotes, we redefine the standard <code>quote</code> environment to <code>VF</code>. You can see its style in Section <a href="markdown-syntax.html#markdown-syntax">2.1</a>.</p>
-<pre class="sourceCode latex" id="cb116"><code class="sourceCode latex"><div class="sourceLine" id="cb116-1" data-line-number="1"><span class="fu">\renewenvironment</span>{quote}{<span class="kw">\begin</span>{<span class="ex">VF</span>}}{<span class="kw">\end</span>{<span class="ex">VF</span>}}</div></code></pre>
+<pre class="sourceCode latex" id="cb123"><code class="sourceCode latex"><div class="sourceLine" id="cb123-1" data-line-number="1"><span class="fu">\renewenvironment</span>{quote}{<span class="kw">\begin</span>{<span class="ex">VF</span>}}{<span class="kw">\end</span>{<span class="ex">VF</span>}}</div></code></pre>
 <p>Then we redefine hyperlinks to be footnotes, because when the book is printed on paper, readers are not able to click on links in text. Footnotes will tell them what the actual links are.</p>
-<pre class="sourceCode latex" id="cb117"><code class="sourceCode latex"><div class="sourceLine" id="cb117-1" data-line-number="1"><span class="fu">\let\oldhref\href</span></div>
-<div class="sourceLine" id="cb117-2" data-line-number="2"><span class="fu">\renewcommand</span>{<span class="ex">\href</span>}[2]{#2<span class="fu">\footnote</span>{<span class="fu">\url</span>{#1}}}</div></code></pre>
+<pre class="sourceCode latex" id="cb124"><code class="sourceCode latex"><div class="sourceLine" id="cb124-1" data-line-number="1"><span class="fu">\let\oldhref\href</span></div>
+<div class="sourceLine" id="cb124-2" data-line-number="2"><span class="fu">\renewcommand</span>{<span class="ex">\href</span>}[2]{#2<span class="fu">\footnote</span>{<span class="fu">\url</span>{#1}}}</div></code></pre>
 <p>We also have some settings for the <code>bookdown::pdf_book</code> format in <code>_output.yml</code>:</p>
-<pre class="sourceCode yaml" id="cb118"><code class="sourceCode yaml"><div class="sourceLine" id="cb118-1" data-line-number="1"><span class="fu">bookdown:</span><span class="at">:pdf_book:</span></div>
-<div class="sourceLine" id="cb118-2" data-line-number="2">  <span class="fu">includes:</span></div>
-<div class="sourceLine" id="cb118-3" data-line-number="3">    <span class="fu">in_header:</span><span class="at"> latex/preamble.tex</span></div>
-<div class="sourceLine" id="cb118-4" data-line-number="4">    <span class="fu">before_body:</span><span class="at"> latex/before_body.tex</span></div>
-<div class="sourceLine" id="cb118-5" data-line-number="5">    <span class="fu">after_body:</span><span class="at"> latex/after_body.tex</span></div>
-<div class="sourceLine" id="cb118-6" data-line-number="6">  <span class="fu">keep_tex:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb118-7" data-line-number="7">  <span class="fu">dev:</span><span class="at"> </span><span class="st">&quot;cairo_pdf&quot;</span></div>
-<div class="sourceLine" id="cb118-8" data-line-number="8">  <span class="fu">latex_engine:</span><span class="at"> xelatex</span></div>
-<div class="sourceLine" id="cb118-9" data-line-number="9">  <span class="fu">citation_package:</span><span class="at"> natbib</span></div>
-<div class="sourceLine" id="cb118-10" data-line-number="10">  <span class="fu">template:</span><span class="at"> </span><span class="dt">null</span></div>
-<div class="sourceLine" id="cb118-11" data-line-number="11">  <span class="fu">pandoc_args:</span><span class="at"> </span><span class="st">&quot;--chapters&quot;</span></div>
-<div class="sourceLine" id="cb118-12" data-line-number="12">  <span class="fu">toc_unnumbered:</span><span class="at"> no</span></div>
-<div class="sourceLine" id="cb118-13" data-line-number="13">  <span class="fu">toc_appendix:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb118-14" data-line-number="14">  <span class="fu">quote_footer:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;\\VA{&quot;</span><span class="kw">,</span> <span class="st">&quot;}{}&quot;</span><span class="kw">]</span></div>
-<div class="sourceLine" id="cb118-15" data-line-number="15">  <span class="fu">highlight_bw:</span><span class="at"> yes</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb125"><code class="sourceCode yaml"><div class="sourceLine" id="cb125-1" data-line-number="1"><span class="fu">bookdown:</span><span class="at">:pdf_book:</span></div>
+<div class="sourceLine" id="cb125-2" data-line-number="2">  <span class="fu">includes:</span></div>
+<div class="sourceLine" id="cb125-3" data-line-number="3">    <span class="fu">in_header:</span><span class="at"> latex/preamble.tex</span></div>
+<div class="sourceLine" id="cb125-4" data-line-number="4">    <span class="fu">before_body:</span><span class="at"> latex/before_body.tex</span></div>
+<div class="sourceLine" id="cb125-5" data-line-number="5">    <span class="fu">after_body:</span><span class="at"> latex/after_body.tex</span></div>
+<div class="sourceLine" id="cb125-6" data-line-number="6">  <span class="fu">keep_tex:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb125-7" data-line-number="7">  <span class="fu">dev:</span><span class="at"> </span><span class="st">&quot;cairo_pdf&quot;</span></div>
+<div class="sourceLine" id="cb125-8" data-line-number="8">  <span class="fu">latex_engine:</span><span class="at"> xelatex</span></div>
+<div class="sourceLine" id="cb125-9" data-line-number="9">  <span class="fu">citation_package:</span><span class="at"> natbib</span></div>
+<div class="sourceLine" id="cb125-10" data-line-number="10">  <span class="fu">template:</span><span class="at"> </span><span class="dt">null</span></div>
+<div class="sourceLine" id="cb125-11" data-line-number="11">  <span class="fu">pandoc_args:</span><span class="at"> </span><span class="st">&quot;--chapters&quot;</span></div>
+<div class="sourceLine" id="cb125-12" data-line-number="12">  <span class="fu">toc_unnumbered:</span><span class="at"> no</span></div>
+<div class="sourceLine" id="cb125-13" data-line-number="13">  <span class="fu">toc_appendix:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb125-14" data-line-number="14">  <span class="fu">quote_footer:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;\\VA{&quot;</span><span class="kw">,</span> <span class="st">&quot;}{}&quot;</span><span class="kw">]</span></div>
+<div class="sourceLine" id="cb125-15" data-line-number="15">  <span class="fu">highlight_bw:</span><span class="at"> yes</span></div></code></pre>
 <p>All preamble settings we mentioned above are in the file <code>latex/preamble.tex</code>. In <code>latex/before_body.tex</code>, we inserted a few blank pages required by the publisher, wrote the dedication page, and specified that the front matter starts:</p>
-<pre class="sourceCode latex" id="cb119"><code class="sourceCode latex"><div class="sourceLine" id="cb119-1" data-line-number="1"><span class="fu">\frontmatter</span></div></code></pre>
+<pre class="sourceCode latex" id="cb126"><code class="sourceCode latex"><div class="sourceLine" id="cb126-1" data-line-number="1"><span class="fu">\frontmatter</span></div></code></pre>
 <p>Before the first chapter of the book, we inserted</p>
-<pre class="sourceCode latex" id="cb120"><code class="sourceCode latex"><div class="sourceLine" id="cb120-1" data-line-number="1"><span class="fu">\mainmatter</span></div></code></pre>
+<pre class="sourceCode latex" id="cb127"><code class="sourceCode latex"><div class="sourceLine" id="cb127-1" data-line-number="1"><span class="fu">\mainmatter</span></div></code></pre>
 <p>so that LaTeX knows to change the page numbering style from Roman numerals (for the front matter) to Arabic numerals (for the book body).</p>
 <p>We printed the index in <code>latex/after_body.tex</code> (Section <a href="latex-index.html#latex-index">2.9</a>).</p>
 <p>The graphical device (<code>dev</code>) for saving plots was set to <code>cairo_pdf</code> so that the fonts are embedded in plots, since the default device <code>pdf</code> does not embed fonts. Your copyeditor is likely to require you to embed all fonts used in the PDF, so that the book can be printed exactly as it looks, otherwise certain fonts may be substituted and the typeface can be unpredictable.</p>

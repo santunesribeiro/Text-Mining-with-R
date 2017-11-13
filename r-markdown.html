@@ -227,37 +227,37 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
             <section class="normal" id="section-">
 <div id="r-markdown" class="section level2">
 <h2><span class="header-section-number">B.2</span> R Markdown</h2>
-<p>Thanks to the power of R and Pandoc, you can easily do computing in R Markdown documents, and convert them to a variety of output formats, including HTML/PDF/Word documents, HTML5/Beamer slides, dashboards, and websites, etc. An R Markdown document usually consists of the YAML metadata (optional) and the document body. We have introduced the syntax for writing various components of the document body in Chapter <a href="components.html#components">2</a>, and we explain more about the YAML metadata in this section.</p>
+<p>Thanks to the power of R and Pandoc, you can easily do computing in R Markdown documents, and convert them to a variety of output formats, including HTML/PDF/Word documents, HTML5/Beamer slides, dashboards, and websites, etc. An R Markdown document usually consists of the YAML metadata (optional) and the document body. We have introduced the syntax for writing various components of the document body in Chapter <a href="components.html#components">2</a>, and we explain more about the YAML metadata in this section.</p>
 <p>Metadata for R Markdown can be written in the very beginning of a document, starting and ending with three dashes <code>---</code>, respectively. YAML metadata typically consists of tag-value pairs separated by colons, e.g.,</p>
-<pre class="sourceCode yaml" id="cb133"><code class="sourceCode yaml"><div class="sourceLine" id="cb133-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb133-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;An R Markdown Document&quot;</span></div>
-<div class="sourceLine" id="cb133-3" data-line-number="3"><span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Yihui Xie&quot;</span></div>
-<div class="sourceLine" id="cb133-4" data-line-number="4"><span class="ot">---</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb140"><code class="sourceCode yaml"><div class="sourceLine" id="cb140-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb140-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;An R Markdown Document&quot;</span></div>
+<div class="sourceLine" id="cb140-3" data-line-number="3"><span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Yihui Xie&quot;</span></div>
+<div class="sourceLine" id="cb140-4" data-line-number="4"><span class="ot">---</span></div></code></pre>
 <p>For character values, you may omit the quotes when the values do not contain special characters, but it is safer to quote them if they are expected to be character values.</p>
 <p>Besides characters, another common type of values are logical values. Both <code>yes</code> and <code>true</code> mean true, and <code>no</code>/<code>false</code> mean false, e.g.,</p>
-<pre class="sourceCode yaml" id="cb134"><code class="sourceCode yaml"><div class="sourceLine" id="cb134-1" data-line-number="1"><span class="fu">link-citations:</span><span class="at"> yes</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb141"><code class="sourceCode yaml"><div class="sourceLine" id="cb141-1" data-line-number="1"><span class="fu">link-citations:</span><span class="at"> yes</span></div></code></pre>
 <p>Values can be vectors, and there are two ways of writing vectors. The following two ways are equivalent:</p>
-<pre class="sourceCode yaml" id="cb135"><code class="sourceCode yaml"><div class="sourceLine" id="cb135-1" data-line-number="1"><span class="fu">output:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;html_document&quot;</span><span class="kw">,</span> <span class="st">&quot;word_document&quot;</span><span class="kw">]</span></div></code></pre>
-<pre class="sourceCode yaml" id="cb136"><code class="sourceCode yaml"><div class="sourceLine" id="cb136-1" data-line-number="1"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb136-2" data-line-number="2">  <span class="kw">-</span> <span class="st">&quot;html_document&quot;</span></div>
-<div class="sourceLine" id="cb136-3" data-line-number="3">  <span class="kw">-</span> <span class="st">&quot;word_document&quot;</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb142"><code class="sourceCode yaml"><div class="sourceLine" id="cb142-1" data-line-number="1"><span class="fu">output:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;html_document&quot;</span><span class="kw">,</span> <span class="st">&quot;word_document&quot;</span><span class="kw">]</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb143"><code class="sourceCode yaml"><div class="sourceLine" id="cb143-1" data-line-number="1"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb143-2" data-line-number="2">  <span class="kw">-</span> <span class="st">&quot;html_document&quot;</span></div>
+<div class="sourceLine" id="cb143-3" data-line-number="3">  <span class="kw">-</span> <span class="st">&quot;word_document&quot;</span></div></code></pre>
 <p>Values can also be lists of values. You just need to indent the values by two more spaces, e.g.,</p>
-<pre class="sourceCode yaml" id="cb137"><code class="sourceCode yaml"><div class="sourceLine" id="cb137-1" data-line-number="1"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb137-2" data-line-number="2">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></div>
-<div class="sourceLine" id="cb137-3" data-line-number="3">    <span class="fu">split_by:</span><span class="at"> </span><span class="st">&quot;section&quot;</span></div>
-<div class="sourceLine" id="cb137-4" data-line-number="4">    <span class="fu">split_bib:</span><span class="at"> no</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb144"><code class="sourceCode yaml"><div class="sourceLine" id="cb144-1" data-line-number="1"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb144-2" data-line-number="2">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></div>
+<div class="sourceLine" id="cb144-3" data-line-number="3">    <span class="fu">split_by:</span><span class="at"> </span><span class="st">&quot;section&quot;</span></div>
+<div class="sourceLine" id="cb144-4" data-line-number="4">    <span class="fu">split_bib:</span><span class="at"> no</span></div></code></pre>
 <p>It is a common mistake to forget to indent the values. For example, the following data</p>
-<pre class="sourceCode yaml" id="cb138"><code class="sourceCode yaml"><div class="sourceLine" id="cb138-1" data-line-number="1"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb138-2" data-line-number="2"><span class="fu">html_document:</span></div>
-<div class="sourceLine" id="cb138-3" data-line-number="3"><span class="fu">toc:</span><span class="at"> yes</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb145"><code class="sourceCode yaml"><div class="sourceLine" id="cb145-1" data-line-number="1"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb145-2" data-line-number="2"><span class="fu">html_document:</span></div>
+<div class="sourceLine" id="cb145-3" data-line-number="3"><span class="fu">toc:</span><span class="at"> yes</span></div></code></pre>
 <p>actually means</p>
-<pre class="sourceCode yaml" id="cb139"><code class="sourceCode yaml"><div class="sourceLine" id="cb139-1" data-line-number="1"><span class="fu">output:</span><span class="at"> </span><span class="dt">null</span></div>
-<div class="sourceLine" id="cb139-2" data-line-number="2"><span class="fu">html_document:</span><span class="at"> </span><span class="dt">null</span></div>
-<div class="sourceLine" id="cb139-3" data-line-number="3"><span class="fu">toc:</span><span class="at"> yes</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb146"><code class="sourceCode yaml"><div class="sourceLine" id="cb146-1" data-line-number="1"><span class="fu">output:</span><span class="at"> </span><span class="dt">null</span></div>
+<div class="sourceLine" id="cb146-2" data-line-number="2"><span class="fu">html_document:</span><span class="at"> </span><span class="dt">null</span></div>
+<div class="sourceLine" id="cb146-3" data-line-number="3"><span class="fu">toc:</span><span class="at"> yes</span></div></code></pre>
 <p>instead of what you probably would have expected:</p>
-<pre class="sourceCode yaml" id="cb140"><code class="sourceCode yaml"><div class="sourceLine" id="cb140-1" data-line-number="1"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb140-2" data-line-number="2">  <span class="fu">html_document:</span></div>
-<div class="sourceLine" id="cb140-3" data-line-number="3">    <span class="fu">toc:</span><span class="at"> yes</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb147"><code class="sourceCode yaml"><div class="sourceLine" id="cb147-1" data-line-number="1"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb147-2" data-line-number="2">  <span class="fu">html_document:</span></div>
+<div class="sourceLine" id="cb147-3" data-line-number="3">    <span class="fu">toc:</span><span class="at"> yes</span></div></code></pre>
 <p>The R Markdown output format is specified in the <code>output</code> field of the YAML metadata, and you need to consult the R help pages for the possible options, e.g., <code>?rmarkdown::html_document</code>, or <code>?bookdown::gitbook</code>. The meanings of most other fields in YAML can be found in the Pandoc documentation.</p>
 <p>The <strong>rmarkdown</strong> package has provided these R Markdown output formats:</p>
 <ul>

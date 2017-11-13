@@ -229,10 +229,10 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2><span class="header-section-number">2.5</span> Tables</h2>
 <p>For now, the most convenient way to generate a table is the function <code>knitr::kable()</code>, because there are some internal tricks in <strong>knitr</strong> to make it work with <strong>bookdown</strong> and users do not have to know anything about these implementation details. We will explain how to use other packages and functions later in this section.</p>
 <p>Like figures, tables with captions will also be numbered and can be referenced. The <code>kable()</code> function will automatically generate a label for a table environment, which is the prefix <code>tab:</code> plus the chunk label. For example, the table label for a code chunk with the label <code>foo</code> will be <code>tab:foo</code>, and we can still use the syntax <code>\@ref(label)</code> to reference the table. Table <a href="tables.html#tab:table-single">2.2</a> is a simple example.</p>
-<pre class="sourceCode r" id="cb40"><code class="sourceCode r"><div class="sourceLine" id="cb40-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(</div>
-<div class="sourceLine" id="cb40-2" data-line-number="2">  <span class="kw">head</span>(mtcars[, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dv">10</span>), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</div>
-<div class="sourceLine" id="cb40-3" data-line-number="3">  <span class="dt">caption =</span> <span class="st">&#39;A table of the first 10 rows of the mtcars data.&#39;</span></div>
-<div class="sourceLine" id="cb40-4" data-line-number="4">)</div></code></pre>
+<pre class="sourceCode r" id="cb47"><code class="sourceCode r"><div class="sourceLine" id="cb47-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(</div>
+<div class="sourceLine" id="cb47-2" data-line-number="2">  <span class="kw">head</span>(mtcars[, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dv">10</span>), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</div>
+<div class="sourceLine" id="cb47-3" data-line-number="3">  <span class="dt">caption =</span> <span class="st">&#39;A table of the first 10 rows of the mtcars data.&#39;</span></div>
+<div class="sourceLine" id="cb47-4" data-line-number="4">)</div></code></pre>
 <table>
 <caption><span id="tab:table-single">TABLE 2.2: </span>A table of the first 10 rows of the mtcars data.</caption>
 <thead>
@@ -362,13 +362,13 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </tbody>
 </table>
 <p>If you want to put multiple tables in a single table environment, wrap the data objects (usually data frames in R) into a list. See Table <a href="tables.html#tab:table-multi">2.3</a> for an example. Please note that this feature is only available in HTML and PDF output.</p>
-<pre class="sourceCode r" id="cb41"><code class="sourceCode r"><div class="sourceLine" id="cb41-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(</div>
-<div class="sourceLine" id="cb41-2" data-line-number="2">  <span class="kw">list</span>(</div>
-<div class="sourceLine" id="cb41-3" data-line-number="3">    <span class="kw">head</span>(iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">3</span>),</div>
-<div class="sourceLine" id="cb41-4" data-line-number="4">    <span class="kw">head</span>(mtcars[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">5</span>)</div>
-<div class="sourceLine" id="cb41-5" data-line-number="5">  ),</div>
-<div class="sourceLine" id="cb41-6" data-line-number="6">  <span class="dt">caption =</span> <span class="st">&#39;A Tale of Two Tables.&#39;</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span></div>
-<div class="sourceLine" id="cb41-7" data-line-number="7">)</div></code></pre>
+<pre class="sourceCode r" id="cb48"><code class="sourceCode r"><div class="sourceLine" id="cb48-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(</div>
+<div class="sourceLine" id="cb48-2" data-line-number="2">  <span class="kw">list</span>(</div>
+<div class="sourceLine" id="cb48-3" data-line-number="3">    <span class="kw">head</span>(iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">3</span>),</div>
+<div class="sourceLine" id="cb48-4" data-line-number="4">    <span class="kw">head</span>(mtcars[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">5</span>)</div>
+<div class="sourceLine" id="cb48-5" data-line-number="5">  ),</div>
+<div class="sourceLine" id="cb48-6" data-line-number="6">  <span class="dt">caption =</span> <span class="st">&#39;A Tale of Two Tables.&#39;</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span></div>
+<div class="sourceLine" id="cb48-7" data-line-number="7">)</div></code></pre>
 <table class="kable_wrapper">
 <caption>
 <span id="tab:table-multi">TABLE 2.3: </span>A Tale of Two Tables.
@@ -447,10 +447,10 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </tbody>
 </table>
 <p>When you do not want a table to float in PDF, you may use the LaTeX package <a href="https://www.ctan.org/pkg/longtable"><strong>longtable</strong>,</a> which can break a table across multiple pages. To use <strong>longtable</strong>, pass <code>longtable = TRUE</code> to <code>kable()</code>, and make sure to include <code>\usepackage{longtable}</code> in the LaTeX preamble (see Section <a href="yaml-options.html#yaml-options">4.1</a> for how to customize the LaTeX preamble). Of course, this is irrelevant to HTML output, since tables in HTML do not need to float.</p>
-<pre class="sourceCode r" id="cb42"><code class="sourceCode r"><div class="sourceLine" id="cb42-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(</div>
-<div class="sourceLine" id="cb42-2" data-line-number="2">  iris[<span class="dv">1</span><span class="op">:</span><span class="dv">55</span>, ], <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</div>
-<div class="sourceLine" id="cb42-3" data-line-number="3">  <span class="dt">caption =</span> <span class="st">&#39;A table generated by the longtable package.&#39;</span></div>
-<div class="sourceLine" id="cb42-4" data-line-number="4">)</div></code></pre>
+<pre class="sourceCode r" id="cb49"><code class="sourceCode r"><div class="sourceLine" id="cb49-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(</div>
+<div class="sourceLine" id="cb49-2" data-line-number="2">  iris[<span class="dv">1</span><span class="op">:</span><span class="dv">55</span>, ], <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,</div>
+<div class="sourceLine" id="cb49-3" data-line-number="3">  <span class="dt">caption =</span> <span class="st">&#39;A table generated by the longtable package.&#39;</span></div>
+<div class="sourceLine" id="cb49-4" data-line-number="4">)</div></code></pre>
 <table>
 <caption><span id="tab:longtable">TABLE 2.4: </span>A table generated by the longtable package.</caption>
 <thead>
@@ -851,16 +851,16 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </tbody>
 </table>
 <p>Pandoc supports several types of <a href="http://pandoc.org/MANUAL.html#tables">Markdown tables,</a> such as simple tables, multiline tables, grid tables, and pipe tables. What <code>knitr::kable()</code> generates is a simple table like this:</p>
-<pre class="sourceCode markdown" id="cb43"><code class="sourceCode markdown"><div class="sourceLine" id="cb43-1" data-line-number="1">Table: A simple table in Markdown.</div>
-<div class="sourceLine" id="cb43-2" data-line-number="2"></div>
-<div class="sourceLine" id="cb43-3" data-line-number="3"> Sepal.Length   Sepal.Width   Petal.Length   Petal.Width</div>
-<div class="sourceLine" id="cb43-4" data-line-number="4">-------------  ------------  -------------  ------------</div>
-<div class="sourceLine" id="cb43-5" data-line-number="5"><span class="bn">          5.1           3.5            1.4           0.2</span></div>
-<div class="sourceLine" id="cb43-6" data-line-number="6"><span class="bn">          4.9           3.0            1.4           0.2</span></div>
-<div class="sourceLine" id="cb43-7" data-line-number="7"><span class="bn">          4.7           3.2            1.3           0.2</span></div>
-<div class="sourceLine" id="cb43-8" data-line-number="8"><span class="bn">          4.6           3.1            1.5           0.2</span></div>
-<div class="sourceLine" id="cb43-9" data-line-number="9"><span class="bn">          5.0           3.6            1.4           0.2</span></div>
-<div class="sourceLine" id="cb43-10" data-line-number="10"><span class="bn">          5.4           3.9            1.7           0.4</span></div></code></pre>
+<pre class="sourceCode markdown" id="cb50"><code class="sourceCode markdown"><div class="sourceLine" id="cb50-1" data-line-number="1">Table: A simple table in Markdown.</div>
+<div class="sourceLine" id="cb50-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb50-3" data-line-number="3"> Sepal.Length   Sepal.Width   Petal.Length   Petal.Width</div>
+<div class="sourceLine" id="cb50-4" data-line-number="4">-------------  ------------  -------------  ------------</div>
+<div class="sourceLine" id="cb50-5" data-line-number="5"><span class="bn">          5.1           3.5            1.4           0.2</span></div>
+<div class="sourceLine" id="cb50-6" data-line-number="6"><span class="bn">          4.9           3.0            1.4           0.2</span></div>
+<div class="sourceLine" id="cb50-7" data-line-number="7"><span class="bn">          4.7           3.2            1.3           0.2</span></div>
+<div class="sourceLine" id="cb50-8" data-line-number="8"><span class="bn">          4.6           3.1            1.5           0.2</span></div>
+<div class="sourceLine" id="cb50-9" data-line-number="9"><span class="bn">          5.0           3.6            1.4           0.2</span></div>
+<div class="sourceLine" id="cb50-10" data-line-number="10"><span class="bn">          5.4           3.9            1.7           0.4</span></div></code></pre>
 <p>You can use any types of Markdown tables in your document. To be able to cross-reference a Markdown table, it must have a labeled caption of the form <code>Table: (\#label) Caption here</code>, where <code>label</code> must have the prefix <code>tab:</code>, e.g., <code>tab:simple-table</code>.</p>
 <p>If you decide to use other R packages to generate tables, you have to make sure the label for the table environment appears in the beginning of the table caption in the form <code>(\#label)</code> (again, <code>label</code> must have the prefix <code>tab:</code>). You have to be very careful about the <em>portability</em> of the table generating function: it should work for both HTML and LaTeX output automatically, so it must consider the output format internally (check <code>knitr::opts_knit$get('rmarkdown.pandoc.to')</code>). When writing out an HTML table, the caption must be written in the <code>&lt;caption&gt;&lt;/caption&gt;</code> tag. For simple tables, <code>kable()</code> should suffice. If you have to create complicated tables (e.g., with certain cells spanning across multiple columns/rows), you will have to take the aforementioned issues into consideration.</p>
 </div>

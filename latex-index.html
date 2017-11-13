@@ -228,8 +228,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="latex-index" class="section level2">
 <h2><span class="header-section-number">2.9</span> Index</h2>
 <p>Currently the index is only supported for LaTeX/PDF output. To print an index after the book, you can use the LaTeX package <strong>makeidx</strong> in the preamble (see Section <a href="yaml-options.html#yaml-options">4.1</a>):</p>
-<pre class="sourceCode latex" id="cb55"><code class="sourceCode latex"><div class="sourceLine" id="cb55-1" data-line-number="1"><span class="bu">\usepackage</span>{<span class="ex">makeidx</span>}</div>
-<div class="sourceLine" id="cb55-2" data-line-number="2"><span class="fu">\makeindex</span></div></code></pre>
+<pre class="sourceCode latex" id="cb62"><code class="sourceCode latex"><div class="sourceLine" id="cb62-1" data-line-number="1"><span class="bu">\usepackage</span>{<span class="ex">makeidx</span>}</div>
+<div class="sourceLine" id="cb62-2" data-line-number="2"><span class="fu">\makeindex</span></div></code></pre>
 <p>Then insert <code>\printindex</code> at the end of your book through the YAML option <code>includes -&gt; after_body</code>. An index entry can be created via the <code>\index{}</code> command in the book body, e.g., <code>\index{GIT}</code>.</p>
 </div>
             </section>

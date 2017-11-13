@@ -228,26 +228,26 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="knitr" class="section level2">
 <h2><span class="header-section-number">B.1</span> knitr</h2>
 <p>The <strong>knitr</strong> package was designed based on the idea of “Literate Programming” <span class="citation" data-cites="knuth1984">(Knuth <a href="#ref-knuth1984">1984</a>)</span>, which allows you to intermingle program code with text in a source document. When <strong>knitr</strong> compiles a document, the program code (in code chunks) will be extracted and executed, and the program output will be displayed together with the original text in the output document. We have introduced the basic syntax in Section <a href="r-code.html#r-code">2.3</a>.</p>
-<p>R Markdown is not the only source format that <strong>knitr</strong> supports. The basic idea can be applied to other computing and authoring languages. For example, <strong>knitr</strong> also supports the combination of R and LaTeX (<code>*.Rnw</code> documents), and R + HTML (<code>*.Rhtml</code>), etc. You can use other computing languages with <strong>knitr</strong> as well, such as C++, Python, SQL, and so on. Below is a simple example and you can see <a href="http://rmarkdown.rstudio.com/authoring_knitr_engines.html" class="uri">http://rmarkdown.rstudio.com/authoring_knitr_engines.html</a> for more.</p>
-<pre class="sourceCode markdown" id="cb130"><code class="sourceCode markdown"><div class="sourceLine" id="cb130-1" data-line-number="1">```{python}</div>
-<div class="sourceLine" id="cb130-2" data-line-number="2">x = &#39;Hello, Python World!&#39;</div>
-<div class="sourceLine" id="cb130-3" data-line-number="3">print(x.split(&#39; &#39;))</div>
-<div class="sourceLine" id="cb130-4" data-line-number="4">```</div></code></pre>
+<p>R Markdown is not the only source format that <strong>knitr</strong> supports. The basic idea can be applied to other computing and authoring languages. For example, <strong>knitr</strong> also supports the combination of R and LaTeX (<code>*.Rnw</code> documents), and R + HTML (<code>*.Rhtml</code>), etc. You can use other computing languages with <strong>knitr</strong> as well, such as C++, Python, SQL, and so on. Below is a simple example and you can see <a href="http://rmarkdown.rstudio.com/authoring_knitr_engines.html" class="uri">http://rmarkdown.rstudio.com/authoring_knitr_engines.html</a> for more.</p>
+<pre class="sourceCode markdown" id="cb137"><code class="sourceCode markdown"><div class="sourceLine" id="cb137-1" data-line-number="1">```{python}</div>
+<div class="sourceLine" id="cb137-2" data-line-number="2">x = &#39;Hello, Python World!&#39;</div>
+<div class="sourceLine" id="cb137-3" data-line-number="3">print(x.split(&#39; &#39;))</div>
+<div class="sourceLine" id="cb137-4" data-line-number="4">```</div></code></pre>
 <p>Python users may be familiar with IPython or Jupyter Notebooks (<a href="https://jupyter.org" class="uri">https://jupyter.org</a>). In fact, R Markdown can also be used as notebooks, and has some additional benefits; see this blog post for more information: <a href="https://blog.rstudio.org/2016/10/05/r-notebooks/" class="uri">https://blog.rstudio.org/2016/10/05/r-notebooks/</a>.</p>
 <p>If you want to show a literal chunk in your document, you can add an inline expression that generates an empty string (<code>`r ''`</code>) before the chunk header, and indent the code chunk by four spaces,<a href="references.html#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> e.g.,</p>
-<pre class="sourceCode markdown" id="cb131"><code class="sourceCode markdown"><div class="sourceLine" id="cb131-1" data-line-number="1"><span class="bn">    `r &#39;&#39;````{r}</span></div>
-<div class="sourceLine" id="cb131-2" data-line-number="2"><span class="bn">    # a literal code chunk</span></div>
-<div class="sourceLine" id="cb131-3" data-line-number="3"><span class="bn">    ```</span></div></code></pre>
+<pre class="sourceCode markdown" id="cb138"><code class="sourceCode markdown"><div class="sourceLine" id="cb138-1" data-line-number="1"><span class="bn">    `r &#39;&#39;````{r}</span></div>
+<div class="sourceLine" id="cb138-2" data-line-number="2"><span class="bn">    # a literal code chunk</span></div>
+<div class="sourceLine" id="cb138-3" data-line-number="3"><span class="bn">    ```</span></div></code></pre>
 <p>After the document is compiled, the inline expression will disappear and you will see:</p>
-<pre class="sourceCode markdown" id="cb132"><code class="sourceCode markdown"><div class="sourceLine" id="cb132-1" data-line-number="1">```{r}</div>
-<div class="sourceLine" id="cb132-2" data-line-number="2"><span class="fu"># a literal code chunk</span></div>
-<div class="sourceLine" id="cb132-3" data-line-number="3">```</div></code></pre>
+<pre class="sourceCode markdown" id="cb139"><code class="sourceCode markdown"><div class="sourceLine" id="cb139-1" data-line-number="1">```{r}</div>
+<div class="sourceLine" id="cb139-2" data-line-number="2"><span class="fu"># a literal code chunk</span></div>
+<div class="sourceLine" id="cb139-3" data-line-number="3">```</div></code></pre>
 <p>Normally you do not need to call <strong>knitr</strong> functions directly when compiling a document, since <strong>rmarkdown</strong> will call <strong>knitr</strong>. If you do want to compile a source document without further converting it to other formats, you may use the <code>knitr::knit()</code> function.</p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-knuth1984">
-<p>Knuth, Donald E. 1984. “Literate Programming.” <em>The Computer Journal</em> 27 (2). British Computer Society: 97–111.</p>
+<p>Knuth, Donald E. 1984. “Literate Programming.” <em>The Computer Journal</em> 27 (2). British Computer Society:97–111.</p>
 </div>
 </div>
             </section>
