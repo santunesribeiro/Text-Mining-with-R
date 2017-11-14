@@ -45,14 +45,6 @@
 
 
 
-<script src="libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding/datatables.js"></script>
-<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -109,7 +101,7 @@ code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Comme
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -204,7 +196,6 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>C</b> FAQ</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
 
@@ -297,46 +288,46 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 <caption><span id="tab:theorem-envs">TABLE 2.1: </span>Theorem environments in <strong>bookdown</strong>.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Environment</th>
-<th style="text-align: left;">Printed Name</th>
-<th style="text-align: left;">Label Prefix</th>
+<th align="left">Environment</th>
+<th align="left">Printed Name</th>
+<th align="left">Label Prefix</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">theorem</td>
-<td style="text-align: left;">Theorem</td>
-<td style="text-align: left;">thm</td>
+<td align="left">theorem</td>
+<td align="left">Theorem</td>
+<td align="left">thm</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">lemma</td>
-<td style="text-align: left;">Lemma</td>
-<td style="text-align: left;">lem</td>
+<td align="left">lemma</td>
+<td align="left">Lemma</td>
+<td align="left">lem</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">definition</td>
-<td style="text-align: left;">Definition</td>
-<td style="text-align: left;">def</td>
+<td align="left">definition</td>
+<td align="left">Definition</td>
+<td align="left">def</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">corollary</td>
-<td style="text-align: left;">Corollary</td>
-<td style="text-align: left;">cor</td>
+<td align="left">corollary</td>
+<td align="left">Corollary</td>
+<td align="left">cor</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">proposition</td>
-<td style="text-align: left;">Proposition</td>
-<td style="text-align: left;">prp</td>
+<td align="left">proposition</td>
+<td align="left">Proposition</td>
+<td align="left">prp</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">example</td>
-<td style="text-align: left;">Example</td>
-<td style="text-align: left;">exm</td>
+<td align="left">example</td>
+<td align="left">Example</td>
+<td align="left">exm</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">exercise</td>
-<td style="text-align: left;">Exercise</td>
-<td style="text-align: left;">exr</td>
+<td align="left">exercise</td>
+<td align="left">Exercise</td>
+<td align="left">exr</td>
 </tr>
 </tbody>
 </table>
@@ -378,7 +369,7 @@ g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
 <pre class="sourceCode markdown" id="cb36"><code class="sourceCode markdown"><div class="sourceLine" id="cb36-1" data-line-number="1">```{theorem, echo=TRUE}</div>
 <div class="sourceLine" id="cb36-2" data-line-number="2">Here is my theorem.</div>
 <div class="sourceLine" id="cb36-3" data-line-number="3">```</div></code></pre>
-<p>Below we show more examples<a href="references.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
+<p>Below we show more examples<a href="faq.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
 
 <div class="definition">
 <p><span id="def:unnamed-chunk-9" class="definition"><strong>Definition 2.1  </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
@@ -484,7 +475,7 @@ This is the characteristic function of a Poisson random variable with the parame
 <div id="text-references" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> Text references</h3>
 <p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="figures.html#figures">2.4</a> and <a href="tables.html#tables">2.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = &quot;A long long figure caption.&quot;</code>) or your R code (e.g., <code>kable(caption = &quot;A long long table caption.&quot;)</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
-<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="references.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
+<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="faq.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. For example,</p>
 <pre class="sourceCode markdown" id="cb39"><code class="sourceCode markdown"><div class="sourceLine" id="cb39-1" data-line-number="1">(ref:foo) Define a text reference **here**. </div></code></pre>
 <p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph. Here is a complete example:</p>
 <pre class="sourceCode markdown" id="cb40"><code class="sourceCode markdown"><div class="sourceLine" id="cb40-1" data-line-number="1">A normal paragraph.</div>

@@ -45,14 +45,6 @@
 
 
 
-<script src="libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding/datatables.js"></script>
-<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -109,7 +101,7 @@ code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Comme
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -204,7 +196,6 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>C</b> FAQ</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
 
@@ -229,29 +220,19 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2><span class="header-section-number">5.4</span> RStudio IDE</h2>
 <p>We recommend that you <a href="https://www.rstudio.com/products/rstudio/download/">upgrade</a> your RStudio IDE if your version is lower than 1.0.0. As mentioned in Section <a href="usage.html#usage">1.3</a>, all R Markdown files must be encoded in UTF-8. This is important especially when your files contain multibyte characters. To save a file with the UTF-8 encoding, you can use the menu <code>File -&gt; Save with Encoding</code>, and choose <code>UTF-8</code>.</p>
 <p>When you click the <code>Knit</code> button to compile an R Markdown document in the RStudio IDE, the default function called by RStudio is <code>rmarkdown::render()</code>, which is not what we want for books. To call the function <code>bookdown::render_book()</code> instead, you can set the <code>site</code> field to be <code>bookdown::bookdown_site</code> in the YAML metadata of the R Markdown document <code>index.Rmd</code>, e.g.,</p>
-<pre class="sourceCode yaml" id="cb109"><code class="sourceCode yaml"><div class="sourceLine" id="cb109-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb109-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;A Nice Book&quot;</span></div>
-<div class="sourceLine" id="cb109-3" data-line-number="3"><span class="fu">site:</span><span class="at"> bookdown::bookdown_site</span></div>
-<div class="sourceLine" id="cb109-4" data-line-number="4"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb109-5" data-line-number="5">  <span class="fu">bookdown:</span><span class="at">:gitbook: default</span></div>
-<div class="sourceLine" id="cb109-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
-<p>When you have set <code>site: bookdown::bookdown_site</code> in <code>index.Rmd</code>, RStudio will be able to discover the directory as a book source directory,<a href="references.html#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> and you will see a button <code>Build Book</code> in the <code>Build</code> pane. You can click the button to build the whole book in different formats, and if you click the <code>Knit</code> button on the toolbar, RStudio will automatically preview the current chapter, and you do not need to use <code>preview_chapter()</code> explicitly.</p>
+<pre class="sourceCode yaml" id="cb110"><code class="sourceCode yaml"><div class="sourceLine" id="cb110-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb110-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;A Nice Book&quot;</span></div>
+<div class="sourceLine" id="cb110-3" data-line-number="3"><span class="fu">site:</span><span class="at"> bookdown::bookdown_site</span></div>
+<div class="sourceLine" id="cb110-4" data-line-number="4"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb110-5" data-line-number="5">  <span class="fu">bookdown:</span><span class="at">:gitbook: default</span></div>
+<div class="sourceLine" id="cb110-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
+<p>When you have set <code>site: bookdown::bookdown_site</code> in <code>index.Rmd</code>, RStudio will be able to discover the directory as a book source directory,<a href="faq.html#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> and you will see a button <code>Build Book</code> in the <code>Build</code> pane. You can click the button to build the whole book in different formats, and if you click the <code>Knit</code> button on the toolbar, RStudio will automatically preview the current chapter, and you do not need to use <code>preview_chapter()</code> explicitly.</p>
 <p>The <strong>bookdown</strong> package comes with a few addins for RStudio. If you are not familiar with RStudio addins, you may check out the documentation at <a href="http://rstudio.github.io/rstudioaddins/" class="uri">http://rstudio.github.io/rstudioaddins/</a>. After you have installed the <strong>bookdown</strong> package and use RStudio v0.99.878 or later, you will see a dropdown menu on the toolbar named “Addins” and menu items like “Preview Book” and “Input LaTeX Math” after you open the menu.</p>
 <p>The addin “Preview Book” calls <code>bookdown::serve_book()</code> to compile and serve the book. It will block your current R session, i.e., when <code>serve_book()</code> is running, you will not be able to do anything in the R console anymore. To avoid blocking the R session, you can daemonize the server using <code>bookdown::serve_book(daemon = TRUE)</code>. Note that this addin must be used when the current document opened in RStudio is under the root directory of your book, otherwise <code>serve_book()</code> may not be able to find the book source.</p>
-<p>The addin “Input LaTeX Math” is essentially a small Shiny application that provides a text box to help you type LaTeX math expressions (Figure <a href="rstudio-ide.html#fig:mathquill">5.1</a>). As you type, you will see the preview of the math expression and its LaTeX source code. This will make it much less error-prone to type math expressions — when you type a long LaTeX math expression without preview, it is easy to make mistakes such as <code>X_ij</code> when you meant <code>X_{ij}</code>, or omitting a closing bracket. If you have selected a LaTeX math expression in the RStudio editor before clicking the addin, the expression will be automatically loaded and rendered in the text box. This addin was built on top of the MathQuill library (<a href="http://mathquill.com" class="uri">http://mathquill.com</a>). It is not meant to provide full support to all LaTeX commands for math expressions, but should help you type some common math expressions.</p>
-<div class="figure" style="text-align: center"><span id="fig:mathquill"></span>
-<img src="images/mathquill.png" alt="The RStudio addin to help input LaTeX math."  />
-<p class="caption">
-FIGURE 5.1: The RStudio addin to help input LaTeX math.
-</p>
-</div>
-<p>There are also other R packages that provide addins to help you author books. The <strong>citr</strong> package <span class="citation" data-cites="R-citr">(Aust <a href="#ref-R-citr">2016</a>)</span> provides an addin named “Insert citations”, which makes it easy to insert citations into R Markdown documents. It scans your bibliography databases, and shows all citation items in a drop-down menu, so you can choose from the list without remembering which citation key corresponds to which citation item (Figure <a href="rstudio-ide.html#fig:citr">5.2</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:citr"></span>
-<img src="images/citr.png" alt="The RStudio addin to help insert citations."  />
-<p class="caption">
-FIGURE 5.2: The RStudio addin to help insert citations.
-</p>
-</div>
+<p>The addin “Input LaTeX Math” is essentially a small Shiny application that provides a text box to help you type LaTeX math expressions (Figure <a href="#fig:mathquill"><strong>??</strong></a>). As you type, you will see the preview of the math expression and its LaTeX source code. This will make it much less error-prone to type math expressions — when you type a long LaTeX math expression without preview, it is easy to make mistakes such as <code>X_ij</code> when you meant <code>X_{ij}</code>, or omitting a closing bracket. If you have selected a LaTeX math expression in the RStudio editor before clicking the addin, the expression will be automatically loaded and rendered in the text box. This addin was built on top of the MathQuill library (<a href="http://mathquill.com" class="uri">http://mathquill.com</a>). It is not meant to provide full support to all LaTeX commands for math expressions, but should help you type some common math expressions.</p>
+<p><img src="images/mathquill.png" title="The RStudio addin to help input LaTeX math." alt="The RStudio addin to help input LaTeX math." style="display: block; margin: auto;" /></p>
+<p>There are also other R packages that provide addins to help you author books. The <strong>citr</strong> package <span class="citation">(Aust <a href="#ref-R-citr">2016</a>)</span> provides an addin named “Insert citations”, which makes it easy to insert citations into R Markdown documents. It scans your bibliography databases, and shows all citation items in a drop-down menu, so you can choose from the list without remembering which citation key corresponds to which citation item (Figure <a href="#fig:citr"><strong>??</strong></a>).</p>
+<p><img src="images/citr.png" title="The RStudio addin to help insert citations." alt="The RStudio addin to help insert citations." style="display: block; margin: auto;" /></p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">

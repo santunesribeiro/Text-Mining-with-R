@@ -45,14 +45,6 @@
 
 
 
-<script src="libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding/datatables.js"></script>
-<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -109,7 +101,7 @@ code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Comme
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -204,7 +196,6 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>C</b> FAQ</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
 
@@ -238,126 +229,126 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <thead>
 <tr class="header">
 <th></th>
-<th style="text-align: right;">mpg</th>
-<th style="text-align: right;">cyl</th>
-<th style="text-align: right;">disp</th>
-<th style="text-align: right;">hp</th>
-<th style="text-align: right;">drat</th>
-<th style="text-align: right;">wt</th>
-<th style="text-align: right;">qsec</th>
-<th style="text-align: right;">vs</th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Mazda RX4</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.90</td>
-<td style="text-align: right;">2.620</td>
-<td style="text-align: right;">16.46</td>
-<td style="text-align: right;">0</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160.0</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.620</td>
+<td align="right">16.46</td>
+<td align="right">0</td>
 </tr>
 <tr class="even">
 <td>Mazda RX4 Wag</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.90</td>
-<td style="text-align: right;">2.875</td>
-<td style="text-align: right;">17.02</td>
-<td style="text-align: right;">0</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160.0</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.875</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
 </tr>
 <tr class="odd">
 <td>Datsun 710</td>
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">108.0</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">3.85</td>
-<td style="text-align: right;">2.320</td>
-<td style="text-align: right;">18.61</td>
-<td style="text-align: right;">1</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108.0</td>
+<td align="right">93</td>
+<td align="right">3.85</td>
+<td align="right">2.320</td>
+<td align="right">18.61</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td>Hornet 4 Drive</td>
-<td style="text-align: right;">21.4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">258.0</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">3.08</td>
-<td style="text-align: right;">3.215</td>
-<td style="text-align: right;">19.44</td>
-<td style="text-align: right;">1</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258.0</td>
+<td align="right">110</td>
+<td align="right">3.08</td>
+<td align="right">3.215</td>
+<td align="right">19.44</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td>Hornet Sportabout</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">360.0</td>
-<td style="text-align: right;">175</td>
-<td style="text-align: right;">3.15</td>
-<td style="text-align: right;">3.440</td>
-<td style="text-align: right;">17.02</td>
-<td style="text-align: right;">0</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360.0</td>
+<td align="right">175</td>
+<td align="right">3.15</td>
+<td align="right">3.440</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
 </tr>
 <tr class="even">
 <td>Valiant</td>
-<td style="text-align: right;">18.1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">225.0</td>
-<td style="text-align: right;">105</td>
-<td style="text-align: right;">2.76</td>
-<td style="text-align: right;">3.460</td>
-<td style="text-align: right;">20.22</td>
-<td style="text-align: right;">1</td>
+<td align="right">18.1</td>
+<td align="right">6</td>
+<td align="right">225.0</td>
+<td align="right">105</td>
+<td align="right">2.76</td>
+<td align="right">3.460</td>
+<td align="right">20.22</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td>Duster 360</td>
-<td style="text-align: right;">14.3</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">360.0</td>
-<td style="text-align: right;">245</td>
-<td style="text-align: right;">3.21</td>
-<td style="text-align: right;">3.570</td>
-<td style="text-align: right;">15.84</td>
-<td style="text-align: right;">0</td>
+<td align="right">14.3</td>
+<td align="right">8</td>
+<td align="right">360.0</td>
+<td align="right">245</td>
+<td align="right">3.21</td>
+<td align="right">3.570</td>
+<td align="right">15.84</td>
+<td align="right">0</td>
 </tr>
 <tr class="even">
 <td>Merc 240D</td>
-<td style="text-align: right;">24.4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">146.7</td>
-<td style="text-align: right;">62</td>
-<td style="text-align: right;">3.69</td>
-<td style="text-align: right;">3.190</td>
-<td style="text-align: right;">20.00</td>
-<td style="text-align: right;">1</td>
+<td align="right">24.4</td>
+<td align="right">4</td>
+<td align="right">146.7</td>
+<td align="right">62</td>
+<td align="right">3.69</td>
+<td align="right">3.190</td>
+<td align="right">20.00</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td>Merc 230</td>
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">140.8</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">3.92</td>
-<td style="text-align: right;">3.150</td>
-<td style="text-align: right;">22.90</td>
-<td style="text-align: right;">1</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">140.8</td>
+<td align="right">95</td>
+<td align="right">3.92</td>
+<td align="right">3.150</td>
+<td align="right">22.90</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td>Merc 280</td>
-<td style="text-align: right;">19.2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">167.6</td>
-<td style="text-align: right;">123</td>
-<td style="text-align: right;">3.92</td>
-<td style="text-align: right;">3.440</td>
-<td style="text-align: right;">18.30</td>
-<td style="text-align: right;">1</td>
+<td align="right">19.2</td>
+<td align="right">6</td>
+<td align="right">167.6</td>
+<td align="right">123</td>
+<td align="right">3.92</td>
+<td align="right">3.440</td>
+<td align="right">18.30</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
@@ -369,80 +360,68 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div class="sourceLine" id="cb48-5" data-line-number="5">  ),</div>
 <div class="sourceLine" id="cb48-6" data-line-number="6">  <span class="dt">caption =</span> <span class="st">&#39;A Tale of Two Tables.&#39;</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span></div>
 <div class="sourceLine" id="cb48-7" data-line-number="7">)</div></code></pre>
-<table class="kable_wrapper">
-<caption>
-<span id="tab:table-multi">TABLE 2.3: </span>A Tale of Two Tables.
-</caption>
-<tbody>
-<tr>
-<td>
 <table>
+<caption><span id="tab:table-multi">TABLE 2.3: </span>A Tale of Two Tables.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Sepal.Length</th>
-<th style="text-align: right;">Sepal.Width</th>
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.5</td>
+<td align="right">5.1</td>
+<td align="right">3.5</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.9</td>
-<td style="text-align: right;">3.0</td>
+<td align="right">4.9</td>
+<td align="right">3.0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.7</td>
-<td style="text-align: right;">3.2</td>
+<td align="right">4.7</td>
+<td align="right">3.2</td>
 </tr>
 </tbody>
 </table>
-</td>
-<td>
 <table>
 <thead>
 <tr class="header">
 <th></th>
-<th style="text-align: right;">mpg</th>
-<th style="text-align: right;">cyl</th>
-<th style="text-align: right;">disp</th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Mazda RX4</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
 </tr>
 <tr class="even">
 <td>Mazda RX4 Wag</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">160</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
 </tr>
 <tr class="odd">
 <td>Datsun 710</td>
-<td style="text-align: right;">22.8</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">108</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108</td>
 </tr>
 <tr class="even">
 <td>Hornet 4 Drive</td>
-<td style="text-align: right;">21.4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">258</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258</td>
 </tr>
 <tr class="odd">
 <td>Hornet Sportabout</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">360</td>
-</tr>
-</tbody>
-</table>
-</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360</td>
 </tr>
 </tbody>
 </table>
@@ -455,398 +434,398 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <caption><span id="tab:longtable">TABLE 2.4: </span>A table generated by the longtable package.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Sepal.Length</th>
-<th style="text-align: right;">Sepal.Width</th>
-<th style="text-align: right;">Petal.Length</th>
-<th style="text-align: right;">Petal.Width</th>
-<th style="text-align: left;">Species</th>
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.9</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.7</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.6</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.6</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.4</td>
-<td style="text-align: right;">3.9</td>
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.6</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">2.9</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.9</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.4</td>
-<td style="text-align: right;">3.7</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.4</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.3</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.3</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.8</td>
-<td style="text-align: right;">4.0</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.7</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.7</td>
+<td align="right">4.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.4</td>
-<td style="text-align: right;">3.9</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.7</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.5</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.4</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.4</td>
+<td align="right">3.4</td>
+<td align="right">1.7</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.7</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.1</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.6</td>
-<td style="text-align: right;">3.6</td>
-<td style="text-align: right;">1.0</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.6</td>
+<td align="right">3.6</td>
+<td align="right">1.0</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.3</td>
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">0.5</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.1</td>
+<td align="right">3.3</td>
+<td align="right">1.7</td>
+<td align="right">0.5</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.9</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.9</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.0</td>
+<td align="right">3.0</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.2</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.2</td>
+<td align="right">3.5</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.2</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.2</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.7</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.8</td>
+<td align="right">3.1</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.4</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.4</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.2</td>
-<td style="text-align: right;">4.1</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.2</td>
+<td align="right">4.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.5</td>
-<td style="text-align: right;">4.2</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.5</td>
+<td align="right">4.2</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.9</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.0</td>
+<td align="right">3.2</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.5</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.5</td>
+<td align="right">3.5</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.9</td>
-<td style="text-align: right;">3.6</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.9</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.4</td>
+<td align="right">3.0</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.1</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.0</td>
+<td align="right">3.5</td>
+<td align="right">1.3</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.5</td>
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.5</td>
+<td align="right">2.3</td>
+<td align="right">1.3</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.4</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.6</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.0</td>
+<td align="right">3.5</td>
+<td align="right">1.6</td>
+<td align="right">0.6</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">1.9</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.9</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.6</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">4.6</td>
+<td align="right">3.2</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.3</td>
-<td style="text-align: right;">3.7</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.3</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.3</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td align="right">5.0</td>
+<td align="right">3.3</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">7.0</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">4.7</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: left;">versicolor</td>
+<td align="right">7.0</td>
+<td align="right">3.2</td>
+<td align="right">4.7</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">6.4</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">4.5</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: left;">versicolor</td>
+<td align="right">6.4</td>
+<td align="right">3.2</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">6.9</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">4.9</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: left;">versicolor</td>
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">4.9</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.5</td>
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">4.0</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: left;">versicolor</td>
+<td align="right">5.5</td>
+<td align="right">2.3</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">6.5</td>
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">4.6</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: left;">versicolor</td>
+<td align="right">6.5</td>
+<td align="right">2.8</td>
+<td align="right">4.6</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
 </tr>
 </tbody>
 </table>

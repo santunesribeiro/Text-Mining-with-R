@@ -45,14 +45,6 @@
 
 
 
-<script src="libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding/datatables.js"></script>
-<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -109,7 +101,7 @@ code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Comme
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -204,7 +196,6 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>C</b> FAQ</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
 
@@ -238,11 +229,11 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li>You can embed interactive content in the book (for HTML output only), such as HTML widgets and Shiny apps.</li>
 </ul>
 <p>We have also added some useful features in the user interface that we will introduce in detail soon. The output format function for the GitBook style in <strong>bookdown</strong> is <code>gitbook()</code>. Here are its arguments:</p>
-<pre class="sourceCode r" id="cb68"><code class="sourceCode r"><div class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">gitbook</span>(<span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, </div>
-<div class="sourceLine" id="cb68-2" data-line-number="2">  <span class="dt">self_contained =</span> <span class="ot">FALSE</span>, <span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>, ..., </div>
-<div class="sourceLine" id="cb68-3" data-line-number="3">  <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;chapter+number&quot;</span>, <span class="st">&quot;section&quot;</span>, </div>
-<div class="sourceLine" id="cb68-4" data-line-number="4">    <span class="st">&quot;section+number&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>), <span class="dt">split_bib =</span> <span class="ot">TRUE</span>, </div>
-<div class="sourceLine" id="cb68-5" data-line-number="5">  <span class="dt">config =</span> <span class="kw">list</span>())</div></code></pre>
+<pre class="sourceCode r" id="cb69"><code class="sourceCode r"><div class="sourceLine" id="cb69-1" data-line-number="1"><span class="kw">gitbook</span>(<span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, </div>
+<div class="sourceLine" id="cb69-2" data-line-number="2">  <span class="dt">self_contained =</span> <span class="ot">FALSE</span>, <span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>, ..., </div>
+<div class="sourceLine" id="cb69-3" data-line-number="3">  <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;chapter+number&quot;</span>, <span class="st">&quot;section&quot;</span>, </div>
+<div class="sourceLine" id="cb69-4" data-line-number="4">    <span class="st">&quot;section+number&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>), <span class="dt">split_bib =</span> <span class="ot">TRUE</span>, </div>
+<div class="sourceLine" id="cb69-5" data-line-number="5">  <span class="dt">config =</span> <span class="kw">list</span>())</div></code></pre>
 <p>Most arguments are passed to <code>rmarkdown::html_document()</code>, including <code>fig_caption</code>, <code>lib_dir</code>, and <code>...</code>. You can check out the help page of <code>rmarkdown::html_document()</code> for the full list of possible options. We strongly recommend you to use <code>fig_caption = TRUE</code> for two reasons: 1) it is important to explain your figures with captions; 2) enabling figure captions means figures will be placed in floating environments when the output is LaTeX, otherwise you may end up with a lot of white space on certain pages. The format of figure/table numbers depends on if sections are numbered or not: if <code>number_sections = TRUE</code>, these numbers will be of the format <code>X.i</code>, where <code>X</code> is the chapter number, and <code>i</code> in an incremental number; if sections are not numbered, all figures/tables will be numbered sequentially through the book from 1, 2, …, N. Note that in either case, figures and tables will be numbered independently.</p>
 <p>Among all possible arguments in <code>...</code>, you are most likely to use the <code>css</code> argument to provide one or more custom CSS files to tweak the default CSS style. There are a few arguments of <code>html_document()</code> that have been hard-coded in <code>gitbook()</code> and you cannot change them: <code>toc = TRUE</code> (there must be a table of contents), <code>theme = NULL</code> (not using any Bootstrap themes), and <code>template</code> (there exists an internal GitBook template).</p>
 <p>Please note that if you change <code>self_contained = TRUE</code> to make self-contained HTML pages, the total size of all HTML files can be significantly increased since there are many JS and CSS files that have to be embedded in every single HTML file.</p>
@@ -254,37 +245,37 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li><code>section</code>: split the file by the second-level headers.</li>
 <li><code>chapter+number</code> and <code>section+number</code>: similar to <code>chapter</code> and <code>section</code>, but the files will be numbered.</li>
 </ul>
-<p>For <code>chapter</code> and <code>section</code>, the HTML filenames will be determined by the header identifiers, e.g., the filename for the first chapter with a chapter title <code># Introduction</code> will be <code>introduction.html</code> by default. For <code>chapter+number</code> and <code>section+number</code>, the chapter/section numbers will be prepended to the HTML filenames, e.g., <code>1-introduction.html</code> and <code>2-1-literature.html</code>. The header identifier is automatically generated from the header text by default,<a href="references.html#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> and you can manually specify an identifier using the syntax <code>{#your-custom-id}</code> after the header text, e.g.,</p>
-<pre class="sourceCode markdown" id="cb69"><code class="sourceCode markdown"><div class="sourceLine" id="cb69-1" data-line-number="1"><span class="fu"># An Introduction {#introduction}</span></div>
-<div class="sourceLine" id="cb69-2" data-line-number="2"></div>
-<div class="sourceLine" id="cb69-3" data-line-number="3">The default identifier is <span class="bn">`an-introduction`</span> but we changed</div>
-<div class="sourceLine" id="cb69-4" data-line-number="4">it to <span class="bn">`introduction`</span>.</div></code></pre>
+<p>For <code>chapter</code> and <code>section</code>, the HTML filenames will be determined by the header identifiers, e.g., the filename for the first chapter with a chapter title <code># Introduction</code> will be <code>introduction.html</code> by default. For <code>chapter+number</code> and <code>section+number</code>, the chapter/section numbers will be prepended to the HTML filenames, e.g., <code>1-introduction.html</code> and <code>2-1-literature.html</code>. The header identifier is automatically generated from the header text by default,<a href="faq.html#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> and you can manually specify an identifier using the syntax <code>{#your-custom-id}</code> after the header text, e.g.,</p>
+<pre class="sourceCode markdown" id="cb70"><code class="sourceCode markdown"><div class="sourceLine" id="cb70-1" data-line-number="1"><span class="fu"># An Introduction {#introduction}</span></div>
+<div class="sourceLine" id="cb70-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb70-3" data-line-number="3">The default identifier is <span class="bn">`an-introduction`</span> but we changed</div>
+<div class="sourceLine" id="cb70-4" data-line-number="4">it to <span class="bn">`introduction`</span>.</div></code></pre>
 <p>By default, the bibliography is split and relevant citation items are put at the bottom of each page, so that readers do not have to navigate to a different bibliography page to see the details of citations. This feature can be disabled using <code>split_bib = FALSE</code>, in which case all citations are put on a separate page.</p>
 <p>There are several sub-options in the <code>config</code> option for you to tweak some details in the user interface. Recall that all output format options (not only for <code>bookdown::gitbook</code>) can be either passed to the format function if you use the command-line interface <code>bookdown::render_book()</code>, or written in the YAML metadata. We display the default sub-options of <code>config</code> in the <code>gitbook</code> format as YAML metadata below (note that they are indented under the <code>config</code> option):</p>
-<pre class="sourceCode yaml" id="cb70"><code class="sourceCode yaml"><div class="sourceLine" id="cb70-1" data-line-number="1"><span class="fu">bookdown:</span><span class="at">:gitbook:</span></div>
-<div class="sourceLine" id="cb70-2" data-line-number="2">  <span class="fu">config:</span></div>
-<div class="sourceLine" id="cb70-3" data-line-number="3">    <span class="fu">toc:</span></div>
-<div class="sourceLine" id="cb70-4" data-line-number="4">      <span class="fu">collapse:</span><span class="at"> subsection</span></div>
-<div class="sourceLine" id="cb70-5" data-line-number="5">      <span class="fu">scroll_highlight:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb70-6" data-line-number="6">      <span class="fu">before:</span><span class="at"> </span><span class="dt">null</span></div>
-<div class="sourceLine" id="cb70-7" data-line-number="7">      <span class="fu">after:</span><span class="at"> </span><span class="dt">null</span></div>
-<div class="sourceLine" id="cb70-8" data-line-number="8">    <span class="fu">toolbar:</span></div>
-<div class="sourceLine" id="cb70-9" data-line-number="9">      <span class="fu">position:</span><span class="at"> fixed</span></div>
-<div class="sourceLine" id="cb70-10" data-line-number="10">    <span class="fu">edit :</span><span class="at"> </span><span class="dt">null</span></div>
-<div class="sourceLine" id="cb70-11" data-line-number="11">    <span class="fu">download:</span><span class="at"> </span><span class="dt">null</span></div>
-<div class="sourceLine" id="cb70-12" data-line-number="12">    <span class="fu">search:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb70-13" data-line-number="13">    <span class="fu">fontsettings:</span></div>
-<div class="sourceLine" id="cb70-14" data-line-number="14">      <span class="fu">theme:</span><span class="at"> white</span></div>
-<div class="sourceLine" id="cb70-15" data-line-number="15">      <span class="fu">family:</span><span class="at"> sans</span></div>
-<div class="sourceLine" id="cb70-16" data-line-number="16">      <span class="fu">size:</span><span class="at"> 2</span></div>
-<div class="sourceLine" id="cb70-17" data-line-number="17">    <span class="fu">sharing:</span></div>
-<div class="sourceLine" id="cb70-18" data-line-number="18">      <span class="fu">facebook:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb70-19" data-line-number="19">      <span class="fu">twitter:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb70-20" data-line-number="20">      <span class="fu">google:</span><span class="at"> no</span></div>
-<div class="sourceLine" id="cb70-21" data-line-number="21">      <span class="fu">weibo:</span><span class="at"> no</span></div>
-<div class="sourceLine" id="cb70-22" data-line-number="22">      <span class="fu">instapper:</span><span class="at"> no</span></div>
-<div class="sourceLine" id="cb70-23" data-line-number="23">      <span class="fu">vk:</span><span class="at"> no</span></div>
-<div class="sourceLine" id="cb70-24" data-line-number="24">      <span class="fu">all:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;facebook&#39;</span><span class="kw">,</span> <span class="st">&#39;google&#39;</span><span class="kw">,</span> <span class="st">&#39;twitter&#39;</span><span class="kw">,</span> <span class="st">&#39;weibo&#39;</span><span class="kw">,</span> <span class="st">&#39;instapaper&#39;</span><span class="kw">]</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb71"><code class="sourceCode yaml"><div class="sourceLine" id="cb71-1" data-line-number="1"><span class="fu">bookdown:</span><span class="at">:gitbook:</span></div>
+<div class="sourceLine" id="cb71-2" data-line-number="2">  <span class="fu">config:</span></div>
+<div class="sourceLine" id="cb71-3" data-line-number="3">    <span class="fu">toc:</span></div>
+<div class="sourceLine" id="cb71-4" data-line-number="4">      <span class="fu">collapse:</span><span class="at"> subsection</span></div>
+<div class="sourceLine" id="cb71-5" data-line-number="5">      <span class="fu">scroll_highlight:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb71-6" data-line-number="6">      <span class="fu">before:</span><span class="at"> </span><span class="dt">null</span></div>
+<div class="sourceLine" id="cb71-7" data-line-number="7">      <span class="fu">after:</span><span class="at"> </span><span class="dt">null</span></div>
+<div class="sourceLine" id="cb71-8" data-line-number="8">    <span class="fu">toolbar:</span></div>
+<div class="sourceLine" id="cb71-9" data-line-number="9">      <span class="fu">position:</span><span class="at"> fixed</span></div>
+<div class="sourceLine" id="cb71-10" data-line-number="10">    <span class="fu">edit :</span><span class="at"> </span><span class="dt">null</span></div>
+<div class="sourceLine" id="cb71-11" data-line-number="11">    <span class="fu">download:</span><span class="at"> </span><span class="dt">null</span></div>
+<div class="sourceLine" id="cb71-12" data-line-number="12">    <span class="fu">search:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb71-13" data-line-number="13">    <span class="fu">fontsettings:</span></div>
+<div class="sourceLine" id="cb71-14" data-line-number="14">      <span class="fu">theme:</span><span class="at"> white</span></div>
+<div class="sourceLine" id="cb71-15" data-line-number="15">      <span class="fu">family:</span><span class="at"> sans</span></div>
+<div class="sourceLine" id="cb71-16" data-line-number="16">      <span class="fu">size:</span><span class="at"> 2</span></div>
+<div class="sourceLine" id="cb71-17" data-line-number="17">    <span class="fu">sharing:</span></div>
+<div class="sourceLine" id="cb71-18" data-line-number="18">      <span class="fu">facebook:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb71-19" data-line-number="19">      <span class="fu">twitter:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb71-20" data-line-number="20">      <span class="fu">google:</span><span class="at"> no</span></div>
+<div class="sourceLine" id="cb71-21" data-line-number="21">      <span class="fu">weibo:</span><span class="at"> no</span></div>
+<div class="sourceLine" id="cb71-22" data-line-number="22">      <span class="fu">instapper:</span><span class="at"> no</span></div>
+<div class="sourceLine" id="cb71-23" data-line-number="23">      <span class="fu">vk:</span><span class="at"> no</span></div>
+<div class="sourceLine" id="cb71-24" data-line-number="24">      <span class="fu">all:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;facebook&#39;</span><span class="kw">,</span> <span class="st">&#39;google&#39;</span><span class="kw">,</span> <span class="st">&#39;twitter&#39;</span><span class="kw">,</span> <span class="st">&#39;weibo&#39;</span><span class="kw">,</span> <span class="st">&#39;instapaper&#39;</span><span class="kw">]</span></div></code></pre>
 <p>The <code>toc</code> option controls the behavior of the table of contents (TOC). You can collapse some items initially when a page is loaded via the <code>collapse</code> option. Its possible values are <code>subsection</code>, <code>section</code>, <code>none</code> (or <code>null</code>). This option can be helpful if your TOC is very long and has more than three levels of headings: <code>subsection</code> means collapsing all TOC items for subsections (X.X.X), <code>section</code> means those items for sections (X.X) so only the top-level headings are displayed initially, and <code>none</code> means not collapsing any items in the TOC. For those collapsed TOC items, you can toggle their visibility by clicking their parent TOC items. For example, you can click a chapter title in the TOC to show/hide its sections.</p>
 <p>The <code>scroll_highlight</code> option in <code>toc</code> indicates whether to enable highlighting of TOC items as you scroll the book body (by default this feature is enabled). Whenever a new header comes into the current viewport as you scroll down/up, the corresponding item in TOC on the left will be highlighted.</p>
 <p>Since the sidebar has a fixed width, when an item in the TOC is truncated because the heading text is too wide, you can hover the cursor over it to see a tooltip showing the full text.</p>
@@ -297,33 +288,28 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
         &lt;li&gt;&lt;a href=&quot;https://github.com/rstudio/bookdown&quot;&gt;
         Proudly published with bookdown&lt;/a&gt;&lt;/li&gt;</code></pre>
 <p>As you navigate through different HTML pages, we will try to preserve the scroll position of the TOC. Normally you will see the scrollbar in the TOC at a fixed position even if you navigate to the next page. However, if the TOC item for the current chapter/section is not visible when the page is loaded, we will automatically scroll the TOC to make it visible to you.</p>
-<div class="figure"><span id="fig:gitbook-toolbar"></span>
-<img src="images/gitbook.png" alt="The GitBook toolbar." width="100%" />
-<p class="caption">
-FIGURE 3.1: The GitBook toolbar.
-</p>
-</div>
-<p>The GitBook style has a toolbar (Figure <a href="html.html#fig:gitbook-toolbar">3.1</a>) at the top of each page that allows you to dynamically change the book settings. The <code>toolbar</code> option has a sub-option <code>position</code>, which can take values <code>fixed</code> or <code>static</code>. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there. If it is <code>static</code>, the toolbar will not scroll with the page, i.e., once you scroll away, you will no longer see it.</p>
+<p><img src="images/gitbook.png" title="The GitBook toolbar." alt="The GitBook toolbar." width="100%" /></p>
+<p>The GitBook style has a toolbar (Figure <a href="#fig:gitbook-toolbar"><strong>??</strong></a>) at the top of each page that allows you to dynamically change the book settings. The <code>toolbar</code> option has a sub-option <code>position</code>, which can take values <code>fixed</code> or <code>static</code>. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there. If it is <code>static</code>, the toolbar will not scroll with the page, i.e., once you scroll away, you will no longer see it.</p>
 <p>The first button on the toolbar can toggle the visibility of the sidebar. You can also hit the <code>S</code> key on your keyboard to do the same thing. The GitBook style can remember the visibility status of the sidebar, e.g., if you closed the sidebar, it will remain closed the next time you open the book. In fact, the GitBook style remembers many other settings as well, such as the search keyword and the font settings.</p>
 <p>The second button on the toolbar is the search button. Its keyboard shortcut is <code>F</code> (Find). When the button is clicked, you will see a search box at the top of the sidebar. As you type in the box, the TOC will be filtered to display the sections that match the search keyword. Now you can use the arrow keys <code>Up</code>/<code>Down</code> to highlight the next keyword on the current page. When you click the search button again (or hit <code>F</code> outside the search box), the search keyword will be emptied and the search box will be hidden. To disable searching, set the option <code>search: no</code> in <code>config</code>.</p>
 <p>The third button is for font/theme settings. You can change the font size (bigger or smaller), the font family (serif or sans serif), and the theme (<code>White</code>, <code>Sepia</code>, or <code>Night</code>). These settings can be changed via the <code>fontsettings</code> option.</p>
 <p>The <code>edit</code> option is the same as the option mentioned in Section <a href="configuration.html#configuration">4.4</a>. If it is not empty, an edit button will be added to the toolbar. This was designed for potential contributors to the book to contribute by editing the book on GitHub after clicking the button and sending pull requests.</p>
 <p>If your book has other output formats for readers to download, you may provide the <code>download</code> option so that a download button can be added to the toolbar. This option takes either a character vector, or a list of character vectors with the length of each vector being 2. When it is a character vector, it should be either a vector of filenames, or filename extensions, e.g., both of the following settings are okay:</p>
-<pre class="sourceCode yaml" id="cb72"><code class="sourceCode yaml"><div class="sourceLine" id="cb72-1" data-line-number="1">    <span class="fu">download:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;book.epub&quot;</span><span class="kw">]</span></div>
-<div class="sourceLine" id="cb72-2" data-line-number="2">    <span class="fu">download:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;epub&quot;</span><span class="kw">,</span> <span class="st">&quot;mobi&quot;</span><span class="kw">]</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb73"><code class="sourceCode yaml"><div class="sourceLine" id="cb73-1" data-line-number="1">    <span class="fu">download:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;book.epub&quot;</span><span class="kw">]</span></div>
+<div class="sourceLine" id="cb73-2" data-line-number="2">    <span class="fu">download:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;epub&quot;</span><span class="kw">,</span> <span class="st">&quot;mobi&quot;</span><span class="kw">]</span></div></code></pre>
 <p>When you only provide the filename extensions, the filename is derived from the book filename of the configuration file <code>_bookdown.yml</code> (Section <a href="configuration.html#configuration">4.4</a>). When <code>download</code> is <code>null</code>, <code>gitbook()</code> will look for PDF, EPUB, and MOBI files in the book output directory, and automatically add them to the <code>download</code> option. If you just want to suppress the download button, use <code>download: no</code>. All files for readers to download will be displayed in a drop-down menu, and the filename extensions are used as the menu text. When the only available format for readers to download is PDF, the download button will be a single PDF button instead of a drop-down menu.</p>
 <p>An alternative form for the value of the <code>download</code> option is a list of length-2 vectors, e.g.,</p>
-<pre class="sourceCode yaml" id="cb73"><code class="sourceCode yaml"><div class="sourceLine" id="cb73-1" data-line-number="1">    <span class="fu">download:</span><span class="at"> </span><span class="kw">[[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;PDF&quot;</span><span class="kw">],</span> <span class="kw">[</span><span class="st">&quot;book.epub&quot;</span><span class="kw">,</span> <span class="st">&quot;EPUB&quot;</span><span class="kw">]]</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb74"><code class="sourceCode yaml"><div class="sourceLine" id="cb74-1" data-line-number="1">    <span class="fu">download:</span><span class="at"> </span><span class="kw">[[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;PDF&quot;</span><span class="kw">],</span> <span class="kw">[</span><span class="st">&quot;book.epub&quot;</span><span class="kw">,</span> <span class="st">&quot;EPUB&quot;</span><span class="kw">]]</span></div></code></pre>
 <p>You can also write it as:</p>
-<pre class="sourceCode yaml" id="cb74"><code class="sourceCode yaml"><div class="sourceLine" id="cb74-1" data-line-number="1">    <span class="fu">download:</span></div>
-<div class="sourceLine" id="cb74-2" data-line-number="2">      <span class="kw">-</span> <span class="kw">[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;PDF&quot;</span><span class="kw">]</span></div>
-<div class="sourceLine" id="cb74-3" data-line-number="3">      <span class="kw">-</span> <span class="kw">[</span><span class="st">&quot;book.epub&quot;</span><span class="kw">,</span> <span class="st">&quot;EPUB&quot;</span><span class="kw">]</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb75"><code class="sourceCode yaml"><div class="sourceLine" id="cb75-1" data-line-number="1">    <span class="fu">download:</span></div>
+<div class="sourceLine" id="cb75-2" data-line-number="2">      <span class="kw">-</span> <span class="kw">[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;PDF&quot;</span><span class="kw">]</span></div>
+<div class="sourceLine" id="cb75-3" data-line-number="3">      <span class="kw">-</span> <span class="kw">[</span><span class="st">&quot;book.epub&quot;</span><span class="kw">,</span> <span class="st">&quot;EPUB&quot;</span><span class="kw">]</span></div></code></pre>
 <p>Each vector in the list consists of the filename and the text to be displayed in the menu. Compared to the first form, this form allows you to customize the menu text, e.g., you may have two different copies of the PDF for readers to download and you will need to make the menu items different.</p>
 <p>On the right of the toolbar, there are some buttons to share the link on social network websites such as Twitter, Facebook, and Google+. You can use the <code>sharing</code> option to decide which buttons to enable. If you want to get rid of these buttons entirely, use <code>sharing: null</code> (or <code>no</code>).</p>
 <p>Finally, there are a few more top-level options in the YAML metadata that can be passed to the GitBook HTML template via Pandoc. They may not have clear visible effects on the HTML output, but they may be useful when you deploy the HTML output as a website. These options include:</p>
 <ul>
 <li><code>description</code>: A character string to be written to the <code>content</code> attribute of the tag <code>&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</code> in the HTML head (if missing, the title of the book will be used). This can be useful for search engine optimization (SEO). Note that it should be plain text without any Markdown formatting such as <code>_italic_</code> or <code>**bold**</code>.</li>
-<li><code>url</code>: The URL of book’s website, e.g., <code>https\://bookdown.org/yihui/bookdown/</code>.<a href="references.html#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></li>
+<li><code>url</code>: The URL of book’s website, e.g., <code>https\://bookdown.org/yihui/bookdown/</code>.<a href="faq.html#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></li>
 <li><code>github-repo</code>: The GitHub repository of the book of the form <code>user/repo</code>.</li>
 <li><code>cover-image</code>: The path to the cover image of the book.</li>
 <li><code>apple-touch-icon</code>: A path to an icon (e.g., a PNG image). This is for iOS only: when the website is added to the Home screen, the link is represented by this icon.</li>
@@ -331,29 +317,29 @@ FIGURE 3.1: The GitBook toolbar.
 <li><code>favicon</code>: A path to the “favorite icon”. Typically this icon is displayed in the browser’s address bar, or in front of the page title on the tab if the browser support tabs.</li>
 </ul>
 <p>Below we show some sample YAML metadata (again, please note that these are <em>top-level</em> options):</p>
-<pre class="sourceCode yaml" id="cb75"><code class="sourceCode yaml"><div class="sourceLine" id="cb75-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb75-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;An Awesome Book&quot;</span></div>
-<div class="sourceLine" id="cb75-3" data-line-number="3"><span class="fu">author:</span><span class="at"> </span><span class="st">&quot;John Smith&quot;</span></div>
-<div class="sourceLine" id="cb75-4" data-line-number="4"><span class="fu">description:</span><span class="at"> </span><span class="st">&quot;This book introduces the ABC theory, and ...&quot;</span></div>
-<div class="sourceLine" id="cb75-5" data-line-number="5"><span class="fu">url:</span><span class="at"> </span><span class="st">&quot;https\://bookdown.org/john/awesome/&quot;</span></div>
-<div class="sourceLine" id="cb75-6" data-line-number="6"><span class="fu">github-repo:</span><span class="at"> </span><span class="st">&quot;john/awesome&quot;</span></div>
-<div class="sourceLine" id="cb75-7" data-line-number="7"><span class="fu">cover-image:</span><span class="at"> </span><span class="st">&quot;images/cover.png&quot;</span></div>
-<div class="sourceLine" id="cb75-8" data-line-number="8"><span class="fu">apple-touch-icon:</span><span class="at"> </span><span class="st">&quot;touch-icon.png&quot;</span></div>
-<div class="sourceLine" id="cb75-9" data-line-number="9"><span class="fu">apple-touch-icon-size:</span><span class="at"> 120</span></div>
-<div class="sourceLine" id="cb75-10" data-line-number="10"><span class="fu">favicon:</span><span class="at"> </span><span class="st">&quot;favicon.ico&quot;</span></div>
-<div class="sourceLine" id="cb75-11" data-line-number="11"><span class="ot">---</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb76"><code class="sourceCode yaml"><div class="sourceLine" id="cb76-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb76-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;An Awesome Book&quot;</span></div>
+<div class="sourceLine" id="cb76-3" data-line-number="3"><span class="fu">author:</span><span class="at"> </span><span class="st">&quot;John Smith&quot;</span></div>
+<div class="sourceLine" id="cb76-4" data-line-number="4"><span class="fu">description:</span><span class="at"> </span><span class="st">&quot;This book introduces the ABC theory, and ...&quot;</span></div>
+<div class="sourceLine" id="cb76-5" data-line-number="5"><span class="fu">url:</span><span class="at"> </span><span class="st">&quot;https\://bookdown.org/john/awesome/&quot;</span></div>
+<div class="sourceLine" id="cb76-6" data-line-number="6"><span class="fu">github-repo:</span><span class="at"> </span><span class="st">&quot;john/awesome&quot;</span></div>
+<div class="sourceLine" id="cb76-7" data-line-number="7"><span class="fu">cover-image:</span><span class="at"> </span><span class="st">&quot;images/cover.png&quot;</span></div>
+<div class="sourceLine" id="cb76-8" data-line-number="8"><span class="fu">apple-touch-icon:</span><span class="at"> </span><span class="st">&quot;touch-icon.png&quot;</span></div>
+<div class="sourceLine" id="cb76-9" data-line-number="9"><span class="fu">apple-touch-icon-size:</span><span class="at"> 120</span></div>
+<div class="sourceLine" id="cb76-10" data-line-number="10"><span class="fu">favicon:</span><span class="at"> </span><span class="st">&quot;favicon.ico&quot;</span></div>
+<div class="sourceLine" id="cb76-11" data-line-number="11"><span class="ot">---</span></div></code></pre>
 <p>A nice effect of setting <code>description</code> and <code>cover-image</code> is that when you share the link of your book on some social network websites such as Twitter, the link can be automatically expanded to a card with the cover image and description of the book.</p>
 </div>
 <div id="bootstrap-style" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> Bootstrap style</h3>
 <p>If you have used R Markdown before, you should be familiar with the Bootstrap style (<a href="http://getbootstrap.com" class="uri">http://getbootstrap.com</a>), which is the default style of the HTML output of R Markdown. The output format function in <strong>rmarkdown</strong> is <code>html_document()</code>, and we have a corresponding format <code>html_book()</code> in <strong>bookdown</strong> using <code>html_document()</code> as the base format. In fact, there is a more general format <code>html_chapters()</code> in <strong>bookdown</strong> and <code>html_book()</code> is just its special case:</p>
-<pre class="sourceCode r" id="cb76"><code class="sourceCode r"><div class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">html_chapters</span>(<span class="dt">toc =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, </div>
-<div class="sourceLine" id="cb76-2" data-line-number="2">  <span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>, <span class="dt">template =</span> <span class="kw">bookdown_file</span>(<span class="st">&quot;templates/default.html&quot;</span>), </div>
-<div class="sourceLine" id="cb76-3" data-line-number="3">  ..., <span class="dt">base_format =</span> rmarkdown<span class="op">::</span>html_document, <span class="dt">split_bib =</span> <span class="ot">TRUE</span>, </div>
-<div class="sourceLine" id="cb76-4" data-line-number="4">  <span class="dt">page_builder =</span> build_chapter, <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;section+number&quot;</span>, </div>
-<div class="sourceLine" id="cb76-5" data-line-number="5">    <span class="st">&quot;section&quot;</span>, <span class="st">&quot;chapter+number&quot;</span>, <span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>))</div></code></pre>
+<pre class="sourceCode r" id="cb77"><code class="sourceCode r"><div class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">html_chapters</span>(<span class="dt">toc =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, </div>
+<div class="sourceLine" id="cb77-2" data-line-number="2">  <span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>, <span class="dt">template =</span> <span class="kw">bookdown_file</span>(<span class="st">&quot;templates/default.html&quot;</span>), </div>
+<div class="sourceLine" id="cb77-3" data-line-number="3">  ..., <span class="dt">base_format =</span> rmarkdown<span class="op">::</span>html_document, <span class="dt">split_bib =</span> <span class="ot">TRUE</span>, </div>
+<div class="sourceLine" id="cb77-4" data-line-number="4">  <span class="dt">page_builder =</span> build_chapter, <span class="dt">split_by =</span> <span class="kw">c</span>(<span class="st">&quot;section+number&quot;</span>, </div>
+<div class="sourceLine" id="cb77-5" data-line-number="5">    <span class="st">&quot;section&quot;</span>, <span class="st">&quot;chapter+number&quot;</span>, <span class="st">&quot;chapter&quot;</span>, <span class="st">&quot;rmd&quot;</span>, <span class="st">&quot;none&quot;</span>))</div></code></pre>
 <p>Note that it has a <code>base_format</code> argument that takes a base output format function, and <code>html_book()</code> is basically <code>html_chapters(base_format = rmarkdown::html_document)</code>. All arguments of <code>html_book()</code> are passed to <code>html_chapters()</code>:</p>
-<pre class="sourceCode r" id="cb77"><code class="sourceCode r"><div class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">html_book</span>(...)</div></code></pre>
+<pre class="sourceCode r" id="cb78"><code class="sourceCode r"><div class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">html_book</span>(...)</div></code></pre>
 <p>That means that you can use most arguments of <code>rmarkdown::html_document</code>, such as <code>toc</code> (whether to show the table of contents), <code>number_sections</code> (whether to number section headings), and so on. Again, check the help page of <code>rmarkdown::html_document</code> to see the full list of possible options. Note that the argument <code>self_contained</code> is hard-coded to <code>FALSE</code> internally, so you cannot change the value of this argument. We have explained the argument <code>split_by</code> in the previous section.</p>
 <p>The arguments <code>template</code> and <code>page_builder</code> are for advanced users, and you do not need to understand them unless you have strong need to customize the HTML output, and those many options provided by <code>rmarkdown::html_document()</code> still do not give you what you want.</p>
 <p>If you want to pass a different HTML template to the <code>template</code> argument, the template must contain three pairs of HTML comments, and each comment must be on a separate line:</p>
@@ -363,76 +349,76 @@ FIGURE 3.1: The GitBook toolbar.
 <li><code>&lt;!--bookdown:body:start--&gt;</code> and <code>&lt;!--bookdown:body:end--&gt;</code> to mark the HTML body of the book, and the HTML body will be split into multiple separate pages. Recall that we merge all R Markdown or Markdown files, render them into a single HTML file, and split it.</li>
 </ul>
 <p>You may open the default HTML template to see where these comments were inserted:</p>
-<pre class="sourceCode r" id="cb78"><code class="sourceCode r"><div class="sourceLine" id="cb78-1" data-line-number="1">bookdown<span class="op">:::</span><span class="kw">bookdown_file</span>(<span class="st">&quot;templates/default.html&quot;</span>)</div>
-<div class="sourceLine" id="cb78-2" data-line-number="2"><span class="co"># you may use file.edit() to open this file</span></div></code></pre>
+<pre class="sourceCode r" id="cb79"><code class="sourceCode r"><div class="sourceLine" id="cb79-1" data-line-number="1">bookdown<span class="op">:::</span><span class="kw">bookdown_file</span>(<span class="st">&quot;templates/default.html&quot;</span>)</div>
+<div class="sourceLine" id="cb79-2" data-line-number="2"><span class="co"># you may use file.edit() to open this file</span></div></code></pre>
 <p>Once you know how <strong>bookdown</strong> works internally to generate multiple-page HTML output, it will be easier to understand the argument <code>page_builder</code>, which is a function to compose each individual HTML page using the HTML fragments extracted from the above comment tokens. The default value of <code>page_builder</code> is a function <code>build_chapter</code> in <strong>bookdown</strong>, and its source code is relatively simple (ignore those internal functions like <code>button_link()</code>):</p>
-<pre class="sourceCode r" id="cb79"><code class="sourceCode r"><div class="sourceLine" id="cb79-1" data-line-number="1">build_chapter =<span class="st"> </span><span class="cf">function</span>(</div>
-<div class="sourceLine" id="cb79-2" data-line-number="2">  head, toc, chapter, link_prev, link_next, rmd_cur, html_cur, foot</div>
-<div class="sourceLine" id="cb79-3" data-line-number="3">) {</div>
-<div class="sourceLine" id="cb79-4" data-line-number="4">  <span class="co"># add a has-sub class to the &lt;li&gt; items that has sub lists</span></div>
-<div class="sourceLine" id="cb79-5" data-line-number="5">  toc =<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&#39;^(&lt;li&gt;)(.+&lt;ul&gt;)$&#39;</span>, <span class="st">&#39;&lt;li class=&quot;has-sub&quot;&gt;</span><span class="ch">\\</span><span class="st">2&#39;</span>, toc)</div>
-<div class="sourceLine" id="cb79-6" data-line-number="6">  <span class="kw">paste</span>(<span class="kw">c</span>(</div>
-<div class="sourceLine" id="cb79-7" data-line-number="7">    head,</div>
-<div class="sourceLine" id="cb79-8" data-line-number="8">    <span class="st">&#39;&lt;div class=&quot;row&quot;&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-9" data-line-number="9">    <span class="st">&#39;&lt;div class=&quot;col-sm-12&quot;&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-10" data-line-number="10">    toc,</div>
-<div class="sourceLine" id="cb79-11" data-line-number="11">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-12" data-line-number="12">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-13" data-line-number="13">    <span class="st">&#39;&lt;div class=&quot;row&quot;&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-14" data-line-number="14">    <span class="st">&#39;&lt;div class=&quot;col-sm-12&quot;&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-15" data-line-number="15">    chapter,</div>
-<div class="sourceLine" id="cb79-16" data-line-number="16">    <span class="st">&#39;&lt;p style=&quot;text-align: center;&quot;&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-17" data-line-number="17">    <span class="kw">button_link</span>(link_prev, <span class="st">&#39;Previous&#39;</span>),</div>
-<div class="sourceLine" id="cb79-18" data-line-number="18">    <span class="kw">edit_link</span>(rmd_cur),</div>
-<div class="sourceLine" id="cb79-19" data-line-number="19">    <span class="kw">button_link</span>(link_next, <span class="st">&#39;Next&#39;</span>),</div>
-<div class="sourceLine" id="cb79-20" data-line-number="20">    <span class="st">&#39;&lt;/p&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-21" data-line-number="21">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-22" data-line-number="22">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</div>
-<div class="sourceLine" id="cb79-23" data-line-number="23">    foot</div>
-<div class="sourceLine" id="cb79-24" data-line-number="24">  ), <span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</div>
-<div class="sourceLine" id="cb79-25" data-line-number="25">}</div></code></pre>
+<pre class="sourceCode r" id="cb80"><code class="sourceCode r"><div class="sourceLine" id="cb80-1" data-line-number="1">build_chapter =<span class="st"> </span><span class="cf">function</span>(</div>
+<div class="sourceLine" id="cb80-2" data-line-number="2">  head, toc, chapter, link_prev, link_next, rmd_cur, html_cur, foot</div>
+<div class="sourceLine" id="cb80-3" data-line-number="3">) {</div>
+<div class="sourceLine" id="cb80-4" data-line-number="4">  <span class="co"># add a has-sub class to the &lt;li&gt; items that has sub lists</span></div>
+<div class="sourceLine" id="cb80-5" data-line-number="5">  toc =<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&#39;^(&lt;li&gt;)(.+&lt;ul&gt;)$&#39;</span>, <span class="st">&#39;&lt;li class=&quot;has-sub&quot;&gt;</span><span class="ch">\\</span><span class="st">2&#39;</span>, toc)</div>
+<div class="sourceLine" id="cb80-6" data-line-number="6">  <span class="kw">paste</span>(<span class="kw">c</span>(</div>
+<div class="sourceLine" id="cb80-7" data-line-number="7">    head,</div>
+<div class="sourceLine" id="cb80-8" data-line-number="8">    <span class="st">&#39;&lt;div class=&quot;row&quot;&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-9" data-line-number="9">    <span class="st">&#39;&lt;div class=&quot;col-sm-12&quot;&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-10" data-line-number="10">    toc,</div>
+<div class="sourceLine" id="cb80-11" data-line-number="11">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-12" data-line-number="12">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-13" data-line-number="13">    <span class="st">&#39;&lt;div class=&quot;row&quot;&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-14" data-line-number="14">    <span class="st">&#39;&lt;div class=&quot;col-sm-12&quot;&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-15" data-line-number="15">    chapter,</div>
+<div class="sourceLine" id="cb80-16" data-line-number="16">    <span class="st">&#39;&lt;p style=&quot;text-align: center;&quot;&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-17" data-line-number="17">    <span class="kw">button_link</span>(link_prev, <span class="st">&#39;Previous&#39;</span>),</div>
+<div class="sourceLine" id="cb80-18" data-line-number="18">    <span class="kw">edit_link</span>(rmd_cur),</div>
+<div class="sourceLine" id="cb80-19" data-line-number="19">    <span class="kw">button_link</span>(link_next, <span class="st">&#39;Next&#39;</span>),</div>
+<div class="sourceLine" id="cb80-20" data-line-number="20">    <span class="st">&#39;&lt;/p&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-21" data-line-number="21">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-22" data-line-number="22">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</div>
+<div class="sourceLine" id="cb80-23" data-line-number="23">    foot</div>
+<div class="sourceLine" id="cb80-24" data-line-number="24">  ), <span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</div>
+<div class="sourceLine" id="cb80-25" data-line-number="25">}</div></code></pre>
 <p>Basically, this function takes a number of components like the HTML head, the table of contents, the chapter body, and so on, and it is expected to return a character string which is the HTML source of a complete HTML page. You may manipulate all components in this function using text-processing functions like <code>gsub()</code> and <code>paste()</code>.</p>
 <p>What the default page builder does is to put TOC in the first row, the body in the second row, navigation buttons at the bottom of the body, and concatenate them with the HTML head and foot. Here is a sketch of the HTML source code that may help you understand the output of <code>build_chapter()</code>:</p>
-<pre class="sourceCode html" id="cb80"><code class="sourceCode html"><div class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">&lt;html&gt;</span></div>
-<div class="sourceLine" id="cb80-2" data-line-number="2">  <span class="kw">&lt;head&gt;</span></div>
-<div class="sourceLine" id="cb80-3" data-line-number="3">    <span class="kw">&lt;title&gt;</span>A Nice Book<span class="kw">&lt;/title&gt;</span></div>
-<div class="sourceLine" id="cb80-4" data-line-number="4">  <span class="kw">&lt;/head&gt;</span></div>
-<div class="sourceLine" id="cb80-5" data-line-number="5">  <span class="kw">&lt;body&gt;</span></div>
-<div class="sourceLine" id="cb80-6" data-line-number="6">  </div>
-<div class="sourceLine" id="cb80-7" data-line-number="7">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>TOC<span class="kw">&lt;/div&gt;</span></div>
-<div class="sourceLine" id="cb80-8" data-line-number="8">    </div>
-<div class="sourceLine" id="cb80-9" data-line-number="9">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span></div>
-<div class="sourceLine" id="cb80-10" data-line-number="10">      CHAPTER BODY</div>
-<div class="sourceLine" id="cb80-11" data-line-number="11">      <span class="kw">&lt;p&gt;</span></div>
-<div class="sourceLine" id="cb80-12" data-line-number="12">        <span class="kw">&lt;button&gt;</span>PREVIOUS<span class="kw">&lt;/button&gt;</span></div>
-<div class="sourceLine" id="cb80-13" data-line-number="13">        <span class="kw">&lt;button&gt;</span>NEXT<span class="kw">&lt;/button&gt;</span></div>
-<div class="sourceLine" id="cb80-14" data-line-number="14">      <span class="kw">&lt;/p&gt;</span></div>
-<div class="sourceLine" id="cb80-15" data-line-number="15">    <span class="kw">&lt;/div&gt;</span></div>
-<div class="sourceLine" id="cb80-16" data-line-number="16">  </div>
-<div class="sourceLine" id="cb80-17" data-line-number="17">  <span class="kw">&lt;/body&gt;</span></div>
-<div class="sourceLine" id="cb80-18" data-line-number="18"><span class="kw">&lt;/html&gt;</span></div></code></pre>
+<pre class="sourceCode html" id="cb81"><code class="sourceCode html"><div class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">&lt;html&gt;</span></div>
+<div class="sourceLine" id="cb81-2" data-line-number="2">  <span class="kw">&lt;head&gt;</span></div>
+<div class="sourceLine" id="cb81-3" data-line-number="3">    <span class="kw">&lt;title&gt;</span>A Nice Book<span class="kw">&lt;/title&gt;</span></div>
+<div class="sourceLine" id="cb81-4" data-line-number="4">  <span class="kw">&lt;/head&gt;</span></div>
+<div class="sourceLine" id="cb81-5" data-line-number="5">  <span class="kw">&lt;body&gt;</span></div>
+<div class="sourceLine" id="cb81-6" data-line-number="6">  </div>
+<div class="sourceLine" id="cb81-7" data-line-number="7">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span>TOC<span class="kw">&lt;/div&gt;</span></div>
+<div class="sourceLine" id="cb81-8" data-line-number="8">    </div>
+<div class="sourceLine" id="cb81-9" data-line-number="9">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;row&quot;</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb81-10" data-line-number="10">      CHAPTER BODY</div>
+<div class="sourceLine" id="cb81-11" data-line-number="11">      <span class="kw">&lt;p&gt;</span></div>
+<div class="sourceLine" id="cb81-12" data-line-number="12">        <span class="kw">&lt;button&gt;</span>PREVIOUS<span class="kw">&lt;/button&gt;</span></div>
+<div class="sourceLine" id="cb81-13" data-line-number="13">        <span class="kw">&lt;button&gt;</span>NEXT<span class="kw">&lt;/button&gt;</span></div>
+<div class="sourceLine" id="cb81-14" data-line-number="14">      <span class="kw">&lt;/p&gt;</span></div>
+<div class="sourceLine" id="cb81-15" data-line-number="15">    <span class="kw">&lt;/div&gt;</span></div>
+<div class="sourceLine" id="cb81-16" data-line-number="16">  </div>
+<div class="sourceLine" id="cb81-17" data-line-number="17">  <span class="kw">&lt;/body&gt;</span></div>
+<div class="sourceLine" id="cb81-18" data-line-number="18"><span class="kw">&lt;/html&gt;</span></div></code></pre>
 <p>For all HTML pages, the main difference is the chapter body, and most of the rest of the elements are the same. The default output from <code>html_book()</code> will include the Bootstrap CSS and JavaScript files in the <code>&lt;head&gt;</code> tag.</p>
 <p>The TOC is often used for navigation purposes. In the GitBook style, the TOC is displayed in the sidebar. For the Bootstrap style, we did not apply a special style to it, so it is shown as a plain unordered list (in the HTML tag <code>&lt;ul&gt;</code>). It is easy to turn this list into a navigation bar with some CSS techniques. We have provided a CSS file <code>toc.css</code> in this package that you can use, and you can find it here: <a href="https://github.com/rstudio/bookdown/blob/master/inst/examples/css/toc.css" class="uri">https://github.com/rstudio/bookdown/blob/master/inst/examples/css/toc.css</a></p>
 <p>You may copy this file to the root directory of your book, and apply it to the HTML output via the <code>css</code> option, e.g.,</p>
-<pre class="sourceCode yaml" id="cb81"><code class="sourceCode yaml"><div class="sourceLine" id="cb81-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb81-2" data-line-number="2"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb81-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:html_book:</span></div>
-<div class="sourceLine" id="cb81-4" data-line-number="4">    <span class="fu">toc:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb81-5" data-line-number="5">    <span class="fu">css:</span><span class="at"> toc.css</span></div>
-<div class="sourceLine" id="cb81-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb82"><code class="sourceCode yaml"><div class="sourceLine" id="cb82-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb82-2" data-line-number="2"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb82-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:html_book:</span></div>
+<div class="sourceLine" id="cb82-4" data-line-number="4">    <span class="fu">toc:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb82-5" data-line-number="5">    <span class="fu">css:</span><span class="at"> toc.css</span></div>
+<div class="sourceLine" id="cb82-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
 <p>There are many possible ways to turn <code>&lt;ul&gt;</code> lists into navigation menus if you do a little bit searching on the web, and you can choose a menu style that you like. The <code>toc.css</code> we just mentioned is a style with white menu texts on a black background, and supports sub-menus (e.g., section titles are displayed as drop-down menus under chapter titles).</p>
 <p>As a matter of fact, you can get rid of the Bootstrap style in <code>html_document()</code> if you set the <code>theme</code> option to <code>null</code>, and you are free to apply arbitrary styles to the HTML output using the <code>css</code> option (and possibly the <code>includes</code> option if you want to include arbitrary content in the HTML head/foot).</p>
 </div>
 <div id="tufte-style" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Tufte style</h3>
-<p>Like the Bootstrap style, the Tufte style is provided by an output format <code>tufte_html_book()</code>, which is also a special case of <code>html_chapters()</code> using <code>tufte::tufte_html()</code> as the base format. Please see the <strong>tufte</strong> package <span class="citation" data-cites="R-tufte">(Xie and Allaire <a href="#ref-R-tufte">2016</a>)</span> if you are not familiar with the Tufte style. Basically, it is a layout with a main column on the left and a margin column on the right. The main body is in the main column, and the margin column is used to place footnotes, margin notes, references, and margin figures, and so on.</p>
+<p>Like the Bootstrap style, the Tufte style is provided by an output format <code>tufte_html_book()</code>, which is also a special case of <code>html_chapters()</code> using <code>tufte::tufte_html()</code> as the base format. Please see the <strong>tufte</strong> package <span class="citation">(Xie and Allaire <a href="#ref-R-tufte">2016</a>)</span> if you are not familiar with the Tufte style. Basically, it is a layout with a main column on the left and a margin column on the right. The main body is in the main column, and the margin column is used to place footnotes, margin notes, references, and margin figures, and so on.</p>
 <p>All arguments of <code>tufte_html_book()</code> have exactly the same meanings as <code>html_book()</code>, e.g., you can also customize the CSS via the <code>css</code> option. There are a few elements that are specific to the Tufte style, though, such as margin notes, margin figures, and full-width figures. These elements require special syntax to generate; please see the documentation of the <strong>tufte</strong> package. Note that you do not need to do anything special to footnotes and references (just use the normal Markdown syntax <code>^[footnote]</code> and <code>[@citation]</code>), since they will be automatically put in the margin. A brief YAML example of the <code>tufte_html_book</code> format:</p>
-<pre class="sourceCode yaml" id="cb82"><code class="sourceCode yaml"><div class="sourceLine" id="cb82-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb82-2" data-line-number="2"><span class="fu">output:</span></div>
-<div class="sourceLine" id="cb82-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:tufte_html_book:</span></div>
-<div class="sourceLine" id="cb82-4" data-line-number="4">    <span class="fu">toc:</span><span class="at"> yes</span></div>
-<div class="sourceLine" id="cb82-5" data-line-number="5">    <span class="fu">css:</span><span class="at"> toc.css</span></div>
-<div class="sourceLine" id="cb82-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
+<pre class="sourceCode yaml" id="cb83"><code class="sourceCode yaml"><div class="sourceLine" id="cb83-1" data-line-number="1"><span class="ot">---</span></div>
+<div class="sourceLine" id="cb83-2" data-line-number="2"><span class="fu">output:</span></div>
+<div class="sourceLine" id="cb83-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:tufte_html_book:</span></div>
+<div class="sourceLine" id="cb83-4" data-line-number="4">    <span class="fu">toc:</span><span class="at"> yes</span></div>
+<div class="sourceLine" id="cb83-5" data-line-number="5">    <span class="fu">css:</span><span class="at"> toc.css</span></div>
+<div class="sourceLine" id="cb83-6" data-line-number="6"><span class="ot">---</span></div></code></pre>
 </div>
 </div>
 <h3>References</h3>

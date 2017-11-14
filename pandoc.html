@@ -45,14 +45,6 @@
 
 
 
-<script src="libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding/datatables.js"></script>
-<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -109,7 +101,7 @@ code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Comme
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body onload="window.location = 'https://bookdown.org/yihui'+location.pathname">
@@ -204,7 +196,6 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>C</b> FAQ</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
 
@@ -228,8 +219,8 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="pandoc" class="section level2">
 <h2><span class="header-section-number">A.2</span> Pandoc</h2>
 <p>An R Markdown document (<code>*.Rmd</code>) is first compiled to Markdown (<code>*.md</code>) through the <strong>knitr</strong> package, and then Markdown is compiled to other output formats (such as LaTeX or HTML) through Pandoc. This process is automated by the <strong>rmarkdown</strong> package. You do not need to install <strong>knitr</strong> or <strong>rmarkdown</strong> separately, because they are the required packages of <strong>bookdown</strong> and will be automatically installed when you install <strong>bookdown</strong>. However, Pandoc is not an R package, so it will not be automatically installed when you install <strong>bookdown</strong>. You can follow the installation instructions on the Pandoc homepage (<a href="http://pandoc.org" class="uri">http://pandoc.org</a>) to install Pandoc, but if you use the RStudio IDE, you do not really need to install Pandoc separately, because RStudio includes a copy of Pandoc. The Pandoc version number can be obtained via:</p>
-<pre class="sourceCode r" id="cb132"><code class="sourceCode r"><div class="sourceLine" id="cb132-1" data-line-number="1">rmarkdown<span class="op">::</span><span class="kw">pandoc_version</span>()</div>
-<div class="sourceLine" id="cb132-2" data-line-number="2">## [1] &#39;2.0.2&#39;</div></code></pre>
+<pre class="sourceCode r" id="cb133"><code class="sourceCode r"><div class="sourceLine" id="cb133-1" data-line-number="1">rmarkdown<span class="op">::</span><span class="kw">pandoc_version</span>()</div>
+<div class="sourceLine" id="cb133-2" data-line-number="2">## [1] &#39;2.0.2&#39;</div></code></pre>
 <p>If you find this version too low and there are Pandoc features only in a later version, you can install the later version of Pandoc, and <strong>rmarkdown</strong> will call the newer version instead of its built-in version.</p>
 </div>
             </section>
