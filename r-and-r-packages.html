@@ -196,6 +196,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>C</b> FAQ</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
 
@@ -220,14 +221,14 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2><span class="header-section-number">A.1</span> R and R packages</h2>
 <p>R can be downloaded and installed from any CRAN (the Comprehensive R Archive Network) mirrors, e.g., <a href="https://cran.rstudio.com" class="uri">https://cran.rstudio.com</a>. Please note that there will be a few new releases of R every year, and you may want to upgrade R occasionally.</p>
 <p>To install the <strong>bookdown</strong> package, you can type this in R:</p>
-<pre class="sourceCode r" id="cb129"><code class="sourceCode r"><div class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</div></code></pre>
+<pre class="sourceCode r" id="cb128"><code class="sourceCode r"><div class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</div></code></pre>
 <p>This installs all required R packages. You can also choose to install all optional packages as well, if you do not care too much about whether these packages will actually be used to compile your book (such as <strong>htmlwidgets</strong>):</p>
-<pre class="sourceCode r" id="cb130"><code class="sourceCode r"><div class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</div></code></pre>
+<pre class="sourceCode r" id="cb129"><code class="sourceCode r"><div class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</div></code></pre>
 <p>If you want to test the development version of <strong>bookdown</strong> on GitHub, you need to install <strong>devtools</strong> first:</p>
-<pre class="sourceCode r" id="cb131"><code class="sourceCode r"><div class="sourceLine" id="cb131-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">&quot;devtools&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</div>
-<div class="sourceLine" id="cb131-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;rstudio/bookdown&quot;</span>)</div></code></pre>
+<pre class="sourceCode r" id="cb130"><code class="sourceCode r"><div class="sourceLine" id="cb130-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">&quot;devtools&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</div>
+<div class="sourceLine" id="cb130-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;rstudio/bookdown&quot;</span>)</div></code></pre>
 <p>R packages are also often constantly updated on CRAN or GitHub, so you may want to update them once in a while:</p>
-<pre class="sourceCode r" id="cb132"><code class="sourceCode r"><div class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">update.packages</span>(<span class="dt">ask =</span> <span class="ot">FALSE</span>)</div></code></pre>
+<pre class="sourceCode r" id="cb131"><code class="sourceCode r"><div class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">update.packages</span>(<span class="dt">ask =</span> <span class="ot">FALSE</span>)</div></code></pre>
 <p>Although it is not required, the RStudio IDE can make a lot of things much easier when you work on R-related projects. The RStudio IDE can be downloaded from <a href="https://www.rstudio.com" class="uri">https://www.rstudio.com</a>.</p>
 </div>
             </section>
