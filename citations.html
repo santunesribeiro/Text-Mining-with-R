@@ -56,57 +56,69 @@
 
 
 <style type="text/css">
-div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource div.sourceLine, .numberSource a.sourceLine
+pre.numberSource a.sourceLine
   { position: relative; }
-pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
     position: absolute; left: -5em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em; }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
 @media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
+a.sourceLine::before { text-decoration: underline; }
 }
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code span.dt { color: #902000; } /* DataType */
 code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
 code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
 code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -229,20 +241,20 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h2><span class="header-section-number">2.8</span> Citations</h2>
 <p>Although Pandoc supports multiple ways of writing citations, we recommend you to use BibTeX databases because they work best with LaTeX/PDF output. Pandoc can process other types of bibliography databases with the utility <code>pandoc-citeproc</code> (<a href="https://github.com/jgm/pandoc-citeproc" class="uri">https://github.com/jgm/pandoc-citeproc</a>), but it may not render certain bibliography items correctly (especially in case of multiple authors per item), and BibTeX can do a better job when the output format is LaTeX. With BibTeX databases, you will be able to define the bibliography style if it is required by a certain publisher or journal.</p>
 <p>A BibTeX database is a plain-text file (with the conventional filename extension <code>.bib</code>) that consists of bibliography entries like this:</p>
-<pre class="sourceCode bibtex" id="cb57"><code class="sourceCode bibtex"><div class="sourceLine" id="cb57-1" data-line-number="1"><span class="va">@Manual</span>{<span class="ot">R</span>-<span class="ot">base</span>,</div>
-<div class="sourceLine" id="cb57-2" data-line-number="2">  <span class="dt">title</span> = {R: A Language and Environment for Statistical</div>
-<div class="sourceLine" id="cb57-3" data-line-number="3">    Computing},</div>
-<div class="sourceLine" id="cb57-4" data-line-number="4">  <span class="dt">author</span> = {{R Core Team}},</div>
-<div class="sourceLine" id="cb57-5" data-line-number="5">  <span class="dt">organization</span> = {R Foundation for Statistical Computing},</div>
-<div class="sourceLine" id="cb57-6" data-line-number="6">  <span class="dt">address</span> = {Vienna, Austria},</div>
-<div class="sourceLine" id="cb57-7" data-line-number="7">  <span class="dt">year</span> = {2016},</div>
-<div class="sourceLine" id="cb57-8" data-line-number="8">  <span class="dt">url</span> = {https://www.R-project.org/},</div>
-<div class="sourceLine" id="cb57-9" data-line-number="9">}</div></code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="va">@Manual</span>{<span class="ot">R</span>-<span class="ot">base</span>,</a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">  <span class="dt">title</span> = {R: A Language and Environment for Statistical</a>
+<a class="sourceLine" id="cb57-3" data-line-number="3">    Computing},</a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">  <span class="dt">author</span> = {{R Core Team}},</a>
+<a class="sourceLine" id="cb57-5" data-line-number="5">  <span class="dt">organization</span> = {R Foundation for Statistical Computing},</a>
+<a class="sourceLine" id="cb57-6" data-line-number="6">  <span class="dt">address</span> = {Vienna, Austria},</a>
+<a class="sourceLine" id="cb57-7" data-line-number="7">  <span class="dt">year</span> = {2016},</a>
+<a class="sourceLine" id="cb57-8" data-line-number="8">  <span class="dt">url</span> = {https://www.R-project.org/},</a>
+<a class="sourceLine" id="cb57-9" data-line-number="9">}</a></code></pre></div>
 <p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on.<a href="references.html#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered as <span class="citation">R Core Team (<a href="#ref-R-base">2017</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="#ref-R-base">2017</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
 <p>There are a number of fields in a bibliography entry, such as <code>title</code>, <code>author</code>, and <code>year</code>, etc. You may see <a href="https://en.wikipedia.org/wiki/BibTeX" class="uri">https://en.wikipedia.org/wiki/BibTeX</a> for possible types of entries and fields in BibTeX.</p>
 <p>There is a helper function <code>write_bib()</code> in <strong>knitr</strong> to generate BibTeX entries automatically for R packages. Note that it only generates one BibTeX entry for the package itself at the moment, whereas a package may contain multiple entries in the <code>CITATION</code> file, and some entries are about the publications related to the package. These entries are ignored by <code>write_bib()</code>.</p>
-<pre class="sourceCode r" id="cb58"><code class="sourceCode r"><div class="sourceLine" id="cb58-1" data-line-number="1"><span class="co"># the second argument can be a .bib file</span></div>
-<div class="sourceLine" id="cb58-2" data-line-number="2">knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;stringr&quot;</span>), <span class="st">&quot;&quot;</span>, <span class="dt">width =</span> <span class="dv">60</span>)</div></code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="co"># the second argument can be a .bib file</span></a>
+<a class="sourceLine" id="cb58-2" data-line-number="2">knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;stringr&quot;</span>), <span class="st">&quot;&quot;</span>, <span class="dt">width =</span> <span class="dv">60</span>)</a></code></pre></div>
 <pre><code>@Manual{R-knitr,
   title = {knitr: A General-Purpose Package for Dynamic Report
     Generation in R},
@@ -260,14 +272,14 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
   url = {https://CRAN.R-project.org/package=stringr},
 }</code></pre>
 <p>Once you have one or multiple <code>.bib</code> files, you may use the field <code>bibliography</code> in the YAML metadata of your first R Markdown document (which is typically <code>index.Rmd</code>), and you can also specify the bibliography style via <code>biblio-style</code> (this only applies to PDF output), e.g.,</p>
-<pre class="sourceCode yaml" id="cb60"><code class="sourceCode yaml"><div class="sourceLine" id="cb60-1" data-line-number="1"><span class="ot">---</span></div>
-<div class="sourceLine" id="cb60-2" data-line-number="2"><span class="fu">bibliography:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;one.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;another.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;yet-another.bib&quot;</span><span class="kw">]</span></div>
-<div class="sourceLine" id="cb60-3" data-line-number="3"><span class="fu">biblio-style:</span><span class="at"> </span><span class="st">&quot;apalike&quot;</span></div>
-<div class="sourceLine" id="cb60-4" data-line-number="4"><span class="fu">link-citations:</span><span class="at"> true</span></div>
-<div class="sourceLine" id="cb60-5" data-line-number="5"><span class="ot">---</span></div></code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb60-2" data-line-number="2"><span class="fu">bibliography:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;one.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;another.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;yet-another.bib&quot;</span><span class="kw">]</span></a>
+<a class="sourceLine" id="cb60-3" data-line-number="3"><span class="fu">biblio-style:</span><span class="at"> </span><span class="st">&quot;apalike&quot;</span></a>
+<a class="sourceLine" id="cb60-4" data-line-number="4"><span class="fu">link-citations:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb60-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
 <p>The field <code>link-citations</code> can be used to add internal links from the citation text of the author-year style to the bibliography entry in the HTML output.</p>
 <p>When the output format is LaTeX, citations will be automatically put in a chapter or section. For non-LaTeX output, you can add an empty chapter as the last chapter of your book. For example, if your last chapter is the Rmd file <code>06-references.Rmd</code>, its content can be an inline R expression:</p>
-<pre class="sourceCode markdown" id="cb61"><code class="sourceCode markdown"><div class="sourceLine" id="cb61-1" data-line-number="1"><span class="bn">`r if (knitr:::is_html_output()) &#39;# References {-}&#39;`</span></div></code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="bn">`r if (knitr:::is_html_output()) &#39;# References {-}&#39;`</span></a></code></pre></div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">

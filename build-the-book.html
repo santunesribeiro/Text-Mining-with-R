@@ -56,57 +56,69 @@
 
 
 <style type="text/css">
-div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource div.sourceLine, .numberSource a.sourceLine
+pre.numberSource a.sourceLine
   { position: relative; }
-pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
     position: absolute; left: -5em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em; }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
 @media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
+a.sourceLine::before { text-decoration: underline; }
 }
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code span.dt { color: #902000; } /* DataType */
 code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
 code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
 code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -228,22 +240,22 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="build-the-book" class="section level2">
 <h2><span class="header-section-number">5.1</span> Build the book</h2>
 <p>To build all Rmd files into a book, you can call the <code>render_book()</code> function in <strong>bookdown</strong>. Below are the arguments of <code>render_book()</code>:</p>
-<pre class="sourceCode r" id="cb105"><code class="sourceCode r"><div class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">render_book</span>(input, <span class="dt">output_format =</span> <span class="ot">NULL</span>, ..., <span class="dt">clean =</span> <span class="ot">TRUE</span>, </div>
-<div class="sourceLine" id="cb105-2" data-line-number="2">  <span class="dt">envir =</span> <span class="kw">parent.frame</span>(), <span class="dt">clean_envir =</span> <span class="op">!</span><span class="kw">interactive</span>(), </div>
-<div class="sourceLine" id="cb105-3" data-line-number="3">  <span class="dt">output_dir =</span> <span class="ot">NULL</span>, <span class="dt">new_session =</span> <span class="ot">NA</span>, <span class="dt">preview =</span> <span class="ot">FALSE</span>, </div>
-<div class="sourceLine" id="cb105-4" data-line-number="4">  <span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>, <span class="dt">config_file =</span> <span class="st">&quot;_bookdown.yml&quot;</span>)</div></code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">render_book</span>(input, <span class="dt">output_format =</span> <span class="ot">NULL</span>, ..., <span class="dt">clean =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">  <span class="dt">envir =</span> <span class="kw">parent.frame</span>(), <span class="dt">clean_envir =</span> <span class="op">!</span><span class="kw">interactive</span>(), </a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">  <span class="dt">output_dir =</span> <span class="ot">NULL</span>, <span class="dt">new_session =</span> <span class="ot">NA</span>, <span class="dt">preview =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb105-4" data-line-number="4">  <span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>, <span class="dt">config_file =</span> <span class="st">&quot;_bookdown.yml&quot;</span>)</a></code></pre></div>
 <p>The most important argument is <code>output_format</code>, which can take a character string of the output format (e.g., <code>'bookdown::gitbook'</code>). You can leave this argument empty, and the default output format will be the first output format specified in the YAML metadata of the first Rmd file or a separate YAML file <code>_output.yml</code>, as mentioned in Section <a href="configuration.html#configuration">4.4</a>. If you plan to generate multiple output formats for a book, you are recommended to specify all formats in <code>_output.yml</code>.</p>
 <p>Once all formats are specified in <code>_output.yml</code>, it is easy to write an R or Shell script or Makefile to compile the book. Below is a simple example of using a Shell script to compile a book to HTML (with the GitBook style) and PDF:</p>
-<pre class="sourceCode bash" id="cb106"><code class="sourceCode bash"><div class="sourceLine" id="cb106-1" data-line-number="1"><span class="co">#!/usr/bin/env Rscript</span></div>
-<div class="sourceLine" id="cb106-2" data-line-number="2"></div>
-<div class="sourceLine" id="cb106-3" data-line-number="3"><span class="ex">bookdown</span>::render_book(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)</div>
-<div class="sourceLine" id="cb106-4" data-line-number="4"><span class="ex">bookdown</span>::render_book(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</div></code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="co">#!/usr/bin/env Rscript</span></a>
+<a class="sourceLine" id="cb106-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb106-3" data-line-number="3"><span class="ex">bookdown</span>::render_book(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)</a>
+<a class="sourceLine" id="cb106-4" data-line-number="4"><span class="ex">bookdown</span>::render_book(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</a></code></pre></div>
 <p>The Shell script does not work on Windows (not strictly true, though), but hopefully you get the idea.</p>
 <p>The argument <code>...</code> is passed to the output format function. Arguments <code>clean</code> and <code>envir</code> are passed to <code>rmarkdown::render()</code>, to decide whether to clean up the intermediate files, and specify the environment to evaluate R code, respectively.</p>
 <p>The output directory of the book can be specified via the <code>output_dir</code> argument. By default, the book is generated to the <code>_book</code> directory. This can also be changed via the <code>output_dir</code> field in the configuration file <code>_bookdown.yml</code>, so that you do not have to specify it multiple times for rendering a book to multiple output formats. The <code>new_session</code> argument has been explained in Section <a href="new-session.html#new-session">1.4</a>. When you set <code>preview = TRUE</code>, only the Rmd files specified in the <code>input</code> argument are rendered, which can be convenient when previewing a certain chapter, since you do not recompile the whole book, but when publishing a book, this argument should certainly be set to <code>FALSE</code>.</p>
 <p>When you render the book to multiple formats in the same R session, you need to be careful because the next format may have access to R objects created from the previous format. You are recommended to render the book with a clean environment for each output format. The argument <code>clean_envir</code> can be used to clean all objects in the environment specified by <code>envir</code>. By default, it is <code>TRUE</code> for non-interactive R sessions (e.g., in batch mode). Note that even <code>clean_envir = TRUE</code> does not really guarantee the R session is clean. For example, packages loaded when rendering the previous format will remain in the session for the next output format. To make sure each format is rendered in a completely clean R session, you have to actually launch a new R session to build each format, e.g., use the command line</p>
-<pre class="sourceCode sh" id="cb107"><code class="sourceCode bash"><div class="sourceLine" id="cb107-1" data-line-number="1"><span class="ex">Rscript</span> -e <span class="st">&quot;bookdown::render_book(&#39;index.Rmd&#39;, &#39;bookdown::gitbook&#39;)&quot;</span></div>
-<div class="sourceLine" id="cb107-2" data-line-number="2"><span class="ex">Rscript</span> -e <span class="st">&quot;bookdown::render_book(&#39;index.Rmd&#39;, &#39;bookdown::pdf_book&#39;)&quot;</span></div></code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="ex">Rscript</span> -e <span class="st">&quot;bookdown::render_book(&#39;index.Rmd&#39;, &#39;bookdown::gitbook&#39;)&quot;</span></a>
+<a class="sourceLine" id="cb107-2" data-line-number="2"><span class="ex">Rscript</span> -e <span class="st">&quot;bookdown::render_book(&#39;index.Rmd&#39;, &#39;bookdown::pdf_book&#39;)&quot;</span></a></code></pre></div>
 <p>A number of output files will be generated by <code>render_book()</code>. Sometimes you may want to clean up the book directory and start all over again, e.g., remove the figure and cache files that were generated automatically from <strong>knitr</strong>. The function <code>clean_book()</code> was designed for this purpose. By default, it tells you which output files you can possibly delete. If you have looked at this list of files, and are sure no files were mistakenly identified as output files (you certainly do not want to delete an input file that you created by hand), you can delete all of them using <code>bookdown::clean_book(TRUE)</code>. Since deleting files is a relatively dangerous operation, we would recommend that you maintain your book through version control tools such as GIT, or a service that supports backup and restoration, so you will not lose certain files forever if you delete them by mistake.</p>
 </div>
             </section>
