@@ -45,6 +45,14 @@
 
 
 
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -220,11 +228,17 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="web-pages-and-shiny-apps" class="section level2">
 <h2><span class="header-section-number">2.11</span> Web pages and Shiny apps</h2>
 <p>Similar to HTML widgets, arbitrary web pages can be embedded in the book. You can use the function <code>knitr::include_url()</code> to include a web page through its URL. When the output format is HTML, an <code>iframe</code> is used;<a href="references.html#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> in other cases, <strong>knitr</strong> tries to take a screenshot of the web page (or use the custom screenshot you provided). All chunk options are the same as those for HTML widgets. One option that may require your special attention is the <code>delay</code> option: HTML widgets are rendered locally, so usually they are fast to load for PhantomJS to take screenshots, but an arbitrary URL may take longer to load, so you may want to use a larger <code>delay</code> value, e.g., use the chunk option <code>screenshot.opts = list(delay = 5)</code>.</p>
-<p>A related function is <code>knitr::include_app()</code>, which is very similar to <code>include_url()</code>, and it was designed for embedding Shiny apps via their URLs in the output. Its only difference with <code>include_url()</code> is that it automatically adds a query parameter <code>?showcase=0</code> to the URL, if no other query parameters are present in the URL, to disable the Shiny showcase mode, which is unlikely to be useful for screenshots or iframes. If you do want the showcase mode, use <code>include_url()</code> instead of <code>include_app()</code>. Below is a Shiny app example (Figure <a href="#fig:miniUI"><strong>??</strong></a>):</p>
+<p>A related function is <code>knitr::include_app()</code>, which is very similar to <code>include_url()</code>, and it was designed for embedding Shiny apps via their URLs in the output. Its only difference with <code>include_url()</code> is that it automatically adds a query parameter <code>?showcase=0</code> to the URL, if no other query parameters are present in the URL, to disable the Shiny showcase mode, which is unlikely to be useful for screenshots or iframes. If you do want the showcase mode, use <code>include_url()</code> instead of <code>include_app()</code>. Below is a Shiny app example (Figure <a href="web-pages-and-shiny-apps.html#fig:miniUI">2.6</a>):</p>
 
 <pre class="sourceCode r" id="cb65"><code class="sourceCode r"><div class="sourceLine" id="cb65-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&quot;https://yihui.shinyapps.io/miniUI/&quot;</span>, </div>
 <div class="sourceLine" id="cb65-2" data-line-number="2">  <span class="dt">height =</span> <span class="st">&quot;600px&quot;</span>)</div></code></pre>
-<p><a href="https://yihui.shinyapps.io/miniUI/" target="_blank"><img src="bookdown_files/figure-html4/miniUI-1.png" title="A Shiny app created via the miniUI package; you can see a live version at https://yihui.shinyapps.io/miniUI/." alt="A Shiny app created via the miniUI package; you can see a live version at https://yihui.shinyapps.io/miniUI/." width="768" style="display: block; margin: auto;" /></a></p>
+<div class="figure" style="text-align: center"><span id="fig:miniUI"></span>
+<iframe src="https://yihui.shinyapps.io/miniUI/?showcase=0" width="768" height="600px">
+</iframe>
+<p class="caption">
+FIGURE 2.6: A Shiny app created via the miniUI package; you can see a live version at <a href="https://yihui.shinyapps.io/miniUI/" class="uri">https://yihui.shinyapps.io/miniUI/</a>.
+</p>
+</div>
 
 <p>Again, you will see a live app if you are reading an HTML version of this book, and a static screenshot if you are reading other types of formats. The above Shiny app was created using the <strong>miniUI</strong> package <span class="citation">(Cheng <a href="#ref-R-miniUI">2016</a>)</span>, which provides layout functions that are particularly nice for Shiny apps on small screens. If you use normal Shiny layout functions, you are likely to see vertical and/or horizontal scrollbars in the iframes because the page size is too big to fit an iframe. When the default width of the iframe is too small, you may use the chunk option <code>out.width</code> to change it. For the height of the iframe, use the <code>height</code> argument of <code>include_url()</code>/<code>include_app()</code>.</p>
 <p>Shiny apps may take even longer to load than usual URLs. You may want to use a conservative value for the <code>delay</code> option, e.g., 10. Needless to say, <code>include_url()</code> and <code>include_app()</code> require a working Internet connection, unless you have previously cached the chunk (but web pages inside iframes still will not work without an Internet connection).</p>
