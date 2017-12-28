@@ -266,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>section</code>: split the file by the second-level headers.</li>
 <li><code>chapter+number</code> and <code>section+number</code>: similar to <code>chapter</code> and <code>section</code>, but the files will be numbered.</li>
 </ul>
-<p>For <code>chapter</code> and <code>section</code>, the HTML filenames will be determined by the header identifiers, e.g., the filename for the first chapter with a chapter title <code># Introduction</code> will be <code>introduction.html</code> by default. For <code>chapter+number</code> and <code>section+number</code>, the chapter/section numbers will be prepended to the HTML filenames, e.g., <code>1-introduction.html</code> and <code>2-1-literature.html</code>. The header identifier is automatically generated from the header text by default,<a href="references.html#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> and you can manually specify an identifier using the syntax <code>{#your-custom-id}</code> after the header text, e.g.,</p>
+<p>For <code>chapter</code> and <code>section</code>, the HTML filenames will be determined by the header identifiers, e.g., the filename for the first chapter with a chapter title <code># Introduction</code> will be <code>introduction.html</code> by default. For <code>chapter+number</code> and <code>section+number</code>, the chapter/section numbers will be prepended to the HTML filenames, e.g., <code>1-introduction.html</code> and <code>2-1-literature.html</code>. The header identifier is automatically generated from the header text by default,<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> and you can manually specify an identifier using the syntax <code>{#your-custom-id}</code> after the header text, e.g.,</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="fu"># An Introduction {#introduction}</span></a>
 <a class="sourceLine" id="cb69-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb69-3" data-line-number="3">The default identifier is <span class="bn">`an-introduction`</span> but we changed</a>
@@ -335,7 +335,7 @@ FIGURE 3.1: The GitBook toolbar.
 <p>Finally, there are a few more top-level options in the YAML metadata that can be passed to the GitBook HTML template via Pandoc. They may not have clear visible effects on the HTML output, but they may be useful when you deploy the HTML output as a website. These options include:</p>
 <ul>
 <li><code>description</code>: A character string to be written to the <code>content</code> attribute of the tag <code>&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</code> in the HTML head (if missing, the title of the book will be used). This can be useful for search engine optimization (SEO). Note that it should be plain text without any Markdown formatting such as <code>_italic_</code> or <code>**bold**</code>.</li>
-<li><code>url</code>: The URL of book’s website, e.g., <code>https\://bookdown.org/yihui/bookdown/</code>.<a href="references.html#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></li>
+<li><code>url</code>: The URL of book’s website, e.g., <code>https\://bookdown.org/yihui/bookdown/</code>.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></li>
 <li><code>github-repo</code>: The GitHub repository of the book of the form <code>user/repo</code>.</li>
 <li><code>cover-image</code>: The path to the cover image of the book.</li>
 <li><code>apple-touch-icon</code>: A path to an icon (e.g., a PNG image). This is for iOS only: when the website is added to the Home screen, the link is represented by this icon.</li>
@@ -452,6 +452,13 @@ FIGURE 3.1: The GitBook toolbar.
 <div id="ref-R-tufte">
 <p>Xie, Yihui, and JJ Allaire. 2016. <em>Tufte: Tufte’s Styles for R Markdown Documents</em>. <a href="https://github.com/rstudio/tufte" class="uri">https://github.com/rstudio/tufte</a>.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="9">
+<li id="fn9"><p>To see more details on how an identifier is automatically generated, see the <code>auto_identifiers</code> extension in Pandoc’s documentation <a href="http://pandoc.org/MANUAL.html#header-identifiers" class="uri">http://pandoc.org/MANUAL.html#header-identifiers</a><a href="html.html#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>The backslash before <code>:</code> is due to a technical issue: we want to prevent Pandoc from translating the link to HTML code <code>&lt;a href=&quot;...&quot;&gt;&lt;/a&gt;</code>. More details at <a href="https://github.com/jgm/pandoc/issues/2139" class="uri">https://github.com/jgm/pandoc/issues/2139</a>.<a href="html.html#fnref10" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
             </section>
 

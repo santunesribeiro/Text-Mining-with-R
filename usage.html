@@ -286,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb12-2" data-line-number="2">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</a>
 <a class="sourceLine" id="cb12-3" data-line-number="3">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown<span class="op">::</span><span class="kw">gitbook</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>))</a>
 <a class="sourceLine" id="cb12-4" data-line-number="4">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown<span class="op">::</span><span class="kw">pdf_book</span>(<span class="dt">keep_tex =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
-<p>To use <code>render_book</code> and the output format functions in the RStudio IDE, you can define a YAML field named <code>site</code> that takes the value <code>bookdown::bookdown_site</code>,<a href="references.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> and the output format functions can be used in the <code>output</code> field, e.g.,</p>
+<p>To use <code>render_book</code> and the output format functions in the RStudio IDE, you can define a YAML field named <code>site</code> that takes the value <code>bookdown::bookdown_site</code>,<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> and the output format functions can be used in the <code>output</code> field, e.g.,</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="ot">---</span></a>
 <a class="sourceLine" id="cb13-2" data-line-number="2"><span class="fu">site:</span><span class="at"> </span><span class="st">&quot;bookdown::bookdown_site&quot;</span></a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="fu">output:</span></a>
@@ -309,6 +309,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb14-10" data-line-number="10"><span class="fu">biblio-style:</span><span class="at"> apalike</span></a>
 <a class="sourceLine" id="cb14-11" data-line-number="11"><span class="fu">link-citations:</span><span class="at"> yes</span></a>
 <a class="sourceLine" id="cb14-12" data-line-number="12"><span class="ot">---</span></a></code></pre></div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>This function calls <code>bookdown::render_book()</code>.<a href="usage.html#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
             </section>
 
