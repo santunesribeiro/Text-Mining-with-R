@@ -205,17 +205,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="github.html"><a href="github.html"><i class="fa fa-check"></i><b>6.2</b> GitHub</a></li>
 <li class="chapter" data-level="6.3" data-path="publishers.html"><a href="publishers.html"><i class="fa fa-check"></i><b>6.3</b> Publishers</a></li>
 </ul></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>A</b> Software Tools</a><ul>
-<li class="chapter" data-level="A.1" data-path="r-and-r-packages.html"><a href="r-and-r-packages.html"><i class="fa fa-check"></i><b>A.1</b> R and R packages</a></li>
-<li class="chapter" data-level="A.2" data-path="pandoc.html"><a href="pandoc.html"><i class="fa fa-check"></i><b>A.2</b> Pandoc</a></li>
-<li class="chapter" data-level="A.3" data-path="latex.html"><a href="latex.html"><i class="fa fa-check"></i><b>A.3</b> LaTeX</a></li>
+<li class="chapter" data-level="" data-path="appendix-appendix.html"><a href="appendix-appendix.html"><i class="fa fa-check"></i>(APPENDIX) Appendix</a></li>
+<li class="chapter" data-level="7" data-path="software-tools.html"><a href="software-tools.html"><i class="fa fa-check"></i><b>7</b> Software Tools</a><ul>
+<li class="chapter" data-level="7.1" data-path="r-and-r-packages.html"><a href="r-and-r-packages.html"><i class="fa fa-check"></i><b>7.1</b> R and R packages</a></li>
+<li class="chapter" data-level="7.2" data-path="pandoc.html"><a href="pandoc.html"><i class="fa fa-check"></i><b>7.2</b> Pandoc</a></li>
+<li class="chapter" data-level="7.3" data-path="latex.html"><a href="latex.html"><i class="fa fa-check"></i><b>7.3</b> LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>B</b> Software Usage</a><ul>
-<li class="chapter" data-level="B.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>B.1</b> knitr</a></li>
-<li class="chapter" data-level="B.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>B.2</b> R Markdown</a></li>
+<li class="chapter" data-level="8" data-path="software-usage.html"><a href="software-usage.html"><i class="fa fa-check"></i><b>8</b> Software Usage</a><ul>
+<li class="chapter" data-level="8.1" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>8.1</b> knitr</a></li>
+<li class="chapter" data-level="8.2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>8.2</b> R Markdown</a></li>
 </ul></li>
-<li class="chapter" data-level="C" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>C</b> FAQ</a></li>
+<li class="chapter" data-level="9" data-path="faq.html"><a href="faq.html"><i class="fa fa-check"></i><b>9</b> FAQ</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
@@ -238,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="pandoc" class="section level2">
-<h2><span class="header-section-number">A.2</span> Pandoc</h2>
+<h2><span class="header-section-number">7.2</span> Pandoc</h2>
 <p>An R Markdown document (<code>*.Rmd</code>) is first compiled to Markdown (<code>*.md</code>) through the <strong>knitr</strong> package, and then Markdown is compiled to other output formats (such as LaTeX or HTML) through Pandoc. This process is automated by the <strong>rmarkdown</strong> package. You do not need to install <strong>knitr</strong> or <strong>rmarkdown</strong> separately, because they are the required packages of <strong>bookdown</strong> and will be automatically installed when you install <strong>bookdown</strong>. However, Pandoc is not an R package, so it will not be automatically installed when you install <strong>bookdown</strong>. You can follow the installation instructions on the Pandoc homepage (<a href="http://pandoc.org" class="uri">http://pandoc.org</a>) to install Pandoc, but if you use the RStudio IDE, you do not really need to install Pandoc separately, because RStudio includes a copy of Pandoc. The Pandoc version number can be obtained via:</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1">rmarkdown<span class="op">::</span><span class="kw">pandoc_version</span>()</a>
 <a class="sourceLine" id="cb132-2" data-line-number="2">## [1] &#39;2.0.5&#39;</a></code></pre></div>
