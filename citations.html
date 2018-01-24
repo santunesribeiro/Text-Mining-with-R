@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb60-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
 <p>The field <code>link-citations</code> can be used to add internal links from the citation text of the author-year style to the bibliography entry in the HTML output.</p>
 <p>When the output format is LaTeX, citations will be automatically put in a chapter or section. For non-LaTeX output, you can add an empty chapter as the last chapter of your book. For example, if your last chapter is the Rmd file <code>06-references.Rmd</code>, its content can be an inline R expression:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="bn">`r if (knitr:::is_html_output()) &#39;# References {-}&#39;`</span></a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="bn">`r if (knitr::is_html_output()) &#39;# References {-}&#39;`</span></a></code></pre></div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
