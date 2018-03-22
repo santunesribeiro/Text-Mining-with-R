@@ -280,9 +280,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb125-13" data-line-number="13">  <span class="fu">toc_appendix:</span><span class="at"> yes</span></a>
 <a class="sourceLine" id="cb125-14" data-line-number="14">  <span class="fu">quote_footer:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;\\VA{&quot;</span><span class="kw">,</span> <span class="st">&quot;}{}&quot;</span><span class="kw">]</span></a>
 <a class="sourceLine" id="cb125-15" data-line-number="15">  <span class="fu">highlight_bw:</span><span class="at"> yes</span></a></code></pre></div>
-<p>All preamble settings we mentioned above are in the file <code>latex/preamble.tex</code>. In <code>latex/before_body.tex</code>, we inserted a few blank pages required by the publisher, wrote the dedication page, and specified that the front matter starts:</p>
+<p>All preamble settings we mentioned above are in the file <code>latex/preamble.tex</code>, where we also specified that the front matter starts:</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="fu">\frontmatter</span></a></code></pre></div>
-<p>Before the first chapter of the book, we inserted</p>
+<p>In <code>latex/before_body.tex</code>, we inserted a few blank pages required by the publisher and wrote the dedication page.
+Before the first chapter of the book, we inserted</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="fu">\mainmatter</span></a></code></pre></div>
 <p>so that LaTeX knows to change the page numbering style from Roman numerals (for the front matter) to Arabic numerals (for the book body).</p>
 <p>We printed the index in <code>latex/after_body.tex</code> (Section <a href="latex-index.html#latex-index">2.9</a>).</p>
