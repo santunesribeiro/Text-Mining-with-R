@@ -242,16 +242,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sometimes you may not want to write a book, but a single long-form article or report instead. Usually what you do is call <code>rmarkdown::render()</code> with a certain output format. The main features missing there are the automatic numbering of figures/tables/equations, and cross-referencing figures/tables/equations/sections. We have factored out these features from <strong>bookdown</strong>, so that you can use them without having to prepare a book of multiple Rmd files.</p>
 <p>The functions <code>html_document2()</code>, <code>tufte_html2()</code>, <code>pdf_document2()</code>, <code>word_document2()</code>, <code>tufte_handout2()</code>, and <code>tufte_book2()</code> are designed for this purpose. If you render an R Markdown document with the output format, say, <code>bookdown::html_document2</code>, you will get figure/table numbers and be able to cross-reference them in the single HTML page using the syntax described in Chapter <a href="components.html#components">2</a>.</p>
 <p>The above HTML and PDF output format functions are basically wrappers of output formats <code>bookdown::html_book</code> and <code>bookdown::pdf_book</code>, in the sense that they changed the <code>base_format</code> argument. For example, you can take a look at the source code of <code>pdf_document2</code>:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">bookdown<span class="op">::</span>pdf_document2</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span>pdf_document2</code></pre>
 <pre><code>## function (...) 
 ## {
 ##     pdf_book(..., base_format = rmarkdown::pdf_document)
 ## }
 ## &lt;environment: namespace:bookdown&gt;</code></pre>
 <p>After you know this fact, you can apply the same idea to other output formats by using the appropriate <code>base_format</code>. For example, you can port the <strong>bookdown</strong> features to the <code>jss_article</code> format in the <strong>rticles</strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-rticles"><strong>???</strong></span>)</span> by using the YAML metadata:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb88-2" data-line-number="2">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></a>
-<a class="sourceLine" id="cb88-3" data-line-number="3">    <span class="fu">base_format:</span><span class="at"> rticles::jss_article</span></a></code></pre></div>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span>
+  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
+    <span class="fu">base_format:</span><span class="at"> rticles::jss_article</span></code></pre>
 <p>Then you will be able to use all features we introduced in Chapter <a href="components.html#components">2</a>.</p>
 <p>Although the <code>gitbook()</code> format was designed primarily for books, you can actually also apply it to a single R Markdown document. The only difference is that there will be no search button on the single page output, because you can simply use the searching tool of your web browser to find text (e.g., press <code>Ctrl + F</code> or <code>Command + F</code>). You may also want to set the option <code>split_by</code> to <code>none</code> to only generate a single output page, in which case there will not be any navigation buttons, since there are no other pages to navigate to. You can still generate multiple-page HTML files if you like. Another option you may want to use is <code>self_contained = TRUE</code> when it is only a single output page.</p>
 
