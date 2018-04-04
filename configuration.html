@@ -246,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script.</li>
 <li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter.</li>
 <li><code>edit</code>: a link that collaborators can click to edit the Rmd source document of the current page; this was designed primarily for GitHub repositories, since it is easy to edit arbitrary plain-text files on GitHub even in other people’s repositories (if you do not have write access to the repository, GitHub will automatically fork it and let you submit a pull request after you finish editing the file). This link should have <code>%s</code> in it, which will be substituted by the actual Rmd filename for each page.</li>
-<li><code>rmd_subdir</code>: whether to search for book source Rmd files in subdirectories (by default, only the root directory is searched).</li>
+<li><code>rmd_subdir</code>: whether to search for book source Rmd files in subdirectories (by default, only the root directory is searched). If you want to search for book source Rmd files in a subset of subdirectories, you can provide a list of subdirectories to be recursively searched.</li>
 <li><code>output_dir</code>: the output directory of the book (<code>_book</code> by default); this setting is read and used by <code>render_book()</code>.</li>
 <li><code>clean</code>: a vector of files and directories to be cleaned by the <code>clean_book()</code> function.</li>
 </ul>
