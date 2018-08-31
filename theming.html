@@ -256,11 +256,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="fu">template:</span><span class="at"> </span><span class="dt">null</span>
 <span class="ot">---</span></code></pre>
 <p>Some publishers (e.g., Springer and Chapman &amp; Hall/CRC) have their own LaTeX style or class files. You may try to change the <code>documentclass</code> option to use their document classes, although typically it is not as simple as that. You may end up using <code>in_header</code>, or even design a custom Pandoc LaTeX template to accommodate these document classes.</p>
-<p>Note that when you change <code>documentclass</code>, you are likely to specify an additional Pandoc argument <code>--chapters</code> so that Pandoc knows the first-level headers should be treated as chapters instead of sections (this is the default when <code>documentclass</code> is <code>book</code>), e.g.,</p>
+<p>Note that when you change <code>documentclass</code>, you are likely to specify an additional Pandoc argument <code>--top-level-division=chapter</code> so that Pandoc knows the first-level headers should be treated as chapters instead of sections (this is the default when <code>documentclass</code> is <code>book</code>), e.g.,</p>
 <pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">documentclass:</span><span class="at"> krantz</span>
 <span class="fu">output:</span>
   <span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
-    <span class="fu">pandoc_args:</span><span class="at"> --chapters</span></code></pre>
+    <span class="fu">pandoc_args:</span><span class="at"> --top-level-division=chapter</span></code></pre>
 </div>
             </section>
 
