@@ -252,9 +252,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>There are a large number of other YAML options that you can specify for LaTeX output, such as the paper size, font size, page margin, line spacing, font families, and so on. See <a href="http://pandoc.org/MANUAL.html#variables-for-latex" class="uri">http://pandoc.org/MANUAL.html#variables-for-latex</a> for a full list of options.</p>
 <p>The <code>pdf_book()</code> format is a general format like <code>html_book()</code>, and it also has a <code>base_format</code> argument:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf_book</span>(<span class="dt">toc =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, 
-  ..., <span class="dt">base_format =</span> rmarkdown<span class="op">::</span>pdf_document, <span class="dt">toc_unnumbered =</span> <span class="ot">TRUE</span>, 
-  <span class="dt">toc_appendix =</span> <span class="ot">FALSE</span>, <span class="dt">toc_bib =</span> <span class="ot">FALSE</span>, <span class="dt">quote_footer =</span> <span class="ot">NULL</span>, 
-  <span class="dt">highlight_bw =</span> <span class="ot">FALSE</span>)</code></pre>
+  <span class="dt">pandoc_args =</span> <span class="ot">NULL</span>, ..., <span class="dt">base_format =</span> rmarkdown<span class="op">::</span>pdf_document, 
+  <span class="dt">toc_unnumbered =</span> <span class="ot">TRUE</span>, <span class="dt">toc_appendix =</span> <span class="ot">FALSE</span>, <span class="dt">toc_bib =</span> <span class="ot">FALSE</span>, 
+  <span class="dt">quote_footer =</span> <span class="ot">NULL</span>, <span class="dt">highlight_bw =</span> <span class="ot">FALSE</span>)</code></pre>
 <p>You can change the <code>base_format</code> function to other output format functions, and <strong>bookdown</strong> has provided a simple wrapper function <code>tufte_book2()</code>, which is basically <code>pdf_book(base_format = tufte::tufte_book)</code>, to produce a PDF book using the Tufte PDF style (again, see the <strong>tufte</strong> package).</p>
 </div>
             </section>
