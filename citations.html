@@ -252,7 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <span class="dt">year</span> = {2016},
   <span class="dt">url</span> = {https://www.R-project.org/},
 }</code></pre>
-<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered as <span class="citation">R Core Team (<a href="#ref-R-base">2017</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="#ref-R-base">2017</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
+<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered as <span class="citation">R Core Team (<a href="#ref-R-base">2018</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="#ref-R-base">2018</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
 <p>There are a number of fields in a bibliography entry, such as <code>title</code>, <code>author</code>, and <code>year</code>, etc. You may see <a href="https://en.wikipedia.org/wiki/BibTeX" class="uri">https://en.wikipedia.org/wiki/BibTeX</a> for possible types of entries and fields in BibTeX.</p>
 <p>There is a helper function <code>write_bib()</code> in <strong>knitr</strong> to generate BibTeX entries automatically for R packages. Note that it only generates one BibTeX entry for the package itself at the moment, whereas a package may contain multiple entries in the <code>CITATION</code> file, and some entries are about the publications related to the package. These entries are ignored by <code>write_bib()</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the second argument can be a .bib file</span>
@@ -262,7 +262,7 @@ knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw
     Generation in R},
   author = {Yihui Xie},
   year = {2018},
-  note = {R package version 1.20.22},
+  note = {R package version 1.21.5},
   url = {https://yihui.name/knitr/},
 }
 @Manual{R-stringr,
@@ -286,7 +286,7 @@ knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-base">
-<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
 </div>
 <div class="footnotes">
