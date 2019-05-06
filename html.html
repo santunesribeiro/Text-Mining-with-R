@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-05-03" />
+<meta name="date" content="2019-05-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -321,7 +321,7 @@ FIGURE 3.1: The GitBook toolbar.
 </div>
 <p>The GitBook style has a toolbar (Figure <a href="html.html#fig:gitbook-toolbar">3.1</a>) at the top of each page that allows you to dynamically change the book settings. The <code>toolbar</code> option has a sub-option <code>position</code>, which can take values <code>fixed</code> or <code>static</code>. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there. If it is <code>static</code>, the toolbar will not scroll with the page, i.e., once you scroll away, you will no longer see it.</p>
 <p>The first button on the toolbar can toggle the visibility of the sidebar. You can also hit the <code>S</code> key on your keyboard to do the same thing. The GitBook style can remember the visibility status of the sidebar, e.g., if you closed the sidebar, it will remain closed the next time you open the book. In fact, the GitBook style remembers many other settings as well, such as the search keyword and the font settings.</p>
-<p>The second button on the toolbar is the search button. Its keyboard shortcut is <code>F</code> (Find). When the button is clicked, you will see a search box at the top of the sidebar. As you type in the box, the TOC will be filtered to display the sections that match the search keyword. Now you can use the arrow keys <code>Up</code>/<code>Down</code> to highlight the next keyword on the current page. When you click the search button again (or hit <code>F</code> outside the search box), the search keyword will be emptied and the search box will be hidden. To disable searching, set the option <code>search: no</code> in <code>config</code>.</p>
+<p>The second button on the toolbar is the search button. Its keyboard shortcut is <code>F</code> (Find). When the button is clicked, you will see a search box at the top of the sidebar. As you type in the box, the TOC will be filtered to display the sections that match the search keyword. Now you can use the arrow keys <code>Up</code>/<code>Down</code> to highlight the previous/next match in the search results. When you click the search button again (or hit <code>F</code> outside the search box), the search keyword will be emptied and the search box will be hidden. To disable searching, set the option <code>search: no</code> in <code>config</code>.</p>
 <p>The third button is for font/theme settings. You can change the font size (bigger or smaller), the font family (serif or sans serif), and the theme (<code>White</code>, <code>Sepia</code>, or <code>Night</code>). These settings can be changed via the <code>fontsettings</code> option.</p>
 <p>The <code>edit</code> option is the same as the option mentioned in Section <a href="configuration.html#configuration">4.4</a>. If it is not empty, an edit button will be added to the toolbar. This was designed for potential contributors to the book to contribute by editing the book on GitHub after clicking the button and sending pull requests. The <code>history</code> option works the same
 way.</p>
