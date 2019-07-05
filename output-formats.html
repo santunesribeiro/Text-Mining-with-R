@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Output Formats | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Output Formats | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -242,33 +241,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="output-formats" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Output Formats</h1>
 <p>The <strong>bookdown</strong> package primarily supports three types of output formats: HTML, LaTeX/PDF, and e-books. In this chapter, we introduce the possible options for these formats. Output formats can be specified either in the YAML metadata of the first Rmd file of the book, or in a separate YAML file named <code>_output.yml</code> under the root directory of the book. Here is a brief example of the former (output formats are specified in the <code>output</code> field of the YAML metadata):</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title:</span><span class="at"> </span><span class="st">&quot;An Impressive Book&quot;</span>
-<span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Li Lei and Han Meimei&quot;</span>
-<span class="fu">output:</span>
-  <span class="fu">bookdown:</span><span class="at">:gitbook:</span>
-    <span class="fu">lib_dir:</span><span class="at"> assets</span>
-    <span class="fu">split_by:</span><span class="at"> section</span>
-    <span class="fu">config:</span>
-      <span class="fu">toolbar:</span>
-        <span class="fu">position:</span><span class="at"> static</span>
-  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
-    <span class="fu">keep_tex:</span><span class="at"> yes</span>
-  <span class="fu">bookdown:</span><span class="at">:html_book:</span>
-    <span class="fu">css:</span><span class="at"> toc.css</span>
-<span class="fu">documentclass:</span><span class="at"> book</span>
-<span class="ot">---</span></code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb67-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;An Impressive Book&quot;</span></a>
+<a class="sourceLine" id="cb67-3" data-line-number="3"><span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Li Lei and Han Meimei&quot;</span></a>
+<a class="sourceLine" id="cb67-4" data-line-number="4"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb67-5" data-line-number="5">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></a>
+<a class="sourceLine" id="cb67-6" data-line-number="6">    <span class="fu">lib_dir:</span><span class="at"> assets</span></a>
+<a class="sourceLine" id="cb67-7" data-line-number="7">    <span class="fu">split_by:</span><span class="at"> section</span></a>
+<a class="sourceLine" id="cb67-8" data-line-number="8">    <span class="fu">config:</span></a>
+<a class="sourceLine" id="cb67-9" data-line-number="9">      <span class="fu">toolbar:</span></a>
+<a class="sourceLine" id="cb67-10" data-line-number="10">        <span class="fu">position:</span><span class="at"> static</span></a>
+<a class="sourceLine" id="cb67-11" data-line-number="11">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></a>
+<a class="sourceLine" id="cb67-12" data-line-number="12">    <span class="fu">keep_tex:</span><span class="at"> yes</span></a>
+<a class="sourceLine" id="cb67-13" data-line-number="13">  <span class="fu">bookdown:</span><span class="at">:html_book:</span></a>
+<a class="sourceLine" id="cb67-14" data-line-number="14">    <span class="fu">css:</span><span class="at"> toc.css</span></a>
+<a class="sourceLine" id="cb67-15" data-line-number="15"><span class="fu">documentclass:</span><span class="at"> book</span></a>
+<a class="sourceLine" id="cb67-16" data-line-number="16"><span class="ot">---</span></a></code></pre></div>
 <p>Here is an example of <code>_output.yml</code>:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span><span class="at">:gitbook:</span>
-  <span class="fu">lib_dir:</span><span class="at"> assets</span>
-  <span class="fu">split_by:</span><span class="at"> section</span>
-  <span class="fu">config:</span>
-    <span class="fu">toolbar:</span>
-      <span class="fu">position:</span><span class="at"> static</span>
-<span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
-  <span class="fu">keep_tex:</span><span class="at"> yes</span>
-<span class="fu">bookdown:</span><span class="at">:html_book:</span>
-  <span class="fu">css:</span><span class="at"> toc.css</span></code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="fu">bookdown:</span><span class="at">:gitbook:</span></a>
+<a class="sourceLine" id="cb68-2" data-line-number="2">  <span class="fu">lib_dir:</span><span class="at"> assets</span></a>
+<a class="sourceLine" id="cb68-3" data-line-number="3">  <span class="fu">split_by:</span><span class="at"> section</span></a>
+<a class="sourceLine" id="cb68-4" data-line-number="4">  <span class="fu">config:</span></a>
+<a class="sourceLine" id="cb68-5" data-line-number="5">    <span class="fu">toolbar:</span></a>
+<a class="sourceLine" id="cb68-6" data-line-number="6">      <span class="fu">position:</span><span class="at"> static</span></a>
+<a class="sourceLine" id="cb68-7" data-line-number="7"><span class="fu">bookdown:</span><span class="at">:pdf_book:</span></a>
+<a class="sourceLine" id="cb68-8" data-line-number="8">  <span class="fu">keep_tex:</span><span class="at"> yes</span></a>
+<a class="sourceLine" id="cb68-9" data-line-number="9"><span class="fu">bookdown:</span><span class="at">:html_book:</span></a>
+<a class="sourceLine" id="cb68-10" data-line-number="10">  <span class="fu">css:</span><span class="at"> toc.css</span></a></code></pre></div>
 <p>In this case, all formats should be at the top level, instead of under an <code>output</code> field. You do not need the three dashes <code>---</code> in <code>_output.yml</code>.</p> 
 </div>
             </section>

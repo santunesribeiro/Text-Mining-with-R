@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 Theming | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 Theming | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -243,25 +242,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.2</span> Theming</h2>
 <p>Sometimes you may want to change the overall theme of the output, and usually this can be done through the <code>in_header</code> option described in the previous section, or the <code>css</code> option if the output is HTML. Some output formats have their unique themes, such as <code>gitbook</code>, <code>tufte_html_book</code>, and <code>tufte_book2</code>, and you may not want to customize these themes too much. By comparison, the output formats <code>html_book()</code> and <code>pdf_book()</code> are not tied to particular themes and more customizable.</p>
 <p>As mentioned in Section <a href="html.html#bootstrap-style">3.1.2</a>, the default style for <code>html_book()</code> is the Bootstrap style. The Bootstrap style actually has several built-in themes that you can use, including <code>default</code>, <code>cerulean</code>, <code>journal</code>, <code>flatly</code>, <code>darkly</code>, <code>readable</code>, <code>spacelab</code>, <code>united</code>, <code>cosmo</code>, <code>lumen</code>, <code>paper</code>, <code>sandstone</code>, <code>simplex</code>, and <code>yeti</code>. You can set the theme via the <code>theme</code> option, e.g.,</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">output:</span>
-  <span class="fu">bookdown:</span><span class="at">:html_book:</span>
-    <span class="fu">theme:</span><span class="at"> united</span>
-<span class="ot">---</span></code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb97-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:html_book:</span></a>
+<a class="sourceLine" id="cb97-4" data-line-number="4">    <span class="fu">theme:</span><span class="at"> united</span></a>
+<a class="sourceLine" id="cb97-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
 <p>If you do not like any of these Bootstrap styles, you can set <code>theme</code> to <code>null</code>, and apply your own CSS through the <code>css</code> or <code>includes</code> option.</p>
 <p>For <code>pdf_book()</code>, besides the <code>in_header</code> option mentioned in the previous section, another possibility is to change the document class. There are many possible LaTeX classes for books, such as <strong>memoir</strong> (<a href="https://www.ctan.org/pkg/memoir" class="uri">https://www.ctan.org/pkg/memoir</a>), <strong>amsbook</strong> (<a href="https://www.ctan.org/pkg/amsbook" class="uri">https://www.ctan.org/pkg/amsbook</a>), KOMA-Script (<a href="https://www.ctan.org/pkg/koma-script" class="uri">https://www.ctan.org/pkg/koma-script</a>) and so on. Here is a brief sample of the YAML metadata specifying the <code>scrbook</code> class from the KOMA-Script package:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">documentclass:</span><span class="at"> scrbook</span>
-<span class="fu">output:</span>
-  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
-    <span class="fu">template:</span><span class="at"> </span><span class="dt">null</span>
-<span class="ot">---</span></code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="fu">documentclass:</span><span class="at"> scrbook</span></a>
+<a class="sourceLine" id="cb98-3" data-line-number="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb98-4" data-line-number="4">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></a>
+<a class="sourceLine" id="cb98-5" data-line-number="5">    <span class="fu">template:</span><span class="at"> </span><span class="dt">null</span></a>
+<a class="sourceLine" id="cb98-6" data-line-number="6"><span class="ot">---</span></a></code></pre></div>
 <p>Some publishers (e.g., Springer and Chapman &amp; Hall/CRC) have their own LaTeX style or class files. You may try to change the <code>documentclass</code> option to use their document classes, although typically it is not as simple as that. You may end up using <code>in_header</code>, or even design a custom Pandoc LaTeX template to accommodate these document classes.</p>
 <p>Note that when you change <code>documentclass</code>, you are likely to specify an additional Pandoc argument <code>--top-level-division=chapter</code> so that Pandoc knows the first-level headers should be treated as chapters instead of sections (this is the default when <code>documentclass</code> is <code>book</code>), e.g.,</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">documentclass:</span><span class="at"> krantz</span>
-<span class="fu">output:</span>
-  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
-    <span class="fu">pandoc_args:</span><span class="at"> --top-level-division=chapter</span></code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="fu">documentclass:</span><span class="at"> krantz</span></a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb99-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></a>
+<a class="sourceLine" id="cb99-4" data-line-number="4">    <span class="fu">pandoc_args:</span><span class="at"> --top-level-division=chapter</span></a></code></pre></div>
 </div>
             </section>
 

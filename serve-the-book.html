@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.3 Serve the book | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.3 Serve the book | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -242,8 +241,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="serve-the-book" class="section level2">
 <h2><span class="header-section-number">5.3</span> Serve the book</h2>
 <p>Instead of running <code>render_book()</code> or <code>preview_chapter()</code> over and over again, you can actually live preview the book in the web browser, and the only thing you need to do is save the Rmd file. The function <code>serve_book()</code> in <strong>bookdown</strong> can start a local web server to serve the HTML output based on the <strong>servr</strong> package <span class="citation">(Xie <a href="#ref-R-servr">2019</a><a href="#ref-R-servr">c</a>)</span>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">serve_book</span>(<span class="dt">dir =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">output_dir =</span> <span class="st">&quot;_book&quot;</span>, <span class="dt">preview =</span> <span class="ot">TRUE</span>, 
-  <span class="dt">in_session =</span> <span class="ot">TRUE</span>, <span class="dt">quiet =</span> <span class="ot">FALSE</span>, ...)</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">serve_book</span>(<span class="dt">dir =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">output_dir =</span> <span class="st">&quot;_book&quot;</span>, <span class="dt">preview =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb109-2" data-line-number="2">  <span class="dt">in_session =</span> <span class="ot">TRUE</span>, <span class="dt">quiet =</span> <span class="ot">FALSE</span>, ...)</a></code></pre></div>
 <p>You pass the root directory of the book to the <code>dir</code> argument, and this function will start a local web server so you can view the book output using the server. The default URL to access the book output is <code>http://127.0.0.1:4321</code>. If you run this function in an interactive R session, this URL will be automatically opened in your web browser. If you are in the RStudio IDE, the RStudio Viewer will be used as the default web browser, so you will be able to write the Rmd source files and preview the output in the same environment (e.g., source on the left and output on the right).</p>
 <p>The server will listen to changes in the book root directory: whenever you modify any files in the book directory, <code>serve_book()</code> can detect the changes, recompile the Rmd files, and refresh the web browser automatically. If the modified files do not include Rmd files, it just refreshes the browser (e.g., if you only updated a certain CSS file). This means once the server is launched, all you have to do next is simply write the book and save the files. Compilation and preview will take place automatically as you save files.</p>
 <p>If it does not really take too much time to recompile the whole book, you may set the argument <code>preview = FALSE</code>, so that every time you update the book, the whole book is recompiled, otherwise only the modified chapters are recompiled via <code>preview_chapter()</code>.</p>

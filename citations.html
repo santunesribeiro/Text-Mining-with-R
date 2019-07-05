@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.8 Citations | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.8 Citations | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -243,20 +242,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.8</span> Citations</h2>
 <p>Although Pandoc supports multiple ways of writing citations, we recommend you to use BibTeX databases because they work best with LaTeX/PDF output. Pandoc can process other types of bibliography databases with the utility <code>pandoc-citeproc</code> (<a href="https://github.com/jgm/pandoc-citeproc" class="uri">https://github.com/jgm/pandoc-citeproc</a>), but it may not render certain bibliography items correctly (especially in case of multiple authors per item), and BibTeX can do a better job when the output format is LaTeX. With BibTeX databases, you will be able to define the bibliography style if it is required by a certain publisher or journal.</p>
 <p>A BibTeX database is a plain-text file (with the conventional filename extension <code>.bib</code>) that consists of bibliography entries like this:</p>
-<pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span class="va">@Manual</span>{<span class="ot">R</span>-<span class="ot">base</span>,
-  <span class="dt">title</span> = {R: A Language and Environment for Statistical
-    Computing},
-  <span class="dt">author</span> = {{R Core Team}},
-  <span class="dt">organization</span> = {R Foundation for Statistical Computing},
-  <span class="dt">address</span> = {Vienna, Austria},
-  <span class="dt">year</span> = {2016},
-  <span class="dt">url</span> = {https://www.R-project.org/},
-}</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="va">@Manual</span>{<span class="ot">R</span>-<span class="ot">base</span>,</a>
+<a class="sourceLine" id="cb58-2" data-line-number="2">  <span class="dt">title</span> = {R: A Language and Environment for Statistical</a>
+<a class="sourceLine" id="cb58-3" data-line-number="3">    Computing},</a>
+<a class="sourceLine" id="cb58-4" data-line-number="4">  <span class="dt">author</span> = {{R Core Team}},</a>
+<a class="sourceLine" id="cb58-5" data-line-number="5">  <span class="dt">organization</span> = {R Foundation for Statistical Computing},</a>
+<a class="sourceLine" id="cb58-6" data-line-number="6">  <span class="dt">address</span> = {Vienna, Austria},</a>
+<a class="sourceLine" id="cb58-7" data-line-number="7">  <span class="dt">year</span> = {2016},</a>
+<a class="sourceLine" id="cb58-8" data-line-number="8">  <span class="dt">url</span> = {https://www.R-project.org/},</a>
+<a class="sourceLine" id="cb58-9" data-line-number="9">}</a></code></pre></div>
 <p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered as <span class="citation">R Core Team (<a href="#ref-R-base">2017</a>)</span>, and <code>[@R-base]</code> generates “<span class="citation">(R Core Team <a href="#ref-R-base">2017</a>)</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
 <p>There are a number of fields in a bibliography entry, such as <code>title</code>, <code>author</code>, and <code>year</code>, etc. You may see <a href="https://en.wikipedia.org/wiki/BibTeX" class="uri">https://en.wikipedia.org/wiki/BibTeX</a> for possible types of entries and fields in BibTeX.</p>
 <p>There is a helper function <code>write_bib()</code> in <strong>knitr</strong> to generate BibTeX entries automatically for R packages. Note that it only generates one BibTeX entry for the package itself at the moment, whereas a package may contain multiple entries in the <code>CITATION</code> file, and some entries are about the publications related to the package. These entries are ignored by <code>write_bib()</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the second argument can be a .bib file</span>
-knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;stringr&quot;</span>), <span class="st">&quot;&quot;</span>, <span class="dt">width =</span> <span class="dv">60</span>)</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="co"># the second argument can be a .bib file</span></a>
+<a class="sourceLine" id="cb59-2" data-line-number="2">knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;stringr&quot;</span>), <span class="st">&quot;&quot;</span>, <span class="dt">width =</span> <span class="dv">60</span>)</a></code></pre></div>
 <pre><code>@Manual{R-knitr,
   title = {knitr: A General-Purpose Package for Dynamic Report
     Generation in R},
@@ -274,14 +273,14 @@ knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw
   url = {https://CRAN.R-project.org/package=stringr},
 }</code></pre>
 <p>Once you have one or multiple <code>.bib</code> files, you may use the field <code>bibliography</code> in the YAML metadata of your first R Markdown document (which is typically <code>index.Rmd</code>), and you can also specify the bibliography style via <code>biblio-style</code> (this only applies to PDF output), e.g.,</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">bibliography:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;one.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;another.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;yet-another.bib&quot;</span><span class="kw">]</span>
-<span class="fu">biblio-style:</span><span class="at"> </span><span class="st">&quot;apalike&quot;</span>
-<span class="fu">link-citations:</span><span class="at"> true</span>
-<span class="ot">---</span></code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="fu">bibliography:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;one.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;another.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;yet-another.bib&quot;</span><span class="kw">]</span></a>
+<a class="sourceLine" id="cb61-3" data-line-number="3"><span class="fu">biblio-style:</span><span class="at"> </span><span class="st">&quot;apalike&quot;</span></a>
+<a class="sourceLine" id="cb61-4" data-line-number="4"><span class="fu">link-citations:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb61-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
 <p>The field <code>link-citations</code> can be used to add internal links from the citation text of the author-year style to the bibliography entry in the HTML output.</p>
 <p>When the output format is LaTeX, citations will be automatically put in a chapter or section. For non-LaTeX output, you can add an empty chapter as the last chapter of your book. For example, if your last chapter is the Rmd file <code>06-references.Rmd</code>, its content can be an inline R expression:</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">`r if (knitr::is_html_output()) &#39;# References {-}&#39;`</span></code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="bn">`r if (knitr::is_html_output()) &#39;# References {-}&#39;`</span></a></code></pre></div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">

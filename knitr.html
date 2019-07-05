@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B.1 knitr | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B.1 knitr | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -243,19 +242,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">B.1</span> knitr</h2>
 <p>The <strong>knitr</strong> package was designed based on the idea of “Literate Programming” <span class="citation">(Knuth <a href="#ref-knuth1984">1984</a>)</span>, which allows you to intermingle program code with text in a source document. When <strong>knitr</strong> compiles a document, the program code (in code chunks) will be extracted and executed, and the program output will be displayed together with the original text in the output document. We have introduced the basic syntax in Section <a href="r-code.html#r-code">2.3</a>.</p>
 <p>R Markdown is not the only source format that <strong>knitr</strong> supports. The basic idea can be applied to other computing and authoring languages. For example, <strong>knitr</strong> also supports the combination of R and LaTeX (<code>*.Rnw</code> documents), and R + HTML (<code>*.Rhtml</code>), etc. You can use other computing languages with <strong>knitr</strong> as well, such as C++, Python, SQL, and so on. Below is a simple example and you can see <a href="http://rmarkdown.rstudio.com/authoring_knitr_engines.html" class="uri">http://rmarkdown.rstudio.com/authoring_knitr_engines.html</a> for more.</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">```{python}
-x = &#39;Hello, Python World!&#39;
-print(x.split(&#39; &#39;))
-```</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb139-1" data-line-number="1">```{python}</a>
+<a class="sourceLine" id="cb139-2" data-line-number="2">x = &#39;Hello, Python World!&#39;</a>
+<a class="sourceLine" id="cb139-3" data-line-number="3">print(x.split(&#39; &#39;))</a>
+<a class="sourceLine" id="cb139-4" data-line-number="4">```</a></code></pre></div>
 <p>Python users may be familiar with IPython or Jupyter Notebooks (<a href="https://jupyter.org" class="uri">https://jupyter.org</a>). In fact, R Markdown can also be used as notebooks, and has some additional benefits; see this blog post for more information: <a href="https://blog.rstudio.org/2016/10/05/r-notebooks/" class="uri">https://blog.rstudio.org/2016/10/05/r-notebooks/</a>.</p>
-<p>If you want to show a literal chunk in your document, you can add an inline expression that generates an empty string (<code>`r ''`</code>) before the chunk header, and indent the code chunk by four spaces,<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">    `r &#39;&#39;````{r}</span>
-<span class="bn">    # a literal code chunk</span>
-<span class="bn">    ```</span></code></pre>
+<p>If you want to show a literal chunk in your document, you can add an inline expression that generates an empty string (<code>`r ''`</code>) before the chunk header, and wrap the code chunk in four backticks,<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> e.g.,</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb140-1" data-line-number="1">````</a>
+<a class="sourceLine" id="cb140-2" data-line-number="2"><span class="bn">`r &#39;&#39;`</span>```{r}</a>
+<a class="sourceLine" id="cb140-3" data-line-number="3"><span class="fu"># a literal code chunk</span></a>
+<a class="sourceLine" id="cb140-4" data-line-number="4">```</a>
+<a class="sourceLine" id="cb140-5" data-line-number="5">````</a></code></pre></div>
 <p>After the document is compiled, the inline expression will disappear and you will see:</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">```{r}
-<span class="fu"># a literal code chunk</span>
-```</code></pre>
+<div class="sourceCode" id="cb141"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb141-1" data-line-number="1">```{r}</a>
+<a class="sourceLine" id="cb141-2" data-line-number="2"><span class="fu"># a literal code chunk</span></a>
+<a class="sourceLine" id="cb141-3" data-line-number="3">```</a></code></pre></div>
 <p>Normally you do not need to call <strong>knitr</strong> functions directly when compiling a document, since <strong>rmarkdown</strong> will call <strong>knitr</strong>. If you do want to compile a source document without further converting it to other formats, you may use the <code>knitr::knit()</code> function.</p>
 </div>
 <h3>References</h3>
@@ -267,7 +268,7 @@ print(x.split(&#39; &#39;))
 <div class="footnotes">
 <hr />
 <ol start="13">
-<li id="fn13"><p>Follow the four-space rule if the literal code chunk is to be displayed in other environments such as a list: <a href="http://pandoc.org/MANUAL.html#the-four-space-rule" class="uri">http://pandoc.org/MANUAL.html#the-four-space-rule</a><a href="knitr.html#fnref13" class="footnote-back">↩</a></p></li>
+<li id="fn13"><p>Follow the indenting rule if the literal code chunk is to be displayed in other environments such as a list: <a href="https://pandoc.org/MANUAL.html#block-content-in-list-items" class="uri">https://pandoc.org/MANUAL.html#block-content-in-list-items</a><a href="knitr.html#fnref13" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Markdown syntax | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Markdown syntax | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -249,19 +248,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="block-level-elements" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Block-level elements</h3>
 <p>Section headers can be written after a number of pound signs, e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># First-level header</span>
-
-<span class="fu">## Second-level header</span>
-
-<span class="fu">### Third-level header</span></code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="fu"># First-level header</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="fu">## Second-level header</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="fu">### Third-level header</span></a></code></pre></div>
 <p>If you do not want a certain heading to be numbered, you can add <code>{-}</code> after the heading, e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Preface {-}</span></code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="fu"># Preface {-}</span></a></code></pre></div>
 <p>Unordered list items start with <code>*</code>, <code>-</code>, or <code>+</code>, and you can nest one list within another list by indenting the sub-list by four spaces, e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">- <span class="fl">one item</span>
-<span class="fl">- one item</span>
-<span class="fl">- one item</span>
-<span class="fl">    - one item</span>
-<span class="fl">    - one item</span></code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb18-1" data-line-number="1">- <span class="fl">one item</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="fl">- one item</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="fl">- one item</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="fl">    - one item</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="fl">    - one item</span></a></code></pre></div>
 <p>The output is:</p>
 <ul>
 <li>one item</li>
@@ -273,9 +272,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p>Ordered list items start with numbers (the rule for nested lists is the same as above), e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">1. <span class="fl">the first item</span>
-<span class="fl">2. the second item</span>
-<span class="fl">3. the third item</span></code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb19-1" data-line-number="1">1. <span class="fl">the first item</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="fl">2. the second item</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="fl">3. the third item</span></a></code></pre></div>
 <p>The output does not look too much different with the Markdown source:</p>
 <ol style="list-style-type: decimal">
 <li>the first item</li>
@@ -283,11 +282,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>the third item</li>
 </ol>
 <p>Blockquotes are written after <code>&gt;</code>, e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">&gt;<span class="dt"> &quot;I thoroughly disapprove of duels. If a man should challenge me,</span>
-<span class="dt">  I would take him kindly and forgivingly by the hand and lead him</span>
-<span class="dt">  to a quiet place and kill him.&quot;</span>
-<span class="dt">&gt;</span>
-<span class="dt">&gt; --- Mark Twain</span></code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb20-1" data-line-number="1">&gt;<span class="dt"> &quot;I thoroughly disapprove of duels. If a man should challenge me,</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="dt">  I would take him kindly and forgivingly by the hand and lead him</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="dt">  to a quiet place and kill him.&quot;</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="dt">&gt; --- Mark Twain</span></a></code></pre></div>
 <p>The actual output (we customized the style for blockquotes in this book):</p>
 <blockquote>
 <p>“I thoroughly disapprove of duels. If a man should challenge me,
@@ -296,44 +295,44 @@ to a quiet place and kill him.”</p>
 <p>— Mark Twain</p>
 </blockquote>
 <p>Plain code blocks can be written after three or more backticks, and you can also indent the blocks by four spaces, e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">```
-This text is displayed verbatim / preformatted
-```
-
-Or indent by four spaces:
-
-<span class="bn">    This text is displayed verbatim / preformatted</span></code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb21-1" data-line-number="1">```</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">This text is displayed verbatim / preformatted</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">```</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">Or indent by four spaces:</a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="bn">    This text is displayed verbatim / preformatted</span></a></code></pre></div>
 </div>
 <div id="math-expressions" class="section level3">
 <h3><span class="header-section-number">2.1.3</span> Math expressions</h3>
 <p>Inline LaTeX equations can be written in a pair of dollar signs using the LaTeX syntax, e.g., <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code> (actual output: <span class="math inline">\(f(k)={n \choose k}p^{k}(1-p)^{n-k}\)</span>); math expressions of the display style can be written in a pair of double dollar signs, e.g., <code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code>, and the output looks like this:</p>
 <p><span class="math display">\[f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}\]</span></p>
 <p>You can also use math environments inside <code>$ $</code> or <code>$$ $$</code>, e.g.,</p>
-<pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{array}{ccc}</span>
-<span class="ss">x_{11} &amp; x_{12} &amp; x_{13}</span><span class="sc">\\</span>
-<span class="ss">x_{21} &amp; x_{22} &amp; x_{23}</span>
-<span class="sc">\end</span><span class="ss">{array}$$</span></code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{array}{ccc}</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="ss">x_{11} &amp; x_{12} &amp; x_{13}</span><span class="sc">\\</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="ss">x_{21} &amp; x_{22} &amp; x_{23}</span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="sc">\end</span><span class="ss">{array}$$</span></a></code></pre></div>
 <p><span class="math display">\[\begin{array}{ccc}
 x_{11} &amp; x_{12} &amp; x_{13}\\
 x_{21} &amp; x_{22} &amp; x_{23}
 \end{array}\]</span></p>
-<pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$X = </span><span class="sc">\begin</span><span class="ss">{bmatrix}1 &amp; x_{1}</span><span class="sc">\\</span>
-<span class="ss">1 &amp; x_{2}</span><span class="sc">\\</span>
-<span class="ss">1 &amp; x_{3}</span>
-<span class="sc">\end</span><span class="ss">{bmatrix}$$</span></code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="ss">$$X = </span><span class="sc">\begin</span><span class="ss">{bmatrix}1 &amp; x_{1}</span><span class="sc">\\</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="ss">1 &amp; x_{2}</span><span class="sc">\\</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="ss">1 &amp; x_{3}</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="sc">\end</span><span class="ss">{bmatrix}$$</span></a></code></pre></div>
 <p><span class="math display">\[X = \begin{bmatrix}1 &amp; x_{1}\\
 1 &amp; x_{2}\\
 1 &amp; x_{3}
 \end{bmatrix}\]</span></p>
-<pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\Theta</span><span class="ss"> = </span><span class="sc">\begin</span><span class="ss">{pmatrix}</span><span class="sc">\alpha</span><span class="ss"> &amp; </span><span class="sc">\beta\\</span>
-<span class="sc">\gamma</span><span class="ss"> &amp; </span><span class="sc">\delta</span>
-<span class="sc">\end</span><span class="ss">{pmatrix}$$</span></code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="ss">$$</span><span class="sc">\Theta</span><span class="ss"> = </span><span class="sc">\begin</span><span class="ss">{pmatrix}</span><span class="sc">\alpha</span><span class="ss"> &amp; </span><span class="sc">\beta\\</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="sc">\gamma</span><span class="ss"> &amp; </span><span class="sc">\delta</span></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="sc">\end</span><span class="ss">{pmatrix}$$</span></a></code></pre></div>
 <p><span class="math display">\[\Theta = \begin{pmatrix}\alpha &amp; \beta\\
 \gamma &amp; \delta
 \end{pmatrix}\]</span></p>
-<pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{vmatrix}a &amp; b</span><span class="sc">\\</span>
-<span class="ss">c &amp; d</span>
-<span class="sc">\end</span><span class="ss">{vmatrix}=ad-bc$$</span></code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{vmatrix}a &amp; b</span><span class="sc">\\</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="ss">c &amp; d</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="sc">\end</span><span class="ss">{vmatrix}=ad-bc$$</span></a></code></pre></div>
 <p><span class="math display">\[\begin{vmatrix}a &amp; b\\
 c &amp; d
 \end{vmatrix}=ad-bc\]</span></p>

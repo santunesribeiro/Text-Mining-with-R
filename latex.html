@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A.3 LaTeX | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A.3 LaTeX | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -242,41 +241,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="latex" class="section level2">
 <h2><span class="header-section-number">A.3</span> LaTeX</h2>
 <p>LaTeX is required only if you want to convert your book to PDF. You may see <a href="https://www.latex-project.org/get/" class="uri">https://www.latex-project.org/get/</a> for more information about LaTeX and its installation, but we strongly recommend that you install the lightweight and cross-platform LaTeX distribution named <a href="https://yihui.name/tinytex/">TinyTeX</a> and based on TeX Live. TinyTeX can be easily installed through the R package <strong>tinytex</strong> (which should be automatically installed when you install <strong>bookdown</strong>):</p>
-<pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1">tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</a></code></pre></div>
 <p>With TinyTeX, you should never see error messages like this:</p>
-<pre class="sourceCode latex"><code class="sourceCode latex">! LaTeX Error: File `titling.sty&#39; not found.
-
-Type X to quit or &lt;RETURN&gt; to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-! Emergency stop.
-&lt;read *&gt; 
-         
-l.107 ^^M
-
-pandoc: Error producing PDF
-Error: pandoc document conversion failed with error 43
-Execution halted</code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb135-1" data-line-number="1">! LaTeX Error: File `titling.sty&#39; not found.</a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb135-3" data-line-number="3">Type X to quit or &lt;RETURN&gt; to proceed,</a>
+<a class="sourceLine" id="cb135-4" data-line-number="4">or enter new name. (Default extension: sty)</a>
+<a class="sourceLine" id="cb135-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb135-6" data-line-number="6">Enter file name: </a>
+<a class="sourceLine" id="cb135-7" data-line-number="7">! Emergency stop.</a>
+<a class="sourceLine" id="cb135-8" data-line-number="8">&lt;read *&gt; </a>
+<a class="sourceLine" id="cb135-9" data-line-number="9">         </a>
+<a class="sourceLine" id="cb135-10" data-line-number="10">l.107 ^^M</a>
+<a class="sourceLine" id="cb135-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb135-12" data-line-number="12">pandoc: Error producing PDF</a>
+<a class="sourceLine" id="cb135-13" data-line-number="13">Error: pandoc document conversion failed with error 43</a>
+<a class="sourceLine" id="cb135-14" data-line-number="14">Execution halted</a></code></pre></div>
 <p>The above error means you used a package that contains <code>titling.sty</code>, but it was not installed. LaTeX package names are often the same as the <code>*.sty</code> filenames, so in this case, you can try to install the <code>titling</code> package. If you use TinyTeX with R Markdown, missing LaTeX packages will be installed automatically, so you never need to worry about such problems.</p>
 <p>LaTeX distributions and packages are also updated from time to time, and you may consider updating them especially when you run into LaTeX problems. You can find out the version of your LaTeX distribution by:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="st">&quot;pdflatex --version&quot;</span>)
-## pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017)
-## kpathsea version 6.2.3
-## Copyright 2017 Han The Thanh (pdfTeX) et al.
-## There is NO warranty.  Redistribution of this software is
-## covered by the terms of both the pdfTeX copyright and
-## the Lesser GNU General Public License.
-## For more information about these matters, see the file
-## named COPYING and the pdfTeX source.
-## Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
-## Compiled with libpng 1.6.29; using libpng 1.6.29
-## Compiled with zlib 1.2.11; using zlib 1.2.11
-## Compiled with xpdf version 3.04</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="kw">system</span>(<span class="st">&quot;pdflatex --version&quot;</span>)</a>
+<a class="sourceLine" id="cb136-2" data-line-number="2">## pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017)</a>
+<a class="sourceLine" id="cb136-3" data-line-number="3">## kpathsea version 6.2.3</a>
+<a class="sourceLine" id="cb136-4" data-line-number="4">## Copyright 2017 Han The Thanh (pdfTeX) et al.</a>
+<a class="sourceLine" id="cb136-5" data-line-number="5">## There is NO warranty.  Redistribution of this software is</a>
+<a class="sourceLine" id="cb136-6" data-line-number="6">## covered by the terms of both the pdfTeX copyright and</a>
+<a class="sourceLine" id="cb136-7" data-line-number="7">## the Lesser GNU General Public License.</a>
+<a class="sourceLine" id="cb136-8" data-line-number="8">## For more information about these matters, see the file</a>
+<a class="sourceLine" id="cb136-9" data-line-number="9">## named COPYING and the pdfTeX source.</a>
+<a class="sourceLine" id="cb136-10" data-line-number="10">## Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.</a>
+<a class="sourceLine" id="cb136-11" data-line-number="11">## Compiled with libpng 1.6.29; using libpng 1.6.29</a>
+<a class="sourceLine" id="cb136-12" data-line-number="12">## Compiled with zlib 1.2.11; using zlib 1.2.11</a>
+<a class="sourceLine" id="cb136-13" data-line-number="13">## Compiled with xpdf version 3.04</a></code></pre></div>
 <p>To update TinyTeX, you may run:</p>
-<pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">tlmgr_update</span>()</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1">tinytex<span class="op">::</span><span class="kw">tlmgr_update</span>()</a></code></pre></div>
 <p>From year to year, you may need to upgrade TinyTeX, too (otherwise you cannot install or update any LaTeX packages), in which case you may reinstall TinyTeX:</p>
-<pre class="sourceCode r"><code class="sourceCode r">tinytex<span class="op">::</span><span class="kw">reinstall_tinytex</span>()</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">tinytex<span class="op">::</span><span class="kw">reinstall_tinytex</span>()</a></code></pre></div>
 
 </div>
 <!-- </div> -->

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.11 Web pages and Shiny apps | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.11 Web pages and Shiny apps | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -243,8 +242,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.11</span> Web pages and Shiny apps</h2>
 <p>Similar to HTML widgets, arbitrary web pages can be embedded in the book. You can use the function <code>knitr::include_url()</code> to include a web page through its URL. When the output format is HTML, an <code>iframe</code> is used;<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> in other cases, <strong>knitr</strong> tries to take a screenshot of the web page (or use the custom screenshot you provided). All chunk options are the same as those for HTML widgets. One option that may require your special attention is the <code>delay</code> option: HTML widgets are rendered locally, so usually they are fast to load for PhantomJS to take screenshots, but an arbitrary URL may take longer to load, so you may want to use a larger <code>delay</code> value, e.g., use the chunk option <code>screenshot.opts = list(delay = 5)</code>.</p>
 <p>A related function is <code>knitr::include_app()</code>, which is very similar to <code>include_url()</code>, and it was designed for embedding Shiny apps via their URLs in the output. Its only difference with <code>include_url()</code> is that it automatically adds a query parameter <code>?showcase=0</code> to the URL, if no other query parameters are present in the URL, to disable the Shiny showcase mode, which is unlikely to be useful for screenshots or iframes. If you do want the showcase mode, use <code>include_url()</code> instead of <code>include_app()</code>. Below is a Shiny app example (Figure <a href="web-pages-and-shiny-apps.html#fig:miniUI">2.6</a>):</p>
-<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&quot;https://yihui.shinyapps.io/miniUI/&quot;</span>, 
-  <span class="dt">height =</span> <span class="st">&quot;600px&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&quot;https://yihui.shinyapps.io/miniUI/&quot;</span>, </a>
+<a class="sourceLine" id="cb66-2" data-line-number="2">  <span class="dt">height =</span> <span class="st">&quot;600px&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:miniUI"></span>
 <iframe src="https://yihui.shinyapps.io/miniUI/?showcase=0" width="768" height="600px">
 </iframe>

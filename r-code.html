@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.3 R code | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.3 R code | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -242,11 +241,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-code" class="section level2">
 <h2><span class="header-section-number">2.3</span> R code</h2>
 <p>There are two types of R code in R Markdown/<strong>knitr</strong> documents: R code chunks, and inline R code. The syntax for the latter is <code>`r R_CODE`</code>, and it can be embedded inline with other document elements. R code chunks look like plain code blocks, but have <code>{r}</code> after the three backticks and (optionally) chunk options inside <code>{}</code>, e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">```{r chunk-label, echo = FALSE, fig.cap = &#39;A figure caption.&#39;}
-1 + 1
-rnorm(10)  # 10 random numbers
-plot(dist ~ speed, cars)  # a scatterplot
-```</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb41-1" data-line-number="1">```{r chunk-label, echo = FALSE, fig.cap = &#39;A figure caption.&#39;}</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">1 + 1</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">rnorm(10)  # 10 random numbers</a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">plot(dist ~ speed, cars)  # a scatterplot</a>
+<a class="sourceLine" id="cb41-5" data-line-number="5">```</a></code></pre></div>
 <p>To learn more about <strong>knitr</strong> chunk options, see <span class="citation">Xie (<a href="#ref-xie2015">2015</a>)</span> or the web page <a href="http://yihui.name/knitr/options" class="uri">http://yihui.name/knitr/options</a>. For books, additional R code can be executed before/after each chapter; see <code>before_chapter_script</code> and <code>after_chapter_script</code> in Section <a href="configuration.html#configuration">4.4</a>.</p>
 </div>
 <h3>References</h3>

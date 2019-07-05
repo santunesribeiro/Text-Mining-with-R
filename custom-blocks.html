@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.7 Custom blocks | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.7 Custom blocks | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -242,27 +241,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="custom-blocks" class="section level2">
 <h2><span class="header-section-number">2.7</span> Custom blocks</h2>
 <p>You can generate custom blocks using the <code>block</code> engine in <strong>knitr</strong>, i.e., the chunk option <code>engine = 'block'</code>, or the more compact syntax <code>```{block}</code>. This engine should be used in conjunction with the chunk option <code>type</code>, which takes a character string. When the <code>block</code> engine is used, it generates a <code>&lt;div&gt;</code> to wrap the chunk content if the output format is HTML, and a LaTeX environment if the output is LaTeX. The <code>type</code> option specifies the class of the <code>&lt;div&gt;</code> and the name of the LaTeX environment. For example, the HTML output of this chunk</p>
-<p><code>{block, type='FOO'}     Some text for this block.</code></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb51-1" data-line-number="1">```{block, type=&#39;FOO&#39;}</a>
+<a class="sourceLine" id="cb51-2" data-line-number="2">Some text for this block.</a>
+<a class="sourceLine" id="cb51-3" data-line-number="3">```</a></code></pre></div>
 <p>will be this:</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;FOO&quot;</span><span class="kw">&gt;</span>
-Some text for this block.
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;FOO&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">Some text for this block.</a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p>and the LaTeX output will be this:</p>
-<pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">FOO</span>}
-Some text for this block.
-<span class="kw">\end</span>{<span class="ex">FOO</span>}</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">FOO</span>}</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2">Some text for this block.</a>
+<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="kw">\end</span>{<span class="ex">FOO</span>}</a></code></pre></div>
 <p>It is up to the book author how to define the style of the block. You can define the style of the <code>&lt;div&gt;</code> in CSS and include it in the output via the <code>includes</code> option in the YAML metadata. Similarly, you may define the LaTeX environment via <code>\newenvironment</code> and include the definition in the LaTeX output via the <code>includes</code> option. For example, we may save the following style in a CSS file, say, <code>style.css</code>:</p>
-<pre class="sourceCode css"><code class="sourceCode css">div<span class="fu">.FOO</span> {
-  <span class="kw">font-weight</span>: <span class="dv">bold</span>;
-  <span class="kw">color</span>: <span class="dv">red</span>;
-}</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb54-1" data-line-number="1">div<span class="fu">.FOO</span> {</a>
+<a class="sourceLine" id="cb54-2" data-line-number="2">  <span class="kw">font-weight</span>: <span class="dv">bold</span>;</a>
+<a class="sourceLine" id="cb54-3" data-line-number="3">  <span class="kw">color</span>: <span class="dv">red</span>;</a>
+<a class="sourceLine" id="cb54-4" data-line-number="4">}</a></code></pre></div>
 <p>And the YAML metadata of the R Markdown document can be:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">output:</span>
-  <span class="fu">bookdown:</span><span class="at">:html_book:</span>
-    <span class="fu">includes:</span>
-      <span class="fu">in_header:</span><span class="at"> style.css</span>
-<span class="ot">---</span></code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb55-3" data-line-number="3">  <span class="fu">bookdown:</span><span class="at">:html_book:</span></a>
+<a class="sourceLine" id="cb55-4" data-line-number="4">    <span class="fu">includes:</span></a>
+<a class="sourceLine" id="cb55-5" data-line-number="5">      <span class="fu">in_header:</span><span class="at"> style.css</span></a>
+<a class="sourceLine" id="cb55-6" data-line-number="6"><span class="ot">---</span></a></code></pre></div>
 <p>We have defined a few types of blocks for this book to show notes, tips, and warnings, etc. Below are some examples:</p>
 
 <div class="rmdnote">
@@ -310,24 +311,24 @@ For more information about these matters see
 </div>
 
 <p>The <strong>knitr</strong> <code>block</code> engine was designed to display simple content (typically a paragraph of plain text). You can use simple formatting syntax such as making certain words bold or italic, but more advanced syntax such as citations and cross-references will not work. However, there is an alternative engine named <code>block2</code> that supports arbitrary Markdown syntax, e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">```{block2, type=&#39;FOO&#39;}
-Some text for this block [@citation-key].
-
-- <span class="fl">a list item</span>
-<span class="fl">- another item</span>
-
-More text.
-```</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb56-1" data-line-number="1">```{block2, type=&#39;FOO&#39;}</a>
+<a class="sourceLine" id="cb56-2" data-line-number="2">Some text for this block [@citation-key].</a>
+<a class="sourceLine" id="cb56-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb56-4" data-line-number="4">- <span class="fl">a list item</span></a>
+<a class="sourceLine" id="cb56-5" data-line-number="5"><span class="fl">- another item</span></a>
+<a class="sourceLine" id="cb56-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb56-7" data-line-number="7">More text.</a>
+<a class="sourceLine" id="cb56-8" data-line-number="8">```</a></code></pre></div>
 <p>The <code>block2</code> engine should also be faster than the <code>block</code> engine if you have a lot of custom blocks in the document, but its implementation was based on <a href="https://github.com/jgm/pandoc/issues/2453">a hack,</a> so we are not 100% sure if it is always going to work in the future. We have not seen problems with Pandoc v1.17.2 yet.</p>
 <p>One more caveat for the <code>block2</code> engine: if the last element in the block is not an ordinary paragraph, you must leave a blank line at the end, e.g.,</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">```{block2, type=&#39;FOO&#39;}
-Some text for this block [@citation-key].
-
-- <span class="fl">a list item</span>
-<span class="fl">- another item</span>
-<span class="fl">- end the list with a blank line</span>
-
-```</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb57-1" data-line-number="1">```{block2, type=&#39;FOO&#39;}</a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">Some text for this block [@citation-key].</a>
+<a class="sourceLine" id="cb57-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">- <span class="fl">a list item</span></a>
+<a class="sourceLine" id="cb57-5" data-line-number="5"><span class="fl">- another item</span></a>
+<a class="sourceLine" id="cb57-6" data-line-number="6"><span class="fl">- end the list with a blank line</span></a>
+<a class="sourceLine" id="cb57-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb57-8" data-line-number="8">```</a></code></pre></div>
 <p>The theorem and proof environments in Section <a href="markdown-extensions-by-bookdown.html#theorems">2.2.2</a> are actually implemented through the <code>block2</code> engine.</p>
 <p>For all custom blocks based on the <code>block</code> or <code>block2</code> engine, there is one chunk option <code>echo</code> that you can use to show (<code>echo = TRUE</code>) or hide (<code>echo = FALSE</code>) the blocks.</p>
 </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.3 E-Books | bookdown: Authoring Books and Technical Documents with R Markdown</title>
   <meta name="description" content="A guide to authoring books with R Markdown, including how to generate figures and tables, and insert cross-references, citations, HTML widgets, and Shiny apps in R Markdown. The book can be exported to HTML, PDF, and e-books (e.g. EPUB). The book style is customizable. You can easily write and preview the book in RStudio IDE or other editors, and host the book wherever you want (e.g. bookdown.org)." />
-  <meta name="generator" content="bookdown 0.11.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.3 E-Books | bookdown: Authoring Books and Technical Documents with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-06-29" />
+<meta name="date" content="2019-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,7 +63,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -245,12 +244,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="epub" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> EPUB</h3>
 <p>To create an EPUB book, you can use the <code>epub_book()</code> format. It has some options in common with <code>rmarkdown::html_document()</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">epub_book</span>(<span class="dt">fig_width =</span> <span class="dv">5</span>, <span class="dt">fig_height =</span> <span class="dv">4</span>, <span class="dt">dev =</span> <span class="st">&quot;png&quot;</span>, 
-  <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">toc =</span> <span class="ot">FALSE</span>, 
-  <span class="dt">toc_depth =</span> <span class="dv">3</span>, <span class="dt">stylesheet =</span> <span class="ot">NULL</span>, <span class="dt">cover_image =</span> <span class="ot">NULL</span>, 
-  <span class="dt">metadata =</span> <span class="ot">NULL</span>, <span class="dt">chapter_level =</span> <span class="dv">1</span>, <span class="dt">epub_version =</span> <span class="kw">c</span>(<span class="st">&quot;epub3&quot;</span>, 
-    <span class="st">&quot;epub&quot;</span>), <span class="dt">md_extensions =</span> <span class="ot">NULL</span>, <span class="dt">pandoc_args =</span> <span class="ot">NULL</span>, 
-  <span class="dt">template =</span> <span class="st">&quot;default&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">epub_book</span>(<span class="dt">fig_width =</span> <span class="dv">5</span>, <span class="dt">fig_height =</span> <span class="dv">4</span>, <span class="dt">dev =</span> <span class="st">&quot;png&quot;</span>, </a>
+<a class="sourceLine" id="cb86-2" data-line-number="2">  <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">toc =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb86-3" data-line-number="3">  <span class="dt">toc_depth =</span> <span class="dv">3</span>, <span class="dt">stylesheet =</span> <span class="ot">NULL</span>, <span class="dt">cover_image =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb86-4" data-line-number="4">  <span class="dt">metadata =</span> <span class="ot">NULL</span>, <span class="dt">chapter_level =</span> <span class="dv">1</span>, <span class="dt">epub_version =</span> <span class="kw">c</span>(<span class="st">&quot;epub3&quot;</span>, </a>
+<a class="sourceLine" id="cb86-5" data-line-number="5">    <span class="st">&quot;epub&quot;</span>), <span class="dt">md_extensions =</span> <span class="ot">NULL</span>, <span class="dt">pandoc_args =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb86-6" data-line-number="6">  <span class="dt">template =</span> <span class="st">&quot;default&quot;</span>)</a></code></pre></div>
 <p>The option <code>toc</code> is turned off because the e-book reader can often figure out a TOC automatically from the book, so it is not necessary to add a few pages for the TOC. There are a few options specific to EPUB:</p>
 <ul>
 <li><code>stylesheet</code>: It is similar to the <code>css</code> option in HTML output formats, and you can customize the appearance of elements using CSS.</li>
