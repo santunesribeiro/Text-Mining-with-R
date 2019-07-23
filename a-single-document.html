@@ -24,15 +24,15 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-07-13" />
+<meta name="date" content="2019-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="e-books.html">
-<link rel="next" href="customization.html">
+<link rel="prev" href="e-books.html"/>
+<link rel="next" href="customization.html"/>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -248,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## {
 ##     pdf_book(..., base_format = rmarkdown::pdf_document)
 ## }
-## &lt;bytecode: 0x4c0c808&gt;
+## &lt;bytecode: 0x5a6a890&gt;
 ## &lt;environment: namespace:bookdown&gt;</code></pre>
 <p>After you know this fact, you can apply the same idea to other output formats by using the appropriate <code>base_format</code>. For example, you can port the <strong>bookdown</strong> features to the <code>jss_article</code> format in the <strong>rticles</strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-rticles"><strong>???</strong></span>)</span> by using the YAML metadata:</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="fu">output:</span></a>
@@ -317,8 +317,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
