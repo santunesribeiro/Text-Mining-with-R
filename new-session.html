@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-08-21" />
+<meta name="date" content="2019-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -242,7 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.4</span> Two rendering approaches</h2>
 <p>Merging all chapters into one Rmd file and knitting it is one way to render the book in <strong>bookdown</strong>. There is actually another way: you may knit each chapter in a <em>separate</em> R session, and <strong>bookdown</strong> will merge the Markdown output of all chapters to render the book. We call these two approaches “Merge and Knit” (M-K) and “Knit and Merge” (K-M), respectively. The differences between them may seem subtle, but can be fairly important depending on your use cases.</p>
 <ul>
-<li>The most significant difference is that M-K runs <em>all</em> code chunks in all chapters in the same R session, whereas K-M uses separate R sessions for individual chapters. For M-K, the state of the R session from previous chapters is carried over to later chapters (e.g., objects created in previous chapters are available to later chapters, unless you deliberately deleted them); for K-M, all chapters are isolated from each other.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> If you want each chapter to compile from a clean state, use the K-M approach. It can be very tricky and difficult to restore a running R session to a completely clean state if you use the M-K approach. For example, even you detach/unload packages loaded in a previous chapter, R will not clean up the S3 methods registered by these packages.</li>
+<li>The most significant difference is that M-K runs <em>all</em> code chunks in all chapters in the same R session, whereas K-M uses separate R sessions for individual chapters. For M-K, the state of the R session from previous chapters is carried over to later chapters (e.g., objects created in previous chapters are available to later chapters, unless you deliberately deleted them); for K-M, all chapters are isolated from each other.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> If you want each chapter to compile from a clean state, use the K-M approach. It can be very tricky and difficult to restore a running R session to a completely clean state if you use the M-K approach. For example, even if you detach/unload packages loaded in a previous chapter, R will not clean up the S3 methods registered by these packages.</li>
 <li>Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters when you use the M-K approach, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file. Note that this means there must not be duplicate labels throughout the whole book. The K-M approach only requires no duplicate labels within any single Rmd file.</li>
 <li>K-M does not allow Rmd files to be in subdirectories, but M-K does.</li>
 </ul>
