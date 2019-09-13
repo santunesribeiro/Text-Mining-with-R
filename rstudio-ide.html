@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-09-05" />
+<meta name="date" content="2019-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -242,12 +242,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.4</span> RStudio IDE</h2>
 <p>We recommend that you <a href="https://www.rstudio.com/products/rstudio/download/">upgrade</a> your RStudio IDE if your version is lower than 1.0.0. As mentioned in Section <a href="usage.html#usage">1.3</a>, all R Markdown files must be encoded in UTF-8. This is important especially when your files contain multibyte characters. To save a file with the UTF-8 encoding, you can use the menu <code>File -&gt; Save with Encoding</code>, and choose <code>UTF-8</code>.</p>
 <p>When you click the <code>Knit</code> button to compile an R Markdown document in the RStudio IDE, the default function called by RStudio is <code>rmarkdown::render()</code>, which is not what we want for books. To call the function <code>bookdown::render_book()</code> instead, you can set the <code>site</code> field to be <code>bookdown::bookdown_site</code> in the YAML metadata of the R Markdown document <code>index.Rmd</code>, e.g.,</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;A Nice Book&quot;</span></a>
-<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="fu">site:</span><span class="at"> bookdown::bookdown_site</span></a>
-<a class="sourceLine" id="cb110-4" data-line-number="4"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb110-5" data-line-number="5">  <span class="fu">bookdown:</span><span class="at">:gitbook: default</span></a>
-<a class="sourceLine" id="cb110-6" data-line-number="6"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;A Nice Book&quot;</span></a>
+<a class="sourceLine" id="cb111-3" data-line-number="3"><span class="fu">site:</span><span class="at"> bookdown::bookdown_site</span></a>
+<a class="sourceLine" id="cb111-4" data-line-number="4"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb111-5" data-line-number="5">  <span class="fu">bookdown:</span><span class="at">:gitbook: default</span></a>
+<a class="sourceLine" id="cb111-6" data-line-number="6"><span class="ot">---</span></a></code></pre></div>
 <p>When you have set <code>site: bookdown::bookdown_site</code> in <code>index.Rmd</code>, RStudio will be able to discover the directory as a book source directory,<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> and you will see a button <code>Build Book</code> in the <code>Build</code> pane. You can click the button to build the whole book in different formats, and if you click the <code>Knit</code> button on the toolbar, RStudio will automatically preview the current chapter, and you do not need to use <code>preview_chapter()</code> explicitly.</p>
 <p>The <strong>bookdown</strong> package comes with a few addins for RStudio. If you are not familiar with RStudio addins, you may check out the documentation at <a href="http://rstudio.github.io/rstudioaddins/" class="uri">http://rstudio.github.io/rstudioaddins/</a>. After you have installed the <strong>bookdown</strong> package and use RStudio v0.99.878 or later, you will see a dropdown menu on the toolbar named “Addins” and menu items like “Preview Book” and “Input LaTeX Math” after you open the menu.</p>
 <p>The addin “Preview Book” calls <code>bookdown::serve_book()</code> to compile and serve the book. It will block your current R session, i.e., when <code>serve_book()</code> is running, you will not be able to do anything in the R console anymore. To avoid blocking the R session, you can daemonize the server using <code>bookdown::serve_book(daemon = TRUE)</code>. Note that this addin must be used when the current document opened in RStudio is under the root directory of your book, otherwise <code>serve_book()</code> may not be able to find the book source.</p>

@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-09-05" />
+<meta name="date" content="2019-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -242,10 +242,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.1</span> RStudio Connect</h2>
 <p>In theory, you can render the book by yourself and publish the output anywhere you want. For example, you can host the HTML files on your own web server. We have provided a function <code>publish_book()</code> in <strong>bookdown</strong> to make it very simple to upload your book to <a href="https://bookdown.org" class="uri">https://bookdown.org</a>, which is a website provided by RStudio to host your books for free. This website is built on top of <a href="https://www.rstudio.com/products/connect/">“RStudio Connect”,</a> an RStudio product that allows you to deploy a variety of R-related applications to a server, including R Markdown documents, Shiny applications, R plots, and so on.</p>
 <p>You do not have to know much about RStudio Connect to publish your book to bookdown.org. Basically you sign up at <a href="https://bookdown.org/connect/" class="uri">https://bookdown.org/connect/</a>, and the first time you try to run <code>bookdown::publish_book()</code>, you will be asked to authorize <strong>bookdown</strong> to publish to your bookdown.org account. In the future, you simply call <code>publish_book()</code> again and <strong>bookdown</strong> will no longer ask for anything.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">publish_book</span>(<span class="dt">name =</span> <span class="ot">NULL</span>, <span class="dt">account =</span> <span class="ot">NULL</span>, <span class="dt">server =</span> <span class="ot">NULL</span>, </a>
-<a class="sourceLine" id="cb113-2" data-line-number="2">  <span class="dt">render =</span> <span class="kw">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;local&quot;</span>, <span class="st">&quot;server&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="kw">publish_book</span>(<span class="dt">name =</span> <span class="ot">NULL</span>, <span class="dt">account =</span> <span class="ot">NULL</span>, <span class="dt">server =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb114-2" data-line-number="2">  <span class="dt">render =</span> <span class="kw">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;local&quot;</span>, <span class="st">&quot;server&quot;</span>))</a></code></pre></div>
 <p>The only argument of <code>publish_book()</code> that you may want to touch is <code>render</code>. It determines whether you want to render the book before publishing. If you have run <code>render_book()</code> before, you do not need to change this argument, otherwise you may set it to <code>'local'</code>:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">bookdown<span class="op">::</span><span class="kw">publish_book</span>(<span class="dt">render =</span> <span class="st">&quot;local&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">bookdown<span class="op">::</span><span class="kw">publish_book</span>(<span class="dt">render =</span> <span class="st">&quot;local&quot;</span>)</a></code></pre></div>
 <p>If you have set up your own RStudio Connect server, you can certainly publish the book to that server instead of bookdown.org.</p>
 </div>
             </section>
