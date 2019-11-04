@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-10-14" />
+<meta name="date" content="2019-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -297,12 +297,6 @@ FIGURE 2.4: Three knitr logos included in the document from an external PNG imag
 <li>The syntax for controlling the image attributes is the same as when images are generated from R code, e.g., chunk options <code>fig.cap</code>, <code>out.width</code>, and <code>fig.show</code> still have the same meanings.</li>
 <li><code>include_graphics()</code> can be smart enough to use PDF graphics automatically when the output format is LaTeX and the PDF graphics files exist, e.g., an image path <code>foo/bar.png</code> can be automatically replaced with <code>foo/bar.pdf</code> if the latter exists. PDF images often have better qualities than raster images in LaTeX/PDF output. To make use of this feature, set the argument <code>auto_pdf = TRUE</code>, or set the global option <code>options(knitr.graphics.auto_pdf = TRUE)</code> to enable this feature globally in an R session.</li>
 <li>You can easily scale these images proportionally using the same ratio. This can be done via the <code>dpi</code> argument (dots per inch), which takes the value from the chunk option <code>dpi</code> by default. If it is a numeric value and the chunk option <code>out.width</code> is not set, the output width of an image will be its actual width (in pixels) divided by <code>dpi</code>, and the unit will be inches. For example, for an image with the size 672 x 480, its output width will be 7 inches (<code>7in</code>) when <code>dpi = 96</code>. This feature requires the package <strong>png</strong> and/or <strong>jpeg</strong> to be installed. You can always override the automatic calculation of width in inches by providing a non-NULL value to the chunk option <code>out.width</code>, or use <code>include_graphics(dpi = NA)</code>.</li>
-</ol>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="6">
-<li id="fn6"><p>Do not forget the leading backslash! And also note the parentheses <code>()</code> after <code>ref</code>; they are not curly braces <code>{}</code>.<a href="figures.html#fnref6" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>

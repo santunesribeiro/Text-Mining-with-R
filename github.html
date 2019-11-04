@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-10-14" />
+<meta name="date" content="2019-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -324,12 +324,6 @@ Remotes: rstudio/bookdown</code></pre>
 <p>If your book is very time-consuming to build, you may use the above configurations on Travis to save time. Note that <code>packages: yes</code> means the R packages installed on Travis are also cached.</p>
 <p>All above scripts and configurations can be found in the <code>bookdown-demo</code> repository: <a href="https://github.com/rstudio/bookdown-demo/" class="uri">https://github.com/rstudio/bookdown-demo/</a>. If you copy them to your own repository, please remember to change the <code>secure</code> key in <code>.travis.yml</code> using your own encrypted variable <code>GITHUB_PAT</code>.</p>
 <p>GitHub and Travis CI are certainly not the only choices to build and publish your book. You are free to store and publish the book on your own server.</p>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="12">
-<li id="fn12"><p>You need to authorize the Travis CI service for your repository on GitHub first. See <a href="https://docs.travis-ci.com/user/getting-started/" class="uri">https://docs.travis-ci.com/user/getting-started/</a> for how to get started with Travis CI.<a href="github.html#fnref12" class="footnote-back">↩</a></p></li>
-</ol>
 </div>
             </section>
 
