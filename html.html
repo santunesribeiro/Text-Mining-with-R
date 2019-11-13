@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-11-12" />
+<meta name="date" content="2019-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -325,7 +325,7 @@ FIGURE 3.1: The GitBook toolbar.
 <p>The first button on the toolbar can toggle the visibility of the sidebar. You can also hit the <code>S</code> key on your keyboard to do the same thing. The GitBook style can remember the visibility status of the sidebar, e.g., if you closed the sidebar, it will remain closed the next time you open the book. In fact, the GitBook style remembers many other settings as well, such as the search keyword and the font settings.</p>
 <p>The second button on the toolbar is the search button. Its keyboard shortcut is <code>F</code> (Find). When the button is clicked, you will see a search box at the top of the sidebar. As you type in the box, the TOC will be filtered to display the sections that match the search keyword. Now you can use the arrow keys <code>Up</code>/<code>Down</code> to highlight the previous/next match in the search results. When you click the search button again (or hit <code>F</code> outside the search box), the search keyword will be emptied and the search box will be hidden. To disable searching, set the option <code>search: no</code> in <code>config</code>.</p>
 <p>The third button is for font/theme settings. You can change the font size (bigger or smaller), the font family (serif or sans serif), and the theme (<code>White</code>, <code>Sepia</code>, or <code>Night</code>). These settings can be changed via the <code>fontsettings</code> option.</p>
-<p>The <code>edit</code> option is the same as the option mentioned in Section <a href="configuration.html#configuration">4.4</a>. If it is not empty, an edit button will be added to the toolbar. This was designed for potential contributors to the book to contribute by editing the book on GitHub after clicking the button and sending pull requests. The <code>history</code> option works the same
+<p>The <code>edit</code> option is the same as the option mentioned in Section <a href="configuration.html#configuration">4.4</a>. If it is not empty, an edit button will be added to the toolbar. This was designed for potential contributors to the book to contribute by editing the book on GitHub after clicking the button and sending pull requests. The <code>history</code> and <code>view</code> options work the same
 way.</p>
 <p>If your book has other output formats for readers to download, you may provide the <code>download</code> option so that a download button can be added to the toolbar. This option takes either a character vector, or a list of character vectors with the length of each vector being 2. When it is a character vector, it should be either a vector of filenames, or filename extensions, e.g., both of the following settings are okay:</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb73-1" data-line-number="1">    <span class="fu">download:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;book.pdf&quot;</span><span class="kw">,</span> <span class="st">&quot;book.epub&quot;</span><span class="kw">]</span></a>
@@ -404,13 +404,14 @@ way.</p>
 <a class="sourceLine" id="cb80-17" data-line-number="17">    <span class="kw">button_link</span>(link_prev, <span class="st">&#39;Previous&#39;</span>),</a>
 <a class="sourceLine" id="cb80-18" data-line-number="18">    <span class="kw">source_link</span>(rmd_cur, <span class="dt">type =</span> <span class="st">&#39;edit&#39;</span>),</a>
 <a class="sourceLine" id="cb80-19" data-line-number="19">    <span class="kw">source_link</span>(rmd_cur, <span class="dt">type =</span> <span class="st">&#39;history&#39;</span>),</a>
-<a class="sourceLine" id="cb80-20" data-line-number="20">    <span class="kw">button_link</span>(link_next, <span class="st">&#39;Next&#39;</span>),</a>
-<a class="sourceLine" id="cb80-21" data-line-number="21">    <span class="st">&#39;&lt;/p&gt;&#39;</span>,</a>
-<a class="sourceLine" id="cb80-22" data-line-number="22">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</a>
+<a class="sourceLine" id="cb80-20" data-line-number="20">    <span class="kw">source_link</span>(rmd_cur, <span class="dt">type =</span> <span class="st">&#39;view&#39;</span>),</a>
+<a class="sourceLine" id="cb80-21" data-line-number="21">    <span class="kw">button_link</span>(link_next, <span class="st">&#39;Next&#39;</span>),</a>
+<a class="sourceLine" id="cb80-22" data-line-number="22">    <span class="st">&#39;&lt;/p&gt;&#39;</span>,</a>
 <a class="sourceLine" id="cb80-23" data-line-number="23">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</a>
-<a class="sourceLine" id="cb80-24" data-line-number="24">    foot</a>
-<a class="sourceLine" id="cb80-25" data-line-number="25">  ), <span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a>
-<a class="sourceLine" id="cb80-26" data-line-number="26">}</a></code></pre></div>
+<a class="sourceLine" id="cb80-24" data-line-number="24">    <span class="st">&#39;&lt;/div&gt;&#39;</span>,</a>
+<a class="sourceLine" id="cb80-25" data-line-number="25">    foot</a>
+<a class="sourceLine" id="cb80-26" data-line-number="26">  ), <span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb80-27" data-line-number="27">}</a></code></pre></div>
 <p>Basically, this function takes a number of components like the HTML head, the table of contents, the chapter body, and so on, and it is expected to return a character string which is the HTML source of a complete HTML page. You may manipulate all components in this function using text-processing functions like <code>gsub()</code> and <code>paste()</code>.</p>
 <p>What the default page builder does is to put TOC in the first row, the body in the second row, navigation buttons at the bottom of the body, and concatenate them with the HTML head and foot. Here is a sketch of the HTML source code that may help you understand the output of <code>build_chapter()</code>:</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">&lt;html&gt;</span></a>
@@ -490,14 +491,14 @@ way.</p>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": true,
 "facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
-"github": true
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -509,6 +510,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

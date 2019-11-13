@@ -24,7 +24,7 @@
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-11-12" />
+<meta name="date" content="2019-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -251,6 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter.</li>
 <li><code>edit</code>: a link that collaborators can click to edit the Rmd source document of the current page; this was designed primarily for GitHub repositories, since it is easy to edit arbitrary plain-text files on GitHub even in other people’s repositories (if you do not have write access to the repository, GitHub will automatically fork it and let you submit a pull request after you finish editing the file). This link should have <code>%s</code> in it, which will be substituted by the actual Rmd filename for each page.</li>
 <li><code>history</code>: similar to <code>edit</code>, a link to the edit/commit history of the current page.</li>
+<li><code>view</code>: similar to <code>edit</code>, a link to source code of the current page.</li>
 <li><code>rmd_subdir</code>: whether to search for book source Rmd files in subdirectories (by default, only the root directory is searched). This may be either a boolean (e.g. <code>true</code> will search for book source Rmd files in the project directory and all subdirectories) or list of paths if you want to search for book source Rmd files in a subset of subdirectories.</li>
 <li><code>output_dir</code>: the output directory of the book (<code>_book</code> by default); this setting is read and used by <code>render_book()</code>.</li>
 <li><code>clean</code>: a vector of files and directories to be cleaned by the <code>clean_book()</code> function.</li>
@@ -259,9 +260,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb104"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="fu">book_filename:</span><span class="at"> </span><span class="st">&quot;my-book.Rmd&quot;</span></a>
 <a class="sourceLine" id="cb104-2" data-line-number="2"><span class="fu">before_chapter_script:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span> <span class="st">&quot;script2.R&quot;</span><span class="kw">]</span></a>
 <a class="sourceLine" id="cb104-3" data-line-number="3"><span class="fu">after_chapter_script:</span><span class="at"> </span><span class="st">&quot;script3.R&quot;</span></a>
-<a class="sourceLine" id="cb104-4" data-line-number="4"><span class="fu">edit:</span><span class="at"> https://github.com/rstudio/bookdown-demo/edit/master/%s</span></a>
-<a class="sourceLine" id="cb104-5" data-line-number="5"><span class="fu">output_dir:</span><span class="at"> </span><span class="st">&quot;book-output&quot;</span></a>
-<a class="sourceLine" id="cb104-6" data-line-number="6"><span class="fu">clean:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span> <span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></a></code></pre></div>
+<a class="sourceLine" id="cb104-4" data-line-number="4"><span class="fu">view:</span><span class="at"> https://github.com/rstudio/bookdown-demo/blob/master/%s</span></a>
+<a class="sourceLine" id="cb104-5" data-line-number="5"><span class="fu">edit:</span><span class="at"> https://github.com/rstudio/bookdown-demo/edit/master/%s</span></a>
+<a class="sourceLine" id="cb104-6" data-line-number="6"><span class="fu">output_dir:</span><span class="at"> </span><span class="st">&quot;book-output&quot;</span></a>
+<a class="sourceLine" id="cb104-7" data-line-number="7"><span class="fu">clean:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span> <span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></a></code></pre></div>
 </div>
             </section>
 
@@ -285,14 +287,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": true,
 "facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
-"github": true
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -304,6 +306,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
