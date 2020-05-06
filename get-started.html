@@ -59,9 +59,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -70,16 +70,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +88,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -243,14 +243,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.2</span> Get started</h2>
 <p>The easiest way for beginners to get started with writing a book with R Markdown and <strong>bookdown</strong> is through the demo <code>bookdown-demo</code> on GitHub:</p>
 <ol style="list-style-type: decimal">
-<li>Download the GitHub repository <a href="https://github.com/rstudio/bookdown-demo" class="uri">https://github.com/rstudio/bookdown-demo</a> as a <a href="https://github.com/rstudio/bookdown-demo/archive/master.zip">Zip file,</a> then unzip it locally.</li>
-<li>Install the RStudio IDE. Note that you need a version higher than 1.0.0. Please <a href="https://www.rstudio.com/products/rstudio/download/">download the latest version</a> if your RStudio version is lower than 1.0.0.</li>
+<li><p>Download the GitHub repository <a href="https://github.com/rstudio/bookdown-demo" class="uri">https://github.com/rstudio/bookdown-demo</a> as a <a href="https://github.com/rstudio/bookdown-demo/archive/master.zip">Zip file,</a> then unzip it locally.</p></li>
+<li><p>Install the RStudio IDE. Note that you need a version higher than 1.0.0. Please <a href="https://www.rstudio.com/products/rstudio/download/">download the latest version</a> if your RStudio version is lower than 1.0.0.</p></li>
 <li><p>Install the R package <strong>bookdown</strong>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># stable version on CRAN</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># or development version on GitHub</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># devtools::install_github(&#39;rstudio/bookdown&#39;)</span></a></code></pre></div></li>
-<li>Open the <code>bookdown-demo</code> repository you downloaded in RStudio by clicking <code>bookdown-demo.Rproj</code>.</li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="get-started.html#cb3-1"></a><span class="co"># stable version on CRAN</span></span>
+<span id="cb3-2"><a href="get-started.html#cb3-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
+<span id="cb3-3"><a href="get-started.html#cb3-3"></a><span class="co"># or development version on GitHub</span></span>
+<span id="cb3-4"><a href="get-started.html#cb3-4"></a><span class="co"># devtools::install_github(&#39;rstudio/bookdown&#39;)</span></span></code></pre></div></li>
+<li><p>Open the <code>bookdown-demo</code> repository you downloaded in RStudio by clicking <code>bookdown-demo.Rproj</code>.</p></li>
 <li><p>Open the R Markdown file <code>index.Rmd</code> and click the button <code>Build Book</code> on the <code>Build</code> tab of RStudio.</p></li>
 </ol>
 

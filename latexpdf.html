@@ -59,9 +59,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -70,16 +70,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +88,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -244,17 +244,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We strongly recommend that you use an HTML output format instead of LaTeX when you develop a book, since you will not be too distracted by the typesetting details, which can bother you a lot if you constantly look at the PDF output of a book. Leave the job of careful typesetting to the very end (ideally after you have really finished the content of the book).</p>
 <p>The LaTeX/PDF output format is provided by <code>pdf_book()</code> in <strong>bookdown</strong>. There is not a significant difference between <code>pdf_book()</code> and the <code>pdf_document()</code> format in <strong>rmarkdown</strong>. The main purpose of <code>pdf_book()</code> is to resolve the labels and cross-references written using the syntax described in Sections <a href="figures.html#figures">2.4</a>, <a href="tables.html#tables">2.5</a>, and <a href="cross-references.html#cross-references">2.6</a>. If the only output format that you want for a book is LaTeX/PDF, you may use the syntax specific to LaTeX, such as <code>\label{}</code> to label figures/tables/sections, and <code>\ref{}</code> to cross-reference them via their labels, because Pandoc supports LaTeX commands in Markdown. However, the LaTeX syntax is not portable to other output formats, such as HTML and e-books. That is why we introduced the syntax <code>(\#label)</code> for labels and <code>\@ref(label)</code> for cross-references.</p>
 <p>There are some top-level YAML options that will be applied to the LaTeX output. For a book, you may change the default document class to <code>book</code> (the default is <code>article</code>), and specify a bibliography style required by your publisher. A brief YAML example:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="fu">documentclass:</span><span class="at"> book</span></a>
-<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="fu">bibliography:</span><span class="at"> </span><span class="kw">[</span>book.bib<span class="kw">,</span> packages.bib<span class="kw">]</span></a>
-<a class="sourceLine" id="cb84-4" data-line-number="4"><span class="fu">biblio-style:</span><span class="at"> apalike</span></a>
-<a class="sourceLine" id="cb84-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb84-1"><a href="latexpdf.html#cb84-1"></a><span class="pp">---</span></span>
+<span id="cb84-2"><a href="latexpdf.html#cb84-2"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb84-3"><a href="latexpdf.html#cb84-3"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">book.bib</span><span class="kw">,</span><span class="at"> packages.bib</span><span class="kw">]</span></span>
+<span id="cb84-4"><a href="latexpdf.html#cb84-4"></a><span class="fu">biblio-style</span><span class="kw">:</span><span class="at"> apalike</span></span>
+<span id="cb84-5"><a href="latexpdf.html#cb84-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>There are a large number of other YAML options that you can specify for LaTeX output, such as the paper size, font size, page margin, line spacing, font families, and so on. See <a href="http://pandoc.org/MANUAL.html#variables-for-latex" class="uri">http://pandoc.org/MANUAL.html#variables-for-latex</a> for a full list of options.</p>
 <p>The <code>pdf_book()</code> format is a general format like <code>html_book()</code>, and it also has a <code>base_format</code> argument:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">pdf_book</span>(<span class="dt">toc =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb85-2" data-line-number="2">  <span class="dt">pandoc_args =</span> <span class="ot">NULL</span>, ..., <span class="dt">base_format =</span> rmarkdown<span class="op">::</span>pdf_document, </a>
-<a class="sourceLine" id="cb85-3" data-line-number="3">  <span class="dt">toc_unnumbered =</span> <span class="ot">TRUE</span>, <span class="dt">toc_appendix =</span> <span class="ot">FALSE</span>, <span class="dt">toc_bib =</span> <span class="ot">FALSE</span>, </a>
-<a class="sourceLine" id="cb85-4" data-line-number="4">  <span class="dt">quote_footer =</span> <span class="ot">NULL</span>, <span class="dt">highlight_bw =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="latexpdf.html#cb85-1"></a><span class="kw">pdf_book</span>(<span class="dt">toc =</span> <span class="ot">TRUE</span>, <span class="dt">number_sections =</span> <span class="ot">TRUE</span>, <span class="dt">fig_caption =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb85-2"><a href="latexpdf.html#cb85-2"></a>  <span class="dt">pandoc_args =</span> <span class="ot">NULL</span>, ..., <span class="dt">base_format =</span> rmarkdown<span class="op">::</span>pdf_document, </span>
+<span id="cb85-3"><a href="latexpdf.html#cb85-3"></a>  <span class="dt">toc_unnumbered =</span> <span class="ot">TRUE</span>, <span class="dt">toc_appendix =</span> <span class="ot">FALSE</span>, <span class="dt">toc_bib =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb85-4"><a href="latexpdf.html#cb85-4"></a>  <span class="dt">quote_footer =</span> <span class="ot">NULL</span>, <span class="dt">highlight_bw =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>You can change the <code>base_format</code> function to other output format functions, and <strong>bookdown</strong> has provided a simple wrapper function <code>tufte_book2()</code>, which is basically <code>pdf_book(base_format = tufte::tufte_book)</code>, to produce a PDF book using the Tufte PDF style (again, see the <strong>tufte</strong> package).</p>
 </div>
             </section>

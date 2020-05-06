@@ -59,9 +59,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -70,16 +70,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +88,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -243,12 +243,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.4</span> RStudio IDE</h2>
 <p>We recommend that you <a href="https://www.rstudio.com/products/rstudio/download/">upgrade</a> your RStudio IDE if your version is lower than 1.0.0. As mentioned in Section <a href="usage.html#usage">1.3</a>, all R Markdown files must be encoded in UTF-8. This is important especially when your files contain multibyte characters. To save a file with the UTF-8 encoding, you can use the menu <code>File -&gt; Save with Encoding</code>, and choose <code>UTF-8</code>.</p>
 <p>When you click the <code>Knit</code> button to compile an R Markdown document in the RStudio IDE, the default function called by RStudio is <code>rmarkdown::render()</code>, which is not what we want for books. To call the function <code>bookdown::render_book()</code> instead, you can set the <code>site</code> field to be <code>bookdown::bookdown_site</code> in the YAML metadata of the R Markdown document <code>index.Rmd</code>, e.g.,</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;A Nice Book&quot;</span></a>
-<a class="sourceLine" id="cb111-3" data-line-number="3"><span class="fu">site:</span><span class="at"> bookdown::bookdown_site</span></a>
-<a class="sourceLine" id="cb111-4" data-line-number="4"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb111-5" data-line-number="5">  <span class="fu">bookdown:</span><span class="at">:gitbook: default</span></a>
-<a class="sourceLine" id="cb111-6" data-line-number="6"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb111-1"><a href="rstudio-ide.html#cb111-1"></a><span class="pp">---</span></span>
+<span id="cb111-2"><a href="rstudio-ide.html#cb111-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;A Nice Book&quot;</span></span>
+<span id="cb111-3"><a href="rstudio-ide.html#cb111-3"></a><span class="fu">site</span><span class="kw">:</span><span class="at"> bookdown::bookdown_site</span></span>
+<span id="cb111-4"><a href="rstudio-ide.html#cb111-4"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb111-5"><a href="rstudio-ide.html#cb111-5"></a><span class="at">  bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb111-6"><a href="rstudio-ide.html#cb111-6"></a><span class="pp">---</span></span></code></pre></div>
 <p>When you have set <code>site: bookdown::bookdown_site</code> in <code>index.Rmd</code>, RStudio will be able to discover the directory as a book source directory,<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> and you will see a button <code>Build Book</code> in the <code>Build</code> pane. You can click the button to build the whole book in different formats, and if you click the <code>Knit</code> button on the toolbar, RStudio will automatically preview the current chapter, and you do not need to use <code>preview_chapter()</code> explicitly.</p>
 <p>The <strong>bookdown</strong> package comes with a few addins for RStudio. If you are not familiar with RStudio addins, you may check out the documentation at <a href="http://rstudio.github.io/rstudioaddins/" class="uri">http://rstudio.github.io/rstudioaddins/</a>. After you have installed the <strong>bookdown</strong> package and use RStudio v0.99.878 or later, you will see a dropdown menu on the toolbar named “Addins” and menu items like “Preview Book” and “Input LaTeX Math” after you open the menu.</p>
 <p>The addin “Preview Book” calls <code>bookdown::serve_book()</code> to compile and serve the book. It will block your current R session, i.e., when <code>serve_book()</code> is running, you will not be able to do anything in the R console anymore. To avoid blocking the R session, you can daemonize the server using <code>bookdown::serve_book(daemon = TRUE)</code>. Note that this addin must be used when the current document opened in RStudio is under the root directory of your book, otherwise <code>serve_book()</code> may not be able to find the book source.</p>
@@ -259,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 FIGURE 5.1: The RStudio addin to help input LaTeX math.
 </p>
 </div>
-<p>There are also other R packages that provide addins to help you author books. The <strong>citr</strong> package <span class="citation">(Aust <a href="#ref-R-citr">2019</a>)</span> provides an addin named “Insert citations”, which makes it easy to insert citations into R Markdown documents. It scans your bibliography databases, and shows all citation items in a drop-down menu, so you can choose from the list without remembering which citation key corresponds to which citation item (Figure <a href="rstudio-ide.html#fig:citr">5.2</a>).</p>
+<p>There are also other R packages that provide addins to help you author books. The <strong>citr</strong> package <span class="citation">(Aust <a href="#ref-R-citr" role="doc-biblioref">2019</a>)</span> provides an addin named “Insert citations”, which makes it easy to insert citations into R Markdown documents. It scans your bibliography databases, and shows all citation items in a drop-down menu, so you can choose from the list without remembering which citation key corresponds to which citation item (Figure <a href="rstudio-ide.html#fig:citr">5.2</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:citr"></span>
 <img src="images/citr.png" alt="The RStudio addin to help insert citations."  />
 <p class="caption">
@@ -270,13 +270,13 @@ FIGURE 5.2: The RStudio addin to help insert citations.
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-citr">
-<p>Aust, Frederik. 2019. <em>Citr: RStudio Add-in to Insert Markdown Citations</em>. <a href="https://CRAN.R-project.org/package=citr" class="uri">https://CRAN.R-project.org/package=citr</a>.</p>
+<p>Aust, Frederik. 2019. <em>Citr: RStudio Add-in to Insert Markdown Citations</em>. <a href="https://CRAN.R-project.org/package=citr">https://CRAN.R-project.org/package=citr</a>.</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="11">
-<li id="fn11"><p>This directory has to be an RStudio project.<a href="rstudio-ide.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn11"><p>This directory has to be an RStudio project.<a href="rstudio-ide.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

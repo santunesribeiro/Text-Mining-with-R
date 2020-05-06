@@ -59,9 +59,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -70,16 +70,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +88,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -242,41 +242,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="latex" class="section level2">
 <h2><span class="header-section-number">A.3</span> LaTeX</h2>
 <p>LaTeX is required only if you want to convert your book to PDF. You may see <a href="https://www.latex-project.org/get/" class="uri">https://www.latex-project.org/get/</a> for more information about LaTeX and its installation, but we strongly recommend that you install the lightweight and cross-platform LaTeX distribution named <a href="https://yihui.org/tinytex/">TinyTeX</a> and based on TeX Live. TinyTeX can be easily installed through the R package <strong>tinytex</strong> (which should be automatically installed when you install <strong>bookdown</strong>):</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1">tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="latex.html#cb135-1"></a>tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</span></code></pre></div>
 <p>With TinyTeX, you should never see error messages like this:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb136-1" data-line-number="1">! LaTeX Error: File `titling.sty&#39; not found.</a>
-<a class="sourceLine" id="cb136-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb136-3" data-line-number="3">Type X to quit or &lt;RETURN&gt; to proceed,</a>
-<a class="sourceLine" id="cb136-4" data-line-number="4">or enter new name. (Default extension: sty)</a>
-<a class="sourceLine" id="cb136-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb136-6" data-line-number="6">Enter file name: </a>
-<a class="sourceLine" id="cb136-7" data-line-number="7">! Emergency stop.</a>
-<a class="sourceLine" id="cb136-8" data-line-number="8">&lt;read *&gt; </a>
-<a class="sourceLine" id="cb136-9" data-line-number="9">         </a>
-<a class="sourceLine" id="cb136-10" data-line-number="10">l.107 ^^M</a>
-<a class="sourceLine" id="cb136-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb136-12" data-line-number="12">pandoc: Error producing PDF</a>
-<a class="sourceLine" id="cb136-13" data-line-number="13">Error: pandoc document conversion failed with error 43</a>
-<a class="sourceLine" id="cb136-14" data-line-number="14">Execution halted</a></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb136-1"><a href="latex.html#cb136-1"></a>! LaTeX Error: File `titling.sty&#39; not found.</span>
+<span id="cb136-2"><a href="latex.html#cb136-2"></a></span>
+<span id="cb136-3"><a href="latex.html#cb136-3"></a>Type X to quit or &lt;RETURN&gt; to proceed,</span>
+<span id="cb136-4"><a href="latex.html#cb136-4"></a>or enter new name. (Default extension: sty)</span>
+<span id="cb136-5"><a href="latex.html#cb136-5"></a></span>
+<span id="cb136-6"><a href="latex.html#cb136-6"></a>Enter file name: </span>
+<span id="cb136-7"><a href="latex.html#cb136-7"></a>! Emergency stop.</span>
+<span id="cb136-8"><a href="latex.html#cb136-8"></a>&lt;read *&gt; </span>
+<span id="cb136-9"><a href="latex.html#cb136-9"></a>         </span>
+<span id="cb136-10"><a href="latex.html#cb136-10"></a>l.107 ^^M</span>
+<span id="cb136-11"><a href="latex.html#cb136-11"></a></span>
+<span id="cb136-12"><a href="latex.html#cb136-12"></a>pandoc: Error producing PDF</span>
+<span id="cb136-13"><a href="latex.html#cb136-13"></a>Error: pandoc document conversion failed with error 43</span>
+<span id="cb136-14"><a href="latex.html#cb136-14"></a>Execution halted</span></code></pre></div>
 <p>The above error means you used a package that contains <code>titling.sty</code>, but it was not installed. LaTeX package names are often the same as the <code>*.sty</code> filenames, so in this case, you can try to install the <code>titling</code> package. If you use TinyTeX with R Markdown, missing LaTeX packages will be installed automatically, so you never need to worry about such problems.</p>
 <p>LaTeX distributions and packages are also updated from time to time, and you may consider updating them especially when you run into LaTeX problems. You can find out the version of your LaTeX distribution by:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="kw">system</span>(<span class="st">&quot;pdflatex --version&quot;</span>)</a>
-<a class="sourceLine" id="cb137-2" data-line-number="2">## pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017)</a>
-<a class="sourceLine" id="cb137-3" data-line-number="3">## kpathsea version 6.2.3</a>
-<a class="sourceLine" id="cb137-4" data-line-number="4">## Copyright 2017 Han The Thanh (pdfTeX) et al.</a>
-<a class="sourceLine" id="cb137-5" data-line-number="5">## There is NO warranty.  Redistribution of this software is</a>
-<a class="sourceLine" id="cb137-6" data-line-number="6">## covered by the terms of both the pdfTeX copyright and</a>
-<a class="sourceLine" id="cb137-7" data-line-number="7">## the Lesser GNU General Public License.</a>
-<a class="sourceLine" id="cb137-8" data-line-number="8">## For more information about these matters, see the file</a>
-<a class="sourceLine" id="cb137-9" data-line-number="9">## named COPYING and the pdfTeX source.</a>
-<a class="sourceLine" id="cb137-10" data-line-number="10">## Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.</a>
-<a class="sourceLine" id="cb137-11" data-line-number="11">## Compiled with libpng 1.6.29; using libpng 1.6.29</a>
-<a class="sourceLine" id="cb137-12" data-line-number="12">## Compiled with zlib 1.2.11; using zlib 1.2.11</a>
-<a class="sourceLine" id="cb137-13" data-line-number="13">## Compiled with xpdf version 3.04</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="latex.html#cb137-1"></a><span class="kw">system</span>(<span class="st">&quot;pdflatex --version&quot;</span>)</span>
+<span id="cb137-2"><a href="latex.html#cb137-2"></a><span class="co">## pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017)</span></span>
+<span id="cb137-3"><a href="latex.html#cb137-3"></a><span class="co">## kpathsea version 6.2.3</span></span>
+<span id="cb137-4"><a href="latex.html#cb137-4"></a><span class="co">## Copyright 2017 Han The Thanh (pdfTeX) et al.</span></span>
+<span id="cb137-5"><a href="latex.html#cb137-5"></a><span class="co">## There is NO warranty.  Redistribution of this software is</span></span>
+<span id="cb137-6"><a href="latex.html#cb137-6"></a><span class="co">## covered by the terms of both the pdfTeX copyright and</span></span>
+<span id="cb137-7"><a href="latex.html#cb137-7"></a><span class="co">## the Lesser GNU General Public License.</span></span>
+<span id="cb137-8"><a href="latex.html#cb137-8"></a><span class="co">## For more information about these matters, see the file</span></span>
+<span id="cb137-9"><a href="latex.html#cb137-9"></a><span class="co">## named COPYING and the pdfTeX source.</span></span>
+<span id="cb137-10"><a href="latex.html#cb137-10"></a><span class="co">## Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.</span></span>
+<span id="cb137-11"><a href="latex.html#cb137-11"></a><span class="co">## Compiled with libpng 1.6.29; using libpng 1.6.29</span></span>
+<span id="cb137-12"><a href="latex.html#cb137-12"></a><span class="co">## Compiled with zlib 1.2.11; using zlib 1.2.11</span></span>
+<span id="cb137-13"><a href="latex.html#cb137-13"></a><span class="co">## Compiled with xpdf version 3.04</span></span></code></pre></div>
 <p>To update TinyTeX, you may run:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">tinytex<span class="op">::</span><span class="kw">tlmgr_update</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="latex.html#cb138-1"></a>tinytex<span class="op">::</span><span class="kw">tlmgr_update</span>()</span></code></pre></div>
 <p>From year to year, you may need to upgrade TinyTeX, too (otherwise you cannot install or update any LaTeX packages), in which case you may reinstall TinyTeX:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1">tinytex<span class="op">::</span><span class="kw">reinstall_tinytex</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="latex.html#cb139-1"></a>tinytex<span class="op">::</span><span class="kw">reinstall_tinytex</span>()</span></code></pre></div>
 
 </div>
 <!-- </div> -->

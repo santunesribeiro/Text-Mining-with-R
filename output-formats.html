@@ -59,9 +59,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -70,16 +70,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +88,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -242,33 +242,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="output-formats" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Output Formats</h1>
 <p>The <strong>bookdown</strong> package primarily supports three types of output formats: HTML, LaTeX/PDF, and e-books. In this chapter, we introduce the possible options for these formats. Output formats can be specified either in the YAML metadata of the first Rmd file of the book, or in a separate YAML file named <code>_output.yml</code> under the root directory of the book. Here is a brief example of the former (output formats are specified in the <code>output</code> field of the YAML metadata):</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb67-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;An Impressive Book&quot;</span></a>
-<a class="sourceLine" id="cb67-3" data-line-number="3"><span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Li Lei and Han Meimei&quot;</span></a>
-<a class="sourceLine" id="cb67-4" data-line-number="4"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb67-5" data-line-number="5">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></a>
-<a class="sourceLine" id="cb67-6" data-line-number="6">    <span class="fu">lib_dir:</span><span class="at"> assets</span></a>
-<a class="sourceLine" id="cb67-7" data-line-number="7">    <span class="fu">split_by:</span><span class="at"> section</span></a>
-<a class="sourceLine" id="cb67-8" data-line-number="8">    <span class="fu">config:</span></a>
-<a class="sourceLine" id="cb67-9" data-line-number="9">      <span class="fu">toolbar:</span></a>
-<a class="sourceLine" id="cb67-10" data-line-number="10">        <span class="fu">position:</span><span class="at"> static</span></a>
-<a class="sourceLine" id="cb67-11" data-line-number="11">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></a>
-<a class="sourceLine" id="cb67-12" data-line-number="12">    <span class="fu">keep_tex:</span><span class="at"> yes</span></a>
-<a class="sourceLine" id="cb67-13" data-line-number="13">  <span class="fu">bookdown:</span><span class="at">:html_book:</span></a>
-<a class="sourceLine" id="cb67-14" data-line-number="14">    <span class="fu">css:</span><span class="at"> toc.css</span></a>
-<a class="sourceLine" id="cb67-15" data-line-number="15"><span class="fu">documentclass:</span><span class="at"> book</span></a>
-<a class="sourceLine" id="cb67-16" data-line-number="16"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb67-1"><a href="output-formats.html#cb67-1"></a><span class="pp">---</span></span>
+<span id="cb67-2"><a href="output-formats.html#cb67-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;An Impressive Book&quot;</span></span>
+<span id="cb67-3"><a href="output-formats.html#cb67-3"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Li Lei and Han Meimei&quot;</span></span>
+<span id="cb67-4"><a href="output-formats.html#cb67-4"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb67-5"><a href="output-formats.html#cb67-5"></a><span class="at">  bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span></span>
+<span id="cb67-6"><a href="output-formats.html#cb67-6"></a><span class="at">    </span><span class="fu">lib_dir</span><span class="kw">:</span><span class="at"> assets</span></span>
+<span id="cb67-7"><a href="output-formats.html#cb67-7"></a><span class="at">    </span><span class="fu">split_by</span><span class="kw">:</span><span class="at"> section</span></span>
+<span id="cb67-8"><a href="output-formats.html#cb67-8"></a><span class="at">    </span><span class="fu">config</span><span class="kw">:</span></span>
+<span id="cb67-9"><a href="output-formats.html#cb67-9"></a><span class="at">      </span><span class="fu">toolbar</span><span class="kw">:</span></span>
+<span id="cb67-10"><a href="output-formats.html#cb67-10"></a><span class="at">        </span><span class="fu">position</span><span class="kw">:</span><span class="at"> static</span></span>
+<span id="cb67-11"><a href="output-formats.html#cb67-11"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
+<span id="cb67-12"><a href="output-formats.html#cb67-12"></a><span class="at">    </span><span class="fu">keep_tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb67-13"><a href="output-formats.html#cb67-13"></a><span class="at">  bookdown:</span><span class="fu">:html_book</span><span class="kw">:</span></span>
+<span id="cb67-14"><a href="output-formats.html#cb67-14"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> toc.css</span></span>
+<span id="cb67-15"><a href="output-formats.html#cb67-15"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb67-16"><a href="output-formats.html#cb67-16"></a><span class="pp">---</span></span></code></pre></div>
 <p>Here is an example of <code>_output.yml</code>:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="fu">bookdown:</span><span class="at">:gitbook:</span></a>
-<a class="sourceLine" id="cb68-2" data-line-number="2">  <span class="fu">lib_dir:</span><span class="at"> assets</span></a>
-<a class="sourceLine" id="cb68-3" data-line-number="3">  <span class="fu">split_by:</span><span class="at"> section</span></a>
-<a class="sourceLine" id="cb68-4" data-line-number="4">  <span class="fu">config:</span></a>
-<a class="sourceLine" id="cb68-5" data-line-number="5">    <span class="fu">toolbar:</span></a>
-<a class="sourceLine" id="cb68-6" data-line-number="6">      <span class="fu">position:</span><span class="at"> static</span></a>
-<a class="sourceLine" id="cb68-7" data-line-number="7"><span class="fu">bookdown:</span><span class="at">:pdf_book:</span></a>
-<a class="sourceLine" id="cb68-8" data-line-number="8">  <span class="fu">keep_tex:</span><span class="at"> yes</span></a>
-<a class="sourceLine" id="cb68-9" data-line-number="9"><span class="fu">bookdown:</span><span class="at">:html_book:</span></a>
-<a class="sourceLine" id="cb68-10" data-line-number="10">  <span class="fu">css:</span><span class="at"> toc.css</span></a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb68-1"><a href="output-formats.html#cb68-1"></a><span class="at">bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span></span>
+<span id="cb68-2"><a href="output-formats.html#cb68-2"></a><span class="at">  </span><span class="fu">lib_dir</span><span class="kw">:</span><span class="at"> assets</span></span>
+<span id="cb68-3"><a href="output-formats.html#cb68-3"></a><span class="at">  </span><span class="fu">split_by</span><span class="kw">:</span><span class="at"> section</span></span>
+<span id="cb68-4"><a href="output-formats.html#cb68-4"></a><span class="at">  </span><span class="fu">config</span><span class="kw">:</span></span>
+<span id="cb68-5"><a href="output-formats.html#cb68-5"></a><span class="at">    </span><span class="fu">toolbar</span><span class="kw">:</span></span>
+<span id="cb68-6"><a href="output-formats.html#cb68-6"></a><span class="at">      </span><span class="fu">position</span><span class="kw">:</span><span class="at"> static</span></span>
+<span id="cb68-7"><a href="output-formats.html#cb68-7"></a><span class="at">bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
+<span id="cb68-8"><a href="output-formats.html#cb68-8"></a><span class="at">  </span><span class="fu">keep_tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb68-9"><a href="output-formats.html#cb68-9"></a><span class="at">bookdown:</span><span class="fu">:html_book</span><span class="kw">:</span></span>
+<span id="cb68-10"><a href="output-formats.html#cb68-10"></a><span class="at">  </span><span class="fu">css</span><span class="kw">:</span><span class="at"> toc.css</span></span></code></pre></div>
 <p>In this case, all formats should be at the top level, instead of under an <code>output</code> field. You do not need the three dashes <code>---</code> in <code>_output.yml</code>.</p>
 </div>
             </section>

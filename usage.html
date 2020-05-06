@@ -59,9 +59,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -70,16 +70,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +88,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -244,78 +244,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A typical <strong>bookdown</strong> book contains multiple chapters, and one chapter lives in one R Markdown file, with the filename extension <code>.Rmd</code>. Each R Markdown file must start immediately with the chapter title using the first-level heading, e.g., <code># Chapter Title</code>. All R Markdown files must be encoded in UTF-8, especially when they contain multi-byte characters such as Chinese, Japanese, and Korean. Here is an example (the bullets are the filenames, followed by the file content):</p>
 <ul>
 <li><p>index.Rmd</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu"># Preface {-}</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">In this book, we will introduce an interesting</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">method.</a></code></pre></div></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="usage.html#cb4-1"></a><span class="fu"># Preface {-}</span></span>
+<span id="cb4-2"><a href="usage.html#cb4-2"></a></span>
+<span id="cb4-3"><a href="usage.html#cb4-3"></a>In this book, we will introduce an interesting</span>
+<span id="cb4-4"><a href="usage.html#cb4-4"></a>method.</span></code></pre></div></li>
 <li><p>01-intro.Rmd</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu"># Introduction</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">This chapter is an overview of the methods that</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">we propose to solve an **important problem**.</a></code></pre></div></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="usage.html#cb5-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb5-2"><a href="usage.html#cb5-2"></a></span>
+<span id="cb5-3"><a href="usage.html#cb5-3"></a>This chapter is an overview of the methods that</span>
+<span id="cb5-4"><a href="usage.html#cb5-4"></a>we propose to solve an **important problem**.</span></code></pre></div></li>
 <li><p>02-literature.Rmd</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu"># Literature</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">Here is a review of existing methods.</a></code></pre></div></li>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="usage.html#cb6-1"></a><span class="fu"># Literature</span></span>
+<span id="cb6-2"><a href="usage.html#cb6-2"></a></span>
+<span id="cb6-3"><a href="usage.html#cb6-3"></a>Here is a review of existing methods.</span></code></pre></div></li>
 <li><p>03-method.Rmd</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu"># Methods</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">We describe our methods in this chapter.</a></code></pre></div></li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="usage.html#cb7-1"></a><span class="fu"># Methods</span></span>
+<span id="cb7-2"><a href="usage.html#cb7-2"></a></span>
+<span id="cb7-3"><a href="usage.html#cb7-3"></a>We describe our methods in this chapter.</span></code></pre></div></li>
 <li><p>04-application.Rmd</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="fu"># Applications</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">Some _significant_ applications are demonstrated</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">in this chapter.</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="fu">## Example one</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="fu">## Example two</span></a></code></pre></div></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="usage.html#cb8-1"></a><span class="fu"># Applications</span></span>
+<span id="cb8-2"><a href="usage.html#cb8-2"></a></span>
+<span id="cb8-3"><a href="usage.html#cb8-3"></a>Some _significant_ applications are demonstrated</span>
+<span id="cb8-4"><a href="usage.html#cb8-4"></a>in this chapter.</span>
+<span id="cb8-5"><a href="usage.html#cb8-5"></a></span>
+<span id="cb8-6"><a href="usage.html#cb8-6"></a><span class="fu">## Example one</span></span>
+<span id="cb8-7"><a href="usage.html#cb8-7"></a></span>
+<span id="cb8-8"><a href="usage.html#cb8-8"></a><span class="fu">## Example two</span></span></code></pre></div></li>
 <li><p>05-summary.Rmd</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu"># Final Words</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">We have finished a nice book.</a></code></pre></div></li>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="usage.html#cb9-1"></a><span class="fu"># Final Words</span></span>
+<span id="cb9-2"><a href="usage.html#cb9-2"></a></span>
+<span id="cb9-3"><a href="usage.html#cb9-3"></a>We have finished a nice book.</span></code></pre></div></li>
 </ul>
 <p>By default, <strong>bookdown</strong> merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. If there exists an Rmd file named <code>index.Rmd</code>, it will always be treated as the first file when merging all Rmd files. The reason for this special treatment is that the HTML file <code>index.html</code> to be generated from <code>index.Rmd</code> is usually the default index file when you view a website, e.g., you are actually browsing <a href="http://yihui.org/index.html" class="uri">http://yihui.org/index.html</a> when you open <a href="http://yihui.org/" class="uri">http://yihui.org/</a>.</p>
 <p>You can override the above behavior by including a configuration file named <code>_bookdown.yml</code> in the book directory. It is a YAML file (<a href="https://en.wikipedia.org/wiki/YAML" class="uri">https://en.wikipedia.org/wiki/YAML</a>), and R Markdown users should be familiar with this format since it is also used to write the metadata in the beginning of R Markdown documents (you can learn more about YAML in Section <a href="r-markdown.html#r-markdown">B.2</a>). You can use a field named <code>rmd_files</code> to define your own list and order of Rmd files for the book. For example,</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="fu">rmd_files:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="usage.html#cb10-1"></a><span class="fu">rmd_files</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></span></code></pre></div>
 <p>In this case, <strong>bookdown</strong> will just use whatever you defined in this YAML field without any special treatments of <code>index.Rmd</code> or underscores. If you want both HTML and LaTeX/PDF output from the book, and use different Rmd files for HTML and LaTeX output, you may specify these files for the two output formats separately, e.g.,</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="fu">rmd_files:</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="fu">html:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="fu">latex:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb11-1"><a href="usage.html#cb11-1"></a><span class="fu">rmd_files</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="usage.html#cb11-2"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></span>
+<span id="cb11-3"><a href="usage.html#cb11-3"></a><span class="at">  </span><span class="fu">latex</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></span></code></pre></div>
 <p>Although we have been talking about R Markdown files, the chapter files do not actually have to be R Markdown. They can be plain Markdown files (<code>.md</code>), and do not have to contain R code chunks at all. You can certainly use <strong>bookdown</strong> to compose novels or poems!</p>
 <p>At the moment, the major output formats that you may use include <code>bookdown::pdf_book</code>, <code>bookdown::gitbook</code>, <code>bookdown::html_book</code>, and <code>bookdown::epub_book</code>. There is a <code>bookdown::render_book()</code> function similar to <code>rmarkdown::render()</code>, but it was designed to render <em>multiple</em> Rmd documents into a book using the output format functions. You may either call this function from command line directly, or click the relevant buttons in the RStudio IDE. Here are some command-line examples:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown<span class="op">::</span><span class="kw">gitbook</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>))</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown<span class="op">::</span><span class="kw">pdf_book</span>(<span class="dt">keep_tex =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="usage.html#cb12-1"></a>bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)</span>
+<span id="cb12-2"><a href="usage.html#cb12-2"></a>bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, <span class="st">&quot;bookdown::pdf_book&quot;</span>)</span>
+<span id="cb12-3"><a href="usage.html#cb12-3"></a>bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown<span class="op">::</span><span class="kw">gitbook</span>(<span class="dt">lib_dir =</span> <span class="st">&quot;libs&quot;</span>))</span>
+<span id="cb12-4"><a href="usage.html#cb12-4"></a>bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;foo.Rmd&quot;</span>, bookdown<span class="op">::</span><span class="kw">pdf_book</span>(<span class="dt">keep_tex =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
 <p>To use <code>render_book</code> and the output format functions in the RStudio IDE, you can define a YAML field named <code>site</code> that takes the value <code>bookdown::bookdown_site</code>,<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> and the output format functions can be used in the <code>output</code> field, e.g.,</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="fu">site:</span><span class="at"> </span><span class="st">&quot;bookdown::bookdown_site&quot;</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="fu">bookdown:</span><span class="at">:gitbook:</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">    <span class="fu">lib_dir:</span><span class="at"> </span><span class="st">&quot;book_assets&quot;</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">  <span class="fu">bookdown:</span><span class="at">:pdf_book:</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">    <span class="fu">keep_tex:</span><span class="at"> yes</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb13-1"><a href="usage.html#cb13-1"></a><span class="pp">---</span></span>
+<span id="cb13-2"><a href="usage.html#cb13-2"></a><span class="fu">site</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;bookdown::bookdown_site&quot;</span></span>
+<span id="cb13-3"><a href="usage.html#cb13-3"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb13-4"><a href="usage.html#cb13-4"></a><span class="at">  bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span></span>
+<span id="cb13-5"><a href="usage.html#cb13-5"></a><span class="at">    </span><span class="fu">lib_dir</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;book_assets&quot;</span></span>
+<span id="cb13-6"><a href="usage.html#cb13-6"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
+<span id="cb13-7"><a href="usage.html#cb13-7"></a><span class="at">    </span><span class="fu">keep_tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb13-8"><a href="usage.html#cb13-8"></a><span class="pp">---</span></span></code></pre></div>
 <p>Then you can click the <code>Build Book</code> button in the <code>Build</code> pane in RStudio to compile the Rmd files into a book, or click the <code>Knit</code> button on the toolbar to preview the current chapter.</p>
 <p>More <strong>bookdown</strong> configuration options in <code>_bookdown.yml</code> are explained in Section <a href="configuration.html#configuration">4.4</a>. Besides these configurations, you can also specify some Pandoc-related configurations in the YAML metadata of the <em>first</em> Rmd file of the book, such as the title, author, and date of the book, etc. For example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="ot">--- </span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Authoring A Book with R Markdown&quot;</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Yihui Xie&quot;</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="fu">date:</span><span class="at"> </span><span class="st">&quot;`r Sys.Date()`&quot;</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="fu">site:</span><span class="at"> </span><span class="st">&quot;bookdown::bookdown_site&quot;</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">  <span class="fu">bookdown:</span><span class="at">:gitbook: default</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="fu">documentclass:</span><span class="at"> book</span></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="fu">bibliography:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;book.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;packages.bib&quot;</span><span class="kw">]</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="fu">biblio-style:</span><span class="at"> apalike</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="fu">link-citations:</span><span class="at"> yes</span></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="usage.html#cb14-1"></a><span class="pp">--- </span></span>
+<span id="cb14-2"><a href="usage.html#cb14-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Authoring A Book with R Markdown&quot;</span></span>
+<span id="cb14-3"><a href="usage.html#cb14-3"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Yihui Xie&quot;</span></span>
+<span id="cb14-4"><a href="usage.html#cb14-4"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;`r Sys.Date()`&quot;</span></span>
+<span id="cb14-5"><a href="usage.html#cb14-5"></a><span class="fu">site</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;bookdown::bookdown_site&quot;</span></span>
+<span id="cb14-6"><a href="usage.html#cb14-6"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb14-7"><a href="usage.html#cb14-7"></a><span class="at">  bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb14-8"><a href="usage.html#cb14-8"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb14-9"><a href="usage.html#cb14-9"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;book.bib&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;packages.bib&quot;</span><span class="kw">]</span></span>
+<span id="cb14-10"><a href="usage.html#cb14-10"></a><span class="fu">biblio-style</span><span class="kw">:</span><span class="at"> apalike</span></span>
+<span id="cb14-11"><a href="usage.html#cb14-11"></a><span class="fu">link-citations</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb14-12"><a href="usage.html#cb14-12"></a><span class="pp">---</span></span></code></pre></div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>This function calls <code>bookdown::render_book()</code>.<a href="usage.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>This function calls <code>bookdown::render_book()</code>.<a href="usage.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

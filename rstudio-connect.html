@@ -59,9 +59,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -70,16 +70,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +88,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -243,10 +243,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.1</span> RStudio Connect</h2>
 <p>In theory, you can render the book by yourself and publish the output anywhere you want. For example, you can host the HTML files on your own web server. We have provided a function <code>publish_book()</code> in <strong>bookdown</strong> to make it very simple to upload your book to <a href="https://bookdown.org" class="uri">https://bookdown.org</a>, which is a website provided by RStudio to host your books for free. This website is built on top of <a href="https://www.rstudio.com/products/connect/">“RStudio Connect”,</a> an RStudio product that allows you to deploy a variety of R-related applications to a server, including R Markdown documents, Shiny applications, R plots, and so on.</p>
 <p>You do not have to know much about RStudio Connect to publish your book to bookdown.org. Basically you sign up at <a href="https://bookdown.org/connect/" class="uri">https://bookdown.org/connect/</a>, and the first time you try to run <code>bookdown::publish_book()</code>, you will be asked to authorize <strong>bookdown</strong> to publish to your bookdown.org account. In the future, you simply call <code>publish_book()</code> again and <strong>bookdown</strong> will no longer ask for anything.</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="kw">publish_book</span>(<span class="dt">name =</span> <span class="ot">NULL</span>, <span class="dt">account =</span> <span class="ot">NULL</span>, <span class="dt">server =</span> <span class="ot">NULL</span>, </a>
-<a class="sourceLine" id="cb114-2" data-line-number="2">  <span class="dt">render =</span> <span class="kw">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;local&quot;</span>, <span class="st">&quot;server&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="rstudio-connect.html#cb114-1"></a><span class="kw">publish_book</span>(<span class="dt">name =</span> <span class="ot">NULL</span>, <span class="dt">account =</span> <span class="ot">NULL</span>, <span class="dt">server =</span> <span class="ot">NULL</span>, </span>
+<span id="cb114-2"><a href="rstudio-connect.html#cb114-2"></a>  <span class="dt">render =</span> <span class="kw">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;local&quot;</span>, <span class="st">&quot;server&quot;</span>))</span></code></pre></div>
 <p>The only argument of <code>publish_book()</code> that you may want to touch is <code>render</code>. It determines whether you want to render the book before publishing. If you have run <code>render_book()</code> before, you do not need to change this argument, otherwise you may set it to <code>'local'</code>:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">bookdown<span class="op">::</span><span class="kw">publish_book</span>(<span class="dt">render =</span> <span class="st">&quot;local&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="rstudio-connect.html#cb115-1"></a>bookdown<span class="op">::</span><span class="kw">publish_book</span>(<span class="dt">render =</span> <span class="st">&quot;local&quot;</span>)</span></code></pre></div>
 <p>If you have set up your own RStudio Connect server, you can certainly publish the book to that server instead of bookdown.org.</p>
 </div>
             </section>

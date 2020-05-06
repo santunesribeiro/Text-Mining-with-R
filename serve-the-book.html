@@ -59,9 +59,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -70,16 +70,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +88,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="serve-the-book" class="section level2">
 <h2><span class="header-section-number">5.3</span> Serve the book</h2>
-<p>Instead of running <code>render_book()</code> or <code>preview_chapter()</code> over and over again, you can actually live preview the book in the web browser, and the only thing you need to do is save the Rmd file. The function <code>serve_book()</code> in <strong>bookdown</strong> can start a local web server to serve the HTML output based on the <strong>servr</strong> package <span class="citation">(Xie <a href="#ref-R-servr">2020</a><a href="#ref-R-servr">c</a>)</span>.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="kw">serve_book</span>(<span class="dt">dir =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">output_dir =</span> <span class="st">&quot;_book&quot;</span>, <span class="dt">preview =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb110-2" data-line-number="2">  <span class="dt">in_session =</span> <span class="ot">TRUE</span>, <span class="dt">quiet =</span> <span class="ot">FALSE</span>, ...)</a></code></pre></div>
+<p>Instead of running <code>render_book()</code> or <code>preview_chapter()</code> over and over again, you can actually live preview the book in the web browser, and the only thing you need to do is save the Rmd file. The function <code>serve_book()</code> in <strong>bookdown</strong> can start a local web server to serve the HTML output based on the <strong>servr</strong> package <span class="citation">(Xie <a href="#ref-R-servr" role="doc-biblioref">2020</a><a href="#ref-R-servr" role="doc-biblioref">c</a>)</span>.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="serve-the-book.html#cb110-1"></a><span class="kw">serve_book</span>(<span class="dt">dir =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">output_dir =</span> <span class="st">&quot;_book&quot;</span>, <span class="dt">preview =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb110-2"><a href="serve-the-book.html#cb110-2"></a>  <span class="dt">in_session =</span> <span class="ot">TRUE</span>, <span class="dt">quiet =</span> <span class="ot">FALSE</span>, ...)</span></code></pre></div>
 <p>You pass the root directory of the book to the <code>dir</code> argument, and this function will start a local web server so you can view the book output using the server. The default URL to access the book output is <code>http://127.0.0.1:4321</code>. If you run this function in an interactive R session, this URL will be automatically opened in your web browser. If you are in the RStudio IDE, the RStudio Viewer will be used as the default web browser, so you will be able to write the Rmd source files and preview the output in the same environment (e.g., source on the left and output on the right).</p>
 <p>The server will listen to changes in the book root directory: whenever you modify any files in the book directory, <code>serve_book()</code> can detect the changes, recompile the Rmd files, and refresh the web browser automatically. If the modified files do not include Rmd files, it just refreshes the browser (e.g., if you only updated a certain CSS file). This means once the server is launched, all you have to do next is simply write the book and save the files. Compilation and preview will take place automatically as you save files.</p>
 <p>If it does not really take too much time to recompile the whole book, you may set the argument <code>preview = FALSE</code>, so that every time you update the book, the whole book is recompiled, otherwise only the modified chapters are recompiled via <code>preview_chapter()</code>.</p>
@@ -257,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-servr">
-<p>Xie, Yihui. 2020c. <em>Servr: A Simple Http Server to Serve Static Files or Dynamic Documents</em>. <a href="https://github.com/yihui/servr" class="uri">https://github.com/yihui/servr</a>.</p>
+<p>Xie, Yihui. 2020c. <em>Servr: A Simple Http Server to Serve Static Files or Dynamic Documents</em>. <a href="https://github.com/yihui/servr">https://github.com/yihui/servr</a>.</p>
 </div>
 </div>
             </section>
