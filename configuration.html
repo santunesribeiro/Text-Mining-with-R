@@ -244,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We have mentioned <code>rmd_files</code> in Section <a href="usage.html#usage">1.3</a>, and there are more (optional) settings you can configure for a book in <code>_bookdown.yml</code>:</p>
 <ul>
 <li><code>book_filename</code>: the filename of the main Rmd file, i.e., the Rmd file that is merged from all chapters; by default, it is named <code>_main.Rmd</code>.</li>
-<li><code>delete_merged_file</code>: whether to delete the main Rmd file if it exists.</li>
+<li><code>delete_merged_file</code>: whether to delete the main Rmd file after the book is successfully rendered.</li>
 <li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script.</li>
 <li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter.</li>
 <li><code>edit</code>: a link that collaborators can click to edit the Rmd source document of the current page; this was designed primarily for GitHub repositories, since it is easy to edit arbitrary plain-text files on GitHub even in other people’s repositories (if you do not have write access to the repository, GitHub will automatically fork it and let you submit a pull request after you finish editing the file). This link should have <code>%s</code> in it, which will be substituted by the actual Rmd filename for each page.</li>
