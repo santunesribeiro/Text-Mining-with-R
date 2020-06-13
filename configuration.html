@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Authoring Books with R Markdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="why-read-this-book.html"><a href="why-read-this-book.html"><i class="fa fa-check"></i>Why read this book</a></li>
 <li class="chapter" data-level="" data-path="structure-of-the-book.html"><a href="structure-of-the-book.html"><i class="fa fa-check"></i>Structure of the book</a></li>
 <li class="chapter" data-level="" data-path="software-information-and-conventions.html"><a href="software-information-and-conventions.html"><i class="fa fa-check"></i>Software information and conventions</a></li>
@@ -245,7 +245,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>book_filename</code>: the filename of the main Rmd file, i.e., the Rmd file that is merged from all chapters; by default, it is named <code>_main.Rmd</code>.</li>
 <li><code>delete_merged_file</code>: whether to delete the main Rmd file after the book is successfully rendered.</li>
-<li><code>use_references_scope</code>: whether to pass a <code>references_scope</code> function to <code>rmarkdown::render()</code>, which in the case that duplicate footnote identifiers exist, enables rmarkdown to split the book into chapters and invoke pandoc using the <code>--file-scope</code> option.</li>
 <li><code>before_chapter_script</code>: one or multiple R scripts to be executed before each chapter, e.g., you may want to clear the workspace before compiling each chapter, in which case you can use <code>rm(list = ls(all = TRUE))</code> in the R script.</li>
 <li><code>after_chapter_script</code>: similar to <code>before_chapter_script</code>, and the R script is executed after each chapter.</li>
 <li><code>edit</code>: a link that collaborators can click to edit the Rmd source document of the current page; this was designed primarily for GitHub repositories, since it is easy to edit arbitrary plain-text files on GitHub even in other people’s repositories (if you do not have write access to the repository, GitHub will automatically fork it and let you submit a pull request after you finish editing the file). This link should have <code>%s</code> in it, which will be substituted by the actual Rmd filename for each page.</li>
@@ -257,13 +256,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Here is a sample <code>_bookdown.yml</code>:</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb105-1"><a href="configuration.html#cb105-1"></a><span class="fu">book_filename</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;my-book.Rmd&quot;</span></span>
-<span id="cb105-2"><a href="configuration.html#cb105-2"></a><span class="fu">delete_merged_file</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb105-3"><a href="configuration.html#cb105-3"></a><span class="fu">before_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;script2.R&quot;</span><span class="kw">]</span></span>
-<span id="cb105-4"><a href="configuration.html#cb105-4"></a><span class="fu">after_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;script3.R&quot;</span></span>
-<span id="cb105-5"><a href="configuration.html#cb105-5"></a><span class="fu">view</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/blob/master/%s</span></span>
-<span id="cb105-6"><a href="configuration.html#cb105-6"></a><span class="fu">edit</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/edit/master/%s</span></span>
-<span id="cb105-7"><a href="configuration.html#cb105-7"></a><span class="fu">output_dir</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;book-output&quot;</span></span>
-<span id="cb105-8"><a href="configuration.html#cb105-8"></a><span class="fu">clean</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></span></code></pre></div>
+<span id="cb105-2"><a href="configuration.html#cb105-2"></a><span class="fu">before_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;script2.R&quot;</span><span class="kw">]</span></span>
+<span id="cb105-3"><a href="configuration.html#cb105-3"></a><span class="fu">after_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;script3.R&quot;</span></span>
+<span id="cb105-4"><a href="configuration.html#cb105-4"></a><span class="fu">view</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/blob/master/%s</span></span>
+<span id="cb105-5"><a href="configuration.html#cb105-5"></a><span class="fu">edit</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/edit/master/%s</span></span>
+<span id="cb105-6"><a href="configuration.html#cb105-6"></a><span class="fu">output_dir</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;book-output&quot;</span></span>
+<span id="cb105-7"><a href="configuration.html#cb105-7"></a><span class="fu">clean</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></span></code></pre></div>
 </div>
             </section>
 
@@ -302,7 +300,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/%s",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/04-customization.Rmd",
 "text": "Edit"
 },
 "history": {
