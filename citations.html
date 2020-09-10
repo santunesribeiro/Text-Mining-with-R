@@ -273,8 +273,8 @@ formats is important, use <code>pandoc-citeproc</code> throughout.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="citations.html#cb60-1"></a><span class="co"># the second argument can be a .bib file</span></span>
 <span id="cb60-2"><a href="citations.html#cb60-2"></a>knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;stringr&quot;</span>), <span class="st">&quot;&quot;</span>, <span class="dt">width =</span> <span class="dv">60</span>)</span></code></pre></div>
 <pre><code>@Manual{R-knitr,
-  title = {knitr: A General-Purpose Package for Dynamic Report
-    Generation in R},
+  title = {knitr: A General-Purpose Package for Dynamic
+    Report Generation in R},
   author = {Yihui Xie},
   year = {2020},
   note = {R package version 1.29.5},
@@ -304,15 +304,16 @@ formats is important, use <code>pandoc-citeproc</code> throughout.</p>
 @InCollection{knitr2014,
   booktitle = {Implementing Reproducible Computational
     Research},
-  editor = {Victoria Stodden and Friedrich Leisch and Roger D.
-    Peng},
+  editor = {Victoria Stodden and Friedrich Leisch and Roger
+    D. Peng},
   title = {knitr: A Comprehensive Tool for Reproducible
     Research in {R}},
   author = {Yihui Xie},
   publisher = {Chapman and Hall/CRC},
   year = {2014},
   note = {ISBN 978-1466561595},
-  url = {http://www.crcpress.com/product/isbn/9781466561595},
+  url = {http://www.crcpress.com/product/isbn/
+    9781466561595},
 }</code></pre>
 <p>Once you have one or multiple <code>.bib</code> files, you may use the field <code>bibliography</code> in the YAML metadata of your first R Markdown document (which is typically <code>index.Rmd</code>), and you can also specify the bibliography style via <code>biblio-style</code> (this only applies to PDF output), e.g.,</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb62-1"><a href="citations.html#cb62-1"></a><span class="pp">---</span></span>
