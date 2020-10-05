@@ -49,6 +49,8 @@
 
 
 <script src="libs/accessible-code-block/empty-anchor.js"></script>
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="libs/datatables-binding/datatables.js"></script>
@@ -256,14 +258,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>clean</code>: a vector of files and directories to be cleaned by the <code>clean_book()</code> function.</li>
 </ul>
 <p>Here is a sample <code>_bookdown.yml</code>:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb105-1"><a href="configuration.html#cb105-1"></a><span class="fu">book_filename</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;my-book.Rmd&quot;</span></span>
-<span id="cb105-2"><a href="configuration.html#cb105-2"></a><span class="fu">delete_merged_file</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb105-3"><a href="configuration.html#cb105-3"></a><span class="fu">before_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;script2.R&quot;</span><span class="kw">]</span></span>
-<span id="cb105-4"><a href="configuration.html#cb105-4"></a><span class="fu">after_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;script3.R&quot;</span></span>
-<span id="cb105-5"><a href="configuration.html#cb105-5"></a><span class="fu">view</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/blob/master/%s</span></span>
-<span id="cb105-6"><a href="configuration.html#cb105-6"></a><span class="fu">edit</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/edit/master/%s</span></span>
-<span id="cb105-7"><a href="configuration.html#cb105-7"></a><span class="fu">output_dir</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;book-output&quot;</span></span>
-<span id="cb105-8"><a href="configuration.html#cb105-8"></a><span class="fu">clean</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb106-1"><a href="configuration.html#cb106-1"></a><span class="fu">book_filename</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;my-book.Rmd&quot;</span></span>
+<span id="cb106-2"><a href="configuration.html#cb106-2"></a><span class="fu">delete_merged_file</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb106-3"><a href="configuration.html#cb106-3"></a><span class="fu">before_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;script1.R&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;script2.R&quot;</span><span class="kw">]</span></span>
+<span id="cb106-4"><a href="configuration.html#cb106-4"></a><span class="fu">after_chapter_script</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;script3.R&quot;</span></span>
+<span id="cb106-5"><a href="configuration.html#cb106-5"></a><span class="fu">view</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/blob/master/%s</span></span>
+<span id="cb106-6"><a href="configuration.html#cb106-6"></a><span class="fu">edit</span><span class="kw">:</span><span class="at"> https://github.com/rstudio/bookdown-demo/edit/master/%s</span></span>
+<span id="cb106-7"><a href="configuration.html#cb106-7"></a><span class="fu">output_dir</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;book-output&quot;</span></span>
+<span id="cb106-8"><a href="configuration.html#cb106-8"></a><span class="fu">clean</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;my-book.bbl&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;R-packages.bib&quot;</span><span class="kw">]</span></span></code></pre></div>
 </div>
             </section>
 
