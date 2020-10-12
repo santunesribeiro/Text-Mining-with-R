@@ -245,29 +245,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="github" class="section level2">
 <h2><span class="header-section-number">6.2</span> GitHub</h2>
 <p>You can host your book on GitHub for free via GitHub Pages (<a href="https://pages.github.com" class="uri">https://pages.github.com</a>). GitHub supports Jekyll (<a href="http://jekyllrb.com" class="uri">http://jekyllrb.com</a>), a static website builder, to build a website from Markdown files. That may be the more common use case of GitHub Pages, but GitHub also supports arbitrary static HTML files, so you can just host the HTML output files of your book on GitHub. The key is to create a hidden file <code>.nojekyll</code> that tells GitHub that your website is not to be built via Jekyll, since the <strong>bookdown</strong> HTML output is already a standalone website.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb117-1"><a href="github.html#cb117-1"></a><span class="co"># assume you have initialized the git repository,</span></span>
-<span id="cb117-2"><a href="github.html#cb117-2"></a><span class="co"># and are under the directory of the book repository now</span></span>
-<span id="cb117-3"><a href="github.html#cb117-3"></a></span>
-<span id="cb117-4"><a href="github.html#cb117-4"></a><span class="co"># create a hidden file .nojekyll</span></span>
-<span id="cb117-5"><a href="github.html#cb117-5"></a><span class="fu">touch</span> .nojekyll</span>
-<span id="cb117-6"><a href="github.html#cb117-6"></a><span class="co"># add to git here because will not show up in RStudio</span></span>
-<span id="cb117-7"><a href="github.html#cb117-7"></a><span class="fu">git</span> add .nojekyll</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb116-1"><a href="github.html#cb116-1"></a><span class="co"># assume you have initialized the git repository,</span></span>
+<span id="cb116-2"><a href="github.html#cb116-2"></a><span class="co"># and are under the directory of the book repository now</span></span>
+<span id="cb116-3"><a href="github.html#cb116-3"></a></span>
+<span id="cb116-4"><a href="github.html#cb116-4"></a><span class="co"># create a hidden file .nojekyll</span></span>
+<span id="cb116-5"><a href="github.html#cb116-5"></a><span class="fu">touch</span> .nojekyll</span>
+<span id="cb116-6"><a href="github.html#cb116-6"></a><span class="co"># add to git here because will not show up in RStudio</span></span>
+<span id="cb116-7"><a href="github.html#cb116-7"></a><span class="fu">git</span> add .nojekyll</span></code></pre></div>
 <p>If you are on Windows, you may not have the <code>touch</code> command, and you can create the file in R using <code>file.create('.nojekyll')</code>.</p>
 <p>One approach is to publish your book as a GitHub Pages site from a <code>/docs</code> folder on your <code>master</code> branch as described in <a href="http://bit.ly/2cvloKV">GitHub Help.</a> First, set the output directory of your book to be <code>/docs</code> by adding the line <code>output_dir: "docs"</code> to the configuration file <code>_bookdown.yml</code>. Then, after pushing your changes to GitHub, go to your repository’s settings and under “GitHub Pages” change the “Source” to be “master branch /docs folder”. In this case, the <code>.nojekyll</code> file has to be in the <code>/docs</code> folder.</p>
 <p>An alternative approach is to create a <code>gh-pages</code> branch in your repository, build the book, put the HTML output (including all external resources like images, CSS, and JavaScript files) in this branch, and push the branch to the remote repository. If your book repository does not have the <code>gh-pages</code> branch, you may use the following commands to create one:</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb118-1"><a href="github.html#cb118-1"></a><span class="co"># assume you have initialized the git repository,</span></span>
-<span id="cb118-2"><a href="github.html#cb118-2"></a><span class="co"># and are under the directory of the book repository now</span></span>
-<span id="cb118-3"><a href="github.html#cb118-3"></a></span>
-<span id="cb118-4"><a href="github.html#cb118-4"></a><span class="co"># create a branch named gh-pages and clean up everything</span></span>
-<span id="cb118-5"><a href="github.html#cb118-5"></a><span class="fu">git</span> checkout --orphan gh-pages</span>
-<span id="cb118-6"><a href="github.html#cb118-6"></a><span class="fu">git</span> rm -rf .</span>
-<span id="cb118-7"><a href="github.html#cb118-7"></a></span>
-<span id="cb118-8"><a href="github.html#cb118-8"></a><span class="co"># create a hidden file .nojekyll</span></span>
-<span id="cb118-9"><a href="github.html#cb118-9"></a><span class="fu">touch</span> .nojekyll</span>
-<span id="cb118-10"><a href="github.html#cb118-10"></a><span class="fu">git</span> add .nojekyll</span>
-<span id="cb118-11"><a href="github.html#cb118-11"></a></span>
-<span id="cb118-12"><a href="github.html#cb118-12"></a><span class="fu">git</span> commit -m<span class="st">&quot;Initial commit&quot;</span></span>
-<span id="cb118-13"><a href="github.html#cb118-13"></a><span class="fu">git</span> push origin gh-pages</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb117-1"><a href="github.html#cb117-1"></a><span class="co"># assume you have initialized the git repository,</span></span>
+<span id="cb117-2"><a href="github.html#cb117-2"></a><span class="co"># and are under the directory of the book repository now</span></span>
+<span id="cb117-3"><a href="github.html#cb117-3"></a></span>
+<span id="cb117-4"><a href="github.html#cb117-4"></a><span class="co"># create a branch named gh-pages and clean up everything</span></span>
+<span id="cb117-5"><a href="github.html#cb117-5"></a><span class="fu">git</span> checkout --orphan gh-pages</span>
+<span id="cb117-6"><a href="github.html#cb117-6"></a><span class="fu">git</span> rm -rf .</span>
+<span id="cb117-7"><a href="github.html#cb117-7"></a></span>
+<span id="cb117-8"><a href="github.html#cb117-8"></a><span class="co"># create a hidden file .nojekyll</span></span>
+<span id="cb117-9"><a href="github.html#cb117-9"></a><span class="fu">touch</span> .nojekyll</span>
+<span id="cb117-10"><a href="github.html#cb117-10"></a><span class="fu">git</span> add .nojekyll</span>
+<span id="cb117-11"><a href="github.html#cb117-11"></a></span>
+<span id="cb117-12"><a href="github.html#cb117-12"></a><span class="fu">git</span> commit -m<span class="st">&quot;Initial commit&quot;</span></span>
+<span id="cb117-13"><a href="github.html#cb117-13"></a><span class="fu">git</span> push origin gh-pages</span></code></pre></div>
 <p>After you have set up GIT, the rest of work can be automated via a script (Shell, R, or Makefile, depending on your preference). Basically, you compile the book to HTML, then run git commands to push the files to GitHub, but you probably do not want to do this over and over again manually and locally. It can be very handy to automate the publishing process completely on the cloud, so once it is set up correctly, all you have to do next is write the book and push the Rmd source files to GitHub, and your book will always be automatically built and published from the server side.</p>
 <p>One service that you can utilize is Travis CI (<a href="https://travis-ci.org" class="uri">https://travis-ci.org</a>). It is free for public repositories on GitHub, and was designed for continuous integration (CI) of software packages. Travis CI can be connected to GitHub in the sense that whenever you push to GitHub, Travis can be triggered to run certain commands/scripts on the latest version of your repository.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> These commands are specified in a YAML file named <code>.travis.yml</code> in the root directory of your repository, and they are usually for the purpose of testing software, but in fact they are quite open-ended, meaning that you can run arbitrary commands on a Travis (virtual) machine. That means you can certainly run your own scripts to build your book on Travis. Note that Travis only supports Ubuntu and Mac OS X at the moment, so you should have some basic knowledge about Linux/Unix commands.</p>
 <p>The next question is, how to publish the book built on Travis to GitHub? Basically you have to grant Travis write access to your GitHub repository. This authorization can be done in several ways, and the easiest one to beginners may be a personal access token. Here are a few steps you may follow:</p>
@@ -278,35 +278,35 @@ e.g <code>travis encrypt GITHUB_PAT=TOKEN</code>. If you do not know how to inst
 <li>You can clone this <code>gh-pages</code> branch on Travis using your GitHub token, add the HTML output files from R Markdown (do not forget to add figures and CSS style files as well), and push to the remote repository.</li>
 </ol>
 <p>Assume you are in the <code>master</code> branch right now (where you put the Rmd source files), and have compiled the book to the <code>_book</code> directory. What you can do next on Travis is:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb119-1"><a href="github.html#cb119-1"></a><span class="co"># configure your name and email if you have not done so</span></span>
-<span id="cb119-2"><a href="github.html#cb119-2"></a><span class="fu">git</span> config --global user.email <span class="st">&quot;you@example.com&quot;</span></span>
-<span id="cb119-3"><a href="github.html#cb119-3"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;Your Name&quot;</span></span>
-<span id="cb119-4"><a href="github.html#cb119-4"></a></span>
-<span id="cb119-5"><a href="github.html#cb119-5"></a><span class="co"># clone the repository to the book-output directory</span></span>
-<span id="cb119-6"><a href="github.html#cb119-6"></a><span class="fu">git</span> clone -b gh-pages \</span>
-<span id="cb119-7"><a href="github.html#cb119-7"></a>  https://<span class="va">${GITHUB_PAT}</span>@github.com/<span class="va">${TRAVIS_REPO_SLUG}</span>.git \</span>
-<span id="cb119-8"><a href="github.html#cb119-8"></a>  book-output</span>
-<span id="cb119-9"><a href="github.html#cb119-9"></a><span class="bu">cd</span> book-output</span>
-<span id="cb119-10"><a href="github.html#cb119-10"></a><span class="fu">git</span> rm -rf *</span>
-<span id="cb119-11"><a href="github.html#cb119-11"></a><span class="fu">cp</span> -r ../_book/* ./</span>
-<span id="cb119-12"><a href="github.html#cb119-12"></a><span class="fu">git</span> add --all *</span>
-<span id="cb119-13"><a href="github.html#cb119-13"></a><span class="fu">git</span> commit -m<span class="st">&quot;Update the book&quot;</span></span>
-<span id="cb119-14"><a href="github.html#cb119-14"></a><span class="fu">git</span> push -q origin gh-pages</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb118-1"><a href="github.html#cb118-1"></a><span class="co"># configure your name and email if you have not done so</span></span>
+<span id="cb118-2"><a href="github.html#cb118-2"></a><span class="fu">git</span> config --global user.email <span class="st">&quot;you@example.com&quot;</span></span>
+<span id="cb118-3"><a href="github.html#cb118-3"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;Your Name&quot;</span></span>
+<span id="cb118-4"><a href="github.html#cb118-4"></a></span>
+<span id="cb118-5"><a href="github.html#cb118-5"></a><span class="co"># clone the repository to the book-output directory</span></span>
+<span id="cb118-6"><a href="github.html#cb118-6"></a><span class="fu">git</span> clone -b gh-pages \</span>
+<span id="cb118-7"><a href="github.html#cb118-7"></a>  https://<span class="va">${GITHUB_PAT}</span>@github.com/<span class="va">${TRAVIS_REPO_SLUG}</span>.git \</span>
+<span id="cb118-8"><a href="github.html#cb118-8"></a>  book-output</span>
+<span id="cb118-9"><a href="github.html#cb118-9"></a><span class="bu">cd</span> book-output</span>
+<span id="cb118-10"><a href="github.html#cb118-10"></a><span class="fu">git</span> rm -rf *</span>
+<span id="cb118-11"><a href="github.html#cb118-11"></a><span class="fu">cp</span> -r ../_book/* ./</span>
+<span id="cb118-12"><a href="github.html#cb118-12"></a><span class="fu">git</span> add --all *</span>
+<span id="cb118-13"><a href="github.html#cb118-13"></a><span class="fu">git</span> commit -m<span class="st">&quot;Update the book&quot;</span></span>
+<span id="cb118-14"><a href="github.html#cb118-14"></a><span class="fu">git</span> push -q origin gh-pages</span></code></pre></div>
 <p>The variable name <code>GITHUB_PAT</code> and the directory name <code>book-output</code> are arbitrary, and you can use any names you prefer, as long as the names do not conflict with existing environment variable names or directory names. This script, together with the build script we mentioned in Section <a href="build-the-book.html#build-the-book">5.1</a>, can be put in the <code>master</code> branch as Shell scripts, e.g., you can name them as <code>_build.sh</code> and <code>_deploy.sh</code>. Then your <code>.travis.yml</code> may look like this:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb120-1"><a href="github.html#cb120-1"></a><span class="fu">language</span><span class="kw">:</span><span class="at"> r</span></span>
-<span id="cb120-2"><a href="github.html#cb120-2"></a><span class="fu">pandoc_version</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.19.2.1</span></span>
-<span id="cb120-3"><a href="github.html#cb120-3"></a></span>
-<span id="cb120-4"><a href="github.html#cb120-4"></a><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb120-5"><a href="github.html#cb120-5"></a><span class="at">  </span><span class="fu">global</span><span class="kw">:</span></span>
-<span id="cb120-6"><a href="github.html#cb120-6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">secure</span><span class="kw">:</span><span class="at"> A_LONG_ENCRYPTED_STRING</span></span>
-<span id="cb120-7"><a href="github.html#cb120-7"></a></span>
-<span id="cb120-8"><a href="github.html#cb120-8"></a><span class="fu">before_script</span><span class="kw">:</span></span>
-<span id="cb120-9"><a href="github.html#cb120-9"></a><span class="at">  </span><span class="kw">-</span><span class="at"> chmod +x ./_build.sh</span></span>
-<span id="cb120-10"><a href="github.html#cb120-10"></a><span class="at">  </span><span class="kw">-</span><span class="at"> chmod +x ./_deploy.sh</span></span>
-<span id="cb120-11"><a href="github.html#cb120-11"></a></span>
-<span id="cb120-12"><a href="github.html#cb120-12"></a><span class="fu">script</span><span class="kw">:</span></span>
-<span id="cb120-13"><a href="github.html#cb120-13"></a><span class="at">  </span><span class="kw">-</span><span class="at"> ./_build.sh</span></span>
-<span id="cb120-14"><a href="github.html#cb120-14"></a><span class="at">  </span><span class="kw">-</span><span class="at"> ./_deploy.sh</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb119-1"><a href="github.html#cb119-1"></a><span class="fu">language</span><span class="kw">:</span><span class="at"> r</span></span>
+<span id="cb119-2"><a href="github.html#cb119-2"></a><span class="fu">pandoc_version</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.19.2.1</span></span>
+<span id="cb119-3"><a href="github.html#cb119-3"></a></span>
+<span id="cb119-4"><a href="github.html#cb119-4"></a><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb119-5"><a href="github.html#cb119-5"></a><span class="at">  </span><span class="fu">global</span><span class="kw">:</span></span>
+<span id="cb119-6"><a href="github.html#cb119-6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">secure</span><span class="kw">:</span><span class="at"> A_LONG_ENCRYPTED_STRING</span></span>
+<span id="cb119-7"><a href="github.html#cb119-7"></a></span>
+<span id="cb119-8"><a href="github.html#cb119-8"></a><span class="fu">before_script</span><span class="kw">:</span></span>
+<span id="cb119-9"><a href="github.html#cb119-9"></a><span class="at">  </span><span class="kw">-</span><span class="at"> chmod +x ./_build.sh</span></span>
+<span id="cb119-10"><a href="github.html#cb119-10"></a><span class="at">  </span><span class="kw">-</span><span class="at"> chmod +x ./_deploy.sh</span></span>
+<span id="cb119-11"><a href="github.html#cb119-11"></a></span>
+<span id="cb119-12"><a href="github.html#cb119-12"></a><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb119-13"><a href="github.html#cb119-13"></a><span class="at">  </span><span class="kw">-</span><span class="at"> ./_build.sh</span></span>
+<span id="cb119-14"><a href="github.html#cb119-14"></a><span class="at">  </span><span class="kw">-</span><span class="at"> ./_deploy.sh</span></span></code></pre></div>
 <p>The <code>language</code> key tells Travis to use a virtual machine that has R installed. The <code>secure</code> key is your encrypted personal access token. If you have already saved the <code>GITHUB_PAT</code> variable using the web interface on Travis instead of the command-line tool <code>travis encrypt</code>, you can leave out this key.</p>
 <p>Since this Travis service is primarily for checking R packages, you will also need a (fake) <code>DESCRIPTION</code> file as if the book repository were an R package. The only thing in this file that really matters is the specification of dependencies. All dependencies will be installed via the <strong>devtools</strong> package. If a dependency is on CRAN or BioConductor, you can simply list it in the <code>Imports</code> field of the <code>DESCRIPTION</code> file. If it is on GitHub, you may use the <code>Remotes</code> field to list its repository name. Below is an example:</p>
 <pre class="dcf"><code>Package: placeholder
@@ -316,12 +316,12 @@ Version: 0.0.1
 Imports: bookdown, ggplot2
 Remotes: rstudio/bookdown</code></pre>
 <p>If you use the <a href="https://docs.travis-ci.com/user/workers/container-based-infrastructure/">container-based infrastructure</a> on Travis, you can enable caching by using <code>sudo: false</code> in <code>.travis.yml</code>. Normally you should cache at least two types of directories: the figure directory (e.g., <code>_main_files</code>) and the cache directory (e.g., <code>_main_cache</code>). These directory names may also be different if you have specified the <strong>knitr</strong> chunk options <code>fig.path</code> and <code>cache.path</code>, but I’d strongly recommend you not to change these options. The figure and cache directories are stored under the <code>_bookdown_files</code> directory of the book root directory. A <code>.travis.yml</code> file that has enabled caching of <strong>knitr</strong> figure and cache directories may have additional configurations <code>sudo</code> and <code>cache</code> like this:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb122-1"><a href="github.html#cb122-1"></a><span class="fu">sudo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb122-2"><a href="github.html#cb122-2"></a></span>
-<span id="cb122-3"><a href="github.html#cb122-3"></a><span class="fu">cache</span><span class="kw">:</span></span>
-<span id="cb122-4"><a href="github.html#cb122-4"></a><span class="at">  </span><span class="fu">packages</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
-<span id="cb122-5"><a href="github.html#cb122-5"></a><span class="at">  </span><span class="fu">directories</span><span class="kw">:</span></span>
-<span id="cb122-6"><a href="github.html#cb122-6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> $TRAVIS_BUILD_DIR/_bookdown_files</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb121-1"><a href="github.html#cb121-1"></a><span class="fu">sudo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb121-2"><a href="github.html#cb121-2"></a></span>
+<span id="cb121-3"><a href="github.html#cb121-3"></a><span class="fu">cache</span><span class="kw">:</span></span>
+<span id="cb121-4"><a href="github.html#cb121-4"></a><span class="at">  </span><span class="fu">packages</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb121-5"><a href="github.html#cb121-5"></a><span class="at">  </span><span class="fu">directories</span><span class="kw">:</span></span>
+<span id="cb121-6"><a href="github.html#cb121-6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> $TRAVIS_BUILD_DIR/_bookdown_files</span></span></code></pre></div>
 <p>If your book is very time-consuming to build, you may use the above configurations on Travis to save time. Note that <code>packages: yes</code> means the R packages installed on Travis are also cached.</p>
 <p>All above scripts and configurations can be found in the <code>bookdown-demo</code> repository: <a href="https://github.com/rstudio/bookdown-demo/" class="uri">https://github.com/rstudio/bookdown-demo/</a>. If you copy them to your own repository, please remember to change the <code>secure</code> key in <code>.travis.yml</code> using your own encrypted variable <code>GITHUB_PAT</code>.</p>
 <p>GitHub and Travis CI are certainly not the only choices to build and publish your book. You are free to store and publish the book on your own server.</p>
