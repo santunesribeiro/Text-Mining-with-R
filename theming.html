@@ -246,25 +246,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.2</span> Theming</h2>
 <p>Sometimes you may want to change the overall theme of the output, and usually this can be done through the <code>in_header</code> option described in the previous section, or the <code>css</code> option if the output is HTML. Some output formats have their unique themes, such as <code>gitbook</code>, <code>tufte_html_book</code>, and <code>tufte_book2</code>, and you may not want to customize these themes too much. By comparison, the output formats <code>html_book()</code> and <code>pdf_book()</code> are not tied to particular themes and more customizable.</p>
 <p>As mentioned in Section <a href="html.html#bootstrap-style">3.1.2</a>, the default style for <code>html_book()</code> is the Bootstrap style. The Bootstrap style actually has several built-in themes that you can use, including <code>default</code>, <code>cerulean</code>, <code>journal</code>, <code>flatly</code>, <code>darkly</code>, <code>readable</code>, <code>spacelab</code>, <code>united</code>, <code>cosmo</code>, <code>lumen</code>, <code>paper</code>, <code>sandstone</code>, <code>simplex</code>, and <code>yeti</code>. You can set the theme via the <code>theme</code> option, e.g.,</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb99-1"><a href="theming.html#cb99-1"></a><span class="pp">---</span></span>
-<span id="cb99-2"><a href="theming.html#cb99-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb99-3"><a href="theming.html#cb99-3"></a><span class="at">  bookdown:</span><span class="fu">:html_book</span><span class="kw">:</span></span>
-<span id="cb99-4"><a href="theming.html#cb99-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> united</span></span>
-<span id="cb99-5"><a href="theming.html#cb99-5"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb100-1"><a href="theming.html#cb100-1"></a><span class="pp">---</span></span>
+<span id="cb100-2"><a href="theming.html#cb100-2"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb100-3"><a href="theming.html#cb100-3"></a><span class="at">  bookdown:</span><span class="fu">:html_book</span><span class="kw">:</span></span>
+<span id="cb100-4"><a href="theming.html#cb100-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> united</span></span>
+<span id="cb100-5"><a href="theming.html#cb100-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>If you do not like any of these Bootstrap styles, you can set <code>theme</code> to <code>null</code>, and apply your own CSS through the <code>css</code> or <code>includes</code> option.</p>
 <p>For <code>pdf_book()</code>, besides the <code>in_header</code> option mentioned in the previous section, another possibility is to change the document class. There are many possible LaTeX classes for books, such as <strong>memoir</strong> (<a href="https://www.ctan.org/pkg/memoir" class="uri">https://www.ctan.org/pkg/memoir</a>), <strong>amsbook</strong> (<a href="https://www.ctan.org/pkg/amsbook" class="uri">https://www.ctan.org/pkg/amsbook</a>), KOMA-Script (<a href="https://www.ctan.org/pkg/koma-script" class="uri">https://www.ctan.org/pkg/koma-script</a>) and so on. Here is a brief sample of the YAML metadata specifying the <code>scrbook</code> class from the KOMA-Script package:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb100-1"><a href="theming.html#cb100-1"></a><span class="pp">---</span></span>
-<span id="cb100-2"><a href="theming.html#cb100-2"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> scrbook</span></span>
-<span id="cb100-3"><a href="theming.html#cb100-3"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb100-4"><a href="theming.html#cb100-4"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
-<span id="cb100-5"><a href="theming.html#cb100-5"></a><span class="at">    </span><span class="fu">template</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
-<span id="cb100-6"><a href="theming.html#cb100-6"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb101-1"><a href="theming.html#cb101-1"></a><span class="pp">---</span></span>
+<span id="cb101-2"><a href="theming.html#cb101-2"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> scrbook</span></span>
+<span id="cb101-3"><a href="theming.html#cb101-3"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb101-4"><a href="theming.html#cb101-4"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
+<span id="cb101-5"><a href="theming.html#cb101-5"></a><span class="at">    </span><span class="fu">template</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span>
+<span id="cb101-6"><a href="theming.html#cb101-6"></a><span class="pp">---</span></span></code></pre></div>
 <p>Some publishers (e.g., Springer and Chapman &amp; Hall/CRC) have their own LaTeX style or class files. You may try to change the <code>documentclass</code> option to use their document classes, although typically it is not as simple as that. You may end up using <code>in_header</code>, or even design a custom Pandoc LaTeX template to accommodate these document classes.</p>
 <p>Note that when you change <code>documentclass</code>, you are likely to specify an additional Pandoc argument <code>--top-level-division=chapter</code> so that Pandoc knows the first-level headers should be treated as chapters instead of sections (this is the default when <code>documentclass</code> is <code>book</code>), e.g.,</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb101-1"><a href="theming.html#cb101-1"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> krantz</span></span>
-<span id="cb101-2"><a href="theming.html#cb101-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb101-3"><a href="theming.html#cb101-3"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
-<span id="cb101-4"><a href="theming.html#cb101-4"></a><span class="at">    </span><span class="fu">pandoc_args</span><span class="kw">:</span><span class="at"> --top-level-division=chapter</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb102-1"><a href="theming.html#cb102-1"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> krantz</span></span>
+<span id="cb102-2"><a href="theming.html#cb102-2"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb102-3"><a href="theming.html#cb102-3"></a><span class="at">  bookdown:</span><span class="fu">:pdf_book</span><span class="kw">:</span></span>
+<span id="cb102-4"><a href="theming.html#cb102-4"></a><span class="at">    </span><span class="fu">pandoc_args</span><span class="kw">:</span><span class="at"> --top-level-division=chapter</span></span></code></pre></div>
 </div>
             </section>
 
